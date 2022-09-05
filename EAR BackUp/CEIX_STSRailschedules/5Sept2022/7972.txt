@@ -1,0 +1,1 @@
+Due to Mine location adding enhancement related to 7972 ticket, prod migration was done. Took back up of existing ear from prod as on 5th Sept,2022.
