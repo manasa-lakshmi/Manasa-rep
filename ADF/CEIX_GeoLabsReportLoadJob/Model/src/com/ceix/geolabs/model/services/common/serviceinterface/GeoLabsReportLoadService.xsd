@@ -1,0 +1,30 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="/com/ceix/geolabs/model/services/common/types/"
+     xmlns:tns="/com/ceix/geolabs/model/services/common/types/" xmlns:ns0="http://xmlns.oracle.com/adf/svc/errors/"
+     xmlns:ns1="/com/ceix/geolabs/model/view/common/">
+    <import namespace="/com/ceix/geolabs/model/view/common/" schemaLocation="../../../view/common/WSResultPSDO.xsd"/>
+    <import namespace="http://xmlns.oracle.com/adf/svc/errors/" schemaLocation="classpath:/META-INF/wsdl/ServiceException.xsd"/>
+    <element name="execute">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="executeResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns1:WSResultPSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="executeItmann">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="executeItmannResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns1:WSResultPSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

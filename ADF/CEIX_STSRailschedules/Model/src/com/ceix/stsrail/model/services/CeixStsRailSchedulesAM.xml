@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixStsRailSchedulesAM"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="com.ceix.stsrail.model.services.CeixStsRailSchedulesAMImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="CeixStsRailSchedulesVO1"
+    ViewObjectName="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO"/>
+  <ViewUsage
+    Name="CustomerVO1"
+    ViewObjectName="com.ceix.stsrail.model.views.CustomerVO"/>
+  <ViewUsage
+    Name="SalesOrderVO1"
+    ViewObjectName="com.ceix.stsrail.model.views.SalesOrderVO"/>
+  <ViewUsage
+    Name="CeixStsRailSchedulesHOLDVO1"
+    ViewObjectName="com.ceix.stsrail.model.views.CeixStsRailSchedulesHOLDVO"/>
+  <ViewUsage
+    Name="CeixStsCustDetailsView1"
+    ViewObjectName="com.ceix.stsrail.model.views.CeixStsCustDetailsView"/>
+  <ViewUsage
+    Name="CeixStsRailSchedulesOrdNumMassUpdateVO1"
+    ViewObjectName="com.ceix.stsrail.model.views.CeixStsRailSchedulesOrdNumMassUpdateVO"/>
+  <ViewUsage
+    Name="ContractItemsVO1"
+    ViewObjectName="com.ceix.stsrail.model.views.ContractItemsVO"/>
+  <ViewUsage
+    Name="LoadOriginVO1"
+    ViewObjectName="com.ceix.stsrail.model.views.LoadOriginVO"/>
+  <ViewUsage
+    Name="DestinationVO1"
+    ViewObjectName="com.ceix.stsrail.model.views.DestinationVO"/>
+</AppModule>

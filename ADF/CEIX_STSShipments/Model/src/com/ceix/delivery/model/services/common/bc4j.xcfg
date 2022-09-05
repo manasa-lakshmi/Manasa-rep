@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.ceix.delivery.model.services.CeixStsDeliveryAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.ceix.delivery.model.Model" name="CeixStsDeliveryAMLocal" ApplicationName="com.ceix.delivery.model.services.CeixStsDeliveryAM">
+         <Security AppModuleJndiName="com.ceix.delivery.model.services.CeixStsDeliveryAM"/>
+         <Custom JDBCDataSource="jdbc/ConsolDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.ceix.delivery.model.Model" name="CeixStsDeliveryAMShared" ApplicationName="com.ceix.delivery.model.services.CeixStsDeliveryAM">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="com.ceix.delivery.model.services.CeixStsDeliveryAM"/>
+         <Custom JDBCDataSource="jdbc/ConsolDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

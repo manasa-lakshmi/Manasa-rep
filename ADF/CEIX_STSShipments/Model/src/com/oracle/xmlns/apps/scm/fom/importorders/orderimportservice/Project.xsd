@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns:ns0="http://xmlns.oracle.com/apps/flex/scm/doo/processOrder/pjcDff/" xmlns:sdo="commonj.sdo" xmlns:sdoXML="commonj.sdo/xml" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Project Details</name>
+      <description>Project Details</description>
+      <oer:attributes>
+        <oer:attribute description="Internal Identifier that uniquely identifies the transaction" name="SourceTransactionIdentifier"/>
+        <oer:attribute description="Unique Prject Identifier" name="DooOrderPrjId"/>
+        <oer:attribute description="Project Details" name="ProjectDetail"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://xmlns.oracle.com/apps/flex/scm/doo/processOrder/pjcDff/" schemaLocation="PJCDFF.xsd"/>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:import namespace="commonj.sdo/xml" schemaLocation="sdoXML.xsd"/>
+  <xsd:import namespace="commonj.sdo" schemaLocation="sdoModel.xsd"/>
+  <xsd:complexType name="Project">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>DooOrderPrjId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="SourceTransactionIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DooOrderPrjId" type="xsd:long" sdoXML:dataType="sdoJava:LongObject"/>
+      <xsd:element minOccurs="0" name="ProjectDetail" type="ns0:PJCDFF" sdoXML:dataType="sdo:DataObject"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="project" type="Project"/>
+</xsd:schema>

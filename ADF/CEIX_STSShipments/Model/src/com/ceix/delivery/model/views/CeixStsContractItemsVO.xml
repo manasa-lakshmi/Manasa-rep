@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixStsContractItemsVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="com.ceix.delivery.model.views.CeixStsContractItemsVORowImpl"
+  ComponentClass="com.ceix.delivery.model.views.CeixStsContractItemsVOImpl"
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ceix.delivery.model.views.CeixStsContractItemsVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pContractNumber"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pLoadDate"
+    Kind="where"
+    Type="oracle.jbo.domain.Date"/>
+  <SQLQuery><![CDATA[select CCL.ITEM_NUMBER from ceix_contract_lines ccl, ceix_contract_headers cch                    
+where ccl.chr_id = cch.id  and ccl.item_type<>'FRT' and ccl.sts_code in ('ACTIVE','EXPIRED')  
+and trunc(:pLoadDate) between trunc(nvl(ccl.start_date,:pLoadDate-1)) and trunc(nvl(ccl.end_date,:pLoadDate+1))       
+and cch.contract_number = :pContractNumber]]></SQLQuery>
+  <ViewAttribute
+    Name="ItemNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ITEM_NUMBER"
+    Expression="ITEM_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="ItemNumber"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ceix.delivery.model.ModelBundle"/>
+  </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="ItemNumber"/>
+  </SortCriteria>
+</ViewObject>

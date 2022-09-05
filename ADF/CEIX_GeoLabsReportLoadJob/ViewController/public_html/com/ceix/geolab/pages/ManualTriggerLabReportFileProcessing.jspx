@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <style type="text/css">
+     td.align-centr {
+            
+            text-align:right;
+            padding-right:12%
+        }
+        
+    </style>
+  <f:view>
+    <af:document id="d1" theme="light" title="Load Lab Results">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:decorativeBox theme="light" id="db2">
+          <f:facet name="center">
+            <af:panelStretchLayout id="psl2" dimensionsFrom="children">
+              <f:facet name="center">
+                <af:panelGroupLayout layout="scroll"
+                                     xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                     id="pgl1">
+                  <af:commandButton actionListener="#{bindings.executeManual.execute}"
+                                    text="executeManual"
+                                    disabled="#{!bindings.executeManual.enabled}"
+                                    id="cb1"/>
+                  <af:panelLabelAndMessage label="Response"
+                                           id="plam1">
+                    <af:outputText value="#{bindings.return.inputValue}"
+                                   id="ot1"/>
+                  </af:panelLabelAndMessage>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

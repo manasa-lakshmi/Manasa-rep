@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="ManualTriggerLabReportFileProcessingPageDef"
+                Package="com.ceix.geolab.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="executeManual_return"
+                IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.executeManual.result}"/>
+    </variableIterator>
+    <methodIterator Binds="execute.result"
+                    DataControl="GeoLabsReportLoadAMDataControl" RangeSize="25"
+                    BeanClass="oracle.jbo.server.ViewRowImpl"
+                    id="executeIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="execute" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="execute" IsViewObjectMethod="false"
+                  DataControl="GeoLabsReportLoadAMDataControl"
+                  InstanceName="GeoLabsReportLoadAMDataControl.dataProvider"
+                  ReturnName="data.GeoLabsReportLoadAMDataControl.methodResults.execute_GeoLabsReportLoadAMDataControl_dataProvider_execute_result"/>
+    <attributeValues IterBinding="executeIterator" id="element">
+      <AttrNames>
+        <Item Value="element"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="executeManual" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="executeManual"
+                  IsViewObjectMethod="false"
+                  DataControl="GeoLabsReportLoadAMDataControl"
+                  InstanceName="GeoLabsReportLoadAMDataControl.dataProvider"
+                  ReturnName="data.GeoLabsReportLoadAMDataControl.methodResults.executeManual_GeoLabsReportLoadAMDataControl_dataProvider_executeManual_result"/>
+    <attributeValues IterBinding="variables" id="return">
+      <AttrNames>
+        <Item Value="executeManual_return"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

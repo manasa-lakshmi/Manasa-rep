@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerCategories/" xmlns:ns0="http://xmlns.oracle.com/apps/scm/doo/processOrder/model/" xmlns="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerCategories/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="j_HeaderEffDooHeadersAddInfoprivate.xsd" xml:id="j_HeaderEffDooHeadersAddInfoprivate-xsd"/>
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/model/" schemaLocation="HeaderEffCategories.xsd"/>
+  <xsd:complexType name="j_HeaderEffCategories">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>HeaderId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ns0:HeaderEffCategories"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="j_HeaderEffCategories" type="j_HeaderEffCategories"/>
+</xsd:schema>

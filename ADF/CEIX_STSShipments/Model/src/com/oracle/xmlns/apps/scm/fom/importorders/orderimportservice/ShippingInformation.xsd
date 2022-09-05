@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" xmlns:ns0="http://xmlns.oracle.com/apps/scm/doo/processOrder/model/" xmlns:ns1="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="ShippingInformation.xsd" xml:id="ShippingInformation-xsd"/>
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/model/" schemaLocation="HeaderEff.xsd"/>
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:complexType name="ShippingInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>EffLineId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ns0:HeaderEff">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="trainNumber" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="paasShipQuantity" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="routingInformation" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="qualityInformation" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="shipperIdNumber" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="classField" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="loadingBegan" nillable="true" type="ns1:dateTime-Timestamp"/>
+          <xsd:element minOccurs="0" name="loadingCompleted" nillable="true" type="ns1:dateTime-Timestamp"/>
+          <xsd:element minOccurs="0" name="requestedLoadDate" nillable="true" type="ns1:date-Date"/>
+          <xsd:element minOccurs="0" name="stragglers" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="stragglers_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="shipDate" nillable="true" type="ns1:date-Date"/>
+          <xsd:element minOccurs="0" name="dumpDate" nillable="true" type="ns1:date-Date"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="shippingInformation" type="ShippingInformation"/>
+</xsd:schema>

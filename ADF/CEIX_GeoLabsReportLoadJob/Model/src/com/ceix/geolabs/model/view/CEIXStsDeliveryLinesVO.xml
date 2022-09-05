@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CEIXStsDeliveryLinesVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  AccessMode="DEFAULT"
+  RowClass="com.ceix.geolabs.model.view.CEIXStsDeliveryLinesVORowImpl"
+  ComponentClass="com.ceix.geolabs.model.view.CEIXStsDeliveryLinesVOImpl">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="trainnum"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="loaddt"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Date"/>
+  <SQLQuery><![CDATA[SELECT   
+            CEIXStsDeliveryLinesEO.sales_order_number,   
+            CEIXStsDeliveryLinesEO.unit_train_number,   
+           ( select  
+			  
+			(TO_DATE(replace(nvl(hdr.load_date4,hdr.load_date1),'"'),'YYMMDD') - 30)   
+			from   
+			CEIX_STS_DELIVERY_HEADER hdr  
+			where CeixStsDeliveryLinesEO.delivery_header_id = hdr.delivery_header_id) loaddtfrom,   
+			( select  
+			  
+			(TO_DATE(replace(nvl(hdr.load_date4,hdr.load_date1),'"'),'YYMMDD') + 30)   
+			from   
+			CEIX_STS_DELIVERY_HEADER hdr  
+			where CeixStsDeliveryLinesEO.delivery_header_id = hdr.delivery_header_id) loaddtto , 
+			CeixStsDeliveryLinesEO.delivery_line_id			 
+        FROM  ceix_sts_delivery_lines CEIXStsDeliveryLinesEO]]></SQLQuery>
+  <EntityUsage
+    Name="CEIXStsDeliveryLinesEO"
+    Entity="com.ceix.geolabs.model.entities.CEIXStsDeliveryLinesEO"/>
+  <ViewAttribute
+    Name="SalesOrderNumber"
+    PrecisionRule="true"
+    EntityAttrName="SalesOrderNumber"
+    EntityUsage="CEIXStsDeliveryLinesEO"
+    AliasName="SALES_ORDER_NUMBER"/>
+  <ViewAttribute
+    Name="UnitTrainNumber"
+    PrecisionRule="true"
+    EntityAttrName="UnitTrainNumber"
+    EntityUsage="CEIXStsDeliveryLinesEO"
+    AliasName="UNIT_TRAIN_NUMBER"/>
+  <ViewAttribute
+    Name="Loaddtfrom"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="LOADDTFROM"
+    Expression="LOADDTFROM"
+    SQLType="DATE"/>
+  <ViewAttribute
+    Name="Loaddtto"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="LOADDTTO"
+    Expression="LOADDTTO"
+    SQLType="DATE"/>
+  <ViewAttribute
+    Name="DeliveryLineId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DeliveryLineId"
+    EntityUsage="CEIXStsDeliveryLinesEO"
+    AliasName="DELIVERY_LINE_ID"/>
+  <ViewCriteria
+    Name="SearchByTruckAndLoadDateVOCriteria"
+    ViewObjectName="com.ceix.geolabs.model.view.CEIXStsDeliveryLinesVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CEIXStsDeliveryLinesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="UnitTrainNumber"
+        ViewAttribute="UnitTrainNumber"
+        Operator="="
+        Conjunction="AND"
+        Value=":trainnum"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Loaddtfrom"
+        ViewAttribute="Loaddtfrom"
+        Operator="ONORBEFORE"
+        Conjunction="AND"
+        Value=":loaddt"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Loaddtto"
+        ViewAttribute="Loaddtto"
+        Operator="ONORAFTER"
+        Conjunction="AND"
+        Value=":loaddt"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+</ViewObject>

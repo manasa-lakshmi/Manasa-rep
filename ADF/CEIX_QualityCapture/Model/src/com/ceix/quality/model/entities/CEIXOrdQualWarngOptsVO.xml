@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CEIXOrdQualWarngOptsVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="CEIXOrdQualWarngOptsEO.LIST_CODE, 
+       CEIXOrdQualWarngOptsEO.LIST_VALUE"
+  FromList="CEIX_ORD_QUAL_WARNG_OPTS CEIXOrdQualWarngOptsEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="CEIXOrdQualWarngOptsEO"
+    Entity="com.ceix.quality.model.entities.CEIXOrdQualWarngOptsEO"/>
+  <ViewAttribute
+    Name="ListCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ListCode"
+    EntityUsage="CEIXOrdQualWarngOptsEO"
+    AliasName="LIST_CODE"/>
+  <ViewAttribute
+    Name="ListValue"
+    PrecisionRule="true"
+    EntityAttrName="ListValue"
+    EntityUsage="CEIXOrdQualWarngOptsEO"
+    AliasName="LIST_VALUE"/>
+</ViewObject>

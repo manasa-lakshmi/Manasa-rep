@@ -1,0 +1,65 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/"
+     xmlns:sdoJava="commonj.sdo/java" targetNamespace="/com/ceix/geolabs/model/view/common/"
+     xmlns="/com/ceix/geolabs/model/view/common/" elementFormDefault="qualified" sdoJava:package="com.ceix.geolabs.model.view.common">
+    <xsd:import schemaLocation="classpath:/META-INF/wsdl/BC4JService.xsd" namespace="http://xmlns.oracle.com/adf/svc/types/"/>
+    <xsd:import schemaLocation="classpath:/xml/sdoJava.xsd" namespace="commonj.sdo/java"/>
+    <xsd:complexType name="CEIXOrdQualLabResltSDO">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+                    <attribute>Train</attribute>
+                    <attribute>Datesamp</attribute>
+                    <attribute>Rptsampno</attribute>
+                </key>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="OrderNumber" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="Train" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="Yymm" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="Cars" type="xsd:int" minOccurs="0" nillable="true"/>
+            <xsd:element name="Datesamp" type="ns0:dateTime-Timestamp" minOccurs="0"/>
+            <xsd:element name="Rptsampno" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="Sampmethod" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="Fsi" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="Tm" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="AshAsr" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="AshDry" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="VolAsr" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="VolDry" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="VolDaf" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="SulAsr" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="SulDry" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="SulDaf" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="FcAsr" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="FcDry" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="FcDaf" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="BtuAsr" type="xsd:int" minOccurs="0" nillable="true"/>
+            <xsd:element name="BtuDry" type="xsd:int" minOccurs="0" nillable="true"/>
+            <xsd:element name="BtuDaf" type="xsd:int" minOccurs="0" nillable="true"/>
+            <xsd:element name="CreationDate" type="ns0:dateTime-Timestamp" minOccurs="0" nillable="true"/>
+            <xsd:element name="LastUpdateDate" type="ns0:dateTime-Timestamp" minOccurs="0" nillable="true"/>
+            <xsd:element name="CreatedBy" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="LastUpdatedBy" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="AftiRed" type="xsd:int" minOccurs="0" nillable="true"/>
+            <xsd:element name="AftsRed" type="xsd:int" minOccurs="0" nillable="true"/>
+            <xsd:element name="AfthRed" type="xsd:int" minOccurs="0" nillable="true"/>
+            <xsd:element name="AftfRed" type="xsd:int" minOccurs="0" nillable="true"/>
+            <xsd:element name="Chlorine" type="xsd:int" minOccurs="0" nillable="true"/>
+            <xsd:element name="Mercury" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="Lbss" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="Lbsso2" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="SampleWt" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="Tonnage" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="Truck" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="Rommoisture" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="Rawash" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="Perrecovery" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="Minelocation" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="CleanTons" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="Oxidation" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="RawTons" type="xsd:decimal" minOccurs="0" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="cEIXOrdQualLabResltSDO" type="CEIXOrdQualLabResltSDO"/>
+</xsd:schema>

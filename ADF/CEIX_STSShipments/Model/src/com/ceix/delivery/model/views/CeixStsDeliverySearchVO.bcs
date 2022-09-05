@@ -1,0 +1,31 @@
+//Groovy Scripts for com.ceix.delivery.model.views.CeixStsDeliverySearchVO
+
+package com.ceix.delivery.model.views
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+
+
+
+
+
+@AccessorParameterExpression(accessorName="CeixStsDeliveryAM_CeixStsContractItemsVO1_1", name="pContractNumber")
+def pContractNumber_CeixStsDeliveryAM_CeixStsContractItemsVO1_1_BindVariable_BoundParameter()
+{
+OrderNumber
+}
+
+
+@AccessorParameterExpression(accessorName="CeixStsDeliveryAM_DestinationVO1_1", name="pDestContractNum")
+def pDestContractNum_CeixStsDeliveryAM_DestinationVO1_1_BindVariable_BoundParameter()
+{
+OrderNumber
+}
+
+
+@AccessorParameterExpression(accessorName="CeixStsDeliveryAM_CeixStsContractItemsVO1_1", name="pLoadDate")
+def pLoadDate_CeixStsDeliveryAM_CeixStsContractItemsVO1_1_BindVariable_BoundParameter()
+{
+LoadDate1
+}
+

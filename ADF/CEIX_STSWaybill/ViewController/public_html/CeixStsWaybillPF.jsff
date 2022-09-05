@@ -1,0 +1,709 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="scroll">
+    <af:panelHeader text="STS WayBill" id="ph1" styleClass="AFStretchWidth">
+      <f:facet name="context">
+       <f:verbatim>   </f:verbatim>
+      </f:facet>
+      <f:facet name="menuBar"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:panelFormLayout id="pfl1" maxColumns="4" rows="3">
+        <f:facet name="footer"/>
+        <af:inputText value="#{bindings.pOrderNum.inputValue}"
+                      label="#{bindings.pOrderNum.hints.label}"
+                      required="#{bindings.pOrderNum.hints.mandatory}"
+                      columns="#{bindings.pOrderNum.hints.displayWidth}"
+                      maximumLength="#{bindings.pOrderNum.hints.precision}"
+                      shortDesc="#{bindings.pOrderNum.hints.tooltip}" id="it1">
+          <f:validator binding="#{bindings.pOrderNum.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.pTrainNum.inputValue}"
+                      label="#{bindings.pTrainNum.hints.label}"
+                      required="#{bindings.pTrainNum.hints.mandatory}"
+                      columns="#{bindings.pTrainNum.hints.displayWidth}"
+                      maximumLength="#{bindings.pTrainNum.hints.precision}"
+                      shortDesc="#{bindings.pTrainNum.hints.tooltip}" id="it2">
+          <f:validator binding="#{bindings.pTrainNum.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.pShipNum.inputValue}"
+                      label="#{bindings.pShipNum.hints.label}"
+                      required="#{bindings.pShipNum.hints.mandatory}"
+                      columns="#{bindings.pShipNum.hints.displayWidth}"
+                      maximumLength="#{bindings.pShipNum.hints.precision}"
+                      shortDesc="#{bindings.pShipNum.hints.tooltip}" id="it3">
+          <f:validator binding="#{bindings.pShipNum.validator}"/>
+        </af:inputText>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:selectBooleanCheckbox value="#{bindings.pShipFlag.inputValue}"
+                                  label="#{bindings.pShipFlag.label}"
+                                  shortDesc="#{bindings.pShipFlag.hints.tooltip}"
+                                  id="sbc1"/>
+        <af:spacer width="10" height="10" id="s3"/>
+        <af:spacer width="10" height="10" id="s4"/>
+        <af:inputDate value="#{bindings.pLoadFromDate.inputValue}"
+                      label="#{bindings.pLoadFromDate.hints.label}"
+                      required="#{bindings.pLoadFromDate.hints.mandatory}"
+                      shortDesc="#{bindings.pLoadFromDate.hints.tooltip}"
+                      id="id4">
+          <f:validator binding="#{bindings.pLoadFromDate.validator}"/>
+          <af:convertDateTime pattern="#{bindings.pLoadFromDate.format}"/>
+        </af:inputDate>
+        <af:inputDate value="#{bindings.pLoadToDate.inputValue}"
+                      label="#{bindings.pLoadToDate.hints.label}"
+                      required="#{bindings.pLoadToDate.hints.mandatory}"
+                      shortDesc="#{bindings.pLoadToDate.hints.tooltip}"
+                      id="id5">
+          <f:validator binding="#{bindings.pLoadToDate.validator}"/>
+          <af:convertDateTime pattern="#{bindings.pLoadToDate.format}"/>
+        </af:inputDate>
+      </af:panelFormLayout>
+      <af:toolbar id="t1">
+        <af:spacer width="10" height="10" id="s5"/>
+        <af:commandButton text="Search" id="cb1"
+                          actionListener="#{pageFlowScope.CeixStsWaybillMB.onSearch}"/>
+        <af:popup id="p1" contentDelivery="lazyUncached">
+          <af:dialog id="dialogd2" title="Assign Sales Agreement"
+                     affirmativeTextAndAccessKey="Save"
+                     dialogListener="#{pageFlowScope.CeixStsWaybillMB.assignSalesOrderDialogListener}">
+            <af:panelFormLayout id="pfl3">
+              <af:inputText id="inSalessOrder"
+                            binding="#{pageFlowScope.CeixStsWaybillMB.headerSalesOrder}"
+                            maximumLength="50" label="Sales Agreement"/>
+              <af:inputText id="inNewOrderNumber"
+                            binding="#{pageFlowScope.CeixStsWaybillMB.headerNewTrainNumber}"
+                            maximumLength="50" label="New Train Number"/>
+              <af:spacer width="30" height="10" id="sp6"/>
+              <af:inputText id="inComments"
+                            binding="#{pageFlowScope.CeixStsWaybillMB.headerComments}"
+                            maximumLength="1999" label="Comments"/>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+        <af:commandButton text="Assign Sales Agreement/Train Number" id="cb8"
+                          disabled="true"
+                          binding="#{pageFlowScope.CeixStsWaybillMB.createSalesOrderVal}">
+          <af:showPopupBehavior popupId="p1"/>
+        </af:commandButton>
+      </af:toolbar>
+      <af:spacer width="10" height="10" id="s6"/>
+    </af:panelHeader>
+    <af:popup id="retShip">
+      <af:dialog id="d1" type="yesNo" title="Return"
+                 dialogListener="#{pageFlowScope.CeixStsWaybillMB.returnShipDialogListener}">
+        <af:panelFormLayout id="pfl2" fieldWidth="270">
+          <af:outputText value="Are you sure you want to return this Shipment ?"
+                         id="ot1"/>
+        </af:panelFormLayout>
+      </af:dialog>
+    </af:popup>
+    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+      <f:facet name="menus"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="statusbar"/>
+      <af:table value="#{bindings.CeixStsWaybillSearchVO1.collectionModel}"
+                var="row" rows="#{bindings.CeixStsWaybillSearchVO1.rangeSize}"
+                emptyText="#{bindings.CeixStsWaybillSearchVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                fetchSize="#{bindings.CeixStsWaybillSearchVO1.rangeSize}"
+                rowBandingInterval="0"  
+                selectedRowKeys="#{bindings.CeixStsWaybillSearchVO1.collectionModel.selectedRow}"
+                selectionListener="#{pageFlowScope.CeixStsWaybillMB.onTableSelList}"
+                scrollPolicy="scroll"
+                rowSelection="single" id="t2" partialTriggers=":::cb1"
+                binding="#{pageFlowScope.CeixStsWaybillMB.headerTable}">
+        <af:column id="c30" headerText="Delete" align="center">
+          <af:commandImageLink id="cil2" icon="/images/delete_ena.png">
+            <af:showPopupBehavior popupId="p3" triggerType="action"/>
+          </af:commandImageLink>
+          <af:popup id="p3">
+            <af:dialog id="d3"
+                       dialogListener="#{pageFlowScope.CeixStsWaybillMB.dialogDeleteListner}"
+                       title="Warning">You are about to delete selected Train
+                                       and all its Cars. Click OK to delete.</af:dialog>
+          </af:popup>
+        </af:column>
+        <af:column sortProperty="#{bindings.CeixStsWaybillSearchVO1.hints.OrderNumber.name}"
+                   sortable="true"
+                   headerText="#{bindings.CeixStsWaybillSearchVO1.hints.OrderNumber.label}"
+                   id="c5" width="70">
+          <af:inputText value="#{row.bindings.OrderNumber.inputValue}"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.OrderNumber.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.OrderNumber.mandatory}"
+                        columns="#{bindings.CeixStsWaybillSearchVO1.hints.OrderNumber.displayWidth}"
+                        maximumLength="#{bindings.CeixStsWaybillSearchVO1.hints.OrderNumber.precision}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.OrderNumber.tooltip}"
+                        id="it6">
+            <f:validator binding="#{row.bindings.OrderNumber.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.CeixStsWaybillSearchVO1.hints.SalesAgreementName.name}"
+                   sortable="true"
+                   headerText="#{bindings.CeixStsWaybillSearchVO1.hints.SalesAgreementName.label}"
+                   id="c50" width="130">
+          <af:inputText value="#{row.bindings.SalesAgreementName.inputValue}"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.SalesAgreementName.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.SalesAgreementName.mandatory}"
+                        columns="#{bindings.CeixStsWaybillSearchVO1.hints.SalesAgreementName.displayWidth}"
+                        maximumLength="#{bindings.CeixStsWaybillSearchVO1.hints.SalesAgreementName.precision}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.SalesAgreementName.tooltip}"
+                        id="it50">
+            <f:validator binding="#{row.bindings.SalesAgreementName.validator}"/>
+          </af:inputText>
+        </af:column>
+         <af:column 
+                   headerText="#{bindings.CeixStsWaybillSearchVO1.hints.ItemNumber.label}"
+                   id="c51" width="70">
+          <af:selectOneChoice value="#{row.bindings.ItemNumber.inputValue}" autoSubmit="true"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.ItemNumber.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.ItemNumber.mandatory}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.ItemNumber.tooltip}"
+                        disabled="#{!(row.ShipmentNumber == null) || !(row.SoNumber == null)}"
+                        id="it51">
+            <f:selectItems value="#{row.bindings.ItemNumber.items}" id="si51"/>
+            <f:validator binding="#{row.bindings.ItemNumber.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+         <af:column 
+                   headerText="#{bindings.CeixStsWaybillSearchVO1.hints.LoadOrigin.label}"
+                   id="c52" width="70">
+          <af:selectOneChoice value="#{row.bindings.LoadOrigin.inputValue}" autoSubmit="true"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.LoadOrigin.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.LoadOrigin.mandatory}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.LoadOrigin.tooltip}"
+                        disabled="#{!(row.ShipmentNumber == null) || !(row.SoNumber == null)}"
+                        id="it52">
+            <f:selectItems value="#{row.bindings.LoadOrigin.items}" id="si52"/>
+            <f:validator binding="#{row.bindings.LoadOrigin.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column 
+                   headerText="#{bindings.CeixStsWaybillSearchVO1.hints.Destination.label}"
+                   id="c53" width="70">
+          <af:selectOneChoice value="#{row.bindings.Destination.inputValue}" autoSubmit="true"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.Destination.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.Destination.mandatory}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.Destination.tooltip}"
+                        disabled="#{!(row.ShipmentNumber == null) || !(row.SoNumber == null)}"
+                        id="it53">
+            <f:selectItems value="#{row.bindings.Destination.items}" id="si53"/>
+            <f:validator binding="#{row.bindings.Destination.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column sortProperty="#{bindings.CeixStsWaybillSearchVO1.hints.SoNumber.name}"
+                   sortable="true"
+                   headerText="#{bindings.CeixStsWaybillSearchVO1.hints.SoNumber.label}"
+                   id="c54" width="80">
+          <af:inputText value="#{row.bindings.SoNumber.inputValue}"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.SoNumber.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.SoNumber.mandatory}"
+                        columns="#{bindings.CeixStsWaybillSearchVO1.hints.SoNumber.displayWidth}"
+                        maximumLength="#{bindings.CeixStsWaybillSearchVO1.hints.SoNumber.precision}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.SoNumber.tooltip}"
+                        id="it54">
+            <f:validator binding="#{row.bindings.SoNumber.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.CeixStsWaybillSearchVO1.hints.TrainNumber.name}"
+                   sortable="true"
+                   headerText="#{bindings.CeixStsWaybillSearchVO1.hints.TrainNumber.label}"
+                   id="c3" width="140">
+          <af:inputText value="#{row.bindings.TrainNumber.inputValue}"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.TrainNumber.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.TrainNumber.mandatory}"
+                        columns="#{bindings.CeixStsWaybillSearchVO1.hints.TrainNumber.displayWidth}"
+                        maximumLength="#{bindings.CeixStsWaybillSearchVO1.hints.TrainNumber.precision}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.TrainNumber.tooltip}"
+                        id="it4">
+            <f:validator binding="#{row.bindings.TrainNumber.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.CeixStsWaybillSearchVO1.hints.NewTrainNumber.name}"
+                   sortable="true"
+                   headerText="#{bindings.CeixStsWaybillSearchVO1.hints.NewTrainNumber.label}"
+                   id="c27" width="140">
+          <af:inputText value="#{row.bindings.NewTrainNumber.inputValue}"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.NewTrainNumber.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.NewTrainNumber.mandatory}"
+                        columns="#{bindings.CeixStsWaybillSearchVO1.hints.NewTrainNumber.displayWidth}"
+                        maximumLength="#{bindings.CeixStsWaybillSearchVO1.hints.NewTrainNumber.precision}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.NewTrainNumber.tooltip}"
+                        id="it27">
+            <f:validator binding="#{row.bindings.NewTrainNumber.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.CeixStsWaybillSearchVO1.hints.DumpDate.name}"
+                   sortable="true"
+                   headerText="#{bindings.CeixStsWaybillSearchVO1.hints.DumpDate.label}"
+                   id="c4" width="140">
+          <af:inputDate value="#{row.bindings.DumpDate.inputValue}"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.DumpDate.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.DumpDate.mandatory}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.DumpDate.tooltip}"
+                        id="id2">
+            <f:validator binding="#{row.bindings.DumpDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.CeixStsWaybillSearchVO1.hints.DumpDate.format}"/>
+          </af:inputDate>
+        </af:column>
+        <af:column headerText="#{bindings.CeixStsWaybillSearchVO1.hints.ShipDate.label}" id="c20">
+          <af:inputDate value="#{row.bindings.ShipDate.inputValue}"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.ShipDate.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.ShipDate.mandatory}"
+                        columns="#{bindings.CeixStsWaybillSearchVO1.hints.ShipDate.displayWidth}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.ShipDate.tooltip}" id="id1">
+            <f:validator binding="#{row.bindings.ShipDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.CeixStsWaybillSearchVO1.hints.ShipDate.format}"/>
+          </af:inputDate>
+        </af:column>
+        <af:column sortProperty="#{bindings.CeixStsWaybillSearchVO1.hints.ShipmentNumber.name}"
+                   sortable="true"
+                   headerText="#{bindings.CeixStsWaybillSearchVO1.hints.ShipmentNumber.label}"
+                   id="c1" width="200">
+          <af:inputText value="#{row.bindings.ShipmentNumber.inputValue}"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.ShipmentNumber.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.ShipmentNumber.mandatory}"
+                        columns="#{bindings.CeixStsWaybillSearchVO1.hints.ShipmentNumber.displayWidth}"
+                        maximumLength="#{bindings.CeixStsWaybillSearchVO1.hints.ShipmentNumber.precision}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.ShipmentNumber.tooltip}"
+                        id="it5">
+            <f:validator binding="#{row.bindings.ShipmentNumber.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.CeixStsWaybillSearchVO1.hints.TotalWeight.name}"
+                   sortable="true"
+                   headerText="#{bindings.CeixStsWaybillSearchVO1.hints.TotalWeight.label}"
+                   id="c2" width="140">
+          <af:inputText value="#{row.bindings.TotalWeight.inputValue}"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.TotalWeight.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.TotalWeight.mandatory}"
+                        columns="#{bindings.CeixStsWaybillSearchVO1.hints.TotalWeight.displayWidth}"
+                        maximumLength="#{bindings.CeixStsWaybillSearchVO1.hints.TotalWeight.precision}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.TotalWeight.tooltip}"
+                        id="it7">
+            <f:validator binding="#{row.bindings.TotalWeight.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.CeixStsWaybillSearchVO1.hints.TotalWeight.format}"/>
+          </af:inputText>
+        </af:column>
+               <af:column sortProperty="#{bindings.CeixStsWaybillSearchVO1.hints.TotalDumpWeight.name}"
+                   sortable="true"
+                   headerText="#{bindings.CeixStsWaybillSearchVO1.hints.TotalDumpWeight.label}"
+                   id="c21" width="140">
+          <af:inputText value="#{row.bindings.TotalDumpWeight.inputValue}"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.TotalDumpWeight.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.TotalDumpWeight.mandatory}"
+                        columns="#{bindings.CeixStsWaybillSearchVO1.hints.TotalDumpWeight.displayWidth}"
+                        maximumLength="#{bindings.CeixStsWaybillSearchVO1.hints.TotalDumpWeight.precision}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.TotalDumpWeight.tooltip}"
+                        id="it16">
+            <f:validator binding="#{row.bindings.TotalDumpWeight.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.CeixStsWaybillSearchVO1.hints.TotalDumpWeight.format}"/>
+          </af:inputText>
+        </af:column>
+        <af:column headerText="#{bindings.CeixStsWaybillSearchVO1.hints.Freight.label}"
+                   id="c127" width="130">
+          <af:inputText value="#{row.bindings.Freight.inputValue}"
+                        label="#{bindings.CeixStsWaybillSearchVO1.hints.Freight.label}"
+                        required="#{bindings.CeixStsWaybillSearchVO1.hints.Freight.mandatory}"
+                        columns="#{bindings.CeixStsWaybillSearchVO1.hints.Freight.displayWidth}"
+                        maximumLength="#{bindings.CeixStsWaybillSearchVO1.hints.Freight.precision}"
+                        shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.Freight.tooltip}"
+                        id="it127" disabled="#{!(row.ShipmentNumber == null) || !(row.SoNumber == null)}">
+            <f:validator binding="#{row.bindings.Freight.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.CeixStsWaybillSearchVO1.hints.Freight.format}"/>
+          </af:inputText>
+        </af:column>
+        <af:column headerText="#{bindings.CeixStsWaybillSearchVO1.hints.StragglerFlag.label}"
+                     id="c55" align="center" width="60">
+            <af:selectBooleanCheckbox value="#{row.bindings.StragglerFlag.inputValue}"
+                                      label="#{row.bindings.StragglerFlag.label}" 
+                                      shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.StragglerFlag.tooltip}"
+                                      id="sbc55"
+                                      autoSubmit="true" disabled="true"/>
+          </af:column>
+        <af:column id="c28" width="90">
+          <af:commandButton text="Return" id="cb9"
+                            disabled="#{row.bindings.ShipmentNumber.inputValue == null || securityContext.userInRole['CEIX_WaybillUsersRO']}"
+                            rendered="#{securityContext.userInRole['CEIX_WaybillUsersReset']}">
+            <af:showPopupBehavior popupId=":::retShip"/>
+          </af:commandButton>
+        </af:column>
+      </af:table>
+    </af:panelCollection>
+    <af:panelHeader text="Waybill Details" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t6">
+          <af:commandButton text="Create WayBill Line" id="cb6"
+                            disabled="#{securityContext.userInRole['CEIX_WaybillUsersRO']}"
+                            action="#{pageFlowScope.CeixStsWaybillMB.onCreate}"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:panelCollection id="pc2" styleClass="AFStretchWidth"
+                          binding="#{pageFlowScope.CeixStsWaybillMB.detailPC}">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.CeixStsWaybillLinesVO1.collectionModel}"
+                  var="row" rows="#{bindings.CeixStsWaybillLinesVO1.rangeSize}"
+                  emptyText="#{bindings.CeixStsWaybillLinesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.CeixStsWaybillLinesVO1.rangeSize}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.CeixStsWaybillLinesVO1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.CeixStsWaybillLinesVO1.collectionModel.makeCurrent}"
+                  rowSelection="single" id="t3" autoHeightRows="12"
+                  columnStretching="column:c24"
+                  binding="#{pageFlowScope.CeixStsWaybillMB.detailTable}">
+          <af:column id="c29" headerText="Delete" align="center">
+            <af:commandImageLink id="cil1" icon="/images/delete_ena.png">
+              <af:showPopupBehavior popupId="p2" triggerType="action"/>
+            </af:commandImageLink>
+            <af:popup id="p2">
+              <af:dialog id="d2"
+                         dialogListener="#{pageFlowScope.CeixStsWaybillMB.dialogDetailDeleteListner}"
+                         title="Warning">Selected Car will be deleted. Click OK
+                                         to delete.</af:dialog>
+            </af:popup>
+          </af:column>
+          <af:column headerText="#{bindings.CeixStsWaybillLinesVO1.hints.SelectFlag.label}"
+                     id="c16" align="center" width="60">
+            <af:selectBooleanCheckbox value="#{row.bindings.SelectFlag.inputValue}"
+                                      label="#{row.bindings.SelectFlag.label}"
+                                      shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.SelectFlag.tooltip}"
+                                      id="sbc2" autoSubmit="true"
+                                      valueChangeListener="#{pageFlowScope.CeixStsWaybillMB.onLineSelCB}"
+                                      disabled="#{!(row.ShipmentNumber == null)}"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.SalesOrderNumber.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.SalesOrderNumber.label}"
+                     id="c8" width="85">
+            <af:inputText value="#{row.bindings.SalesOrderNumber.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.SalesOrderNumber.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.SalesOrderNumber.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.SalesOrderNumber.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.SalesOrderNumber.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.SalesOrderNumber.tooltip}"
+                          id="it10"
+                          readOnly='#{bindings.EditFlag.inputValue == "Y" || (!(row.ShipmentNumber == null))}'>
+              <f:validator binding="#{row.bindings.SalesOrderNumber.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.TrainNumber.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.TrainNumber.label}"
+                     id="c19" width="85">
+            <af:inputText value="#{row.bindings.TrainNumber.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.TrainNumber.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.TrainNumber.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.TrainNumber.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.TrainNumber.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.TrainNumber.tooltip}"
+                          id="it15" readOnly="true">
+              <f:validator binding="#{row.bindings.TrainNumber.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.NewTrainNumber.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.NewTrainNumber.label}"
+                     id="c11" width="75">
+            <af:inputText value="#{row.bindings.NewTrainNumber.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.NewTrainNumber.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.NewTrainNumber.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.NewTrainNumber.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.NewTrainNumber.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.NewTrainNumber.tooltip}"
+                          id="it18"
+                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+              <f:validator binding="#{row.bindings.NewTrainNumber.validator}"/>
+            </af:inputText>
+          </af:column>
+          <!--<af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.ShipToInformation.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.ShipToInformation.label}"
+                     id="c20" width="85">
+            <af:inputText value="#{row.bindings.ShipToInformation.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.ShipToInformation.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.ShipToInformation.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.ShipToInformation.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.ShipToInformation.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.ShipToInformation.tooltip}"
+                          id="it17" readOnly="true">
+              <f:validator binding="#{row.bindings.ShipToInformation.validator}"/>
+            </af:inputText>
+          </af:column>-->
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.DumpSequence.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.DumpSequence.label}"
+                     id="c9" width="70">
+            <af:inputText value="#{row.bindings.DumpSequence.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.DumpSequence.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.DumpSequence.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.DumpSequence.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.DumpSequence.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.DumpSequence.tooltip}"
+                          id="it21" readOnly="true">
+              <f:validator binding="#{row.bindings.DumpSequence.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.CeixStsWaybillLinesVO1.hints.DumpSequence.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.RailRoad.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.RailRoad.label}"
+                     id="c6" width="70">
+            <af:inputText value="#{row.bindings.RailRoad.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.RailRoad.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.RailRoad.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.RailRoad.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.RailRoad.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.RailRoad.tooltip}"
+                          id="it11" readOnly="true">
+              <f:validator binding="#{row.bindings.RailRoad.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.CarPrefix.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.CarPrefix.label}"
+                     id="c12" width="60">
+            <af:inputText value="#{row.bindings.CarPrefix.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.CarPrefix.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.CarPrefix.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.CarPrefix.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.CarPrefix.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.CarPrefix.tooltip}"
+                          id="it12" readOnly="true">
+              <f:validator binding="#{row.bindings.CarPrefix.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.CarNumber.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.CarNumber.label}"
+                     id="c13" width="75">
+            <af:inputText value="#{row.bindings.CarNumber.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.CarNumber.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.CarNumber.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.CarNumber.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.CarNumber.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.CarNumber.tooltip}"
+                          id="it24" readOnly="true">
+              <f:validator binding="#{row.bindings.CarNumber.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarPrefix.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarPrefix.label}"
+                     id="c23" width="70" rendered="false">
+            <af:inputText value="#{row.bindings.NewCarPrefix.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarPrefix.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarPrefix.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarPrefix.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarPrefix.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarPrefix.tooltip}"
+                          id="it23"
+                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+              <f:validator binding="#{row.bindings.NewCarPrefix.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarNumber.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarNumber.label}"
+                     id="c10" width="80">
+            <af:inputText value="#{row.bindings.NewCarNumber.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarNumber.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarNumber.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarNumber.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarNumber.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarNumber.tooltip}"
+                          id="it22"
+                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+              <f:validator binding="#{row.bindings.NewCarNumber.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.DumpWeight.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.DumpWeight.label}"
+                     id="c14" width="70">
+            <af:inputText value="#{row.bindings.DumpWeight.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.DumpWeight.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.DumpWeight.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.DumpWeight.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.DumpWeight.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.DumpWeight.tooltip}"
+                          id="it9"  readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+              <f:validator binding="#{row.bindings.DumpWeight.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.WeightInTons.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.WeightInTons.label}"
+                     id="c15" width="70">
+            <af:inputText value="#{row.bindings.WeightInTons.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.WeightInTons.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.WeightInTons.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.WeightInTons.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.WeightInTons.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.WeightInTons.tooltip}"
+                          id="it14"
+                          readOnly='#{bindings.EditFlag.inputValue == "Y" || (!(row.ShipmentNumber == null))}'>
+              <f:validator binding="#{row.bindings.WeightInTons.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.ShippedQuantity.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.ShippedQuantity.label}"
+                     id="c18" width="80" rendered="false">
+            <af:inputText value="#{row.bindings.ShippedQuantity.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.ShippedQuantity.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.ShippedQuantity.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.ShippedQuantity.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.ShippedQuantity.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.ShippedQuantity.tooltip}"
+                          id="it8"
+                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+              <f:validator binding="#{row.bindings.ShippedQuantity.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.Uom.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.Uom.label}"
+                     id="c22" width="50">
+            <af:inputText value="#{row.bindings.Uom.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.Uom.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.Uom.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.Uom.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.Uom.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.Uom.tooltip}"
+                          id="it13" readOnly="true">
+              <f:validator binding="#{row.bindings.Uom.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.ScheduleDate.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.ScheduleDate.label}"
+                     id="c7" width="70">
+            <af:inputDate value="#{row.bindings.ScheduleDate.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.ScheduleDate.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.ScheduleDate.mandatory}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.ScheduleDate.tooltip}"
+                          id="id3" readOnly="true">
+              <f:validator binding="#{row.bindings.ScheduleDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CeixStsWaybillLinesVO1.hints.ScheduleDate.format}"/>
+            </af:inputDate>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.ShipmentNumber.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.ShipmentNumber.label}"
+                     id="c17" width="80">
+            <af:inputText value="#{row.bindings.ShipmentNumber.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.ShipmentNumber.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.ShipmentNumber.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.ShipmentNumber.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.ShipmentNumber.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.ShipmentNumber.tooltip}"
+                          id="it20" readOnly="true">
+              <f:validator binding="#{row.bindings.ShipmentNumber.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CeixStsWaybillLinesVO1.hints.ShipQuant.label}"
+                     id="c25">
+            <af:inputText value="#{row.bindings.ShipQuant.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.ShipQuant.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.ShipQuant.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.ShipQuant.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.ShipQuant.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.ShipQuant.tooltip}"
+                          id="it25">
+              <f:validator binding="#{row.bindings.ShipQuant.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CeixStsWaybillLinesVO1.hints.SubInventory.label}"
+                     id="c26" width="60">
+            <af:inputText value="#{row.bindings.SubInventory.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.SubInventory.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.SubInventory.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.SubInventory.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.SubInventory.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.SubInventory.tooltip}"
+                          id="it26"
+                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+              <f:validator binding="#{row.bindings.SubInventory.validator}"/>
+            </af:inputText>
+          </af:column>
+          <!--<af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.FreightCost.name}"
+                     sortable="false"
+                     headerText="#{bindings.CeixStsWaybillLinesVO1.hints.FreightCost.label}"
+                     id="c21" width="80">
+            <af:inputText value="#{row.bindings.FreightCost.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.FreightCost.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.FreightCost.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.FreightCost.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.FreightCost.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.FreightCost.tooltip}"
+                          id="it16"
+                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+              <f:validator binding="#{row.bindings.FreightCost.validator}"/>
+            </af:inputText>
+          </af:column>-->
+          <af:column headerText="#{bindings.CeixStsWaybillLinesVO1.hints.Comments.label}"
+                     id="c24">
+            <af:inputText value="#{row.bindings.Comments.inputValue}"
+                          label="#{bindings.CeixStsWaybillLinesVO1.hints.Comments.label}"
+                          required="#{bindings.CeixStsWaybillLinesVO1.hints.Comments.mandatory}"
+                          columns="#{bindings.CeixStsWaybillLinesVO1.hints.Comments.displayWidth}"
+                          maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.Comments.precision}"
+                          shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.Comments.tooltip}"
+                          id="it19"
+                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+              <f:validator binding="#{row.bindings.Comments.validator}"/>
+            </af:inputText>
+          </af:column>
+        </af:table>
+        <f:facet name="afterToolbar">
+          <af:toolbar id="t4">
+            <af:selectBooleanCheckbox text="Select All/None" id="sbc3"
+                                      autoSubmit="true"
+                                      valueChangeListener="#{pageFlowScope.CeixStsWaybillMB.onSelectAllNone}"
+                                      binding="#{pageFlowScope.CeixStsWaybillMB.selAllCheckBox}"/>
+            <af:spacer width="10" height="10" id="s7"/>
+            <af:commandButton text="Edit" id="cb2"
+                              disabled="#{securityContext.userInRole['CEIX_WaybillUsersRO']}"
+                              actionListener="#{pageFlowScope.CeixStsWaybillMB.onLineEdit}"/>
+            <af:commandButton text="Save" id="cb3"
+                              disabled="#{securityContext.userInRole['CEIX_WaybillUsersRO']}"
+                              actionListener="#{pageFlowScope.CeixStsWaybillMB.onLineSave}"/>
+            <af:commandButton text="Cancel" id="cb4"
+                              actionListener="#{pageFlowScope.CeixStsWaybillMB.onLineCancel}"/>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="secondaryToolbar">
+          <af:toolbar id="t5">
+            <af:spacer width="10" height="10" id="s17"/>
+            <af:commandButton text="Assign Straggler" id="cb17" disabled="true" 
+                            actionListener="#{pageFlowScope.CeixStsWaybillMB.onStragglerBT}"
+                              binding="#{pageFlowScope.CeixStsWaybillMB.stragglerBT}"/>
+            <af:spacer width="10" height="10" id="s18"/>
+            <af:commandButton text="Remove Straggler" id="cb18" disabled="true"
+                              actionListener="#{pageFlowScope.CeixStsWaybillMB.onRemStrBT}"
+                              binding="#{pageFlowScope.CeixStsWaybillMB.removeStragglerBT}"/>
+            <!--<af:commandButton text="Calculate Freight" id="cb7"
+                              binding="#{pageFlowScope.CeixStsWaybillMB.onCalculateFreightBT}"
+                              actionListener="#{pageFlowScope.CeixStsWaybillMB.onCalculateFreight}"
+                              disabled="#{securityContext.userInRole['CEIX_WaybillUsersRO']}"/>-->
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:commandButton text="Process" id="cb5" disabled="true"
+                              binding="#{pageFlowScope.CeixStsWaybillMB.processBT}"
+                              actionListener="#{pageFlowScope.CeixStsWaybillMB.onProcessBT}"/>
+          </af:toolbar>
+        </f:facet>
+      </af:panelCollection>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</jsp:root>

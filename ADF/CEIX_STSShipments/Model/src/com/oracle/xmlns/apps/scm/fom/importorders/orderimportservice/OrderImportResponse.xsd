@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Create Order Response</name>
+      <description>Response from the operation that the create order service
+                performs, including the order identifiers, order status, and
+                error message.</description>
+      <oer:attributes>
+        <oer:attribute description="External Facing Transaction Number" name="SourceTransactionNumber"/>
+        <oer:attribute description="Internal Identifier that uniquely identifies the transaction" name="SourceTransactionIdentifier"/>
+        <oer:attribute description="System or Application that placed the request for fulfillment" name="SourceTransactionSystem"/>
+        <oer:attribute description="The order number of the created order." name="OrderNumber"/>
+        <oer:attribute description="Unique identifier for orders created in Order Management.." name="HeaderId"/>
+        <oer:attribute description="Status of the order that was created." name="OrderStatus"/>
+        <oer:attribute description="The return status of the created order." name="ReturnStatus"/>
+        <oer:attribute description="Error message Name" name="MessageName"/>
+        <oer:attribute description="Error Message Description" name="MessageText"/>
+        <oer:attribute description="Indicates whether the order is a new order or a change order." name="FlowType"/>
+        <oer:attribute description="Version of the order change." name="ChangeVersionNumber"/>
+        <oer:attribute description="Order line information for the order." name="OrderImportResponseLine"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:include schemaLocation="OrderImportResponseLine.xsd"/>
+  <xsd:complexType name="OrderImportResponse">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>SourceTransactionIdentifier</attribute>
+          <attribute>SourceTransactionSystem</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="SourceTransactionNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceTransactionIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceTransactionSystem" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="OrderNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="HeaderId" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="OrderStatus" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ReturnStatus" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="MessageName" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="MessageText" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="FlowType" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChangeVersionNumber" nillable="true" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="OrderImportResponseLine" type="OrderImportResponseLine"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="orderImportResponse" type="OrderImportResponse"/>
+</xsd:schema>

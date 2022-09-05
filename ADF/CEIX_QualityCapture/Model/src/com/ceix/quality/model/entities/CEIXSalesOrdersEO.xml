@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CEIXSalesOrdersEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="CEIX_ORDER_HEADERS"
+  AliasName="CEIXSalesOrdersEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="OrderNumber"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="ORDER_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORDER_HEADERS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="LABEL_ORDER_NUMBER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CustomerName"
+    Precision="50"
+    ColumnName="ACCOUNT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORDER_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="LABEL_CUSTOMER_NAME"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ShipAddress"
+    Precision="300"
+    ColumnName="SHIP_TO_ADDRESS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORDER_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="LABEL_SHIP_ADDRESS"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ContractNumber"
+    IsPersistent="false"
+    Precision="80"
+    ColumnName="CONTRACTNUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    Expression="(select attribute_char1 as ContractNumber from CEIX_ORDER_HEADERS_DFF where header_id=CEIXSalesOrdersEO.header_id and context_code='Contract Information')"
+    IsUpdateable="false">    
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="LABEL_CONTRACT_NUMBER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+    
+ <!-- <Attribute
+    Name="ContractNumber"
+    Precision="50"
+    ColumnName="CONTRACT_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_SALES_ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="LABEL_CONTRACT_NUMBER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>-->
+  
+  <Attribute
+    Name="Description"
+    IsPersistent="false"
+    Precision="150"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    Expression="(select attribute_char2 as Description from CEIX_ORDER_HEADERS_DFF where header_id=CEIXSalesOrdersEO.header_id and context_code='Contract Information')"
+    IsUpdateable="false">    
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="LABEL_DESCRIPTION"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <!--
+  <Attribute
+    Name="Description"
+    Precision="500"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORDER_HEADERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="LABEL_DESCRIPTION"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>-->
+  
+  <AccessorAttribute
+    Name="CEIXOrdQualMetrics"
+    Association="com.ceix.quality.model.entities.FkCeixSalesOrdersAssoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixSalesOrdersAssoc.CEIXOrdQualMetrics"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixSalesOrdersAssoc.CEIXSalesOrders"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="CeixSalesOrdersPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="CEIX_SALES_ORDERS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXSalesOrdersEO.OrderNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007749">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007749"/>
+      <Attr Name="_checkCondition" Value='"ORDER_NUMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXSalesOrdersEO.OrderNumber"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ceix.quality.model.ModelBundle"/>
+  </ResourceBundle>
+</Entity>

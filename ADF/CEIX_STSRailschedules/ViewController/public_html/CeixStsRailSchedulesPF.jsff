@@ -1,0 +1,2107 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:panelBorderLayout id="pbl1">
+      <f:facet name="start">
+        <af:spacer width="40" height="10" id="s3"/>
+      </f:facet>
+      <f:facet name="bottom">
+        <af:spacer width="10" height="10" id="s1"/>
+      </f:facet>
+      <f:facet name="end">
+        <af:spacer width="40" height="10" id="s2"/>
+      </f:facet>
+      <f:facet name="top">
+        <af:spacer width="10" height="10" id="s4"/>
+      </f:facet>
+      <af:panelFormLayout id="pfl4" maxColumns="4" rows="2"
+                          styleClass="AFStretchWidth">
+        <f:facet name="footer">
+          <af:toolbar id="t5">
+            <af:commandButton text="Go" id="cb8"
+                              actionListener="#{CeixStsRailScheduleMB.onGoBT}"/>
+            <af:commandButton text="Update Sales Agreement" id="cb_5"
+                              disabled="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}">
+              <af:showPopupBehavior popupId="popupMassUpdateOrderNumber"/>
+            </af:commandButton>
+          </af:toolbar>
+        </f:facet>
+        <af:commandButton text="Search Customer"
+                          icon="/images/func_search_16_ena.png" id="cb_2">
+          <af:showPopupBehavior popupId="p1"/>
+        </af:commandButton>
+        <af:selectOneChoice value="#{bindings.pOrderNum.inputValue}"
+                            label="#{bindings.pOrderNum.label}"
+                            required="#{bindings.pOrderNum.hints.mandatory}"
+                            shortDesc="#{bindings.pOrderNum.hints.tooltip}"
+                            id="soc11"
+                            binding="#{CeixStsRailScheduleMB.porderNumInp}">
+          <f:selectItems value="#{bindings.pOrderNum.items}" id="si11"/>
+        </af:selectOneChoice>
+        <af:popup id="popupMassUpdateOrderNumber" contentDelivery="lazyUncached"
+                  binding="#{CeixStsRailScheduleMB._popupMassUpdateOrderNumber}">
+          <af:dialog id="dialogMassUpdateOrderNumber"
+                     title="Update Sales Agreement" contentWidth="900" type="none">
+            <af:panelGroupLayout layout="vertical" id="pgl2_">
+              <af:panelGroupLayout layout="vertical" id="pgl4_">
+                <af:panelHeader text="Search and Update Rail Schedules"
+                                id="ph3_">
+                  <af:query id="qryId2_" headerText="Search" disclosed="true"
+                            value="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVOCriteriaQuery1.queryDescriptor}"
+                            model="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVOCriteriaQuery1.queryModel}"
+                            queryListener="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVOCriteriaQuery1.processQuery}"
+                            queryOperationListener="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVOCriteriaQuery1.processQueryOperation}"
+                            saveResultsLayout="never" saveQueryMode="hidden"
+                            modeChangeVisible="false"
+                            resultComponentId="::pc2_:resId2_"
+                            binding="#{CeixStsRailScheduleMB._orderNumberUpdatePopupQuery}"/>
+                </af:panelHeader>
+                <af:panelCollection id="pc2_" styleClass="AFStretchWidth">
+                  <f:facet name="menus"/>
+                  <f:facet name="toolbar"/>
+                  <f:facet name="statusbar"/>
+                  <af:table value="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.collectionModel}"
+                            var="row"
+                            rows="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.rangeSize}"
+                            emptyText="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            fetchSize="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.rangeSize}"
+                            rowBandingInterval="0"
+                            filterModel="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVOCriteriaQuery1.queryDescriptor}"
+                            queryListener="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVOCriteriaQuery1.processQuery}"
+                            filterVisible="true" varStatus="vs"
+                            selectedRowKeys="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.collectionModel.makeCurrent}"
+                            rowSelection="multiple" id="resId2_">
+                    <af:column sortProperty="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.RailScheduleId.name}"
+                               filterable="true" sortable="true" visible="false"
+                               headerText="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.RailScheduleId.label}"
+                               id="resId2c1_">
+                      <af:outputText value="#{row.RailScheduleId}" id="ot10_">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.RailScheduleId.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.IsSelected.label}"
+                               id="c1_">
+                      <af:selectBooleanCheckbox value="#{row.bindings.IsSelected.inputValue}"
+                                                label="#{row.bindings.IsSelected.label}"
+                                                shortDesc="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.IsSelected.tooltip}"
+                                                id="sbc1"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.TrainId.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.TrainId.label}"
+                               id="resId2c2_">
+                      <af:outputText value="#{row.TrainId}" id="ot11_"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.LoadDate.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.LoadDate.label}"
+                               id="resId2c3_">
+                      <f:facet name="filter">
+                        <af:inputDate value="#{vs.filterCriteria.LoadDate}"
+                                      id="id1_"/>
+                      </f:facet>
+                      <af:outputText value="#{row.LoadDate}" id="ot9">
+                        <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.LoadDate.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.SalesOrderNumber.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.SalesOrderNumber.label}"
+                               id="resId2c4_">
+                      <af:outputText value="#{row.SalesOrderNumber}" id="ot4"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.Destination.name}"
+                               filterable="true" sortable="true" width="200"
+                               headerText="#{bindings.CeixStsRailSchedulesOrdNumMassUpdateVO11.hints.Destination.label}"
+                               id="resId2c5_">
+                      <af:outputText value="#{row.Destination}" id="ot6"/>
+                    </af:column>
+                  </af:table>
+                </af:panelCollection>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            <f:facet name="buttonBar">
+              <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
+                <af:inputText label="Sales Agreement" required="true" id="it1_"
+                              binding="#{CeixStsRailScheduleMB._popup_OrderNumber}"/>
+                <af:commandButton text="Update" id="update" partialSubmit="true"
+                                  actionListener="#{CeixStsRailScheduleMB.orderNumberUpdateDialogListener}"/>
+                <af:commandButton text="Cancel" id="cancel" partialSubmit="true"
+                                  immediate="true"
+                                  actionListener="#{CeixStsRailScheduleMB.orderNumberUpdateDialogListener}"></af:commandButton>
+              </af:panelGroupLayout>
+            </f:facet>
+          </af:dialog>
+        </af:popup>
+        <af:popup id="p1" contentDelivery="lazyUncached"
+                  binding="#{CeixStsRailScheduleMB._searchCustomerPopup_mainScreen}">
+          <af:dialog id="d2" title="Search and Select a Customer"
+                     dialogListener="#{CeixStsRailScheduleMB.searchCustomerDialog1Listener}"
+                     contentWidth="900">
+            <af:panelGroupLayout layout="vertical" id="pgl3">
+              <af:panelHeader text="Search and Select" id="ph_1">
+                <af:query id="qryId1" headerText="Search" disclosed="true"
+                          value="#{bindings.SearchCustomerViewCriteriaQuery.queryDescriptor}"
+                          model="#{bindings.SearchCustomerViewCriteriaQuery.queryModel}"
+                          queryListener="#{bindings.SearchCustomerViewCriteriaQuery.processQuery}"
+                          queryOperationListener="#{bindings.SearchCustomerViewCriteriaQuery.processQueryOperation}"
+                          resultComponentId="::pc_1:resId1"
+                          saveResultsLayout="never" saveQueryMode="hidden"
+                          modeChangeVisible="false"
+                          binding="#{CeixStsRailScheduleMB._searchDialogQueryComponent1}"/>
+              </af:panelHeader>
+              <af:panelCollection id="pc_1" styleClass="AFStretchWidth">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.CeixStsCustDetailsView1.collectionModel}"
+                          var="row"
+                          rows="#{bindings.CeixStsCustDetailsView1.rangeSize}"
+                          emptyText="#{bindings.CeixStsCustDetailsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.CeixStsCustDetailsView1.rangeSize}"
+                          rowBandingInterval="0"
+                          filterModel="#{bindings.SearchCustomerViewCriteriaQuery.queryDescriptor}"
+                          queryListener="#{bindings.SearchCustomerViewCriteriaQuery.processQuery}"
+                          filterVisible="true" varStatus="vs"
+                          selectedRowKeys="#{bindings.CeixStsCustDetailsView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.CeixStsCustDetailsView1.collectionModel.makeCurrent}"
+                          rowSelection="single" id="resId1"
+                          binding="#{CeixStsRailScheduleMB._searchDialogTable1}">
+                  <af:column sortProperty="#{bindings.CeixStsCustDetailsView1.hints.OrderNumber.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CeixStsCustDetailsView1.hints.OrderNumber.label}"
+                             id="resId1c1">
+                    <af:outputText value="#{row.OrderNumber}" id="ot7"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.CeixStsCustDetailsView1.hints.AccountNumber.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CeixStsCustDetailsView1.hints.AccountNumber.label}"
+                             id="resId1c3">
+                    <af:outputText value="#{row.AccountNumber}" id="ot3"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.CeixStsCustDetailsView1.hints.PartyName.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CeixStsCustDetailsView1.hints.PartyName.label}"
+                             width="200" id="resId1c6">
+                    <af:outputText value="#{row.PartyName}" id="ot5"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.CeixStsCustDetailsView1.hints.CustomerPoNumber.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CeixStsCustDetailsView1.hints.CustomerPoNumber.label}"
+                             id="resId1c7">
+                    <af:outputText value="#{row.CustomerPoNumber}" id="ot1"/>
+                  </af:column>
+                  <!--<af:column sortProperty="#{bindings.CeixStsCustDetailsView1.hints.ShipToAddress.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CeixStsCustDetailsView1.hints.ShipToAddress.label}"
+                             id="resId1c8">
+                    <af:outputText value="#{row.ShipToAddress}" id="ot2"/>
+                  </af:column>-->
+                  <af:column sortProperty="#{bindings.CeixStsCustDetailsView1.hints.ContractNumber.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CeixStsCustDetailsView1.hints.ContractNumber.label}"
+                             id="resId1c9">
+                    <af:outputText value="#{row.ContractNumber}" id="ot8"/>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </af:panelGroupLayout>
+          </af:dialog>
+        </af:popup>
+        <af:inputText value="#{bindings.pDest.inputValue}"
+                      label="#{bindings.pDest.hints.label}"
+                      required="#{bindings.pDest.hints.mandatory}"
+                      columns="#{bindings.pDest.hints.displayWidth}"
+                      maximumLength="#{bindings.pDest.hints.precision}"
+                      shortDesc="#{bindings.pDest.hints.tooltip}" id="it108"
+                      binding="#{CeixStsRailScheduleMB.pdestination}">
+          <f:validator binding="#{bindings.pDest.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.pTrainId.inputValue}"
+                      label="#{bindings.pTrainId.hints.label}"
+                      required="#{bindings.pTrainId.hints.mandatory}"
+                      columns="#{bindings.pTrainId.hints.displayWidth}"
+                      maximumLength="#{bindings.pTrainId.hints.precision}"
+                      shortDesc="#{bindings.pTrainId.hints.tooltip}" id="it14"
+                      binding="#{CeixStsRailScheduleMB.ptrainInp}">
+          <f:validator binding="#{bindings.pTrainId.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.pContrNum.inputValue}"
+                      label="#{bindings.pContrNum.hints.label}"
+                      required="#{bindings.pContrNum.hints.mandatory}"
+                      columns="#{bindings.pContrNum.hints.displayWidth}"
+                      maximumLength="#{bindings.pContrNum.hints.precision}"
+                      shortDesc="#{bindings.pContrNum.hints.tooltip}" id="it38"
+                      binding="#{CeixStsRailScheduleMB.pcontrNumInp}">
+          <f:validator binding="#{bindings.pContrNum.validator}"/>
+        </af:inputText>
+      </af:panelFormLayout>
+      <af:spacer width="10" height="20" id="s16"/>
+      <!--calendar here-->
+      <af:calendar value="#{bindings.CeixStsRailSchedulesVO1.calendarModel}"
+                   id="c1" availableViews="all" startDayOfWeek="mon"
+                   styleClass="AFStretchWidth" inlineStyle="height:14.0in;"
+                   calendarActivityListener="#{CeixStsRailScheduleMB.onCalActList}">
+        <f:facet name="activityDetail">
+          <af:popup id="p7" contentDelivery="lazyUncached" 
+                    binding="#{CeixStsRailScheduleMB.updatePopup}">
+            <af:panelWindow id="pw1" title="Update Rail Schedule" closeIconVisible="false">
+              <af:panelFormLayout id="pfl1" maxColumns="5" rows="14"
+                                  fieldWidth="50%" labelWidth="20%">
+                <af:commandButton text="Search Customer" immediate="true"
+                                  icon="/images/func_search_16_ena.png"
+                                  id="cb_4">
+                  <af:showPopupBehavior popupId="p_2"/>
+                </af:commandButton>
+                <af:popup id="p_2" contentDelivery="lazyUncached"
+                          binding="#{CeixStsRailScheduleMB._searchCustomerPopup_updateScreen}">
+                  <af:dialog id="d3" title="Search and Select a Customer"
+                             contentWidth="900"
+                             dialogListener="#{CeixStsRailScheduleMB.searchCustomerDialog_UpdateScreenListener}">
+                    <af:panelGroupLayout layout="vertical" id="pgl4">
+                      <af:panelHeader text="CeixStsCustDetailsView1" id="ph3">
+                        <af:query id="qryId3" headerText="Search"
+                                  disclosed="true"
+                                  value="#{bindings.SearchCustomerViewCriteriaQuery2.queryDescriptor}"
+                                  model="#{bindings.SearchCustomerViewCriteriaQuery2.queryModel}"
+                                  queryListener="#{bindings.SearchCustomerViewCriteriaQuery2.processQuery}"
+                                  saveResultsLayout="never"
+                                  saveQueryMode="hidden"
+                                  modeChangeVisible="false"
+                                  queryOperationListener="#{bindings.SearchCustomerViewCriteriaQuery2.processQueryOperation}"
+                                  resultComponentId="::pc3:resId3"/>
+                      </af:panelHeader>
+                      <af:panelCollection id="pc3" styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.CeixStsCustDetailsView12.collectionModel}"
+                                  var="row"
+                                  rows="#{bindings.CeixStsCustDetailsView12.rangeSize}"
+                                  emptyText="#{bindings.CeixStsCustDetailsView12.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.CeixStsCustDetailsView12.rangeSize}"
+                                  rowBandingInterval="0"
+                                  filterModel="#{bindings.SearchCustomerViewCriteriaQuery2.queryDescriptor}"
+                                  queryListener="#{bindings.SearchCustomerViewCriteriaQuery2.processQuery}"
+                                  filterVisible="true" varStatus="vs"
+                                  selectedRowKeys="#{bindings.CeixStsCustDetailsView12.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.CeixStsCustDetailsView12.collectionModel.makeCurrent}"
+                                  rowSelection="single" id="resId3">
+                          <af:column sortProperty="#{bindings.CeixStsCustDetailsView12.hints.OrderNumber.name}"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.CeixStsCustDetailsView12.hints.OrderNumber.label}"
+                                     id="resId3c1">
+                            <af:outputText value="#{row.OrderNumber}"
+                                           id="ot16"/>
+                          </af:column>
+                          <af:column sortProperty="#{bindings.CeixStsCustDetailsView12.hints.AccountNumber.name}"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.CeixStsCustDetailsView12.hints.AccountNumber.label}"
+                                     id="resId3c2">
+                            <af:outputText value="#{row.AccountNumber}"
+                                           id="ot17"/>
+                          </af:column>
+                          <af:column sortProperty="#{bindings.CeixStsCustDetailsView12.hints.PartyName.name}"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.CeixStsCustDetailsView12.hints.PartyName.label}"
+                                     id="resId3c3">
+                            <af:outputText value="#{row.PartyName}" id="ot18"/>
+                          </af:column>
+                          <af:column sortProperty="#{bindings.CeixStsCustDetailsView12.hints.CustomerPoNumber.name}"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.CeixStsCustDetailsView12.hints.CustomerPoNumber.label}"
+                                     id="resId3c4">
+                            <af:outputText value="#{row.CustomerPoNumber}"
+                                           id="ot21"/>
+                          </af:column>
+                          <!--<af:column sortProperty="#{bindings.CeixStsCustDetailsView12.hints.ShipToAddress.name}"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.CeixStsCustDetailsView12.hints.ShipToAddress.label}"
+                                     id="resId3c5">
+                            <af:outputText value="#{row.ShipToAddress}"
+                                           id="ot20"/>
+                          </af:column>-->
+                          <af:column sortProperty="#{bindings.CeixStsCustDetailsView12.hints.ContractNumber.name}"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.CeixStsCustDetailsView12.hints.ContractNumber.label}"
+                                     id="resId3c6">
+                            <af:outputText value="#{row.ContractNumber}"
+                                           id="ot19"/>
+                          </af:column>
+                        </af:table>
+                      </af:panelCollection>
+                    </af:panelGroupLayout>
+                  </af:dialog>
+                </af:popup>
+                <af:selectOneChoice value="#{bindings.SalesOrderNumber.inputValue}"
+                                    label="#{bindings.SalesOrderNumber.label}"
+                                    required="#{bindings.SalesOrderNumber.hints.mandatory}"
+                                    shortDesc="#{bindings.SalesOrderNumber.hints.tooltip}"
+                                    id="soc2" autoSubmit="true" 
+                                    binding="#{CeixStsRailScheduleMB.porderNumInp_updateScreen}"
+                                    valueChangeListener="#{CeixStsRailScheduleMB.onSalesOrderNumberChangeUpdate}">
+                  <f:selectItems value="#{bindings.SalesOrderNumber.items}"
+                                 id="si2"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.TrainId.inputValue}"
+                              label="#{bindings.TrainId.hints.label}"
+                              required="#{bindings.TrainId.hints.mandatory}"
+                              columns="#{bindings.TrainId.hints.displayWidth}"
+                              maximumLength="#{bindings.TrainId.hints.precision}"
+                              shortDesc="#{bindings.TrainId.hints.tooltip}"
+                              id="it32">
+                  <f:validator binding="#{bindings.TrainId.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.ItemNumber.inputValue}"
+                                    label="#{bindings.ItemNumber.label}"
+                                    required="true"
+                                    shortDesc="#{bindings.ItemNumber.hints.tooltip}"
+                                    id="soc50"
+                                    binding="#{CeixStsRailScheduleMB.pitemNumInp_updateScreen}">
+                  <f:selectItems value="#{bindings.ItemNumber.items}"
+                                 id="si50"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.LoadOrder.inputValue}"
+                              label="#{bindings.LoadOrder.hints.label}"
+                              required="#{bindings.LoadOrder.hints.mandatory}"
+                              columns="#{bindings.LoadOrder.hints.displayWidth}"
+                              maximumLength="#{bindings.LoadOrder.hints.precision}"
+                              shortDesc="#{bindings.LoadOrder.hints.tooltip}"
+                              id="it24">
+                  <f:validator binding="#{bindings.LoadOrder.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.LoadOrder.format}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.LoadDate.inputValue}"
+                              label="#{bindings.LoadDate.hints.label}"
+                              required="#{bindings.LoadDate.hints.mandatory}"
+                              shortDesc="#{bindings.LoadDate.hints.tooltip}"
+                              id="id3">
+                  <f:validator binding="#{bindings.LoadDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.LoadDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.Type.inputValue}"
+                              label="#{bindings.Type.hints.label}"
+                              required="#{bindings.Type.hints.mandatory}"
+                              columns="#{bindings.Type.hints.displayWidth}"
+                              maximumLength="#{bindings.Type.hints.precision}"
+                              shortDesc="#{bindings.Type.hints.tooltip}"
+                              id="it12" rendered="false">
+                  <f:validator binding="#{bindings.Type.validator}"/>
+                </af:inputText>
+                <!--<af:inputText value="#{bindings.Destination.inputValue}"
+                              label="#{bindings.Destination.hints.label}"
+                              required="#{bindings.Destination.hints.mandatory}"
+                              columns="25"
+                              maximumLength="#{bindings.Destination.hints.precision}"
+                              shortDesc="#{bindings.Destination.hints.tooltip}"
+                              id="it17">
+                  <f:validator binding="#{bindings.Destination.validator}"/>
+                </af:inputText>-->
+                <af:selectOneChoice value="#{bindings.Destination.inputValue}"
+                                    label="#{bindings.Destination.label}" required="true"
+                                    shortDesc="#{bindings.Destination.hints.tooltip}"
+                                    id="soc61" binding="#{CeixStsRailScheduleMB.pdestInp_updateScreen}">
+                  <f:selectItems value="#{bindings.Destination.items}"
+                                 id="si61"/>
+                </af:selectOneChoice>
+                <af:panelLabelAndMessage label="#{bindings.Dest.hints.label}"
+                                         id="plam2" rendered="false">
+                  <af:outputFormatted value="#{bindings.Dest.inputValue}"
+                                      id="of2"/>
+                </af:panelLabelAndMessage>
+                <af:inputText value="#{bindings.DestinationEta.inputValue}"
+                              label="#{bindings.DestinationEta.hints.label}"
+                              required="#{bindings.DestinationEta.hints.mandatory}"
+                              columns="20"
+                              maximumLength="#{bindings.DestinationEta.hints.precision}"
+                              shortDesc="#{bindings.DestinationEta.hints.tooltip}"
+                              id="it18">
+                  <f:validator binding="#{bindings.DestinationEta.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Consignee.inputValue}"
+                              label="#{bindings.Consignee.hints.label}"
+                              required="#{bindings.Consignee.hints.mandatory}"
+                              columns="25"
+                              maximumLength="#{bindings.Consignee.hints.precision}"
+                              shortDesc="#{bindings.Consignee.hints.tooltip}"
+                              id="it11">
+                  <f:validator binding="#{bindings.Consignee.validator}"/>
+                </af:inputText>
+                <!--<af:inputText value="#{bindings.LoadOrigin.inputValue}"
+                              label="#{bindings.LoadOrigin.hints.label}"
+                              columns="25"
+                              maximumLength="#{bindings.LoadOrigin.hints.precision}"
+                              shortDesc="#{bindings.LoadOrigin.hints.tooltip}"
+                              id="it21">
+                  <f:validator binding="#{bindings.LoadOrigin.validator}"/>
+                </af:inputText>-->
+                <af:selectOneChoice value="#{bindings.LoadOrigin.inputValue}"
+                                    label="#{bindings.LoadOrigin.label}" 
+                                    shortDesc="#{bindings.LoadOrigin.hints.tooltip}"
+                                    id="soc55">
+                  <f:selectItems value="#{bindings.LoadOrigin.items}"
+                                 id="si55"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.OriginEta.inputValue}"
+                              label="#{bindings.OriginEta.hints.label}"
+                              required="#{bindings.OriginEta.hints.mandatory}"
+                              columns="20"
+                              maximumLength="#{bindings.OriginEta.hints.precision}"
+                              shortDesc="#{bindings.OriginEta.hints.tooltip}"
+                              id="it5">
+                  <f:validator binding="#{bindings.OriginEta.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ReservationStatus.inputValue}"
+                              label="#{bindings.ReservationStatus.hints.label}"
+                              required="#{bindings.ReservationStatus.hints.mandatory}"
+                              columns="15"
+                              maximumLength="#{bindings.ReservationStatus.hints.precision}"
+                              shortDesc="#{bindings.ReservationStatus.hints.tooltip}"
+                              id="it27">
+                  <f:validator binding="#{bindings.ReservationStatus.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Request.inputValue}"
+                              label="#{bindings.Request.hints.label}"
+                              required="#{bindings.Request.hints.mandatory}"
+                              columns="#{bindings.Request.hints.displayWidth}"
+                              maximumLength="#{bindings.Request.hints.precision}"
+                              shortDesc="#{bindings.Request.hints.tooltip}"
+                              id="it1">
+                  <f:validator binding="#{bindings.Request.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.OrderPlaceDate.inputValue}"
+                              label="#{bindings.OrderPlaceDate.hints.label}"
+                              required="#{bindings.OrderPlaceDate.hints.mandatory}"
+                              shortDesc="#{bindings.OrderPlaceDate.hints.tooltip}"
+                              id="id1">
+                  <f:validator binding="#{bindings.OrderPlaceDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.OrderPlaceDate.format}"/>
+                </af:inputDate>
+                <af:inputDate value="#{bindings.RequestedLoadDate.inputValue}"
+                              label="#{bindings.RequestedLoadDate.hints.label}"
+                              required="#{bindings.RequestedLoadDate.hints.mandatory}"
+                              shortDesc="#{bindings.RequestedLoadDate.hints.tooltip}"
+                              id="id2">
+                  <f:validator binding="#{bindings.RequestedLoadDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.RequestedLoadDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.Cars.inputValue}"
+                              label="#{bindings.Cars.hints.label}"
+                              required="#{bindings.Cars.hints.mandatory}"
+                              columns="#{bindings.Cars.hints.displayWidth}"
+                              maximumLength="#{bindings.Cars.hints.precision}"
+                              shortDesc="#{bindings.Cars.hints.tooltip}"
+                              id="it30">
+                  <f:validator binding="#{bindings.Cars.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Tons.inputValue}"
+                              label="#{bindings.Tons.hints.label}"
+                              required="#{bindings.Tons.hints.mandatory}"
+                              columns="#{bindings.Tons.hints.displayWidth}"
+                              maximumLength="#{bindings.Tons.hints.precision}"
+                              shortDesc="#{bindings.Tons.hints.tooltip}"
+                              id="it15">
+                  <f:validator binding="#{bindings.Tons.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoalClass.inputValue}"
+                              label="#{bindings.CoalClass.hints.label}"
+                              required="#{bindings.CoalClass.hints.mandatory}"
+                              columns="#{bindings.CoalClass.hints.displayWidth}"
+                              maximumLength="#{bindings.CoalClass.hints.precision}"
+                              shortDesc="#{bindings.CoalClass.hints.tooltip}"
+                              id="it16">
+                  <f:validator binding="#{bindings.CoalClass.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Weigh.inputValue}"
+                              label="#{bindings.Weigh.hints.label}"
+                              required="#{bindings.Weigh.hints.mandatory}"
+                              columns="#{bindings.Weigh.hints.displayWidth}"
+                              maximumLength="#{bindings.Weigh.hints.precision}"
+                              shortDesc="#{bindings.Weigh.hints.tooltip}"
+                              id="it20">
+                  <f:validator binding="#{bindings.Weigh.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Loads.inputValue}"
+                              label="#{bindings.Loads.hints.label}"
+                              required="#{bindings.Loads.hints.mandatory}"
+                              columns="#{bindings.Loads.hints.displayWidth}"
+                              maximumLength="#{bindings.Loads.hints.precision}"
+                              shortDesc="#{bindings.Loads.hints.tooltip}"
+                              id="it8">
+                  <f:validator binding="#{bindings.Loads.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Mty.inputValue}"
+                              label="#{bindings.Mty.hints.label}"
+                              required="#{bindings.Mty.hints.mandatory}"
+                              columns="#{bindings.Mty.hints.displayWidth}"
+                              maximumLength="#{bindings.Mty.hints.precision}"
+                              shortDesc="#{bindings.Mty.hints.tooltip}"
+                              id="it19">
+                  <f:validator binding="#{bindings.Mty.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.WaybillDate.inputValue}"
+                              label="#{bindings.WaybillDate.hints.label}"
+                              required="#{bindings.WaybillDate.hints.mandatory}"
+                              shortDesc="#{bindings.WaybillDate.hints.tooltip}"
+                              id="id4">
+                  <f:validator binding="#{bindings.WaybillDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.WaybillDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.Waybill.inputValue}"
+                              label="#{bindings.Waybill.hints.label}"
+                              required="#{bindings.Waybill.hints.mandatory}"
+                              columns="#{bindings.Waybill.hints.displayWidth}"
+                              maximumLength="#{bindings.Waybill.hints.precision}"
+                              shortDesc="#{bindings.Waybill.hints.tooltip}"
+                              id="it10">
+                  <f:validator binding="#{bindings.Waybill.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LastTrain.inputValue}"
+                              label="#{bindings.LastTrain.hints.label}"
+                              required="#{bindings.LastTrain.hints.mandatory}"
+                              columns="#{bindings.LastTrain.hints.displayWidth}"
+                              maximumLength="#{bindings.LastTrain.hints.precision}"
+                              shortDesc="#{bindings.LastTrain.hints.tooltip}"
+                              id="it22">
+                  <f:validator binding="#{bindings.LastTrain.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.City.inputValue}"
+                              label="#{bindings.City.hints.label}"
+                              required="#{bindings.City.hints.mandatory}"
+                              columns="#{bindings.City.hints.displayWidth}"
+                              maximumLength="#{bindings.City.hints.precision}"
+                              shortDesc="#{bindings.City.hints.tooltip}"
+                              id="it6">
+                  <f:validator binding="#{bindings.City.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LastEventTime.inputValue}"
+                              label="#{bindings.LastEventTime.hints.label}"
+                              required="#{bindings.LastEventTime.hints.mandatory}"
+                              columns="#{bindings.LastEventTime.hints.displayWidth}"
+                              maximumLength="#{bindings.LastEventTime.hints.precision}"
+                              shortDesc="#{bindings.LastEventTime.hints.tooltip}"
+                              id="it26">
+                  <f:validator binding="#{bindings.LastEventTime.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CurrentSet.inputValue}"
+                              label="#{bindings.CurrentSet.hints.label}"
+                              required="#{bindings.CurrentSet.hints.mandatory}"
+                              columns="#{bindings.CurrentSet.hints.displayWidth}"
+                              maximumLength="#{bindings.CurrentSet.hints.precision}"
+                              shortDesc="#{bindings.CurrentSet.hints.tooltip}"
+                              id="it4">
+                  <f:validator binding="#{bindings.CurrentSet.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CurrentStatus.inputValue}"
+                              label="#{bindings.CurrentStatus.hints.label}"
+                              required="#{bindings.CurrentStatus.hints.mandatory}"
+                              columns="#{bindings.CurrentStatus.hints.displayWidth}"
+                              maximumLength="#{bindings.CurrentStatus.hints.precision}"
+                              shortDesc="#{bindings.CurrentStatus.hints.tooltip}"
+                              id="it23">
+                  <f:validator binding="#{bindings.CurrentStatus.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.HoldFlag2.inputValue}"
+                                    label="#{bindings.HoldFlag2.label}"
+                                    required="#{bindings.HoldFlag2.hints.mandatory}"
+                                    shortDesc="#{bindings.HoldFlag2.hints.tooltip}"
+                                    id="soc7">
+                  <f:selectItems value="#{bindings.HoldFlag2.items}" id="si7"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.Carrier.inputValue}"
+                              label="#{bindings.Carrier.hints.label}"
+                              required="#{bindings.Carrier.hints.mandatory}"
+                              columns="#{bindings.Carrier.hints.displayWidth}"
+                              maximumLength="#{bindings.Carrier.hints.precision}"
+                              shortDesc="#{bindings.Carrier.hints.tooltip}"
+                              id="it2">
+                  <f:validator binding="#{bindings.Carrier.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Problem.inputValue}"
+                              label="#{bindings.Problem.hints.label}"
+                              required="#{bindings.Problem.hints.mandatory}"
+                              columns="#{bindings.Problem.hints.displayWidth}"
+                              maximumLength="#{bindings.Problem.hints.precision}"
+                              shortDesc="#{bindings.Problem.hints.tooltip}"
+                              id="it29">
+                  <f:validator binding="#{bindings.Problem.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Comments.inputValue}"
+                              label="#{bindings.Comments.hints.label}"
+                              required="#{bindings.Comments.hints.mandatory}"
+                              columns="25"
+                              maximumLength="#{bindings.Comments.hints.precision}"
+                              shortDesc="#{bindings.Comments.hints.tooltip}"
+                              id="it28" rows="2">
+                  <f:validator binding="#{bindings.Comments.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CustomerContract.inputValue}"
+                              label="#{bindings.CustomerContract.hints.label}"
+                              required="#{bindings.CustomerContract.hints.mandatory}"
+                              columns="20"
+                              maximumLength="#{bindings.CustomerContract.hints.precision}"
+                              shortDesc="#{bindings.CustomerContract.hints.tooltip}"
+                              id="it7">
+                  <f:validator binding="#{bindings.CustomerContract.validator}"/>
+                </af:inputText>
+                <af:panelLabelAndMessage label="#{bindings.ContractNumber.hints.label}"
+                                         id="plam1">
+                  <af:outputFormatted value="#{bindings.ContractNumber.inputValue}"
+                                      id="of1"/>
+                </af:panelLabelAndMessage>
+                <af:inputText value="#{bindings.Rr.inputValue}"
+                              label="#{bindings.Rr.hints.label}"
+                              required="#{bindings.Rr.hints.mandatory}"
+                              columns="20"
+                              maximumLength="#{bindings.Rr.hints.precision}"
+                              shortDesc="#{bindings.Rr.hints.tooltip}"
+                              id="it13">
+                  <f:validator binding="#{bindings.Rr.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Source.inputValue}"
+                              label="#{bindings.Source.hints.label}"
+                              required="#{bindings.Source.hints.mandatory}"
+                              columns="20"
+                              maximumLength="#{bindings.Source.hints.precision}"
+                              shortDesc="#{bindings.Source.hints.tooltip}"
+                              id="it25">
+                  <f:validator binding="#{bindings.Source.validator}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                  <af:toolbar id="t1">
+                    <af:spacer width="10" height="10" id="s6"/>
+                    <af:commandButton text="Save" id="cb1"
+                                      disabled="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}"
+                                      actionListener="#{CeixStsRailScheduleMB.onSave}"/>
+                    <af:spacer width="10" height="10" id="s7"/>
+                    <af:commandButton text="Cancel" id="cb2" immediate="true"
+                                      actionListener="#{CeixStsRailScheduleMB.onCancel}"/>
+                    <af:spacer width="10" height="10" id="s8"/>
+                  </af:toolbar>
+                </f:facet>
+              </af:panelFormLayout>
+            </af:panelWindow>
+          </af:popup>
+        </f:facet>
+        <f:facet name="create">
+          <af:popup id="p2" binding="#{CeixStsRailScheduleMB.createPopup}"
+                    popupFetchListener="#{CeixStsRailScheduleMB.onCreatePopupFetch}" contentDelivery="lazyUncached">
+            <af:panelWindow id="pw2" title="Create Railschedule" closeIconVisible="false">
+              <af:panelFormLayout id="pfl3" maxColumns="5" rows="14"
+                                  fieldWidth="50%" labelWidth="20%">
+                <af:commandButton text="Search Customer" immediate="true"
+                                  icon="/images/func_search_16_ena.png"
+                                  id="cb_3">
+                  <af:showPopupBehavior popupId="p_1"/>
+                </af:commandButton>
+                <af:popup id="p_1" contentDelivery="lazyUncached"
+                          binding="#{CeixStsRailScheduleMB._searchCustomerPopup_createScreen}">
+                  <af:dialog id="d4" title="Search and Select a Customer"
+                             contentWidth="900"
+                             dialogListener="#{CeixStsRailScheduleMB.searchCustomerDialog_CreateScreenListener}">
+                    <af:panelGroupLayout layout="vertical" id="pgl2">
+                      <af:panelHeader text="CeixStsCustDetailsView1" id="ph2">
+                        <af:query id="qryId2" headerText="Search"
+                                  disclosed="true"
+                                  value="#{bindings.SearchCustomerViewCriteriaQuery1.queryDescriptor}"
+                                  model="#{bindings.SearchCustomerViewCriteriaQuery1.queryModel}"
+                                  queryListener="#{bindings.SearchCustomerViewCriteriaQuery1.processQuery}"
+                                  saveResultsLayout="never"
+                                  saveQueryMode="hidden"
+                                  modeChangeVisible="false"
+                                  queryOperationListener="#{bindings.SearchCustomerViewCriteriaQuery1.processQueryOperation}"
+                                  resultComponentId="::pc2:resId2"/>
+                      </af:panelHeader>
+                      <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.CeixStsCustDetailsView11.collectionModel}"
+                                  var="row"
+                                  rows="#{bindings.CeixStsCustDetailsView11.rangeSize}"
+                                  emptyText="#{bindings.CeixStsCustDetailsView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.CeixStsCustDetailsView11.rangeSize}"
+                                  rowBandingInterval="0"
+                                  filterModel="#{bindings.SearchCustomerViewCriteriaQuery1.queryDescriptor}"
+                                  queryListener="#{bindings.SearchCustomerViewCriteriaQuery1.processQuery}"
+                                  filterVisible="true" varStatus="vs"
+                                  selectedRowKeys="#{bindings.CeixStsCustDetailsView11.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.CeixStsCustDetailsView11.collectionModel.makeCurrent}"
+                                  rowSelection="single" id="resId2">
+                          <af:column sortProperty="#{bindings.CeixStsCustDetailsView11.hints.OrderNumber.name}"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.CeixStsCustDetailsView11.hints.OrderNumber.label}"
+                                     id="resId2c1">
+                            <af:outputText value="#{row.OrderNumber}"
+                                           id="ot12"/>
+                          </af:column>
+                          <af:column sortProperty="#{bindings.CeixStsCustDetailsView11.hints.AccountNumber.name}"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.CeixStsCustDetailsView11.hints.AccountNumber.label}"
+                                     id="resId2c2">
+                            <af:outputText value="#{row.AccountNumber}"
+                                           id="ot15"/>
+                          </af:column>
+                          <af:column sortProperty="#{bindings.CeixStsCustDetailsView11.hints.PartyName.name}"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.CeixStsCustDetailsView11.hints.PartyName.label}"
+                                     id="resId2c3">
+                            <af:outputText value="#{row.PartyName}" id="ot11"/>
+                          </af:column>
+                          <af:column sortProperty="#{bindings.CeixStsCustDetailsView11.hints.CustomerPoNumber.name}"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.CeixStsCustDetailsView11.hints.CustomerPoNumber.label}"
+                                     id="resId2c4">
+                            <af:outputText value="#{row.CustomerPoNumber}"
+                                           id="ot13"/>
+                          </af:column>
+                          <!--<af:column sortProperty="#{bindings.CeixStsCustDetailsView11.hints.ShipToAddress.name}"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.CeixStsCustDetailsView11.hints.ShipToAddress.label}"
+                                     id="resId2c5">
+                            <af:outputText value="#{row.ShipToAddress}"
+                                           id="ot10"/>
+                          </af:column>-->
+                          <af:column sortProperty="#{bindings.CeixStsCustDetailsView11.hints.ContractNumber.name}"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.CeixStsCustDetailsView11.hints.ContractNumber.label}"
+                                     id="resId2c6">
+                            <af:outputText value="#{row.ContractNumber}"
+                                           id="ot14"/>
+                          </af:column>
+                        </af:table>
+                      </af:panelCollection>
+                    </af:panelGroupLayout>
+                  </af:dialog>
+                </af:popup>
+                <af:selectOneChoice value="#{bindings.SalesOrderNumber.inputValue}"
+                                    label="#{bindings.SalesOrderNumber.label}"
+                                    required="#{bindings.SalesOrderNumber.hints.mandatory}"
+                                    shortDesc="#{bindings.SalesOrderNumber.hints.tooltip}"
+                                    id="soc4" autoSubmit="true" 
+                                    binding="#{CeixStsRailScheduleMB.porderNumInp_createScreen}"
+                                    valueChangeListener="#{CeixStsRailScheduleMB.onSalesOrderNumberChangeCreate}">
+                  <f:selectItems value="#{bindings.SalesOrderNumber.items}"
+                                 id="si4"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.TrainId.inputValue}"
+                              label="#{bindings.TrainId.hints.label}"
+                              columns="#{bindings.TrainId.hints.displayWidth}"
+                              maximumLength="#{bindings.TrainId.hints.precision}"
+                              shortDesc="#{bindings.TrainId.hints.tooltip}"
+                              id="it55" required="true">
+                  <f:validator binding="#{bindings.TrainId.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.ItemNumber.inputValue}"
+                                    label="#{bindings.ItemNumber.label}"
+                                    required="true"
+                                    shortDesc="#{bindings.ItemNumber.hints.tooltip}"
+                                    id="soc51" binding="#{CeixStsRailScheduleMB.pitemNumInp_createScreen}">
+                  <f:selectItems value="#{bindings.ItemNumber.items}"
+                                 id="si51"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.LoadOrder.inputValue}"
+                              label="#{bindings.LoadOrder.hints.label}"
+                              required="#{bindings.LoadOrder.hints.mandatory}"
+                              columns="#{bindings.LoadOrder.hints.displayWidth}"
+                              maximumLength="#{bindings.LoadOrder.hints.precision}"
+                              shortDesc="#{bindings.LoadOrder.hints.tooltip}"
+                              id="it49">
+                  <f:validator binding="#{bindings.LoadOrder.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.LoadOrder.format}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.LoadDate.inputValue}"
+                              label="#{bindings.LoadDate.hints.label}"
+                              shortDesc="#{bindings.LoadDate.hints.tooltip}"
+                              id="id6" required="true">
+                  <f:validator binding="#{bindings.LoadDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.LoadDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.Type.inputValue}"
+                              label="#{bindings.Type.hints.label}"
+                              required="#{bindings.Type.hints.mandatory}"
+                              columns="#{bindings.Type.hints.displayWidth}"
+                              maximumLength="#{bindings.Type.hints.precision}"
+                              shortDesc="#{bindings.Type.hints.tooltip}"
+                              id="it35" rendered="false">
+                  <f:validator binding="#{bindings.Type.validator}"/>
+                </af:inputText>
+                <!--<af:inputText value="#{bindings.Destination.inputValue}"
+                              label="#{bindings.Destination.hints.label}"
+                              columns="25"
+                              maximumLength="#{bindings.Destination.hints.precision}"
+                              shortDesc="#{bindings.Destination.hints.tooltip}"
+                              id="it57" required="true">
+                  <f:validator binding="#{bindings.Destination.validator}"/>
+                </af:inputText>-->
+                <af:selectOneChoice value="#{bindings.Destination.inputValue}"
+                                    label="#{bindings.Destination.label}" required="true"
+                                    shortDesc="#{bindings.Destination.hints.tooltip}"
+                                    id="soc59" binding="#{CeixStsRailScheduleMB.pdestInp_createScreen}">
+                  <f:selectItems value="#{bindings.Destination.items}"
+                                 id="si59"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.DestinationEta.inputValue}"
+                              label="#{bindings.DestinationEta.hints.label}"
+                              required="#{bindings.DestinationEta.hints.mandatory}"
+                              columns="20"
+                              maximumLength="#{bindings.DestinationEta.hints.precision}"
+                              shortDesc="#{bindings.DestinationEta.hints.tooltip}"
+                              id="it53">
+                  <f:validator binding="#{bindings.DestinationEta.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Consignee.inputValue}"
+                              label="#{bindings.Consignee.hints.label}"
+                              required="#{bindings.Consignee.hints.mandatory}"
+                              columns="25"
+                              maximumLength="#{bindings.Consignee.hints.precision}"
+                              shortDesc="#{bindings.Consignee.hints.tooltip}"
+                              id="it34">
+                  <f:validator binding="#{bindings.Consignee.validator}"/>
+                </af:inputText>
+                <!--<af:inputText value="#{bindings.LoadOrigin.inputValue}"
+                              label="#{bindings.LoadOrigin.hints.label}"
+                              required="#{bindings.LoadOrigin.hints.mandatory}"
+                              columns="25"
+                              maximumLength="#{bindings.LoadOrigin.hints.precision}"
+                              shortDesc="#{bindings.LoadOrigin.hints.tooltip}"
+                              id="it40">
+                  <f:validator binding="#{bindings.LoadOrigin.validator}"/>
+                </af:inputText>-->
+                <af:selectOneChoice value="#{bindings.LoadOrigin.inputValue}"
+                                    label="#{bindings.LoadOrigin.label}"
+                                    shortDesc="#{bindings.LoadOrigin.hints.tooltip}"
+                                    id="soc56">
+                  <f:selectItems value="#{bindings.LoadOrigin.items}"
+                                 id="si56"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.OriginEta.inputValue}"
+                              label="#{bindings.OriginEta.hints.label}"
+                              required="#{bindings.OriginEta.hints.mandatory}"
+                              columns="20"
+                              maximumLength="#{bindings.OriginEta.hints.precision}"
+                              shortDesc="#{bindings.OriginEta.hints.tooltip}"
+                              id="it52">
+                  <f:validator binding="#{bindings.OriginEta.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ReservationStatus.inputValue}"
+                              label="#{bindings.ReservationStatus.hints.label}"
+                              required="#{bindings.ReservationStatus.hints.mandatory}"
+                              columns="15"
+                              maximumLength="#{bindings.ReservationStatus.hints.precision}"
+                              shortDesc="#{bindings.ReservationStatus.hints.tooltip}"
+                              id="it44">
+                  <f:validator binding="#{bindings.ReservationStatus.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Request.inputValue}"
+                              label="#{bindings.Request.hints.label}"
+                              required="#{bindings.Request.hints.mandatory}"
+                              columns="#{bindings.Request.hints.displayWidth}"
+                              maximumLength="#{bindings.Request.hints.precision}"
+                              shortDesc="#{bindings.Request.hints.tooltip}"
+                              id="it59">
+                  <f:validator binding="#{bindings.Request.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.OrderPlaceDate.inputValue}"
+                              label="#{bindings.OrderPlaceDate.hints.label}"
+                              required="#{bindings.OrderPlaceDate.hints.mandatory}"
+                              shortDesc="#{bindings.OrderPlaceDate.hints.tooltip}"
+                              id="id7">
+                  <f:validator binding="#{bindings.OrderPlaceDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.OrderPlaceDate.format}"/>
+                </af:inputDate>
+                <af:inputDate value="#{bindings.RequestedLoadDate.inputValue}"
+                              label="#{bindings.RequestedLoadDate.hints.label}"
+                              required="#{bindings.RequestedLoadDate.hints.mandatory}"
+                              shortDesc="#{bindings.RequestedLoadDate.hints.tooltip}"
+                              id="id5">
+                  <f:validator binding="#{bindings.RequestedLoadDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.RequestedLoadDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.Cars.inputValue}"
+                              label="#{bindings.Cars.hints.label}"
+                              required="#{bindings.Cars.hints.mandatory}"
+                              columns="#{bindings.Cars.hints.displayWidth}"
+                              maximumLength="#{bindings.Cars.hints.precision}"
+                              shortDesc="#{bindings.Cars.hints.tooltip}"
+                              id="it36">
+                  <f:validator binding="#{bindings.Cars.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Tons.inputValue}"
+                              label="#{bindings.Tons.hints.label}"
+                              required="#{bindings.Tons.hints.mandatory}"
+                              columns="20"
+                              maximumLength="#{bindings.Tons.hints.precision}"
+                              shortDesc="#{bindings.Tons.hints.tooltip}"
+                              id="it46">
+                  <f:validator binding="#{bindings.Tons.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoalClass.inputValue}"
+                              label="#{bindings.CoalClass.hints.label}"
+                              required="#{bindings.CoalClass.hints.mandatory}"
+                              columns="#{bindings.CoalClass.hints.displayWidth}"
+                              maximumLength="#{bindings.CoalClass.hints.precision}"
+                              shortDesc="#{bindings.CoalClass.hints.tooltip}"
+                              id="it60">
+                  <f:validator binding="#{bindings.CoalClass.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Weigh.inputValue}"
+                              label="#{bindings.Weigh.hints.label}"
+                              required="#{bindings.Weigh.hints.mandatory}"
+                              columns="#{bindings.Weigh.hints.displayWidth}"
+                              maximumLength="#{bindings.Weigh.hints.precision}"
+                              shortDesc="#{bindings.Weigh.hints.tooltip}"
+                              id="it56">
+                  <f:validator binding="#{bindings.Weigh.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Loads.inputValue}"
+                              label="#{bindings.Loads.hints.label}"
+                              required="#{bindings.Loads.hints.mandatory}"
+                              columns="#{bindings.Loads.hints.displayWidth}"
+                              maximumLength="#{bindings.Loads.hints.precision}"
+                              shortDesc="#{bindings.Loads.hints.tooltip}"
+                              id="it9">
+                  <f:validator binding="#{bindings.Loads.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Mty.inputValue}"
+                              label="#{bindings.Mty.hints.label}"
+                              required="#{bindings.Mty.hints.mandatory}"
+                              columns="#{bindings.Mty.hints.displayWidth}"
+                              maximumLength="#{bindings.Mty.hints.precision}"
+                              shortDesc="#{bindings.Mty.hints.tooltip}"
+                              id="it31">
+                  <f:validator binding="#{bindings.Mty.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.WaybillDate.inputValue}"
+                              label="#{bindings.WaybillDate.hints.label}"
+                              required="#{bindings.WaybillDate.hints.mandatory}"
+                              shortDesc="#{bindings.WaybillDate.hints.tooltip}"
+                              id="id8">
+                  <f:validator binding="#{bindings.WaybillDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.WaybillDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.Waybill.inputValue}"
+                              label="#{bindings.Waybill.hints.label}"
+                              required="#{bindings.Waybill.hints.mandatory}"
+                              columns="#{bindings.Waybill.hints.displayWidth}"
+                              maximumLength="#{bindings.Waybill.hints.precision}"
+                              shortDesc="#{bindings.Waybill.hints.tooltip}"
+                              id="it47">
+                  <f:validator binding="#{bindings.Waybill.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LastTrain.inputValue}"
+                              label="#{bindings.LastTrain.hints.label}"
+                              required="#{bindings.LastTrain.hints.mandatory}"
+                              columns="#{bindings.LastTrain.hints.displayWidth}"
+                              maximumLength="#{bindings.LastTrain.hints.precision}"
+                              shortDesc="#{bindings.LastTrain.hints.tooltip}"
+                              id="it45">
+                  <f:validator binding="#{bindings.LastTrain.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.City.inputValue}"
+                              label="#{bindings.City.hints.label}"
+                              required="#{bindings.City.hints.mandatory}"
+                              columns="#{bindings.City.hints.displayWidth}"
+                              maximumLength="#{bindings.City.hints.precision}"
+                              shortDesc="#{bindings.City.hints.tooltip}"
+                              id="it51">
+                  <f:validator binding="#{bindings.City.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LastEventTime.inputValue}"
+                              label="#{bindings.LastEventTime.hints.label}"
+                              required="#{bindings.LastEventTime.hints.mandatory}"
+                              columns="#{bindings.LastEventTime.hints.displayWidth}"
+                              maximumLength="#{bindings.LastEventTime.hints.precision}"
+                              shortDesc="#{bindings.LastEventTime.hints.tooltip}"
+                              id="it61">
+                  <f:validator binding="#{bindings.LastEventTime.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CurrentSet.inputValue}"
+                              label="#{bindings.CurrentSet.hints.label}"
+                              required="#{bindings.CurrentSet.hints.mandatory}"
+                              columns="#{bindings.CurrentSet.hints.displayWidth}"
+                              maximumLength="#{bindings.CurrentSet.hints.precision}"
+                              shortDesc="#{bindings.CurrentSet.hints.tooltip}"
+                              id="it42">
+                  <f:validator binding="#{bindings.CurrentSet.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CurrentStatus.inputValue}"
+                              label="#{bindings.CurrentStatus.hints.label}"
+                              required="#{bindings.CurrentStatus.hints.mandatory}"
+                              columns="#{bindings.CurrentStatus.hints.displayWidth}"
+                              maximumLength="#{bindings.CurrentStatus.hints.precision}"
+                              shortDesc="#{bindings.CurrentStatus.hints.tooltip}"
+                              id="it48">
+                  <f:validator binding="#{bindings.CurrentStatus.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.HoldFlag2.inputValue}"
+                                    label="#{bindings.HoldFlag2.label}"
+                                    required="#{bindings.HoldFlag2.hints.mandatory}"
+                                    shortDesc="#{bindings.HoldFlag2.hints.tooltip}"
+                                    id="soc8">
+                  <f:selectItems value="#{bindings.HoldFlag2.items}" id="si8"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.Carrier.inputValue}"
+                              label="#{bindings.Carrier.hints.label}"
+                              required="#{bindings.Carrier.hints.mandatory}"
+                              columns="#{bindings.Carrier.hints.displayWidth}"
+                              maximumLength="#{bindings.Carrier.hints.precision}"
+                              shortDesc="#{bindings.Carrier.hints.tooltip}"
+                              id="it58">
+                  <f:validator binding="#{bindings.Carrier.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Problem.inputValue}"
+                              label="#{bindings.Problem.hints.label}"
+                              required="#{bindings.Problem.hints.mandatory}"
+                              columns="#{bindings.Problem.hints.displayWidth}"
+                              maximumLength="#{bindings.Problem.hints.precision}"
+                              shortDesc="#{bindings.Problem.hints.tooltip}"
+                              id="it50">
+                  <f:validator binding="#{bindings.Problem.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Comments.inputValue}"
+                              label="#{bindings.Comments.hints.label}"
+                              required="#{bindings.Comments.hints.mandatory}"
+                              columns="25"
+                              maximumLength="#{bindings.Comments.hints.precision}"
+                              shortDesc="#{bindings.Comments.hints.tooltip}"
+                              id="it54" rows="2">
+                  <f:validator binding="#{bindings.Comments.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CustomerContract.inputValue}"
+                              label="#{bindings.CustomerContract.hints.label}"
+                              required="#{bindings.CustomerContract.hints.mandatory}"
+                              columns="20"
+                              maximumLength="#{bindings.CustomerContract.hints.precision}"
+                              shortDesc="#{bindings.CustomerContract.hints.tooltip}"
+                              id="it37">
+                  <f:validator binding="#{bindings.CustomerContract.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Rr.inputValue}"
+                              label="#{bindings.Rr.hints.label}"
+                              required="#{bindings.Rr.hints.mandatory}"
+                              columns="20"
+                              maximumLength="#{bindings.Rr.hints.precision}"
+                              shortDesc="#{bindings.Rr.hints.tooltip}"
+                              id="it43">
+                  <f:validator binding="#{bindings.Rr.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Source.inputValue}"
+                              label="#{bindings.Source.hints.label}"
+                              required="#{bindings.Source.hints.mandatory}"
+                              columns="20"
+                              maximumLength="#{bindings.Source.hints.precision}"
+                              shortDesc="#{bindings.Source.hints.tooltip}"
+                              id="it33">
+                  <f:validator binding="#{bindings.Source.validator}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                  <af:toolbar id="t2">
+                    <af:spacer width="10" height="10" id="s9"/>
+                    <af:commandButton text="Create" id="cb3"
+                                      disabled="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}"
+                                      actionListener="#{CeixStsRailScheduleMB.onCreate}"/>
+                    <af:spacer width="10" height="10" id="s10"/>
+                    <af:commandButton text="Cancel" id="cb4"
+                                      actionListener="#{CeixStsRailScheduleMB.onCancel}"
+                                      immediate="true"/>
+                    <af:spacer width="10" height="10" id="s11"/>
+                  </af:toolbar>
+                </f:facet>
+              </af:panelFormLayout>
+            </af:panelWindow>
+          </af:popup>
+        </f:facet>
+        <f:facet name="contextMenu">
+          <af:popup id="p3">
+            <af:menu text="menu 1" id="m1">
+              <af:commandMenuItem actionListener="#{bindings.CreateInsert.execute}"
+                                  text="Create Rail Schedules"
+                                  disabled="#{!bindings.CreateInsert.enabled or securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}"
+                                  id="cmi1">
+                <af:showPopupBehavior popupId="p2" triggerType="action"/>
+              </af:commandMenuItem>
+            </af:menu>
+          </af:popup>
+        </f:facet>
+        <f:facet name="activityContextMenu">
+          <af:popup id="p5">
+            <af:menu text="menu 2" id="m2">
+              <af:commandMenuItem text="Update" id="cmi2">
+                <af:showPopupBehavior popupId="p7" triggerType="action"/>
+              </af:commandMenuItem>
+              <af:commandMenuItem actionListener="#{bindings.CreateInsert.execute}"
+                                  text="Copy and Create"
+                                  disabled="#{!bindings.CreateInsert.enabled or securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}"
+                                  id="cmi3">
+                <af:showPopupBehavior popupId="::p6" triggerType="action"/>
+              </af:commandMenuItem>
+            </af:menu>
+          </af:popup>
+        </f:facet>
+      </af:calendar>
+      <af:popup id="p6" 
+                popupFetchListener="#{CeixStsRailScheduleMB.onCopyPopupFetch}"
+                binding="#{CeixStsRailScheduleMB.copyAndCreatePopup}" contentDelivery="lazyUncached">
+        <af:panelWindow id="pw4" title="Copy Rail Schedule" closeIconVisible="false">
+          <af:panelFormLayout id="pfl5" maxColumns="5" rows="14"
+                              fieldWidth="50%" labelWidth="20%">
+            <af:commandButton text="Search Customer" id="cb11"
+                              icon="/images/func_search_16_ena.png"
+                              immediate="true">
+              <af:showPopupBehavior popupId="p8"/>
+            </af:commandButton>
+            <af:popup id="p8" contentDelivery="lazyUncached"
+                      binding="#{CeixStsRailScheduleMB._searchCustomerPopup_copyScreen}">
+              <af:dialog id="d1" contentWidth="900"
+                         title="Search and Select a Customer"
+                         dialogListener="#{CeixStsRailScheduleMB.searchCustomerDialog_CopyScreenListener}">
+                <af:panelGroupLayout id="pgl6" layout="vertical">
+                  <af:panelGroupLayout layout="vertical" id="pgl7">
+                    <af:panelHeader text="CeixStsCustDetailsView1" id="ph4">
+                      <af:query id="qryId4" headerText="Search" disclosed="true"
+                                value="#{bindings.SearchCustomerViewCriteriaQuery4.queryDescriptor}"
+                                model="#{bindings.SearchCustomerViewCriteriaQuery4.queryModel}"
+                                queryListener="#{bindings.SearchCustomerViewCriteriaQuery4.processQuery}"
+                                queryOperationListener="#{bindings.SearchCustomerViewCriteriaQuery4.processQueryOperation}"
+                                resultComponentId="::pc4:resId4"
+                                saveQueryMode="hidden" modeChangeVisible="false"
+                                saveResultsLayout="never"/>
+                    </af:panelHeader>
+                    <af:panelCollection id="pc4">
+                      <f:facet name="menus"/>
+                      <f:facet name="toolbar"/>
+                      <f:facet name="statusbar"/>
+                      <af:table value="#{bindings.CeixStsCustDetailsView13.collectionModel}"
+                                var="row"
+                                rows="#{bindings.CeixStsCustDetailsView13.rangeSize}"
+                                emptyText="#{bindings.CeixStsCustDetailsView13.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                fetchSize="#{bindings.CeixStsCustDetailsView13.rangeSize}"
+                                rowBandingInterval="0" id="resId4"
+                                rowSelection="single" filterVisible="true"
+                                filterModel="#{bindings.SearchCustomerViewCriteriaQuery1.queryDescriptor}"
+                                queryListener="#{bindings.SearchCustomerViewCriteriaQuery1.processQuery}"
+                                selectionListener="#{bindings.CeixStsCustDetailsView13.collectionModel.makeCurrent}"
+                                selectedRowKeys="#{bindings.CeixStsCustDetailsView13.collectionModel.selectedRow}">
+                        <af:column sortProperty="#{bindings.CeixStsCustDetailsView13.hints.OrderNumber.name}"
+                                   sortable="false"
+                                   headerText="#{bindings.CeixStsCustDetailsView13.hints.OrderNumber.label}"
+                                   id="resId4c1">
+                          <af:outputText value="#{row.OrderNumber}" id="ot23"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CeixStsCustDetailsView13.hints.AccountNumber.name}"
+                                   sortable="false"
+                                   headerText="#{bindings.CeixStsCustDetailsView13.hints.AccountNumber.label}"
+                                   id="resId4c2">
+                          <af:outputText value="#{row.AccountNumber}"
+                                         id="ot26"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CeixStsCustDetailsView13.hints.PartyName.name}"
+                                   sortable="false"
+                                   headerText="#{bindings.CeixStsCustDetailsView13.hints.PartyName.label}"
+                                   id="resId4c3">
+                          <af:outputText value="#{row.PartyName}" id="ot24"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CeixStsCustDetailsView13.hints.CustomerPoNumber.name}"
+                                   sortable="false"
+                                   headerText="#{bindings.CeixStsCustDetailsView13.hints.CustomerPoNumber.label}"
+                                   id="resId4c6">
+                          <af:outputText value="#{row.CustomerPoNumber}"
+                                         id="ot25"/>
+                        </af:column>
+                        <!--<af:column headerText="#{bindings.CeixStsCustDetailsView13.hints.ShipToAddress.label}"
+                                   id="c14">
+                          <af:outputText value="#{row.ShipToAddress}"
+                                         id="ot29"/>
+                        </af:column>-->
+                        <af:column sortProperty="#{bindings.CeixStsCustDetailsView13.hints.ContractNumber.name}"
+                                   sortable="false"
+                                   headerText="#{bindings.CeixStsCustDetailsView13.hints.ContractNumber.label}"
+                                   id="resId4c7">
+                          <af:outputText value="#{row.ContractNumber}"
+                                         id="ot27"/>
+                        </af:column>
+                      </af:table>
+                    </af:panelCollection>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+              </af:dialog>
+            </af:popup>
+            <af:selectOneChoice value="#{bindings.SalesOrderNumber.inputValue}"
+                                label="#{bindings.SalesOrderNumber.label}"
+                                required="#{bindings.SalesOrderNumber.hints.mandatory}"
+                                shortDesc="#{bindings.SalesOrderNumber.hints.tooltip}"
+                                id="soc13" 
+                                binding="#{CeixStsRailScheduleMB.porderNumInp_CopyScreen}"
+                                valueChangeListener="#{CeixStsRailScheduleMB.onSalesOrderNumberChangeCopy}">
+              <f:selectItems value="#{bindings.SalesOrderNumber.items}"
+                             id="si13"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.TrainId.inputValue}"
+                          label="#{bindings.TrainId.hints.label}"
+                          required="#{bindings.TrainId.hints.mandatory}"
+                          columns="#{bindings.TrainId.hints.displayWidth}"
+                          maximumLength="#{bindings.TrainId.hints.precision}"
+                          shortDesc="#{bindings.TrainId.hints.tooltip}"
+                          id="it110">
+              <f:validator binding="#{bindings.TrainId.validator}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.ItemNumber.inputValue}"
+                                    label="#{bindings.ItemNumber.label}"
+                                    required="true"
+                                    shortDesc="#{bindings.ItemNumber.hints.tooltip}"
+                                    id="soc52" binding="#{CeixStsRailScheduleMB.pitemNumInp_CopyScreen}">
+                  <f:selectItems value="#{bindings.ItemNumber.items}"
+                                 id="si52"/>
+                </af:selectOneChoice>
+            <af:inputText value="#{bindings.LoadOrder.inputValue}"
+                          label="#{bindings.LoadOrder.hints.label}"
+                          required="#{bindings.LoadOrder.hints.mandatory}"
+                          columns="#{bindings.LoadOrder.hints.displayWidth}"
+                          maximumLength="#{bindings.LoadOrder.hints.precision}"
+                          shortDesc="#{bindings.LoadOrder.hints.tooltip}"
+                          id="it94">
+              <f:validator binding="#{bindings.LoadOrder.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.LoadOrder.format}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.LoadDate.inputValue}"
+                          label="#{bindings.LoadDate.hints.label}"
+                          required="#{bindings.LoadDate.hints.mandatory}"
+                          shortDesc="#{bindings.LoadDate.hints.tooltip}"
+                          id="id16">
+              <f:validator binding="#{bindings.LoadDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.LoadDate.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.Type.inputValue}"
+                          label="#{bindings.Type.hints.label}"
+                          required="#{bindings.Type.hints.mandatory}"
+                          columns="#{bindings.Type.hints.displayWidth}"
+                          maximumLength="#{bindings.Type.hints.precision}"
+                          shortDesc="#{bindings.Type.hints.tooltip}" id="it104"
+                          rendered="false">
+              <f:validator binding="#{bindings.Type.validator}"/>
+            </af:inputText>
+            <!--<af:inputText value="#{bindings.Destination.inputValue}"
+                          label="#{bindings.Destination.hints.label}"
+                          required="#{bindings.Destination.hints.mandatory}"
+                          columns="25"
+                          maximumLength="#{bindings.Destination.hints.precision}"
+                          shortDesc="#{bindings.Destination.hints.tooltip}"
+                          id="it124">
+              <f:validator binding="#{bindings.Destination.validator}"/>
+            </af:inputText>-->
+            <af:selectOneChoice value="#{bindings.Destination.inputValue}" required="true"
+                                    label="#{bindings.Destination.label}" 
+                                    shortDesc="#{bindings.Destination.hints.tooltip}"
+                                    id="soc60" binding="#{CeixStsRailScheduleMB.pdestInp_CopyScreen}">
+                  <f:selectItems value="#{bindings.Destination.items}"
+                                 id="si60"/>
+                </af:selectOneChoice>
+            <af:inputText value="#{bindings.DestinationEta.inputValue}"
+                          label="#{bindings.DestinationEta.hints.label}"
+                          required="#{bindings.DestinationEta.hints.mandatory}"
+                          columns="20"
+                          maximumLength="#{bindings.DestinationEta.hints.precision}"
+                          shortDesc="#{bindings.DestinationEta.hints.tooltip}"
+                          id="it123">
+              <f:validator binding="#{bindings.DestinationEta.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Consignee.inputValue}"
+                          label="#{bindings.Consignee.hints.label}"
+                          required="#{bindings.Consignee.hints.mandatory}"
+                          columns="25"
+                          maximumLength="#{bindings.Consignee.hints.precision}"
+                          shortDesc="#{bindings.Consignee.hints.tooltip}"
+                          id="it77">
+              <f:validator binding="#{bindings.Consignee.validator}"/>
+            </af:inputText>
+            <!--<af:inputText value="#{bindings.LoadOrigin.inputValue}"
+                          label="#{bindings.LoadOrigin.hints.label}"
+                          required="#{bindings.LoadOrigin.hints.mandatory}"
+                          columns="25"
+                          maximumLength="#{bindings.LoadOrigin.hints.precision}"
+                          shortDesc="#{bindings.LoadOrigin.hints.tooltip}"
+                          id="it105">
+              <f:validator binding="#{bindings.LoadOrigin.validator}"/>
+            </af:inputText>-->
+            <af:selectOneChoice value="#{bindings.LoadOrigin.inputValue}"
+                                    label="#{bindings.LoadOrigin.label}"
+                                    shortDesc="#{bindings.LoadOrigin.hints.tooltip}"
+                                    id="soc57">
+                  <f:selectItems value="#{bindings.LoadOrigin.items}"
+                                 id="si57"/>
+                </af:selectOneChoice>
+            <af:inputText value="#{bindings.OriginEta.inputValue}"
+                          label="#{bindings.OriginEta.hints.label}"
+                          required="#{bindings.OriginEta.hints.mandatory}"
+                          columns="20"
+                          maximumLength="#{bindings.OriginEta.hints.precision}"
+                          shortDesc="#{bindings.OriginEta.hints.tooltip}"
+                          id="it111">
+              <f:validator binding="#{bindings.OriginEta.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.ReservationStatus.inputValue}"
+                          label="#{bindings.ReservationStatus.hints.label}"
+                          required="#{bindings.ReservationStatus.hints.mandatory}"
+                          columns="15"
+                          maximumLength="#{bindings.ReservationStatus.hints.precision}"
+                          shortDesc="#{bindings.ReservationStatus.hints.tooltip}"
+                          id="it117">
+              <f:validator binding="#{bindings.ReservationStatus.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Request.inputValue}"
+                          label="#{bindings.Request.hints.label}"
+                          required="#{bindings.Request.hints.mandatory}"
+                          columns="#{bindings.Request.hints.displayWidth}"
+                          maximumLength="#{bindings.Request.hints.precision}"
+                          shortDesc="#{bindings.Request.hints.tooltip}"
+                          id="it114">
+              <f:validator binding="#{bindings.Request.validator}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.OrderPlaceDate.inputValue}"
+                          label="#{bindings.OrderPlaceDate.hints.label}"
+                          required="#{bindings.OrderPlaceDate.hints.mandatory}"
+                          shortDesc="#{bindings.OrderPlaceDate.hints.tooltip}"
+                          id="id15">
+              <f:validator binding="#{bindings.OrderPlaceDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.OrderPlaceDate.format}"/>
+            </af:inputDate>
+            <af:inputDate value="#{bindings.RequestedLoadDate.inputValue}"
+                          label="#{bindings.RequestedLoadDate.hints.label}"
+                          required="#{bindings.RequestedLoadDate.hints.mandatory}"
+                          shortDesc="#{bindings.RequestedLoadDate.hints.tooltip}"
+                          id="id17">
+              <f:validator binding="#{bindings.RequestedLoadDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.RequestedLoadDate.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.Cars.inputValue}"
+                          label="#{bindings.Cars.hints.label}"
+                          required="#{bindings.Cars.hints.mandatory}"
+                          columns="#{bindings.Cars.hints.displayWidth}"
+                          maximumLength="#{bindings.Cars.hints.precision}"
+                          shortDesc="#{bindings.Cars.hints.tooltip}" id="it119">
+              <f:validator binding="#{bindings.Cars.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Tons.inputValue}"
+                          label="#{bindings.Tons.hints.label}"
+                          required="#{bindings.Tons.hints.mandatory}"
+                          columns="#{bindings.Tons.hints.displayWidth}"
+                          maximumLength="#{bindings.Tons.hints.precision}"
+                          shortDesc="#{bindings.Tons.hints.tooltip}" id="it118">
+              <f:validator binding="#{bindings.Tons.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.CoalClass.inputValue}"
+                          label="#{bindings.CoalClass.hints.label}"
+                          required="#{bindings.CoalClass.hints.mandatory}"
+                          columns="#{bindings.CoalClass.hints.displayWidth}"
+                          maximumLength="#{bindings.CoalClass.hints.precision}"
+                          shortDesc="#{bindings.CoalClass.hints.tooltip}"
+                          id="it103">
+              <f:validator binding="#{bindings.CoalClass.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Weigh.inputValue}"
+                          label="#{bindings.Weigh.hints.label}"
+                          required="#{bindings.Weigh.hints.mandatory}"
+                          columns="#{bindings.Weigh.hints.displayWidth}"
+                          maximumLength="#{bindings.Weigh.hints.precision}"
+                          shortDesc="#{bindings.Weigh.hints.tooltip}"
+                          id="it100">
+              <f:validator binding="#{bindings.Weigh.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Loads.inputValue}"
+                          label="#{bindings.Loads.hints.label}"
+                          required="#{bindings.Loads.hints.mandatory}"
+                          columns="#{bindings.Loads.hints.displayWidth}"
+                          maximumLength="#{bindings.Loads.hints.precision}"
+                          shortDesc="#{bindings.Loads.hints.tooltip}"
+                          id="it120">
+              <f:validator binding="#{bindings.Loads.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Mty.inputValue}"
+                          label="#{bindings.Mty.hints.label}"
+                          required="#{bindings.Mty.hints.mandatory}"
+                          columns="#{bindings.Mty.hints.displayWidth}"
+                          maximumLength="#{bindings.Mty.hints.precision}"
+                          shortDesc="#{bindings.Mty.hints.tooltip}" id="it101">
+              <f:validator binding="#{bindings.Mty.validator}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.WaybillDate.inputValue}"
+                          label="#{bindings.WaybillDate.hints.label}"
+                          required="#{bindings.WaybillDate.hints.mandatory}"
+                          shortDesc="#{bindings.WaybillDate.hints.tooltip}"
+                          id="id18">
+              <f:validator binding="#{bindings.WaybillDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.WaybillDate.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.Waybill.inputValue}"
+                          label="#{bindings.Waybill.hints.label}"
+                          required="#{bindings.Waybill.hints.mandatory}"
+                          columns="#{bindings.Waybill.hints.displayWidth}"
+                          maximumLength="#{bindings.Waybill.hints.precision}"
+                          shortDesc="#{bindings.Waybill.hints.tooltip}"
+                          id="it115">
+              <f:validator binding="#{bindings.Waybill.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.LastTrain.inputValue}"
+                          label="#{bindings.LastTrain.hints.label}"
+                          required="#{bindings.LastTrain.hints.mandatory}"
+                          columns="#{bindings.LastTrain.hints.displayWidth}"
+                          maximumLength="#{bindings.LastTrain.hints.precision}"
+                          shortDesc="#{bindings.LastTrain.hints.tooltip}"
+                          id="it98">
+              <f:validator binding="#{bindings.LastTrain.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.City.inputValue}"
+                          label="#{bindings.City.hints.label}"
+                          required="#{bindings.City.hints.mandatory}"
+                          columns="#{bindings.City.hints.displayWidth}"
+                          maximumLength="#{bindings.City.hints.precision}"
+                          shortDesc="#{bindings.City.hints.tooltip}" id="it81">
+              <f:validator binding="#{bindings.City.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.LastEventTime.inputValue}"
+                          label="#{bindings.LastEventTime.hints.label}"
+                          required="#{bindings.LastEventTime.hints.mandatory}"
+                          columns="#{bindings.LastEventTime.hints.displayWidth}"
+                          maximumLength="#{bindings.LastEventTime.hints.precision}"
+                          shortDesc="#{bindings.LastEventTime.hints.tooltip}"
+                          id="it107">
+              <f:validator binding="#{bindings.LastEventTime.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.CurrentSet.inputValue}"
+                          label="#{bindings.CurrentSet.hints.label}"
+                          required="#{bindings.CurrentSet.hints.mandatory}"
+                          columns="#{bindings.CurrentSet.hints.displayWidth}"
+                          maximumLength="#{bindings.CurrentSet.hints.precision}"
+                          shortDesc="#{bindings.CurrentSet.hints.tooltip}"
+                          id="it99">
+              <f:validator binding="#{bindings.CurrentSet.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.CurrentStatus.inputValue}"
+                          label="#{bindings.CurrentStatus.hints.label}"
+                          required="#{bindings.CurrentStatus.hints.mandatory}"
+                          columns="#{bindings.CurrentStatus.hints.displayWidth}"
+                          maximumLength="#{bindings.CurrentStatus.hints.precision}"
+                          shortDesc="#{bindings.CurrentStatus.hints.tooltip}"
+                          id="it113">
+              <f:validator binding="#{bindings.CurrentStatus.validator}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.HoldFlag2.inputValue}"
+                                label="#{bindings.HoldFlag2.label}"
+                                required="#{bindings.HoldFlag2.hints.mandatory}"
+                                shortDesc="#{bindings.HoldFlag2.hints.tooltip}"
+                                id="soc14">
+              <f:selectItems value="#{bindings.HoldFlag2.items}" id="si14"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.Carrier.inputValue}"
+                          label="#{bindings.Carrier.hints.label}"
+                          required="#{bindings.Carrier.hints.mandatory}"
+                          columns="#{bindings.Carrier.hints.displayWidth}"
+                          maximumLength="#{bindings.Carrier.hints.precision}"
+                          shortDesc="#{bindings.Carrier.hints.tooltip}"
+                          id="it106">
+              <f:validator binding="#{bindings.Carrier.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Problem.inputValue}"
+                          label="#{bindings.Problem.hints.label}"
+                          required="#{bindings.Problem.hints.mandatory}"
+                          columns="#{bindings.Problem.hints.displayWidth}"
+                          maximumLength="#{bindings.Problem.hints.precision}"
+                          shortDesc="#{bindings.Problem.hints.tooltip}"
+                          id="it116">
+              <f:validator binding="#{bindings.Problem.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Comments.inputValue}"
+                          label="#{bindings.Comments.hints.label}"
+                          required="#{bindings.Comments.hints.mandatory}"
+                          columns="25"
+                          maximumLength="#{bindings.Comments.hints.precision}"
+                          shortDesc="#{bindings.Comments.hints.tooltip}"
+                          id="it112">
+              <f:validator binding="#{bindings.Comments.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.CustomerContract.inputValue}"
+                          label="#{bindings.CustomerContract.hints.label}"
+                          required="#{bindings.CustomerContract.hints.mandatory}"
+                          columns="20"
+                          maximumLength="#{bindings.CustomerContract.hints.precision}"
+                          shortDesc="#{bindings.CustomerContract.hints.tooltip}"
+                          id="it121">
+              <f:validator binding="#{bindings.CustomerContract.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Rr.inputValue}"
+                          label="#{bindings.Rr.hints.label}"
+                          required="#{bindings.Rr.hints.mandatory}" columns="20"
+                          maximumLength="#{bindings.Rr.hints.precision}"
+                          shortDesc="#{bindings.Rr.hints.tooltip}" id="it102">
+              <f:validator binding="#{bindings.Rr.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Source.inputValue}"
+                          label="#{bindings.Source.hints.label}"
+                          required="#{bindings.Source.hints.mandatory}"
+                          columns="20"
+                          maximumLength="#{bindings.Source.hints.precision}"
+                          shortDesc="#{bindings.Source.hints.tooltip}"
+                          id="it122">
+              <f:validator binding="#{bindings.Source.validator}"/>
+            </af:inputText>
+            <f:facet name="footer">
+              <af:toolbar id="t6">
+                <af:spacer width="10" height="10" id="s17"/>
+                <af:commandButton text="Create" id="cb9"
+                                  disabled="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}"
+                                  actionListener="#{CeixStsRailScheduleMB.onCopyAndCreate}"/>
+                <af:spacer width="10" height="10" id="s18"/>
+                <af:commandButton text="Cancel" id="cb10" immediate="true"
+                                  actionListener="#{CeixStsRailScheduleMB.onCancel}"/>
+              </af:toolbar>
+            </f:facet>
+          </af:panelFormLayout>
+        </af:panelWindow>
+      </af:popup>
+    </af:panelBorderLayout>
+    <af:spacer width="10" height="30" id="s5"/>
+    <af:panelHeader text="Below trains are in HOLD" id="ph1">
+      <f:facet name="context"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="statusbar"/>
+        <af:popup id="p4" binding="#{CeixStsRailScheduleMB.holdUpdatePopup}" contentDelivery="lazyUncached">
+          <af:panelWindow id="pw3" title="Update Rail Schedule" closeIconVisible="false">
+            <af:panelFormLayout id="pfl2" maxColumns="5" rows="14"
+                                fieldWidth="50%" labelWidth="20%">
+              <af:selectOneChoice value="#{bindings.CustomerNumber1.inputValue}"
+                                  label="#{bindings.CustomerNumber1.label}"
+                                  required="#{bindings.CustomerNumber1.hints.mandatory}"
+                                  shortDesc="#{bindings.CustomerNumber1.hints.tooltip}"
+                                  id="soc5" autoSubmit="true"
+                                  valueChangeListener="#{CeixStsRailScheduleMB.onCustomerSelHOLD}">
+                <f:selectItems value="#{bindings.CustomerNumber1.items}"
+                               id="si5"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice value="#{bindings.SalesOrderNumber1.inputValue}"
+                                  label="#{bindings.SalesOrderNumber1.label}"
+                                  required="#{bindings.SalesOrderNumber1.hints.mandatory}"
+                                  shortDesc="#{bindings.SalesOrderNumber1.hints.tooltip}" 
+                                  id="soc6" partialTriggers="soc5" 
+                                  binding="#{CeixStsRailScheduleMB.pordNumInp_HoldScreen}"
+                                  valueChangeListener="#{CeixStsRailScheduleMB.onSalesOrderNumberChangeHold}">
+                <f:selectItems value="#{bindings.SalesOrderNumber1.items}"
+                               id="si6"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.TrainId1.inputValue}"
+                            label="#{bindings.TrainId1.hints.label}"
+                            required="#{bindings.TrainId1.hints.mandatory}"
+                            columns="#{bindings.TrainId1.hints.displayWidth}"
+                            maximumLength="#{bindings.TrainId1.hints.precision}"
+                            shortDesc="#{bindings.TrainId1.hints.tooltip}"
+                            id="it96">
+                <f:validator binding="#{bindings.TrainId1.validator}"/>
+              </af:inputText>
+              <af:selectOneChoice value="#{bindings.ItemNumber1.inputValue}"
+                                    label="#{bindings.ItemNumber1.label}"
+                                    required="true"
+                                    shortDesc="#{bindings.ItemNumber1.hints.tooltip}"
+                                    id="soc53" binding="#{CeixStsRailScheduleMB.pitemNumInp_HoldScreen}">
+                  <f:selectItems value="#{bindings.ItemNumber1.items}"
+                                 id="si53"/>
+                </af:selectOneChoice>
+              <af:inputText value="#{bindings.LoadOrder1.inputValue}"
+                            label="#{bindings.LoadOrder1.hints.label}"
+                            required="#{bindings.LoadOrder1.hints.mandatory}"
+                            columns="#{bindings.LoadOrder1.hints.displayWidth}"
+                            maximumLength="#{bindings.LoadOrder1.hints.precision}"
+                            shortDesc="#{bindings.LoadOrder1.hints.tooltip}"
+                            id="it86">
+                <f:validator binding="#{bindings.LoadOrder1.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.LoadOrder1.format}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.LoadDate1.inputValue}"
+                            label="#{bindings.LoadDate1.hints.label}"
+                            required="#{bindings.LoadDate1.hints.mandatory}"
+                            shortDesc="#{bindings.LoadDate1.hints.tooltip}"
+                            id="id13">
+                <f:validator binding="#{bindings.LoadDate1.validator}"/>
+                <af:convertDateTime pattern="#{bindings.LoadDate1.format}"/>
+              </af:inputDate>
+              <af:inputText value="#{bindings.Type1.inputValue}"
+                            label="#{bindings.Type1.hints.label}"
+                            required="#{bindings.Type1.hints.mandatory}"
+                            columns="#{bindings.Type1.hints.displayWidth}"
+                            maximumLength="#{bindings.Type1.hints.precision}"
+                            shortDesc="#{bindings.Type1.hints.tooltip}"
+                            id="it75" rendered="false">
+                <f:validator binding="#{bindings.Type1.validator}"/>
+              </af:inputText>
+              <!--<af:inputText value="#{bindings.Destination1.inputValue}"
+                            label="#{bindings.Destination1.hints.label}"
+                            required="#{bindings.Destination1.hints.mandatory}"
+                            columns="25"
+                            maximumLength="#{bindings.Destination1.hints.precision}"
+                            shortDesc="#{bindings.Destination1.hints.tooltip}"
+                            id="it91">
+                <f:validator binding="#{bindings.Destination1.validator}"/>
+              </af:inputText>-->
+              <af:selectOneChoice value="#{bindings.Destination1.inputValue}"
+                                    label="#{bindings.Destination1.label}"  required="true"
+                                    shortDesc="#{bindings.Destination1.hints.tooltip}"
+                                    id="soc62" binding="#{CeixStsRailScheduleMB.pdestInp_HoldScreen}">
+                  <f:selectItems value="#{bindings.Destination1.items}"
+                                 id="si62"/>
+                </af:selectOneChoice>
+              <af:inputText value="#{bindings.DestinationEta1.inputValue}"
+                            label="#{bindings.DestinationEta1.hints.label}"
+                            required="#{bindings.DestinationEta1.hints.mandatory}"
+                            columns="20"
+                            maximumLength="#{bindings.DestinationEta1.hints.precision}"
+                            shortDesc="#{bindings.DestinationEta1.hints.tooltip}"
+                            id="it83">
+                <f:validator binding="#{bindings.DestinationEta1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Consignee1.inputValue}"
+                            label="#{bindings.Consignee1.hints.label}"
+                            required="#{bindings.Consignee1.hints.mandatory}"
+                            columns="25"
+                            maximumLength="#{bindings.Consignee1.hints.precision}"
+                            shortDesc="#{bindings.Consignee1.hints.tooltip}"
+                            id="it72">
+                <f:validator binding="#{bindings.Consignee1.validator}"/>
+              </af:inputText>
+              <!--<af:inputText value="#{bindings.LoadOrigin1.inputValue}"
+                            label="#{bindings.LoadOrigin1.hints.label}"
+                            required="#{bindings.LoadOrigin1.hints.mandatory}"
+                            columns="25"
+                            maximumLength="#{bindings.LoadOrigin1.hints.precision}"
+                            shortDesc="#{bindings.LoadOrigin1.hints.tooltip}"
+                            id="it89">
+                <f:validator binding="#{bindings.LoadOrigin1.validator}"/>
+              </af:inputText>-->
+              <af:selectOneChoice value="#{bindings.LoadOrigin1.inputValue}"
+                                    label="#{bindings.LoadOrigin1.label}"
+                                    shortDesc="#{bindings.LoadOrigin1.hints.tooltip}"
+                                    id="soc58">
+                  <f:selectItems value="#{bindings.LoadOrigin.items}"
+                                 id="si58"/>
+                </af:selectOneChoice>
+              <af:inputText value="#{bindings.OriginEta1.inputValue}"
+                            label="#{bindings.OriginEta1.hints.label}"
+                            required="#{bindings.OriginEta1.hints.mandatory}"
+                            columns="20"
+                            maximumLength="#{bindings.OriginEta1.hints.precision}"
+                            shortDesc="#{bindings.OriginEta1.hints.tooltip}"
+                            id="it88">
+                <f:validator binding="#{bindings.OriginEta1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ReservationStatus1.inputValue}"
+                            label="#{bindings.ReservationStatus1.hints.label}"
+                            required="#{bindings.ReservationStatus1.hints.mandatory}"
+                            columns="15"
+                            maximumLength="#{bindings.ReservationStatus1.hints.precision}"
+                            shortDesc="#{bindings.ReservationStatus1.hints.tooltip}"
+                            id="it92">
+                <f:validator binding="#{bindings.ReservationStatus1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Request1.inputValue}"
+                            label="#{bindings.Request1.hints.label}"
+                            required="#{bindings.Request1.hints.mandatory}"
+                            columns="#{bindings.Request1.hints.displayWidth}"
+                            maximumLength="#{bindings.Request1.hints.precision}"
+                            shortDesc="#{bindings.Request1.hints.tooltip}"
+                            id="it76">
+                <f:validator binding="#{bindings.Request1.validator}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.OrderPlaceDate1.inputValue}"
+                            label="#{bindings.OrderPlaceDate1.hints.label}"
+                            required="#{bindings.OrderPlaceDate1.hints.mandatory}"
+                            shortDesc="#{bindings.OrderPlaceDate1.hints.tooltip}"
+                            id="id14">
+                <f:validator binding="#{bindings.OrderPlaceDate1.validator}"/>
+                <af:convertDateTime pattern="#{bindings.OrderPlaceDate1.format}"/>
+              </af:inputDate>
+              <af:inputDate value="#{bindings.RequestedLoadDate1.inputValue}"
+                            label="#{bindings.RequestedLoadDate1.hints.label}"
+                            required="#{bindings.RequestedLoadDate1.hints.mandatory}"
+                            shortDesc="#{bindings.RequestedLoadDate1.hints.tooltip}"
+                            id="id12">
+                <f:validator binding="#{bindings.RequestedLoadDate1.validator}"/>
+                <af:convertDateTime pattern="#{bindings.RequestedLoadDate1.format}"/>
+              </af:inputDate>
+              <af:inputText value="#{bindings.Cars1.inputValue}"
+                            label="#{bindings.Cars1.hints.label}"
+                            required="#{bindings.Cars1.hints.mandatory}"
+                            columns="#{bindings.Cars1.hints.displayWidth}"
+                            maximumLength="#{bindings.Cars1.hints.precision}"
+                            shortDesc="#{bindings.Cars1.hints.tooltip}"
+                            id="it90">
+                <f:validator binding="#{bindings.Cars1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Tons1.inputValue}"
+                            label="#{bindings.Tons1.hints.label}"
+                            required="#{bindings.Tons1.hints.mandatory}"
+                            columns="#{bindings.Tons1.hints.displayWidth}"
+                            maximumLength="#{bindings.Tons1.hints.precision}"
+                            shortDesc="#{bindings.Tons1.hints.tooltip}"
+                            id="it70">
+                <f:validator binding="#{bindings.Tons1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.CoalClass1.inputValue}"
+                            label="#{bindings.CoalClass1.hints.label}"
+                            required="#{bindings.CoalClass1.hints.mandatory}"
+                            columns="#{bindings.CoalClass1.hints.displayWidth}"
+                            maximumLength="#{bindings.CoalClass1.hints.precision}"
+                            shortDesc="#{bindings.CoalClass1.hints.tooltip}"
+                            id="it73">
+                <f:validator binding="#{bindings.CoalClass1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Weigh1.inputValue}"
+                            label="#{bindings.Weigh1.hints.label}"
+                            required="#{bindings.Weigh1.hints.mandatory}"
+                            columns="#{bindings.Weigh1.hints.displayWidth}"
+                            maximumLength="#{bindings.Weigh1.hints.precision}"
+                            shortDesc="#{bindings.Weigh1.hints.tooltip}"
+                            id="it84">
+                <f:validator binding="#{bindings.Weigh1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Loads1.inputValue}"
+                            label="#{bindings.Loads1.hints.label}"
+                            required="#{bindings.Loads1.hints.mandatory}"
+                            columns="#{bindings.Loads1.hints.displayWidth}"
+                            maximumLength="#{bindings.Loads1.hints.precision}"
+                            shortDesc="#{bindings.Loads1.hints.tooltip}"
+                            id="it97">
+                <f:validator binding="#{bindings.Loads1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Mty1.inputValue}"
+                            label="#{bindings.Mty1.hints.label}"
+                            required="#{bindings.Mty1.hints.mandatory}"
+                            columns="#{bindings.Mty1.hints.displayWidth}"
+                            maximumLength="#{bindings.Mty1.hints.precision}"
+                            shortDesc="#{bindings.Mty1.hints.tooltip}"
+                            id="it74">
+                <f:validator binding="#{bindings.Mty1.validator}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.WaybillDate1.inputValue}"
+                            label="#{bindings.WaybillDate1.hints.label}"
+                            required="#{bindings.WaybillDate1.hints.mandatory}"
+                            shortDesc="#{bindings.WaybillDate1.hints.tooltip}"
+                            id="id11">
+                <f:validator binding="#{bindings.WaybillDate1.validator}"/>
+                <af:convertDateTime pattern="#{bindings.WaybillDate1.format}"/>
+              </af:inputDate>
+              <af:inputText value="#{bindings.Waybill1.inputValue}"
+                            label="#{bindings.Waybill1.hints.label}"
+                            required="#{bindings.Waybill1.hints.mandatory}"
+                            columns="#{bindings.Waybill1.hints.displayWidth}"
+                            maximumLength="#{bindings.Waybill1.hints.precision}"
+                            shortDesc="#{bindings.Waybill1.hints.tooltip}"
+                            id="it79">
+                <f:validator binding="#{bindings.Waybill1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.LastTrain1.inputValue}"
+                            label="#{bindings.LastTrain1.hints.label}"
+                            required="#{bindings.LastTrain1.hints.mandatory}"
+                            columns="#{bindings.LastTrain1.hints.displayWidth}"
+                            maximumLength="#{bindings.LastTrain1.hints.precision}"
+                            shortDesc="#{bindings.LastTrain1.hints.tooltip}"
+                            id="it67">
+                <f:validator binding="#{bindings.LastTrain1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.City1.inputValue}"
+                            label="#{bindings.City1.hints.label}"
+                            required="#{bindings.City1.hints.mandatory}"
+                            columns="#{bindings.City1.hints.displayWidth}"
+                            maximumLength="#{bindings.City1.hints.precision}"
+                            shortDesc="#{bindings.City1.hints.tooltip}"
+                            id="it82">
+                <f:validator binding="#{bindings.City1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.LastEventTime1.inputValue}"
+                            label="#{bindings.LastEventTime1.hints.label}"
+                            required="#{bindings.LastEventTime1.hints.mandatory}"
+                            columns="#{bindings.LastEventTime1.hints.displayWidth}"
+                            maximumLength="#{bindings.LastEventTime1.hints.precision}"
+                            shortDesc="#{bindings.LastEventTime1.hints.tooltip}"
+                            id="it78">
+                <f:validator binding="#{bindings.LastEventTime1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.CurrentSet1.inputValue}"
+                            label="#{bindings.CurrentSet1.hints.label}"
+                            required="#{bindings.CurrentSet1.hints.mandatory}"
+                            columns="#{bindings.CurrentSet1.hints.displayWidth}"
+                            maximumLength="#{bindings.CurrentSet1.hints.precision}"
+                            shortDesc="#{bindings.CurrentSet1.hints.tooltip}"
+                            id="it95">
+                <f:validator binding="#{bindings.CurrentSet1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.CurrentStatus1.inputValue}"
+                            label="#{bindings.CurrentStatus1.hints.label}"
+                            required="#{bindings.CurrentStatus1.hints.mandatory}"
+                            columns="#{bindings.CurrentStatus1.hints.displayWidth}"
+                            maximumLength="#{bindings.CurrentStatus1.hints.precision}"
+                            shortDesc="#{bindings.CurrentStatus1.hints.tooltip}"
+                            id="it87">
+                <f:validator binding="#{bindings.CurrentStatus1.validator}"/>
+              </af:inputText>
+              <af:selectOneChoice value="#{bindings.HoldFlag1.inputValue}"
+                                  label="#{bindings.HoldFlag1.label}"
+                                  required="#{bindings.HoldFlag1.hints.mandatory}"
+                                  shortDesc="#{bindings.HoldFlag1.hints.tooltip}"
+                                  id="soc9">
+                <f:selectItems value="#{bindings.HoldFlag1.items}" id="si9"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.Carrier1.inputValue}"
+                            label="#{bindings.Carrier1.hints.label}"
+                            required="#{bindings.Carrier1.hints.mandatory}"
+                            columns="#{bindings.Carrier1.hints.displayWidth}"
+                            maximumLength="#{bindings.Carrier1.hints.precision}"
+                            shortDesc="#{bindings.Carrier1.hints.tooltip}"
+                            id="it85">
+                <f:validator binding="#{bindings.Carrier1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Problem1.inputValue}"
+                            label="#{bindings.Problem1.hints.label}"
+                            required="#{bindings.Problem1.hints.mandatory}"
+                            columns="#{bindings.Problem1.hints.displayWidth}"
+                            maximumLength="#{bindings.Problem1.hints.precision}"
+                            shortDesc="#{bindings.Problem1.hints.tooltip}"
+                            id="it69">
+                <f:validator binding="#{bindings.Problem1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Comments1.inputValue}"
+                            label="#{bindings.Comments1.hints.label}"
+                            required="#{bindings.Comments1.hints.mandatory}"
+                            columns="25"
+                            maximumLength="#{bindings.Comments1.hints.precision}"
+                            shortDesc="#{bindings.Comments1.hints.tooltip}"
+                            id="it80" rows="2">
+                <f:validator binding="#{bindings.Comments1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.CustomerContract1.inputValue}"
+                            label="#{bindings.CustomerContract1.hints.label}"
+                            required="#{bindings.CustomerContract1.hints.mandatory}"
+                            columns="20"
+                            maximumLength="#{bindings.CustomerContract1.hints.precision}"
+                            shortDesc="#{bindings.CustomerContract1.hints.tooltip}"
+                            id="it71">
+                <f:validator binding="#{bindings.CustomerContract1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Rr1.inputValue}"
+                            label="#{bindings.Rr1.hints.label}"
+                            required="#{bindings.Rr1.hints.mandatory}"
+                            columns="20"
+                            maximumLength="#{bindings.Rr1.hints.precision}"
+                            shortDesc="#{bindings.Rr1.hints.tooltip}" id="it68">
+                <f:validator binding="#{bindings.Rr1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Source1.inputValue}"
+                            label="#{bindings.Source1.hints.label}"
+                            required="#{bindings.Source1.hints.mandatory}"
+                            columns="20"
+                            maximumLength="#{bindings.Source1.hints.precision}"
+                            shortDesc="#{bindings.Source1.hints.tooltip}"
+                            id="it93">
+                <f:validator binding="#{bindings.Source1.validator}"/>
+              </af:inputText>
+              <f:facet name="footer">
+                <af:toolbar id="t4">
+                  <af:spacer width="10" height="10" id="s14"/>
+                  <af:commandButton text="Save" id="cb6"
+                                    disabled="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}"
+                                    actionListener="#{CeixStsRailScheduleMB.onSave}"/>
+                  <af:spacer width="10" height="10" id="s15"/>
+                  <af:commandButton text="Cancel" id="cb7" immediate="true"
+                                    actionListener="#{CeixStsRailScheduleMB.onCancel}"/>
+                </af:toolbar>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:panelWindow>
+        </af:popup>
+        <af:table value="#{bindings.CeixStsRailSchedulesHOLDVO1.collectionModel}"
+                  var="row"
+                  rows="#{bindings.CeixStsRailSchedulesHOLDVO1.rangeSize}"
+                  emptyText="#{bindings.CeixStsRailSchedulesHOLDVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.CeixStsRailSchedulesHOLDVO1.rangeSize}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.CeixStsRailSchedulesHOLDVO1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.CeixStsRailSchedulesHOLDVO1.collectionModel.makeCurrent}"
+                  rowSelection="single" id="t3"
+                  binding="#{CeixStsRailScheduleMB.thold}">
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.TrainId.name}"
+                     sortable="true"
+                     headerText="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.TrainId.label}"
+                     id="c9">
+            <af:inputText value="#{row.bindings.TrainId.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.TrainId.label}"
+                          required="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.TrainId.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.TrainId.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.TrainId.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.TrainId.tooltip}"
+                          id="it39" readOnly="true">
+              <f:validator binding="#{row.bindings.TrainId.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadDate.name}"
+                     sortable="true"
+                     headerText="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadDate.label}"
+                     id="c7">
+            <af:inputDate value="#{row.bindings.LoadDate.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadDate.label}"
+                          required="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadDate.mandatory}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadDate.tooltip}"
+                          id="id10" readOnly="true">
+              <f:validator binding="#{row.bindings.LoadDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadDate.format}"/>
+            </af:inputDate>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Destination.name}"
+                     sortable="true"
+                     headerText="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Destination.label}"
+                     id="c4">
+            <af:inputText value="#{row.bindings.Destination.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Destination.label}"
+                          required="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Destination.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Destination.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Destination.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Destination.tooltip}"
+                          id="it63" readOnly="true">
+              <f:validator binding="#{row.bindings.Destination.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Consignee.name}"
+                     sortable="true"
+                     headerText="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Consignee.label}"
+                     id="c2">
+            <af:inputText value="#{row.bindings.Consignee.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Consignee.label}"
+                          required="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Consignee.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Consignee.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Consignee.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Consignee.tooltip}"
+                          id="it64" readOnly="true">
+              <f:validator binding="#{row.bindings.Consignee.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadOrigin.name}"
+                     sortable="true"
+                     headerText="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadOrigin.label}"
+                     id="c10">
+            <af:inputText value="#{row.bindings.LoadOrigin.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadOrigin.label}"
+                          required="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadOrigin.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadOrigin.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadOrigin.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.LoadOrigin.tooltip}"
+                          id="it66" readOnly="true">
+              <f:validator binding="#{row.bindings.LoadOrigin.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.OrderPlaceDate.name}"
+                     sortable="true"
+                     headerText="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.OrderPlaceDate.label}"
+                     id="c8">
+            <af:inputDate value="#{row.bindings.OrderPlaceDate.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.OrderPlaceDate.label}"
+                          required="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.OrderPlaceDate.mandatory}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.OrderPlaceDate.tooltip}"
+                          id="id9" readOnly="true">
+              <f:validator binding="#{row.bindings.OrderPlaceDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.OrderPlaceDate.format}"/>
+            </af:inputDate>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Cars.name}"
+                     sortable="true"
+                     headerText="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Cars.label}"
+                     id="c3">
+            <af:inputText value="#{row.bindings.Cars.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Cars.label}"
+                          required="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Cars.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Cars.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Cars.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Cars.tooltip}"
+                          id="it65" readOnly="true">
+              <f:validator binding="#{row.bindings.Cars.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.HoldFlag.name}"
+                     sortable="true"
+                     headerText="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.HoldFlag.label}"
+                     id="c6">
+            <af:inputText value="#{row.bindings.HoldFlag.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.HoldFlag.label}"
+                          required="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.HoldFlag.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.HoldFlag.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.HoldFlag.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.HoldFlag.tooltip}"
+                          id="it62" readOnly="true">
+              <f:validator binding="#{row.bindings.HoldFlag.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Carrier.name}"
+                     sortable="true"
+                     headerText="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Carrier.label}"
+                     id="c11">
+            <af:inputText value="#{row.bindings.Carrier.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Carrier.label}"
+                          required="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Carrier.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Carrier.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Carrier.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Carrier.tooltip}"
+                          id="it3" readOnly="true">
+              <f:validator binding="#{row.bindings.Carrier.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Comments.name}"
+                     sortable="true"
+                     headerText="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Comments.label}"
+                     id="c5">
+            <af:inputText value="#{row.bindings.Comments.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Comments.label}"
+                          required="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Comments.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Comments.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Comments.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Comments.tooltip}"
+                          id="it41" readOnly="true">
+              <f:validator binding="#{row.bindings.Comments.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column id="c12" align="center">
+            <af:commandButton text="Update" id="cb5"
+                              disabled="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}">
+              <af:showPopupBehavior popupId="::p4" triggerType="action"/>
+            </af:commandButton>
+          </af:column>
+          <af:column id="c13" align="center" width="70">
+            <af:spacer width="10" height="10" id="s12"/>
+            <!--<af:commandImageLink id="cil1" icon="/images/func_remove_16_ena.png"
+                                 disabled="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}"
+                                 actionListener="#{CeixStsRailScheduleMB.onDelete}"/>-->
+            <af:commandImageLink id="cil2"
+                                 icon="/images/func_remove_16_ena.png">
+              <af:showPopupBehavior popupId="p9" triggerType="action"/>
+            </af:commandImageLink>
+            <af:popup id="p9">
+              <af:dialog id="d5"
+                         dialogListener="#{CeixStsRailScheduleMB.deleteDialogListner}"
+                         title="Confirmation">Selected record will be deleted,
+                                              click OK to delete.</af:dialog>
+            </af:popup>
+            <af:spacer width="10" height="10" id="s13"/>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</jsp:root>

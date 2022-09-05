@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.ceix.quality.model.services.CEIXQualityCaptureAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.ceix.quality.model.Model" name="CEIXQualityCaptureAMLocal" ApplicationName="com.ceix.quality.model.services.CEIXQualityCaptureAM">
+         <Security AppModuleJndiName="com.ceix.quality.model.services.CEIXQualityCaptureAM"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/ConsolDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.ceix.quality.model.Model" name="CEIXQualityCaptureAMShared" ApplicationName="com.ceix.quality.model.services.CEIXQualityCaptureAM">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="com.ceix.quality.model.services.CEIXQualityCaptureAM"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/ConsolDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

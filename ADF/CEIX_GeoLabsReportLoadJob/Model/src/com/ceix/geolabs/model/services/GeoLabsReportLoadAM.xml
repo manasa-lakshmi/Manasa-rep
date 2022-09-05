@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+
+<AppModule
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="GeoLabsReportLoadAM"
+   Version="12.2.1.22.48"
+   InheritPersonalization="merge"
+   ComponentClass="com.ceix.geolabs.model.services.GeoLabsReportLoadAMImpl"
+   ClearCacheOnRollback="true"
+   ComponentInterface="com.ceix.geolabs.model.services.common.GeoLabsReportLoadAM"
+   ClientProxyName="com.ceix.geolabs.model.services.client.GeoLabsReportLoadAMClient">
+   <DesignTime>
+      <Attr Name="_deployType" Value="4096" />
+      <Attr Name="_isCodegen" Value="true" />
+   </DesignTime>
+   <ViewUsage
+      Name="CEIXOrdQualLabReslt1"
+      ViewObjectName="com.ceix.geolabs.model.view.CEIXOrdQualLabResltVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="WSResultP1"
+      ViewObjectName="com.ceix.geolabs.model.view.WSResultPVO"/>
+   <ViewUsage
+      Name="CEIXStsRailSchedules1"
+      ViewObjectName="com.ceix.geolabs.model.view.CEIXStsRailSchedulesVO"/>
+   <ViewUsage
+      Name="CEIXStsDeliveryLines1"
+      ViewObjectName="com.ceix.geolabs.model.view.CEIXStsDeliveryLinesVO"/>
+   <Remote
+      Name="ServiceInterface"
+      ServerClassName="com.ceix.geolabs.model.services.server.serviceinterface.GeoLabsReportLoadServiceImpl"
+      ServerInterfaceName="com.ceix.geolabs.model.services.common.serviceinterface.GeoLabsReportLoadService">
+      <DesignTime>
+         <Attr Name="_webServiceName" Value="GeoLabsReportLoadService"/>
+         <Attr Name="_targetNameSpace"
+            Value="/com/ceix/geolabs/model/services/common/"/>
+      </DesignTime>
+   </Remote>
+   <ClientInterface
+      Name="__clientInterface">
+      <Method
+         Name="execute"
+         MethodName="execute">
+         <Return
+            Type="java.util.List"
+            IsGeneric="true"
+            Name="_return_type_">
+            <Element
+               Name="ViewRowImpl"
+               Type="oracle.jbo.server.ViewRowImpl"/>
+         </Return>
+      </Method>
+      <Method
+         Name="executeManual"
+         MethodName="executeManual">
+         <Return
+            Type="java.lang.String"
+            Name="_return_type_"/>
+      </Method>
+      <Method
+         Name="execute"
+         MethodName="execute">
+         <Return
+            Name="_return_type_"
+            Type="java.util.List"
+            IsGeneric="true">
+            <Element
+               Name="ViewRowImpl"
+               Type="oracle.jbo.server.ViewRowImpl"/>
+         </Return>
+      </Method>
+      <Method
+         Name="executeManual"
+         MethodName="executeManual">
+         <Return
+            Name="_return_type_"
+            Type="java.lang.String"/>
+      </Method>
+   </ClientInterface>
+   <ServiceInterface
+      Name="__serviceInterface">
+      <Method
+         Name="execute"
+         MethodName="execute">
+         <Return
+            Type="java.util.List"
+            IsGeneric="true"
+            Name="_return_type_">
+            <Element
+               Type="oracle.jbo.server.ViewRowImpl"
+               ViewObjectName="WSResultP1"
+               Name="ViewRowImpl"/>
+         </Return>
+      </Method>
+      <Method
+         Name="executeItmann"
+         MethodName="executeItmann">
+         <Return
+            Name="_return_type_"
+            Type="java.util.List"
+            IsGeneric="true">
+            <Element
+               Name="ViewRowImpl"
+               Type="oracle.jbo.server.ViewRowImpl"
+               ViewObjectName="WSResultP1"/>
+         </Return>
+      </Method>
+      <Method
+         Name="execute"
+         MethodName="execute">
+         <Return
+            Name="_return_type_"
+            Type="java.util.List"
+            IsGeneric="true">
+            <Element
+               Name="ViewRowImpl"
+               Type="oracle.jbo.server.ViewRowImpl"
+               ViewObjectName="WSResultP1"/>
+         </Return>
+      </Method>
+      <Method
+         Name="executeItmann"
+         MethodName="executeItmann">
+         <Return
+            Name="_return_type_"
+            Type="java.util.List"
+            IsGeneric="true">
+            <Element
+               Name="ViewRowImpl"
+               Type="oracle.jbo.server.ViewRowImpl"
+               ViewObjectName="WSResultP1"/>
+         </Return>
+      </Method>
+   </ServiceInterface>
+   <ResourceBundle >
+      <PropertiesBundle
+         PropertiesFile="com.ceix.geolabs.model.ModelBundle" >
+      </PropertiesBundle>
+   </ResourceBundle>
+</AppModule>

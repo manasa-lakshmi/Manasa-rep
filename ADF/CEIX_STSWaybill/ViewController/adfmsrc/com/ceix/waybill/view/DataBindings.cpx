@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.ceix.waybill.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/CeixStsWaybillPG.jsp"
+          usageId="com_ceix_waybill_view_CeixStsWaybillPGPageDef"/>
+    <page path="/WEB-INF/CeixStsWaybillTF.xml#CeixStsWaybillTF@initVO"
+          usageId="com_ceix_waybill_view_CeixStsWaybillTF_CeixStsWaybillTF_initVOPageDef"/>
+    <page path="/CeixStsWaybillPF.jsff"
+          usageId="com_ceix_waybill_view_CeixStsWaybillPFPageDef"/>
+    <page path="/manageWaybillLine.jsff"
+          usageId="com_ceix_waybill_view_manageWaybillLinePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_ceix_waybill_view_CeixStsWaybillPGPageDef"
+          path="com.ceix.waybill.view.pageDefs.CeixStsWaybillPGPageDef"/>
+    <page id="com_ceix_waybill_view_CeixStsWaybillTF_CeixStsWaybillTF_initVOPageDef"
+          path="com.ceix.waybill.view.pageDefs.CeixStsWaybillTF_CeixStsWaybillTF_initVOPageDef"/>
+    <page id="com_ceix_waybill_view_CeixStsWaybillPFPageDef"
+          path="com.ceix.waybill.view.pageDefs.CeixStsWaybillPFPageDef"/>
+    <page id="com_ceix_waybill_view_manageWaybillLinePageDef"
+          path="com.ceix.waybill.view.pageDefs.manageWaybillLinePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="CeixStsWaybillAMDataControl"
+                     Package="com.ceix.waybill.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="CeixStsWaybillAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

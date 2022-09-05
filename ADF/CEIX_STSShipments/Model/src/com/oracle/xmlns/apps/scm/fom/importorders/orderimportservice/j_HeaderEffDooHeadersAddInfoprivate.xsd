@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerCategories/" xmlns:ns0="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" xmlns:sdo="commonj.sdo" xmlns:sdoXML="commonj.sdo/xml" xmlns="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerCategories/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" schemaLocation="ShippingInformation.xsd"/>
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" schemaLocation="InternalOrders.xsd"/>
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" schemaLocation="Quality.xsd"/>
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" schemaLocation="ContractInformation.xsd"/>
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" schemaLocation="MineLocation.xsd"/>
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" schemaLocation="CustomerPoNumber.xsd"/>
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" schemaLocation="CustomerDestination.xsd"/>
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" schemaLocation="AcceptableWeights.xsd"/>
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" schemaLocation="OrderStatus.xsd"/>
+  <xsd:import namespace="commonj.sdo/xml" schemaLocation="sdoXML.xsd"/>
+  <xsd:import namespace="commonj.sdo" schemaLocation="sdoModel.xsd"/>
+  <xsd:include schemaLocation="j_HeaderEffCategories.xsd"/>
+  <xsd:complexType name="j_HeaderEffDooHeadersAddInfoprivate">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>HeaderId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="j_HeaderEffCategories">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="HeaderEffBShipping__InformationprivateVO" type="ns0:ShippingInformation" sdoXML:dataType="sdo:DataObject"/>
+          <xsd:element minOccurs="0" name="HeaderEffBInternal__OrdersprivateVO" type="ns0:InternalOrders" sdoXML:dataType="sdo:DataObject"/>
+          <xsd:element minOccurs="0" name="HeaderEffBQualityprivateVO" type="ns0:Quality" sdoXML:dataType="sdo:DataObject"/>
+          <xsd:element minOccurs="0" name="HeaderEffBContract__InformationprivateVO" type="ns0:ContractInformation" sdoXML:dataType="sdo:DataObject"/>
+          <xsd:element minOccurs="0" name="HeaderEffBMine__LocationprivateVO" type="ns0:MineLocation" sdoXML:dataType="sdo:DataObject"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="HeaderEffBCustomer__PO__NumberprivateVO" type="ns0:CustomerPoNumber" sdoXML:dataType="sdo:DataObject"/>
+          <xsd:element minOccurs="0" name="HeaderEffBCustomer__DestinationprivateVO" type="ns0:CustomerDestination" sdoXML:dataType="sdo:DataObject"/>
+          <xsd:element minOccurs="0" name="HeaderEffBAcceptable__WeightsprivateVO" type="ns0:AcceptableWeights" sdoXML:dataType="sdo:DataObject"/>
+          <xsd:element minOccurs="0" name="HeaderEffBOrder__StatusprivateVO" type="ns0:OrderStatus" sdoXML:dataType="sdo:DataObject"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="j_HeaderEffDooHeadersAddInfoprivate" type="j_HeaderEffDooHeadersAddInfoprivate"/>
+</xsd:schema>

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.ceix.stsrail.model.services.CeixStsRailSchedulesAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.ceix.stsrail.model.Model" name="CeixStsRailSchedulesAMLocal" ApplicationName="com.ceix.stsrail.model.services.CeixStsRailSchedulesAM">
+         <Security AppModuleJndiName="com.ceix.stsrail.model.services.CeixStsRailSchedulesAM"/>
+         <Custom JDBCDataSource="jdbc/ConsolDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.ceix.stsrail.model.Model" name="CeixStsRailSchedulesAMShared" ApplicationName="com.ceix.stsrail.model.services.CeixStsRailSchedulesAM">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="com.ceix.stsrail.model.services.CeixStsRailSchedulesAM"/>
+         <Custom JDBCDataSource="jdbc/ConsolDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

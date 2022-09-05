@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="CeixStsWaybillPFPageDef"
+                Package="com.ceix.waybill.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="CeixStsWaybillAMDataControl"
+                     Binds="CeixStsWaybillSearchVO1.variablesMap.pOrderNum"
+                     Name="ExecuteWithParams_pOrderNum" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsWaybillAMDataControl"
+                     Binds="CeixStsWaybillSearchVO1.variablesMap.pTrainNum"
+                     Name="ExecuteWithParams_pTrainNum" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsWaybillAMDataControl"
+                     Binds="CeixStsWaybillSearchVO1.variablesMap.pShipFlag"
+                     Name="ExecuteWithParams_pShipFlag" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsWaybillAMDataControl"
+                     Binds="CeixStsWaybillSearchVO1.variablesMap.pShipNum"
+                     Name="ExecuteWithParams_pShipNum" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsWaybillAMDataControl"
+                     Binds="CeixStsWaybillSearchVO1.variablesMap.pLoadFromDate"
+                     Name="ExecuteWithParams_pLoadFromDate" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsWaybillAMDataControl"
+                     Binds="CeixStsWaybillSearchVO1.variablesMap.pLoadToDate"
+                     Name="ExecuteWithParams_pLoadToDate" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsWaybillAMDataControl"
+                     Binds="CeixStsWaybillSearchVO1.variablesMap.pLoadFromDate"
+                     Name="ExecuteWithParams_pLoadFromDate"
+                     IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsWaybillAMDataControl"
+                     Binds="CeixStsWaybillSearchVO1.variablesMap.pLoadToDate"
+                     Name="ExecuteWithParams_pLoadToDate" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsWaybillAMDataControl"
+                     Binds="CeixStsWaybillBtmoreHdrDeleteTrainVo1.variablesMap.bUnitNumber"
+                     Name="ExecuteWithParams1_bUnitNumber" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="CeixStsWaybillSearchVO1" RangeSize="25"
+              DataControl="CeixStsWaybillAMDataControl"
+              id="CeixStsWaybillSearchVO1Iterator"/>
+    <iterator Binds="CeixStsWaybillLinesVO1" RangeSize="25"
+              DataControl="CeixStsWaybillAMDataControl"
+              id="CeixStsWaybillLinesVO1Iterator"/>
+    <iterator Binds="CeixStsWaybillBtmoreHdrDeleteTrainVo1" RangeSize="25"
+              DataControl="CeixStsWaybillAMDataControl"
+              id="CeixStsWaybillBtmoreHdrDeleteTrainVo1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CeixStsWaybillSearchVO1Iterator" id="ExecuteWithParams"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="pOrderNum" NDType="java.lang.String"
+                 NDValue="${bindings.ExecuteWithParams_pOrderNum}"/>
+      <NamedData NDName="pTrainNum" NDType="java.lang.String"
+                 NDValue="${bindings.ExecuteWithParams_pTrainNum}"/>
+      <NamedData NDName="pLoadFromDate" NDType="oracle.jbo.domain.Date"
+                 NDValue="${bindings.ExecuteWithParams_pLoadFromDate}"/>
+      <NamedData NDName="pLoadToDate" NDType="oracle.jbo.domain.Date"
+                 NDValue="${bindings.ExecuteWithParams_pLoadToDate}"/>
+      <NamedData NDName="pShipNum" NDType="java.lang.String"
+                 NDValue="${bindings.ExecuteWithParams_pShipNum}"/>
+      <NamedData NDName="pShipFlag" NDType="java.lang.String"
+                 NDValue="${bindings.ExecuteWithParams_pShipFlag}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="pOrderNum">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pOrderNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="pTrainNum">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pTrainNum"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="variables" id="pShipFlag" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pShipFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="variables" id="pShipNum">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pShipNum"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CeixStsWaybillSearchVO1Iterator"
+          id="CeixStsWaybillSearchVO1">
+      <nodeDefinition DefName="com.ceix.waybill.model.views.CeixStsWaybillSearchVO" Name="CeixStsWaybillSearchVO10">
+        <AttrNames>
+          <Item Value="OrderNumber"/>
+          <Item Value="TrainNumber"/>
+          <Item Value="DumpDate"/>
+          <Item Value="ShipmentNumber"/>
+          <Item Value="NewTrainNumber"/>
+          <Item Value="Destination"/>
+          <Item Value="ItemNumber"/>
+          <Item Value="LoadOrigin"/>
+          <Item Value="SalesAgreementName"/>
+          <Item Value="SoNumber"/>
+          <Item Value="Straggler"/>
+          <Item Value="StragglerFlag"/>
+          <Item Value="Freight"/>
+          <Item Value="TotalWeight"/>
+          <Item Value="ShipDate"/>
+          <Item Value="TotalDumpWeight"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CeixStsWaybillLinesVO1Iterator"
+          id="CeixStsWaybillLinesVO1">
+      <nodeDefinition DefName="com.ceix.waybill.model.views.CeixStsWaybillLinesVO" Name="CeixStsWaybillLinesVO10">
+        <AttrNames>
+          <Item Value="SelectFlag"/>
+          <Item Value="SalesOrderNumber"/>
+          <Item Value="TrainNumber"/>
+          <Item Value="NewTrainNumber"/>
+          <Item Value="ShipToInformation"/>
+          <Item Value="DumpSequence"/>
+          <Item Value="RailRoad"/>
+          <Item Value="CarPrefix"/>
+          <Item Value="CarNumber"/>
+          <Item Value="NewCarPrefix"/>
+          <Item Value="NewCarNumber"/>
+          <Item Value="CarWeight"/>
+          <Item Value="Type"/>
+          <Item Value="Uom"/>
+          <Item Value="ScheduleDate"/>
+          <Item Value="ShipmentNumber"/>
+          <Item Value="ShippedQuantity"/>
+          <Item Value="FreightCost"/>
+          <Item Value="WeightInTons"/>
+          <Item Value="Comments"/>
+          <Item Value="ShipQuant"/>
+          <Item Value="SubInventory"/>
+          <Item Value="Destination"/>
+          <Item Value="ItemNumber"/>
+          <Item Value="LoadOrigin"/>
+          <Item Value="SONUMBER"/>
+          <Item Value="Straggler"/>
+          <Item Value="Freight"/>
+          <Item Value="DumpedTons"/>
+          <Item Value="DumpWeight"/>
+          <Item Value="ShipWeight"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="CeixStsWaybillLinesVO1Iterator" id="SelectFlag"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="SelectFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="CeixStsWaybillSearchVO1Iterator"
+                     id="EditFlag">
+      <AttrNames>
+        <Item Value="EditFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="pLoadFromDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pLoadFromDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="pLoadToDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pLoadToDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CeixStsWaybillBtmoreHdrDeleteTrainVo1Iterator"
+          id="CeixStsWaybillBtmoreHdrDeleteTrainVo1">
+      <nodeDefinition DefName="com.ceix.waybill.model.views.CeixStsWaybillBtmoreHdrDeleteTrainVo"
+                      Name="CeixStsWaybillBtmoreHdrDeleteTrainVo10">
+        <AttrNames>
+          <Item Value="DeliveryHeaderId"/>
+          <Item Value="TrainNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CeixStsWaybillBtmoreHdrDeleteTrainVo1Iterator"
+            id="ExecuteWithParams1" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="bUnitNumber" NDValue="${bindings.ExecuteWithParams1_bUnitNumber}" NDType="java.lang.String"/>
+    </action>
+    <attributeValues IterBinding="variables" id="bUnitNumber">
+      <AttrNames>
+        <Item Value="ExecuteWithParams1_bUnitNumber"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

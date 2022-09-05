@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Subscription Term</name>
+      <description>Subscription term to support subscription management integration. This is not currently used.</description>
+      <oer:attributes>
+        <oer:attribute description="Date when the subscription term starts. This attribute is not currently used." name="TermStartDate"/>
+        <oer:attribute description="Abbreviation that identifies the time unit of measure for the subscription term. This attribute is not currently used." name="TermPeriodCode"/>
+        <oer:attribute description="Name of the time unit of measure for the subscription term. This attribute is not currently used." name="TermPeriod"/>
+        <oer:attribute description="Duration for the subscription term. This attribute is not currently used." name="TermDuration"/>
+        <oer:attribute description="Abbreviation that identifies the method of application for the term. For a subscription, the ORA_OSS_RNWL_PRICE_ADJ_TYPE lookup type contains the values that you can use for this attribute. This attribute is not currently used." name="TermApplicationMethodCode"/>
+        <oer:attribute description="Method of application for the term. This depends on the type of term. In Subscription Management, this attribute is called PricingMethod. This attribute is not currently used." name="TermApplicationMethod"/>
+        <oer:attribute description="Adjustment for the term, expressed as a percent. This attribute is not currently used." name="TermAdjustmentPercent"/>
+        <oer:attribute description="Value that uniquely identifies the order term in the source application. For subscription term, the value is 1. This attribute is not currently used." name="SourceOrderTermIdentifier"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="SubscriptionTerm">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>SourceOrderTermIdentifier</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="TermStartDate" nillable="true" type="ns0:dateTime-Timestamp"/>
+      <xsd:element minOccurs="0" name="TermPeriodCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TermPeriod" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TermDuration" nillable="true" type="xsd:decimal"/>
+      <xsd:element minOccurs="0" name="TermApplicationMethodCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TermApplicationMethod" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TermAdjustmentPercent" nillable="true" type="xsd:decimal"/>
+      <xsd:element minOccurs="0" name="SourceOrderTermIdentifier" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="subscriptionTerm" type="SubscriptionTerm"/>
+</xsd:schema>

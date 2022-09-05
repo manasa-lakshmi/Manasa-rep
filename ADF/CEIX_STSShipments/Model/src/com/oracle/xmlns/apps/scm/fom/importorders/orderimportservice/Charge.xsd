@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Header Information for Price Waterfall</name>
+      <description>Provides header information about the price waterfall for an
+                order line.</description>
+      <oer:attributes>
+        <oer:attribute description="Value for the charge definition entity. A charge definition defines the Price Type, Charge Type and Charge Sub-Type." name="ChargeDefinition"/>
+        <oer:attribute description="Code for the charge definition entity. A Charge Definition defines the Price Type, Charge Type and Charge Sub-Type." name="ChargeDefinitionCode"/>
+        <oer:attribute description="Value for the charge definition entity. A Charge Definition defines the Price Type, Charge Type and Charge Sub-Type." name="ChargeSubtype"/>
+        <oer:attribute description="Type of a given charge." name="ChargeSubtypeCode"/>
+        <oer:attribute description="Price type of a given charge, e.g. One Time, Recurring, etc." name="PriceType"/>
+        <oer:attribute description="Price type of a given charge, e.g. One Time, Recurring, etc." name="PriceTypeCode"/>
+        <oer:attribute description="UOM code for priced quantity, for example 'Tom'." name="PricedQuantity"/>
+        <oer:attribute description="UOM for priced quantity/" name="PricedQuantityUOM"/>
+        <oer:attribute description="UOM code f" name="PricedQuantityUOMCode"/>
+        <oer:attribute description="Indicated whether this charge is the primary charge." name="PrimaryFlag"/>
+        <oer:attribute description="Indicates whether the charge is applied to the Product, Shipping or Return." name="ApplyTo"/>
+        <oer:attribute description="Marks a charge as a rollup/ aggregate charge." name="RollupFlag"/>
+        <oer:attribute description="A unique internal identifier for the charge as assigned by the system that captured the transaction." name="SourceChargeIdentifier"/>
+        <oer:attribute description="Value for the type of a given charge. Charge types could include Goods Sale, Service Sale, Financing vs. Lease, Shipping related charges, Restocking Penalties, Special charges, etc." name="ChargeType"/>
+        <oer:attribute description="Type code of a given charge. Charge types could include Goods sale, Service Sale, Financing vs. Lease, Shipping related charges, Restocking Penalties, Special charges, etc." name="ChargeTypeCode"/>
+        <oer:attribute description="Indicates the currency used for the charge" name="ChargeCurrencyName"/>
+        <oer:attribute description="Indicates the currency used for the charge" name="ChargeCurrencyCode"/>
+        <oer:attribute description="Sequence number for the charge." name="SequenceNumber"/>
+        <oer:attribute description="Price Periodicity Code" name="PricePeriodicityCode"/>
+        <oer:attribute description="GSA Unit Price" name="GSAUnitPrice"/>
+        <oer:attribute description="Average Unit Selling Price" name="AverageUnitSellingPrice"/>
+        <oer:attribute description="Abbreviation that identifies the applicability whether all tiers or highest tier. The ORA_QP_TIER_GRADUATED_TYPES lookup type contains the values that you can use for this attribute. This attribute is not currently used." name="TierAppliesToCode"/>
+        <oer:attribute description="Value that identifies whether the applicability of the tier is for all tiers or highest tier. This attribute is not currently used." name="TierAppliesTo"/>
+        <oer:attribute description="Contains one of the following values: true or false. If true, then the usage pricing is used. If false, then the usage pricing is not used. This attribute does not have a default value. This attribute is not currently used." name="UsagePriceLockFlag"/>
+        <oer:attribute description="Value that indicates the block allowance for a non-tiered consumption charge. This attribute is not currently used." name="BlockAllowance"/>
+        <oer:attribute description="Number that represents the size of the block for charge calculation for a tier. This attribute is not currently used." name="BlockSize"/>
+        <oer:attribute description="Charge component" name="OrderChargeComponent"/>
+        <oer:attribute description="Charge tier to support subscription management integration. This attribute is not currently used." name="ChargeTier"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:include schemaLocation="ChargeComponent.xsd"/>
+  <xsd:include schemaLocation="ChargeTier.xsd"/>
+  <xsd:complexType name="Charge">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>SourceChargeIdentifier</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ChargeDefinition" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeDefinitionCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeSubtype" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeSubtypeCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PriceType" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PriceTypeCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PricedQuantity" nillable="true" type="ns0:MeasureType"/>
+      <xsd:element minOccurs="0" name="PricedQuantityUOM" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PricedQuantityUOMCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PrimaryFlag" nillable="true" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="ApplyTo" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="RollupFlag" nillable="true" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="SourceChargeIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeType" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeTypeCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeCurrencyName" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeCurrencyCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SequenceNumber" nillable="true" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="PricePeriodicityCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="GSAUnitPrice" nillable="true" type="ns0:AmountType"/>
+      <xsd:element minOccurs="0" name="AverageUnitSellingPrice" nillable="true" type="ns0:AmountType"/>
+      <xsd:element minOccurs="0" name="TierAppliesToCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TierAppliesTo" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="UsagePriceLockFlag" nillable="true" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="BlockAllowance" nillable="true" type="xsd:decimal"/>
+      <xsd:element minOccurs="0" name="BlockSize" nillable="true" type="xsd:decimal"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="OrderChargeComponent" type="ChargeComponent"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="ChargeTier" type="ChargeTier"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="charge" type="Charge"/>
+</xsd:schema>

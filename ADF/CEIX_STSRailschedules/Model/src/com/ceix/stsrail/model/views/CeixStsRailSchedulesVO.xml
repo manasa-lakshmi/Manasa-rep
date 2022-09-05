@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixStsRailSchedulesVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  RowClass="com.ceix.stsrail.model.views.CeixStsRailSchedulesVORowImpl"
+  ComponentClass="com.ceix.stsrail.model.views.CeixStsRailSchedulesVOImpl"
+  OrderBy="LOAD_ORDER"
+  AccessMode="DEFAULT">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="startDate"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Date"/>
+  <Variable
+    Name="endDate"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Date"/>
+  <Variable
+    Name="timeZone"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pTrainId"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.pTrainId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="pOrderNum"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.pOrderNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="pCustNum"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.pCustNum_LABEL"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="pContrNum"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.pContrNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="pDest"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.pDest_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <ViewAccessor
+    Name="CeixStsCustDetailsView1"
+    ViewObjectName="com.ceix.stsrail.model.views.CeixStsCustDetailsView"
+    RowLevelBinds="true"/>
+  <SQLQuery><![CDATA[SELECT CeixStsRailSchedulesEO.RAIL_SCHEDULE_ID,    
+       CeixStsRailSchedulesEO.CREATION_DATE,    
+       CeixStsRailSchedulesEO.CREATED_BY,    
+       CeixStsRailSchedulesEO.LAST_UPDATE_DATE,    
+       CeixStsRailSchedulesEO.LAST_UPDATED_BY,    
+       CeixStsRailSchedulesEO.SALES_ORDER_NUMBER,    
+       CeixStsRailSchedulesEO.TRAIN_ID,    
+       CeixStsRailSchedulesEO.LOAD_ORDER,    
+       CeixStsRailSchedulesEO.LOAD_DATE,    
+       CeixStsRailSchedulesEO.TYPE,    
+       CeixStsRailSchedulesEO.DESTINATION,    
+       CeixStsRailSchedulesEO.DESTINATION_ETA,    
+       CeixStsRailSchedulesEO.CONSIGNEE,    
+       CeixStsRailSchedulesEO.LOAD_ORIGIN,    
+       CeixStsRailSchedulesEO.ORIGIN_ETA,    
+       CeixStsRailSchedulesEO.RESERVATION_STATUS,    
+       CeixStsRailSchedulesEO.REQUEST#,    
+       CeixStsRailSchedulesEO.ORDER_PLACE_DATE,    
+       CeixStsRailSchedulesEO.REQUESTED_LOAD_DATE,    
+       CeixStsRailSchedulesEO.CARS,    
+       CeixStsRailSchedulesEO.TONS,    
+       CeixStsRailSchedulesEO.COAL_CLASS,    
+       CeixStsRailSchedulesEO.WEIGH,    
+       CeixStsRailSchedulesEO.LOADS,    
+       CeixStsRailSchedulesEO.MTY,    
+       CeixStsRailSchedulesEO.WAYBILL_DATE,    
+       CeixStsRailSchedulesEO.WAYBILL#,    
+       CeixStsRailSchedulesEO.LAST_TRAIN,    
+       CeixStsRailSchedulesEO.CITY,    
+       CeixStsRailSchedulesEO.LAST_EVENT_TIME,    
+       CeixStsRailSchedulesEO.CURRENT_SET,    
+       CeixStsRailSchedulesEO.CURRENT_STATUS,    
+       CeixStsRailSchedulesEO.HOLD_FLAG,    
+       CeixStsRailSchedulesEO.CARRIER,    
+       CeixStsRailSchedulesEO.PROBLEM,    
+       CeixStsRailSchedulesEO.COMMENTS,    
+       CeixStsRailSchedulesEO.CUSTOMER_CONTRACT,    
+       CeixStsRailSchedulesEO.RR,    
+       CeixStsRailSchedulesEO.SOURCE,    
+          CeixStsRailSchedulesEO.TRAIN_ID    
+       || ' - '    
+       || INITCAP (    
+              NVL (    
+                  (SELECT meaning    
+                     FROM ceix_lookup_values    
+                    WHERE     lookup_type = 'DESTINATION'    
+                          AND lookup_code =    
+                                  CeixStsRailSchedulesEO.DESTINATION),    
+                  CeixStsRailSchedulesEO.DESTINATION))    
+       || ' - '    
+       || CeixStsRailSchedulesEO.CARS    
+           TITLE,    
+       NVL (    
+           (SELECT meaning    
+              FROM ceix_lookup_values    
+             WHERE     lookup_type = 'DESTINATION'    
+                   AND lookup_code = CeixStsRailSchedulesEO.DESTINATION),    
+           CeixStsRailSchedulesEO.DESTINATION)    
+           DEST,    
+       (SELECT coh.party_number    
+          FROM ceix_contract_headers coh    
+         WHERE coh.contract_number =    
+                   CeixStsRailSchedulesEO.SALES_ORDER_NUMBER)    
+           customer_number,    
+       (SELECT coh.contract_name    
+          FROM ceix_contract_headers coh    
+         WHERE coh.contract_number =    
+                   CeixStsRailSchedulesEO.SALES_ORDER_NUMBER)    
+           contract_number, 
+           CeixStsRailSchedulesEO.ITEM_NUMBER 
+  FROM CEIX_STS_RAIL_SCHEDULES CeixStsRailSchedulesEO    
+ WHERE     UPPER (CeixstsrailschedulesEO.TRAIN_ID) LIKE    
+               UPPER (    
+                      '%'    
+                   || NVL (:pTrainId, CeixstsrailschedulesEO.TRAIN_ID)    
+                   || '%')    
+       AND NVL (CeixstsrailschedulesEO.SALES_ORDER_NUMBER, 'KK') =    
+               NVL (:pOrderNum,    
+                    NVL (CeixstsrailschedulesEO.SALES_ORDER_NUMBER, 'KK'))    
+       AND UPPER (NVL (CeixstsrailschedulesEO.DESTINATION, 'KK')) LIKE    
+               UPPER (    
+                      '%'    
+                   || NVL (:pDest,    
+                           NVL (CeixstsrailschedulesEO.DESTINATION, 'KK'))    
+                   || '%')    
+       AND NVL (    
+               (SELECT coh.party_number    
+                  FROM ceix_contract_headers coh    
+                 WHERE coh.contract_number =    
+                           CeixStsRailSchedulesEO.SALES_ORDER_NUMBER),    
+               'KK') =    
+               NVL (    
+                   :pCustNum,    
+                   NVL (    
+                       (SELECT coh.party_number    
+                          FROM ceix_contract_headers coh    
+                         WHERE coh.contract_number =    
+                                   CeixStsRailSchedulesEO.SALES_ORDER_NUMBER),    
+                       'KK'))    
+       AND UPPER (    
+               NVL (    
+                   (SELECT coh.contract_name    
+                      FROM ceix_contract_headers coh    
+                     WHERE coh.contract_number =    
+                               CeixStsRailSchedulesEO.SALES_ORDER_NUMBER),    
+                   'KK')) LIKE    
+               UPPER (    
+                      '%'    
+                   || NVL (    
+                          :pContrNum,    
+                          NVL (    
+                              (SELECT coh.contract_name    
+                                 FROM ceix_contract_headers coh    
+                                WHERE coh.contract_number =    
+                                          CeixStsRailSchedulesEO.SALES_ORDER_NUMBER),    
+                              'KK'))    
+                   || '%')    
+       AND NVL (CeixstsrailschedulesEO.HOLD_FLAG, 'N') = 'N']]></SQLQuery>
+  <EntityUsage
+    Name="CeixStsRailSchedulesEO"
+    Entity="com.ceix.stsrail.model.entities.CeixStsRailSchedulesEO"/>
+  <ViewAttribute
+    Name="RailScheduleId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RailScheduleId"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="RAIL_SCHEDULE_ID"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="SalesOrderNumber"
+    PrecisionRule="true"
+    EntityAttrName="SalesOrderNumber"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="SALES_ORDER_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.SalesOrderNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TrainId"
+    PrecisionRule="true"
+    EntityAttrName="TrainId"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="TRAIN_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.TrainId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LoadOrder"
+    PrecisionRule="true"
+    EntityAttrName="LoadOrder"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="LOAD_ORDER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.LoadOrder_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LoadDate"
+    PrecisionRule="true"
+    EntityAttrName="LoadDate"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="LOAD_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.LoadDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Type"
+    PrecisionRule="true"
+    EntityAttrName="Type"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="TYPE"/>
+  <ViewAttribute
+    Name="Destination"
+    PrecisionRule="true"
+    EntityAttrName="Destination"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="DESTINATION"/>
+  <ViewAttribute
+    Name="DestinationEta"
+    PrecisionRule="true"
+    EntityAttrName="DestinationEta"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="DESTINATION_ETA">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.DestinationEta_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Consignee"
+    PrecisionRule="true"
+    EntityAttrName="Consignee"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="CONSIGNEE"/>
+  <ViewAttribute
+    Name="LoadOrigin"
+    PrecisionRule="true"
+    EntityAttrName="LoadOrigin"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="LOAD_ORIGIN">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.LoadOrigin_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OriginEta"
+    PrecisionRule="true"
+    EntityAttrName="OriginEta"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="ORIGIN_ETA">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.OriginEta_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ReservationStatus"
+    PrecisionRule="true"
+    EntityAttrName="ReservationStatus"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="RESERVATION_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.ReservationStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Request"
+    PrecisionRule="true"
+    EntityAttrName="Request"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="REQUEST#"/>
+  <ViewAttribute
+    Name="OrderPlaceDate"
+    PrecisionRule="true"
+    EntityAttrName="OrderPlaceDate"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="ORDER_PLACE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.OrderPlaceDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RequestedLoadDate"
+    PrecisionRule="true"
+    EntityAttrName="RequestedLoadDate"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="REQUESTED_LOAD_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.RequestedLoadDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Cars"
+    PrecisionRule="true"
+    EntityAttrName="Cars"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="CARS"/>
+  <ViewAttribute
+    Name="Tons"
+    PrecisionRule="true"
+    EntityAttrName="Tons"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="TONS"/>
+  <ViewAttribute
+    Name="CoalClass"
+    PrecisionRule="true"
+    EntityAttrName="CoalClass"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="COAL_CLASS"/>
+  <ViewAttribute
+    Name="Weigh"
+    PrecisionRule="true"
+    EntityAttrName="Weigh"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="WEIGH"/>
+  <ViewAttribute
+    Name="Loads"
+    PrecisionRule="true"
+    EntityAttrName="Loads"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="LOADS"/>
+  <ViewAttribute
+    Name="Mty"
+    PrecisionRule="true"
+    EntityAttrName="Mty"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="MTY"/>
+  <ViewAttribute
+    Name="WaybillDate"
+    PrecisionRule="true"
+    EntityAttrName="WaybillDate"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="WAYBILL_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.WaybillDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Waybill"
+    PrecisionRule="true"
+    EntityAttrName="Waybill"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="WAYBILL#">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.Waybill_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastTrain"
+    PrecisionRule="true"
+    EntityAttrName="LastTrain"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="LAST_TRAIN">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.LastTrain_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="City"
+    PrecisionRule="true"
+    EntityAttrName="City"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="CITY"/>
+  <ViewAttribute
+    Name="LastEventTime"
+    PrecisionRule="true"
+    EntityAttrName="LastEventTime"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="LAST_EVENT_TIME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.LastEventTime_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentSet"
+    PrecisionRule="true"
+    EntityAttrName="CurrentSet"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="CURRENT_SET">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.CurrentSet_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentStatus"
+    PrecisionRule="true"
+    EntityAttrName="CurrentStatus"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="CURRENT_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.CurrentStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="HoldFlag"
+    PrecisionRule="true"
+    EntityAttrName="HoldFlag"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="HOLD_FLAG">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.HoldFlag_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Carrier"
+    PrecisionRule="true"
+    EntityAttrName="Carrier"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="CARRIER"/>
+  <ViewAttribute
+    Name="Problem"
+    PrecisionRule="true"
+    EntityAttrName="Problem"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="PROBLEM"/>
+  <ViewAttribute
+    Name="Comments"
+    PrecisionRule="true"
+    EntityAttrName="Comments"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="COMMENTS"/>
+  <ViewAttribute
+    Name="CustomerContract"
+    PrecisionRule="true"
+    EntityAttrName="CustomerContract"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="CUSTOMER_CONTRACT"/>
+  <ViewAttribute
+    Name="Rr"
+    PrecisionRule="true"
+    EntityAttrName="Rr"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="RR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.Rr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Source"
+    PrecisionRule="true"
+    EntityAttrName="Source"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="SOURCE"/>
+  <ViewAttribute
+    Name="Title"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="246"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TITLE"
+    Expression="TITLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="246"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Dest"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DEST"
+    Expression="DEST"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.Dest_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustomerNumber"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUSTOMER_NUMBER"
+    Expression="CUSTOMER_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.CustomerNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ContractNumber"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CONTRACT_NUMBER"
+    Expression="CONTRACT_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.ContractNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemNumber"
+    PrecisionRule="true"
+    EntityAttrName="ItemNumber"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="ITEM_NUMBER"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ceix.stsrail.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

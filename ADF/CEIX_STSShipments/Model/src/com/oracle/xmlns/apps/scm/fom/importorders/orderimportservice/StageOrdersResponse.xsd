@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Request Result</name>
+      <description>A response object for the stage orders operation</description>
+      <oer:attributes>
+        <oer:attribute description="Number of orders that were staged" name="NumberOfOrdersStaged"/>
+        <oer:attribute description="Number of orders that could not be staged" name="NumberOfFailedOrders"/>
+        <oer:attribute description="Identifier for a batch or orders being imported" name="BatchName"/>
+        <oer:attribute description="A list of orders that could not be staged" name="FailedOrders"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:include schemaLocation="FailedOrders.xsd"/>
+  <xsd:complexType name="StageOrdersResponse">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="NumberOfOrdersStaged" nillable="true" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="NumberOfFailedOrders" nillable="true" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="BatchName" nillable="true" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="FailedOrders" type="FailedOrders"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="stageOrdersResponse" type="StageOrdersResponse"/>
+</xsd:schema>

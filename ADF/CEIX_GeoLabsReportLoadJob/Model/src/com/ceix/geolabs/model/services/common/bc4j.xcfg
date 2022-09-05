@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.ceix.geolabs.model.services.GeoLabsReportLoadAM">
+      <AppModuleConfig user="ceix" jbo.project="com.ceix.geolabs.model.Model" DeployPlatform="LOCAL" name="GeoLabsReportLoadAMLocal" ApplicationName="com.ceix.geolabs.model.services.GeoLabsReportLoadAM" password="123456" DBconnection="ceixjdev">
+         <Security AppModuleJndiName="com.ceix.geolabs.model.services.GeoLabsReportLoadAM"/>
+         <Custom DeployPassword="true" oraDriverType="thin" JDBCDataSource="jdbc/ConsolDS" sid="XE" hostname="localhost" port="1521" subtype="oraJDBC"/>
+      </AppModuleConfig>
+      <AppModuleConfig user="ceix" jbo.project="com.ceix.geolabs.model.Model" DeployPlatform="LOCAL" name="GeoLabsReportLoadAMShared" ApplicationName="com.ceix.geolabs.model.services.GeoLabsReportLoadAM" password="123456" DBconnection="ceixjdev">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="com.ceix.geolabs.model.services.GeoLabsReportLoadAM"/>
+         <Custom DeployPassword="true" oraDriverType="thin" JDBCDataSource="jdbc/ConsolDS" sid="XE" hostname="localhost" port="1521" subtype="oraJDBC"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="SI" DBconnection="jdbc/ceixjdevDS" jbo.project="com.ceix.geolabs.model.Model" name="GeoLabsReportLoadService" ApplicationName="com.ceix.geolabs.model.services.GeoLabsReportLoadAM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.resetnontransactionalstate="true"/>
+         <Database jbo.locking.mode="optimistic" JDBCDataSource="jdbc/ConsolDS"/>
+         <Security AppModuleJndiName="com.ceix.geolabs.model.services.GeoLabsReportLoadAM"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

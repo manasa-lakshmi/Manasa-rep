@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+
+<JboProject
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="Model"
+   Version="12.2.1.22.48"
+   SeparateXMLFiles="true"
+   PackageName="com.ceix.geolabs.model">
+   <DesignTime>
+      <Attr Name="_jprName" Value="../../../../../Model.jpr"/>
+      <Attr Name="_appModuleNames0"
+         Value="com.ceix.geolabs.model.services.GeoLabsReportLoadAM"/>
+      <Attr Name="_NamedConnection" Value="Consol"/>
+   </DesignTime>
+   <Containee
+      Name="entities"
+      PackageName="com.ceix.geolabs.model.entities"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_EO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="services"
+      PackageName="com.ceix.geolabs.model.services"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_AM" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="view"
+      PackageName="com.ceix.geolabs.model.view"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+      </DesignTime>
+   </Containee>
+</JboProject>

@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:panelHeader text="Create Shipment Line" id="ph1">
+      <f:facet name="context"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t2">
+          <af:commandButton text="Back to Shipments" id="cb2"
+                            action="#{pageFlowScope.CeixStsShipmentsMB.onBackToShip}"/>
+          <af:spacer width="20" height="10" id="s1"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:panelFormLayout id="pfl1" maxColumns="2" rows="4" fieldWidth="50%"
+                          labelWidth="20%">
+        <f:facet name="footer"/>
+        <af:panelLabelAndMessage label="#{bindings.UnitTrainNumber.hints.label}"
+                                 id="plam1">
+          <af:outputText value="#{bindings.UnitTrainNumber.inputValue}"
+                         id="ot1"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.LoadDate1.hints.label}"
+                                 id="plam9">
+          <af:outputText value="#{bindings.LoadDate1.inputValue}" id="ot9"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.RrPermitNumber.hints.label}"
+                                 id="plam2">
+          <af:outputText value="#{bindings.RrPermitNumber.inputValue}"
+                         id="ot2"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Origin.hints.label}"
+                                 id="plam4">
+          <af:outputText value="#{bindings.Origin.inputValue}" id="ot4"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Destination.hints.label}"
+                                 id="plam5">
+          <af:outputText value="#{bindings.Destination.inputValue}" id="ot5"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Consignee.hints.label}"
+                                 id="plam6">
+          <af:outputText value="#{bindings.Consignee.inputValue}" id="ot6"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Routing.hints.label}"
+                                 id="plam7">
+          <af:outputText value="#{bindings.Routing.inputValue}" id="ot7"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Shipper.hints.label}"
+                                 id="plam8">
+          <af:outputText value="#{bindings.Shipper.inputValue}" id="ot8"/>
+        </af:panelLabelAndMessage>
+      </af:panelFormLayout>
+    </af:panelHeader>
+    <af:spacer width="10" height="10" id="s5"/>
+    <af:panelBox id="pb1">
+      <f:facet name="toolbar"/>
+      <af:panelGridLayout id="pgl2">
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+          <af:gridCell marginStart="5px" width="34%" id="gc2">
+            <af:panelFormLayout id="pfl3">
+              <f:facet name="footer"/>
+              <af:inputText value="#{bindings.SalesOrderNumber.inputValue}"
+                            label="#{bindings.SalesOrderNumber.hints.label}"
+                            required="#{bindings.SalesOrderNumber.hints.mandatory}"
+                            maximumLength="#{bindings.SalesOrderNumber.hints.precision}"
+                            shortDesc="#{bindings.SalesOrderNumber.hints.tooltip}"
+                            id="it1" columns="35">
+                <f:validator binding="#{bindings.SalesOrderNumber.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ShipmentNumber.inputValue}"
+                            label="#{bindings.ShipmentNumber.hints.label}"
+                            required="#{bindings.ShipmentNumber.hints.mandatory}"
+                            maximumLength="#{bindings.ShipmentNumber.hints.precision}"
+                            shortDesc="#{bindings.ShipmentNumber.hints.tooltip}"
+                            id="it10" columns="30">
+                <f:validator binding="#{bindings.ShipmentNumber.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.CarId.inputValue}"
+                            label="#{bindings.CarId.hints.label}"
+                            required="#{bindings.CarId.hints.mandatory}"
+                            columns="35"
+                            maximumLength="#{bindings.CarId.hints.precision}"
+                            shortDesc="#{bindings.CarId.hints.tooltip}"
+                            id="it2">
+                <f:validator binding="#{bindings.CarId.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.GrossAllow.inputValue}"
+                            label="#{bindings.GrossAllow.hints.label}"
+                            required="#{bindings.GrossAllow.hints.mandatory}"
+                            columns="30"
+                            maximumLength="#{bindings.GrossAllow.hints.precision}"
+                            shortDesc="#{bindings.GrossAllow.hints.tooltip}"
+                            id="it3">
+                <f:validator binding="#{bindings.GrossAllow.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:gridCell>
+          <af:gridCell marginStart="5px" width="33%" id="gc1">
+            <af:panelFormLayout id="pfl4" fieldWidth="50%" labelWidth="50%">
+              <f:facet name="footer"/>
+              <af:inputText value="#{bindings.CarTare.inputValue}"
+                            label="#{bindings.CarTare.hints.label}"
+                            required="#{bindings.CarTare.hints.mandatory}"
+                            columns="30"
+                            maximumLength="#{bindings.CarTare.hints.precision}"
+                            shortDesc="#{bindings.CarTare.hints.tooltip}"
+                            id="it4">
+                <f:validator binding="#{bindings.CarTare.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Ownership.inputValue}"
+                            label="#{bindings.Ownership.hints.label}"
+                            required="#{bindings.Ownership.hints.mandatory}"
+                            columns="20"
+                            maximumLength="#{bindings.Ownership.hints.precision}"
+                            shortDesc="#{bindings.Ownership.hints.tooltip}"
+                            id="it5">
+                <f:validator binding="#{bindings.Ownership.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Weight.inputValue}"
+                            label="#{bindings.Weight.hints.label}"
+                            required="#{bindings.Weight.hints.mandatory}"
+                            columns="30"
+                            maximumLength="#{bindings.Weight.hints.precision}"
+                            shortDesc="#{bindings.Weight.hints.tooltip}"
+                            id="it6">
+                <f:validator binding="#{bindings.Weight.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.BinGross.inputValue}"
+                            label="#{bindings.BinGross.hints.label}"
+                            required="#{bindings.BinGross.hints.mandatory}"
+                            columns="20"
+                            maximumLength="#{bindings.BinGross.hints.precision}"
+                            shortDesc="#{bindings.BinGross.hints.tooltip}"
+                            id="it7">
+                <f:validator binding="#{bindings.BinGross.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:gridCell>
+          <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc3">
+            <af:panelFormLayout id="pfl5">
+              <f:facet name="footer"/>
+              <af:inputText value="#{bindings.BinTare.inputValue}"
+                            label="#{bindings.BinTare.hints.label}"
+                            required="#{bindings.BinTare.hints.mandatory}"
+                            columns="30"
+                            maximumLength="#{bindings.BinTare.hints.precision}"
+                            shortDesc="#{bindings.BinTare.hints.tooltip}"
+                            id="it8">
+                <f:validator binding="#{bindings.BinTare.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.LoadedNett.inputValue}"
+                            label="#{bindings.LoadedNett.hints.label}"
+                            required="#{bindings.LoadedNett.hints.mandatory}"
+                            columns="30"
+                            maximumLength="#{bindings.LoadedNett.hints.precision}"
+                            shortDesc="#{bindings.LoadedNett.hints.tooltip}"
+                            id="it9">
+                <f:validator binding="#{bindings.LoadedNett.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Comments.inputValue}"
+                            label="#{bindings.Comments.hints.label}"
+                            required="#{bindings.Comments.hints.mandatory}"
+                            columns="35"
+                            maximumLength="#{bindings.Comments.hints.precision}"
+                            shortDesc="#{bindings.Comments.hints.tooltip}"
+                            id="it11" rows="2">
+                <f:validator binding="#{bindings.Comments.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:gridCell>
+        </af:gridRow>
+      </af:panelGridLayout>
+    </af:panelBox>
+    <af:spacer width="10" height="15" id="s3"/>
+    <af:toolbar id="t1">
+      <af:spacer width="25" height="10" id="s2"/>
+      <af:commandButton text="Save" id="cb1"
+                        actionListener="#{pageFlowScope.CeixStsShipmentsMB.onSave}"/>
+      <af:spacer width="10" height="10" id="s4"/>
+      <af:commandButton text="Back to Shipments" id="cb3"
+                        action="#{pageFlowScope.CeixStsShipmentsMB.onBackToShip}"/>
+    </af:toolbar>
+  </af:panelGroupLayout>
+</jsp:root>

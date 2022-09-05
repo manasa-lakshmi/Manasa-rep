@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="manageWaybillLinePageDef"
+                Package="com.ceix.waybill.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CeixStsWaybillHdrVO2" RangeSize="25"
+              DataControl="CeixStsWaybillAMDataControl"
+              id="CeixStsWaybillHdrVO2Iterator"/>
+    <iterator Binds="CeixStsWaybillLinesVO2" RangeSize="25"
+              DataControl="CeixStsWaybillAMDataControl"
+              id="CeixStsWaybillLinesVO2Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CeixStsWaybillHdrVO2Iterator"
+                     id="TrainNumber">
+      <AttrNames>
+        <Item Value="TrainNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillHdrVO2Iterator" id="DumpedDate">
+      <AttrNames>
+        <Item Value="DumpedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillHdrVO2Iterator"
+                     id="DumpLocation">
+      <AttrNames>
+        <Item Value="DumpLocation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillHdrVO2Iterator"
+                     id="FreightCost">
+      <AttrNames>
+        <Item Value="FreightCost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillLinesVO2Iterator"
+                     id="SalesOrderNumber">
+      <AttrNames>
+        <Item Value="SalesOrderNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillLinesVO2Iterator"
+                     id="ShipmentNumber">
+      <AttrNames>
+        <Item Value="ShipmentNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillLinesVO2Iterator"
+                     id="CarNumber">
+      <AttrNames>
+        <Item Value="CarNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillLinesVO2Iterator"
+                     id="CarPrefix">
+      <AttrNames>
+        <Item Value="CarPrefix"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillLinesVO2Iterator"
+                     id="CarWeight">
+      <AttrNames>
+        <Item Value="CarWeight"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillLinesVO2Iterator"
+                     id="FreightCost1">
+      <AttrNames>
+        <Item Value="FreightCost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillLinesVO2Iterator" id="RailRoad">
+      <AttrNames>
+        <Item Value="RailRoad"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillLinesVO2Iterator"
+                     id="ShippedQuantity">
+      <AttrNames>
+        <Item Value="ShippedQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillLinesVO2Iterator"
+                     id="ShipToInformation">
+      <AttrNames>
+        <Item Value="ShipToInformation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillLinesVO2Iterator" id="Uom">
+      <AttrNames>
+        <Item Value="Uom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsWaybillLinesVO2Iterator"
+                     id="WeightInTons">
+      <AttrNames>
+        <Item Value="WeightInTons"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Document References</name>
+      <description>Provides various document references such as original order</description>
+      <oer:attributes>
+        <oer:attribute description="Business Document/ Object that is referenced e.g., Assets, Sales Order, Purchase Order" name="DocumentReferenceType"/>
+        <oer:attribute description="Internally generated unique identifier for the document." name="DocumentIdentifier"/>
+        <oer:attribute description="Optional element to identify additional qualifiers for the ID. Used in the case of multi-part keys." name="DocumentAdditionalIdentifier"/>
+        <oer:attribute description="Business Document Friendly Identifier found in the document. e.g., Asset Number, PO Number, Order Number" name="DocumentNumber"/>
+        <oer:attribute description="One or more ways of additionally identifying the object's instance. This can be optionally used to capture additional identifying details if necessary." name="DocumentAdditionalNumber"/>
+        <oer:attribute description="Internally generated unique identifier for the document line." name="DocumentLineIdentifier"/>
+        <oer:attribute description="Optional element to identify additional qualifiers for the document line. Used in the case of multi-part keys." name="DocumentAdditionalLineIdentifier"/>
+        <oer:attribute description="Business Document Friendly Identifier found in the document for the line, e.g., PO Line Number, Order Line Number, etc." name="DocumentLineNumber"/>
+        <oer:attribute description="One or more ways of additionally identifying the object's instance. This can be optionally used to capture additional identifying details if necessary." name="DocumentAdditionalLineNumber"/>
+        <oer:attribute description="Unique identifier of the document subline" name="DocumentSubLineIdentifier"/>
+        <oer:attribute description="Optional element to identify additional qualifiers for the document sub line. Used in the case of multi-part keys." name="DocumentAdditionalSubLineIdentifier"/>
+        <oer:attribute description="Business Document Friendly Identifier found in the document for the sub line." name="DocumentSubLineNumber"/>
+        <oer:attribute description="One or more ways of additionally identifying the object's instance. This can be optionally used to capture additional identifying details if necessary for the sub line." name="DocumentAdditionalSubLineNumber"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="DocumentReference">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>SourceTransactionLineIdentifier</attribute>
+          <attribute>SourceTransactionScheduleIdentifier</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="DocumentReferenceType" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DocumentIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DocumentAdditionalIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DocumentNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DocumentAdditionalNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DocumentLineIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DocumentAdditionalLineIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DocumentLineNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DocumentAdditionalLineNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DocumentSubLineIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DocumentAdditionalSubLineIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DocumentSubLineNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DocumentAdditionalSubLineNumber" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="documentReference" type="DocumentReference"/>
+</xsd:schema>

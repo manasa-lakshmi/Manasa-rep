@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="CeixStsWaybillTF">
+    <default-activity id="__1">initVO</default-activity>
+    <managed-bean id="__8">
+      <managed-bean-name id="__11">CeixStsWaybillMB</managed-bean-name>
+      <managed-bean-class id="__10">com.ceix.waybill.util.CeixStsWaybillMB</managed-bean-class>
+      <managed-bean-scope id="__9">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="CeixStsWaybill">
+      <page>/CeixStsWaybillPF.jsff</page>
+    </view>
+    <method-call id="initVO">
+      <method>#{bindings.initVO.execute}</method>
+      <outcome id="__2">
+        <to-string/>
+      </outcome>
+    </method-call>
+    <view id="CreateWaybillLine">
+      <page>/manageWaybillLine.jsff</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">initVO</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__6">start</from-outcome>
+        <to-activity-id id="__7">CeixStsWaybill</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">CeixStsWaybill</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome id="__16">Create</from-outcome>
+        <to-activity-id id="__14">CreateWaybillLine</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id id="__18">CreateWaybillLine</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome id="__21">back</from-outcome>
+        <to-activity-id id="__20">CeixStsWaybill</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

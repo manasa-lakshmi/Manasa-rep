@@ -1,0 +1,21 @@
+<xsd:schema xmlns:sdoJava="commonj.sdo/java" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="/com/ceix/geolabs/model/view/common/"
+     xmlns="/com/ceix/geolabs/model/view/common/" elementFormDefault="qualified" sdoJava:package="com.ceix.geolabs.model.view.common">
+    <xsd:annotation>
+        <xsd:documentation>
+            <name>Ws Result PVO</name>
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:import schemaLocation="classpath:/xml/sdoJava.xsd" namespace="commonj.sdo/java"/>
+    <xsd:complexType name="WSResultPSDO">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/"/>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="Status" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="Message" type="xsd:string" minOccurs="0" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="wSResultPSDO" type="WSResultPSDO"/>
+</xsd:schema>

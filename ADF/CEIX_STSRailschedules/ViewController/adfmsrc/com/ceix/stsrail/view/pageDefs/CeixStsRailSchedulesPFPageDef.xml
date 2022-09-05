@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="CeixStsRailSchedulesPFPageDef"
+                Package="com.ceix.stsrail.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
+                     Binds="CeixStsRailSchedulesVO1.variablesMap.pTrainId"
+                     Name="ExecuteWithParams_pTrainId" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
+                     Binds="CeixStsRailSchedulesVO1.variablesMap.pCustNum"
+                     Name="ExecuteWithParams_pCustNum" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
+                     Binds="CeixStsRailSchedulesVO1.variablesMap.pOrderNum"
+                     Name="ExecuteWithParams_pOrderNum" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
+                     Binds="CeixStsRailSchedulesVO1.variablesMap.pContrNum"
+                     Name="ExecuteWithParams_pContrNum" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
+                     Binds="CeixStsRailSchedulesVO1.variablesMap.pDest"
+                     Name="ExecuteWithParams_pDest" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
+                     Binds="CeixStsRailSchedulesOrdNumMassUpdateVO1.variablesMap.trainId"
+                     Name="ExecuteWithParams1_trainId" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
+                     Binds="CeixStsRailSchedulesOrdNumMassUpdateVO1.variablesMap.loadDtStart"
+                     Name="ExecuteWithParams1_loadDtStart" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
+                     Binds="CeixStsRailSchedulesOrdNumMassUpdateVO1.variablesMap.loadDtEnd"
+                     Name="ExecuteWithParams1_loadDtEnd" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="CeixStsRailSchedulesVO1" RangeSize="-1"
+              DataControl="CeixStsRailSchedulesAMDataControl"
+              id="CeixStsRailSchedulesVO1Iterator"/>
+    <iterator Binds="CustomerVO1" RangeSize="-1"
+              DataControl="CeixStsRailSchedulesAMDataControl"
+              id="CustomerVO1Iterator"/>
+    <iterator Binds="SalesOrderVO1" RangeSize="-1"
+              DataControl="CeixStsRailSchedulesAMDataControl"
+              id="SalesOrderVO1Iterator"/>
+    <iterator Binds="CeixStsRailSchedulesHOLDVO1" RangeSize="25"
+              DataControl="CeixStsRailSchedulesAMDataControl"
+              id="CeixStsRailSchedulesHOLDVO1Iterator"/>
+    <iterator Binds="CeixStsCustDetailsView1" RangeSize="25"
+              DataControl="CeixStsRailSchedulesAMDataControl"
+              id="CeixStsCustDetailsView1Iterator"/>
+    <searchRegion Criteria="SearchCustomerViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CeixStsCustDetailsView1Iterator"
+                  id="SearchCustomerViewCriteriaQuery"/>
+    <searchRegion Criteria="SearchCustomerViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CeixStsCustDetailsView1Iterator"
+                  id="SearchCustomerViewCriteriaQuery1"/>
+    <searchRegion Criteria="SearchCustomerViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CeixStsCustDetailsView1Iterator"
+                  id="SearchCustomerViewCriteriaQuery2"/>
+    <iterator Binds="CeixStsRailSchedulesOrdNumMassUpdateVO1" RangeSize="25"
+              DataControl="CeixStsRailSchedulesAMDataControl"
+              id="CeixStsRailSchedulesOrdNumMassUpdateVO1Iterator"/>
+    <searchRegion Criteria="CeixStsRailSchedulesOrdNumMassUpdateVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CeixStsRailSchedulesOrdNumMassUpdateVO1Iterator"
+                  id="CeixStsRailSchedulesOrdNumMassUpdateVOCriteriaQuery"/>
+    <searchRegion Criteria="SearchCustomerViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CeixStsCustDetailsView1Iterator"
+                  id="SearchCustomerViewCriteriaQuery3"/>
+    <searchRegion Criteria="CeixStsRailSchedulesOrdNumMassUpdateVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CeixStsRailSchedulesOrdNumMassUpdateVO1Iterator"
+                  id="CeixStsRailSchedulesOrdNumMassUpdateVOCriteriaQuery1"/>
+    <searchRegion Criteria="SearchCustomerViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CeixStsCustDetailsView1Iterator"
+                  id="SearchCustomerViewCriteriaQuery4"/>
+    <iterator Binds="ContractItemsVO1" RangeSize="-1" DataControl="CeixStsRailSchedulesAMDataControl"
+              id="ContractItemsVO1Iterator"/>
+    <iterator Binds="LoadOriginVO1" RangeSize="-1" DataControl="CeixStsRailSchedulesAMDataControl"
+              id="LoadOriginVO1Iterator"/>
+    <iterator Binds="DestinationVO1" RangeSize="-1" DataControl="CeixStsRailSchedulesAMDataControl"
+              id="DestinationVO1Iterator"/>
+    <iterator Binds="LoadOriginVO1" RangeSize="-1" DataControl="CeixStsRailSchedulesAMDataControl"
+              id="LoadOriginVO1Iterator1"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CeixStsRailSchedulesVO1Iterator" id="ExecuteWithParams"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="startDate"
+                 NDValue="#{bindings.CeixStsRailSchedulesVO1.startDate}"
+                 NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="endDate"
+                 NDValue="#{bindings.CeixStsRailSchedulesVO1.endDate}"
+                 NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="timeZone"
+                 NDValue="#{bindings.CeixStsRailSchedulesVO1.timeZoneId}"
+                 NDType="java.lang.String"/>
+    </action>
+    <calendar IterBinding="CeixStsRailSchedulesVO1Iterator"
+              id="CeixStsRailSchedulesVO1"
+              xmlns="http://xmlns.oracle.com/adf/faces/binding"
+              ActionBindingName="ExecuteWithParams">
+      <nodeDefinition DefName="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO">
+        <AttrNames>
+          <Item Type="id" Value="RailScheduleId"/>
+          <Item Type="providerId" Value="Destination"/>
+          <Item Type="title" Value="Title"/>
+          <Item Type="timeType" Value="Type"/>
+          <Item Type="startTime" Value="LoadDate"/>
+          <Item Type="endTime" Value="LoadDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </calendar>
+    <action IterBinding="CeixStsRailSchedulesVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="TrainId">
+      <AttrNames>
+        <Item Value="TrainId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="LoadOrder">
+      <AttrNames>
+        <Item Value="LoadOrder"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="LoadDate">
+      <AttrNames>
+        <Item Value="LoadDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Type">
+      <AttrNames>
+        <Item Value="Type"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="DestinationEta">
+      <AttrNames>
+        <Item Value="DestinationEta"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="Consignee">
+      <AttrNames>
+        <Item Value="Consignee"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="OriginEta">
+      <AttrNames>
+        <Item Value="OriginEta"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="ReservationStatus">
+      <AttrNames>
+        <Item Value="ReservationStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Request">
+      <AttrNames>
+        <Item Value="Request"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="OrderPlaceDate">
+      <AttrNames>
+        <Item Value="OrderPlaceDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="RequestedLoadDate">
+      <AttrNames>
+        <Item Value="RequestedLoadDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Cars">
+      <AttrNames>
+        <Item Value="Cars"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Tons">
+      <AttrNames>
+        <Item Value="Tons"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="CoalClass">
+      <AttrNames>
+        <Item Value="CoalClass"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Weigh">
+      <AttrNames>
+        <Item Value="Weigh"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Loads">
+      <AttrNames>
+        <Item Value="Loads"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Mty">
+      <AttrNames>
+        <Item Value="Mty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="WaybillDate">
+      <AttrNames>
+        <Item Value="WaybillDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Waybill">
+      <AttrNames>
+        <Item Value="Waybill"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="LastTrain">
+      <AttrNames>
+        <Item Value="LastTrain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="City">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="LastEventTime">
+      <AttrNames>
+        <Item Value="LastEventTime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="CurrentSet">
+      <AttrNames>
+        <Item Value="CurrentSet"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="CurrentStatus">
+      <AttrNames>
+        <Item Value="CurrentStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="HoldFlag">
+      <AttrNames>
+        <Item Value="HoldFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Carrier">
+      <AttrNames>
+        <Item Value="Carrier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Problem">
+      <AttrNames>
+        <Item Value="Problem"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="CustomerContract">
+      <AttrNames>
+        <Item Value="CustomerContract"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Rr">
+      <AttrNames>
+        <Item Value="Rr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Source">
+      <AttrNames>
+        <Item Value="Source"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CeixStsRailSchedulesVO1Iterator" id="SalesOrderNumber"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="false" ListIter="SalesOrderVO1Iterator"
+          NullValueFlag="start" NullValueId="SalesOrderNumber_null">
+      <AttrNames>
+        <Item Value="SalesOrderNumber"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="OrderNumber"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="OrderNumber"/>
+      </ListDisplayAttrNames>
+    </list>
+    <tree IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+          id="CeixStsRailSchedulesHOLDVO1">
+      <nodeDefinition DefName="com.ceix.stsrail.model.views.CeixStsRailSchedulesHOLDVO"
+                      Name="CeixStsRailSchedulesHOLDVO10">
+        <AttrNames>
+          <Item Value="TrainId"/>
+          <Item Value="LoadDate"/>
+          <Item Value="Destination"/>
+          <Item Value="Consignee"/>
+          <Item Value="LoadOrigin"/>
+          <Item Value="OrderPlaceDate"/>
+          <Item Value="Cars"/>
+          <Item Value="HoldFlag"/>
+          <Item Value="Carrier"/>
+          <Item Value="Comments"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="TrainId1">
+      <AttrNames>
+        <Item Value="TrainId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="LoadOrder1">
+      <AttrNames>
+        <Item Value="LoadOrder"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="LoadDate1">
+      <AttrNames>
+        <Item Value="LoadDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Type1">
+      <AttrNames>
+        <Item Value="Type"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="DestinationEta1">
+      <AttrNames>
+        <Item Value="DestinationEta"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Consignee1">
+      <AttrNames>
+        <Item Value="Consignee"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="OriginEta1">
+      <AttrNames>
+        <Item Value="OriginEta"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="ReservationStatus1">
+      <AttrNames>
+        <Item Value="ReservationStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Request1">
+      <AttrNames>
+        <Item Value="Request"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="OrderPlaceDate1">
+      <AttrNames>
+        <Item Value="OrderPlaceDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="RequestedLoadDate1">
+      <AttrNames>
+        <Item Value="RequestedLoadDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Cars1">
+      <AttrNames>
+        <Item Value="Cars"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Tons1">
+      <AttrNames>
+        <Item Value="Tons"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="CoalClass1">
+      <AttrNames>
+        <Item Value="CoalClass"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Weigh1">
+      <AttrNames>
+        <Item Value="Weigh"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Loads1">
+      <AttrNames>
+        <Item Value="Loads"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Mty1">
+      <AttrNames>
+        <Item Value="Mty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="WaybillDate1">
+      <AttrNames>
+        <Item Value="WaybillDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Waybill1">
+      <AttrNames>
+        <Item Value="Waybill"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="LastTrain1">
+      <AttrNames>
+        <Item Value="LastTrain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="City1">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="LastEventTime1">
+      <AttrNames>
+        <Item Value="LastEventTime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="CurrentSet1">
+      <AttrNames>
+        <Item Value="CurrentSet"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="CurrentStatus1">
+      <AttrNames>
+        <Item Value="CurrentStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Carrier1">
+      <AttrNames>
+        <Item Value="Carrier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Problem1">
+      <AttrNames>
+        <Item Value="Problem"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Comments1">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="CustomerContract1">
+      <AttrNames>
+        <Item Value="CustomerContract"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator" id="Rr1">
+      <AttrNames>
+        <Item Value="Rr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+                     id="Source1">
+      <AttrNames>
+        <Item Value="Source"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+          id="CustomerNumber1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject" StaticList="false"
+          ListIter="CustomerVO1Iterator"
+          NullValueFlag="start" NullValueId="CustomerNumber1_null">
+      <AttrNames>
+        <Item Value="CustomerNumber"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="AccountNumber"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="CustomerName"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="CeixStsRailSchedulesHOLDVO1Iterator"
+          id="SalesOrderNumber1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject" StaticList="false"
+          ListIter="SalesOrderVO1Iterator"
+          NullValueFlag="start" NullValueId="SalesOrderNumber1_null">
+      <AttrNames>
+        <Item Value="SalesOrderNumber"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="OrderNumber"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="OrderNumber"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="CeixStsRailSchedulesVO1Iterator" id="HoldFlag2"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="true">
+      <AttrNames>
+        <Item Value="HoldFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </list>
+    <list IterBinding="CeixStsRailSchedulesHOLDVO1Iterator" id="HoldFlag1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="true">
+      <AttrNames>
+        <Item Value="HoldFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </list>
+    <attributeValues IterBinding="variables" id="pTrainId">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pTrainId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="variables" id="pCustNum" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject" StaticList="false"
+          ListIter="CustomerVO1Iterator"
+          NullValueFlag="start" NullValueId="pCustNum_null">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pCustNum"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="AccountNumber"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="CustomerName"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="variables" id="pOrderNum" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject" StaticList="false"
+          ListIter="SalesOrderVO1Iterator"
+          NullValueFlag="start" NullValueId="pOrderNum_null">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pOrderNum"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="OrderNumber"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="OrderNumber"/>
+      </ListDisplayAttrNames>
+    </list>
+    <attributeValues IterBinding="variables" id="pContrNum">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pContrNum"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CeixStsCustDetailsView1Iterator"
+          id="CeixStsCustDetailsView1">
+      <nodeDefinition DefName="com.ceix.stsrail.model.views.CeixStsCustDetailsView"
+                      Name="CeixStsCustDetailsView10">
+        <AttrNames>
+          <Item Value="OrderNumber"/>
+          <Item Value="OrderType"/>
+          <Item Value="AccountNumber"/>
+          <Item Value="PartyName"/>
+          <Item Value="CustomerType"/>
+          <Item Value="CustomerClassCode"/>
+          <Item Value="CustomerPoNumber"/>
+          <Item Value="ShipToAddress"/>
+          <Item Value="ContractNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CeixStsCustDetailsView1Iterator"
+          id="CeixStsCustDetailsView11">
+      <nodeDefinition DefName="com.ceix.stsrail.model.views.CeixStsCustDetailsView"
+                      Name="CeixStsCustDetailsView110">
+        <AttrNames>
+          <Item Value="OrderNumber"/>
+          <Item Value="AccountNumber"/>
+          <Item Value="PartyName"/>
+          <Item Value="CustomerPoNumber"/>
+          <Item Value="ShipToAddress"/>
+          <Item Value="ContractNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CeixStsCustDetailsView1Iterator"
+          id="CeixStsCustDetailsView12">
+      <nodeDefinition DefName="com.ceix.stsrail.model.views.CeixStsCustDetailsView"
+                      Name="CeixStsCustDetailsView120">
+        <AttrNames>
+          <Item Value="OrderNumber"/>
+          <Item Value="AccountNumber"/>
+          <Item Value="PartyName"/>
+          <Item Value="CustomerPoNumber"/>
+          <Item Value="ShipToAddress"/>
+          <Item Value="ContractNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="variables" id="pDest">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pDest"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator"
+                     id="ContractNumber">
+      <AttrNames>
+        <Item Value="ContractNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="Dest">
+      <AttrNames>
+        <Item Value="Dest"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CeixStsRailSchedulesOrdNumMassUpdateVO1Iterator"
+          id="CeixStsRailSchedulesOrdNumMassUpdateVO1">
+      <nodeDefinition DefName="com.ceix.stsrail.model.views.CeixStsRailSchedulesOrdNumMassUpdateVO"
+                      Name="CeixStsRailSchedulesOrdNumMassUpdateVO10">
+        <AttrNames>
+          <Item Value="RailScheduleId"/>
+          <Item Value="TrainId"/>
+          <Item Value="LoadDate"/>
+          <Item Value="Destination"/>
+          <Item Value="SalesOrderNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CeixStsRailSchedulesOrdNumMassUpdateVO1Iterator"
+            id="ExecuteWithParams1" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="trainId" NDType="java.lang.String"
+                 NDValue="${bindings.ExecuteWithParams1_trainId}"/>
+      <NamedData NDName="loadDtStart" NDType="oracle.jbo.domain.Date"
+                 NDValue="${bindings.ExecuteWithParams1_loadDtStart}"/>
+      <NamedData NDName="loadDtEnd" NDType="oracle.jbo.domain.Date"
+                 NDValue="${bindings.ExecuteWithParams1_loadDtEnd}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="trainId">
+      <AttrNames>
+        <Item Value="ExecuteWithParams1_trainId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="loadDtStart">
+      <AttrNames>
+        <Item Value="ExecuteWithParams1_loadDtStart"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="loadDtEnd">
+      <AttrNames>
+        <Item Value="ExecuteWithParams1_loadDtEnd"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CeixStsRailSchedulesOrdNumMassUpdateVO1Iterator"
+          id="CeixStsRailSchedulesOrdNumMassUpdateVO11">
+      <nodeDefinition DefName="com.ceix.stsrail.model.views.CeixStsRailSchedulesOrdNumMassUpdateVO"
+                      Name="CeixStsRailSchedulesOrdNumMassUpdateVO110">
+        <AttrNames>
+          <Item Value="RailScheduleId"/>
+          <Item Value="TrainId"/>
+          <Item Value="LoadDate"/>
+          <Item Value="SalesOrderNumber"/>
+          <Item Value="Destination"/>
+          <Item Value="IsSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CeixStsCustDetailsView1Iterator"
+          id="CeixStsCustDetailsView13">
+      <nodeDefinition DefName="com.ceix.stsrail.model.views.CeixStsCustDetailsView"
+                      Name="CeixStsCustDetailsView130">
+        <AttrNames>
+          <Item Value="OrderNumber"/>
+          <Item Value="AccountNumber"/>
+          <Item Value="PartyName"/>
+          <Item Value="CustomerType"/>
+          <Item Value="CustomerClassCode"/>
+          <Item Value="CustomerPoNumber"/>
+          <Item Value="ContractNumber"/>
+          <Item Value="ShipToAddress"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list StaticList="false" IterBinding="CeixStsRailSchedulesVO1Iterator" ListIter="ContractItemsVO1Iterator"
+          NullValueFlag="start" id="ItemNumber" NullValueId="ItemNumber_null">
+      <AttrNames>
+        <Item Value="ItemNumber"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="ItemNumber"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="ItemNumber"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list StaticList="false" IterBinding="CeixStsRailSchedulesHOLDVO1Iterator" ListIter="ContractItemsVO1Iterator"
+          NullValueFlag="start" id="ItemNumber1" NullValueId="ItemNumber1_null">
+      <AttrNames>
+        <Item Value="ItemNumber"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="ItemNumber"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="ItemNumber"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list StaticList="false" IterBinding="CeixStsRailSchedulesVO1Iterator" ListIter="LoadOriginVO1Iterator"
+          NullValueFlag="start" id="LoadOrigin" NullValueId="LoadOrigin_null">
+      <AttrNames>
+        <Item Value="LoadOrigin"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="OrganizationName"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="OrganizationName"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list StaticList="false" IterBinding="CeixStsRailSchedulesVO1Iterator" ListIter="DestinationVO1Iterator"
+          NullValueFlag="start" id="Destination" NullValueId="Destination_null">
+      <AttrNames>
+        <Item Value="Destination"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Destination"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Destination"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list StaticList="false" IterBinding="CeixStsRailSchedulesHOLDVO1Iterator" ListIter="LoadOriginVO1Iterator1"
+          NullValueFlag="start" id="LoadOrigin1" NullValueId="LoadOrigin1_null">
+      <AttrNames>
+        <Item Value="LoadOrigin"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="OrganizationName"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="OrganizationName"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list StaticList="false" IterBinding="CeixStsRailSchedulesHOLDVO1Iterator" ListIter="DestinationVO1Iterator"
+          NullValueFlag="start" id="Destination1" NullValueId="Destination1_null">
+      <AttrNames>
+        <Item Value="Destination"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Destination"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Destination"/>
+      </ListDisplayAttrNames>
+    </list>
+  </bindings>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="com.ceix.stsrail.view.ViewControllerBundle"/>
+  </ResourceBundle>
+</pageDefinition>

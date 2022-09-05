@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.ceix.stsrail.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+    <factory className="oracle.adfinternal.view.faces.model.binding.ExtendedFacesBindingDefFactoryImpl"
+             nameSpace="http://xmlns.oracle.com/adf/faces/binding"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/CeixStsRailSchedulesPG.jsp"
+          usageId="com_ceix_stsrail_view_CeixStsRailSchedulesPGPageDef"/>
+    <page path="/CeixStsRailSchedulesPF.jsff"
+          usageId="com_ceix_stsrail_view_CeixStsRailSchedulesPFPageDef"/>
+    <page path="/rtest.jspx" usageId="com_ceix_stsrail_view_rtestPageDef"/>
+    <page path="/Test.jspx" usageId="com_ceix_stsrail_view_TestPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_ceix_stsrail_view_CeixStsRailSchedulesPGPageDef"
+          path="com.ceix.stsrail.view.pageDefs.CeixStsRailSchedulesPGPageDef"/>
+    <page id="com_ceix_stsrail_view_CeixStsRailSchedulesPFPageDef"
+          path="com.ceix.stsrail.view.pageDefs.CeixStsRailSchedulesPFPageDef"/>
+    <page id="com_ceix_stsrail_view_rtestPageDef"
+          path="com.ceix.stsrail.view.pageDefs.rtestPageDef"/>
+    <page id="com_ceix_stsrail_view_TestPageDef"
+          path="com.ceix.stsrail.view.pageDefs.TestPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="CeixStsRailSchedulesAMDataControl"
+                     Package="com.ceix.stsrail.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="CeixStsRailSchedulesAMLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

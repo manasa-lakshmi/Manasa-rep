@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.ceix.delivery.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/CeixStsShipmentsPG.jsp"
+          usageId="com_ceix_delivery_view_CeixStsShipmentsPGPageDef"/>
+    <page path="/CeixStsShipmentsPF.jsff"
+          usageId="com_ceix_delivery_view_CeixStsShipmentsPFPageDef"/>
+    <page path="/WEB-INF/CeixStsShipmentsTF.xml#CeixStsShipmentsTF@initVO"
+          usageId="com_ceix_delivery_view_CeixStsShipmentsTF_CeixStsShipmentsTF_initVOPageDef"/>
+    <page path="/manageShipmentLine.jsff"
+          usageId="com_ceix_delivery_view_manageShipmentLinePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_ceix_delivery_view_CeixStsShipmentsPGPageDef"
+          path="com.ceix.delivery.view.pageDefs.CeixStsShipmentsPGPageDef"/>
+    <page id="com_ceix_delivery_view_CeixStsShipmentsPFPageDef"
+          path="com.ceix.delivery.view.pageDefs.CeixStsShipmentsPFPageDef"/>
+    <page id="com_ceix_delivery_view_CeixStsShipmentsTF_CeixStsShipmentsTF_initVOPageDef"
+          path="com.ceix.delivery.view.pageDefs.CeixStsShipmentsTF_CeixStsShipmentsTF_initVOPageDef"/>
+    <page id="com_ceix_delivery_view_manageShipmentLinePageDef"
+          path="com.ceix.delivery.view.pageDefs.manageShipmentLinePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="CeixStsDeliveryAMDataControl"
+                     Package="com.ceix.delivery.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="CeixStsDeliveryAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

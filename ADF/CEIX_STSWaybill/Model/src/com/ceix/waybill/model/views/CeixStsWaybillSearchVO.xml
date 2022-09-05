@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixStsWaybillSearchVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  RowClass="com.ceix.waybill.model.views.CeixStsWaybillSearchVORowImpl"
+  ComponentClass="com.ceix.waybill.model.views.CeixStsWaybillSearchVOImpl"
+  AccessMode="DEFAULT">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pOrderNum"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.pOrderNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="pTrainNum"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.pTrainNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="pShipNum"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.pShipNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="pShipFlag"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.pShipFlag_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="pLoadFromDate"
+    Kind="where"
+    Type="oracle.jbo.domain.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.pLoadFromDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="pLoadToDate"
+    Kind="where"
+    Type="oracle.jbo.domain.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.pLoadToDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <ViewAccessor
+    Name="CeixStsContractItemsVO1"
+    ViewObjectName="com.ceix.waybill.model.views.CeixStsContractItemsVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="pContractNumber">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="CeixStsWaybillSearchVO"/>
+      </PIMap>
+      <PIMap Variable="pLoadDate">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="CeixStsWaybillSearchVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="DestinationVO1"
+    ViewObjectName="com.ceix.waybill.model.views.DestinationVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="pDestContractNum">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="CeixStsWaybillSearchVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="LoadOriginVO1"
+    ViewObjectName="com.ceix.waybill.model.views.LoadOriginVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ItemNumber"
+    ListVOName="CeixStsContractItemsVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ItemNumber"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ItemNumber"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Destination"
+    ListVOName="DestinationVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Destination"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Destination"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_LoadOrigin"
+    ListVOName="LoadOriginVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="LoadOrigin"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrganizationName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT order_number,sales_agreement_name,train_number,NEW_TRAIN_NUMBER,dump_date,shipment_number, 
+round(sum(weight_in_tons),2) total_weight, 
+so_number,item_number,STRAGGLER,DESTINATION,LOAD_ORIGIN,freight,ship_date,round(SUM(dump_weight),2) total_dump_weight                 
+FROM (SELECT cswl.sales_order_number                        order_number,                  
+         cch.contract_name                              sales_agreement_name,                  
+         cswh.train_number,                  
+         cswl.NEW_TRAIN_NUMBER,                  
+         cswh.dumped_date                               dump_date,                  
+         cswl.shipment_number,                  
+         cswl.weight_in_tons,                  
+         cswl.attribute1                                so_number,                  
+         cswl.attribute3                                item_number,                  
+         NVL (cswl.STRAGGLER, 'N')                      STRAGGLER,                  
+         cswl.DESTINATION                               DESTINATION,                  
+         cswl.LOAD_ORIGIN                               LOAD_ORIGIN,                  
+         decode(cswl.shipment_number,null,NVL (                  
+             cswl.freight,                  
+             (			 SELECT ccl.price FROM  ceix_contract_lines ccl WHERE ccl.item_number = 'Freight Revenue-Outside' AND ccl.item_type = 'FRT' AND           
+             ccl.chr_id = cch.id            
+             AND nvl(cswh.ship_date,cswh.dumped_date)           
+             BETWEEN  nvl(ccl.start_date,nvl(cswh.ship_date-1,cswh.dumped_date - 1) )           
+             AND nvl(ccl.end_date,nvl(cswh.ship_date+1,cswh.dumped_date + 1) ))),cswl.freight)                  
+             freight ,               
+			 cswh.ship_date      ship_date   ,         
+cswl.dump_weight		dump_weight	          
+ FROM ceix_sts_waybill_btmore_hdr  cswh,                  
+         ceix_sts_waybill_btmore_lines cswl,         -- ceix_order_headers coh                  
+         ceix_contract_headers        cch 			            
+   WHERE     REPLACE (cswh.train_number, '"') =                  
+                 REPLACE (cswl.train_number, '"')                  
+         AND cswl.sales_order_number = cch.contract_number(+)                  
+         AND cswh.delivery_header_id = cswl.delivery_header_id                  
+         AND (   :pOrderNum IS NULL                  
+              OR (    :pOrderNum IS NOT NULL                  
+                  AND (   (cch.contract_name LIKE '%' || :pOrderNum || '%')                  
+                       OR (cch.contract_number LIKE '%' || :pOrderNum || '%'))))                  
+         AND (   :pTrainNum IS NULL                  
+              OR (    :pTrainNum IS NOT NULL                  
+                  AND (   cswh.train_number LIKE '%' || :pTrainNum || '%'                  
+                       OR cswl.NEW_TRAIN_NUMBER LIKE '%' || :pTrainNum || '%')))                  
+         AND (   :pLoadFromDate IS NULL                  
+              OR (    :pLoadFromDate IS NOT NULL                  
+                  AND cswh.dumped_date >= :pLoadFromDate))                  
+         AND (   :pLoadToDate IS NULL                  
+              OR (:pLoadToDate IS NOT NULL AND cswh.dumped_date <= :pLoadToDate))                  
+         AND (   :pShipNum IS NULL                  
+              OR (    :pShipNum IS NOT NULL                  
+                  AND cswl.shipment_number LIKE '%' || :pShipNum || '%'))                  
+         AND (   (NVL (:pShipFlag, 'N') = 'Y' AND cswl.shipment_number IS NULL)                  
+              OR (NVL (:pShipFlag, 'N') = 'N')))                   
+GROUP BY order_number,sales_agreement_name,train_number,NEW_TRAIN_NUMBER,dump_date,shipment_number,so_number,item_number,STRAGGLER,DESTINATION,LOAD_ORIGIN,freight,ship_date]]></SQLQuery>
+  <ViewAttribute
+    Name="OrderNumber"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ORDER_NUMBER"
+    Expression="ORDER_NUMBER"
+    SQLType="VARCHAR"
+    IsUpdateable="false">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.OrderNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SalesAgreementName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="300"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SALES_AGREEMENT_NAME"
+    Expression="SALES_AGREEMENT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TrainNumber"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TRAIN_NUMBER"
+    Expression="TRAIN_NUMBER"
+    SQLType="VARCHAR"
+    IsUpdateable="false">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.TrainNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+<ViewAttribute
+    Name="NewTrainNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NEW_TRAIN_NUMBER"
+    Expression="NEW_TRAIN_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="NEW_TRAIN_NUMBER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>    
+  <ViewAttribute
+    Name="DumpDate"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="DUMP_DATE"
+    Expression="DUMP_DATE"
+    SQLType="DATE"
+    IsUpdateable="false">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.DumpDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipmentNumber"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SHIPMENT_NUMBER"
+    Expression="SHIPMENT_NUMBER"
+    SQLType="VARCHAR"
+    IsUpdateable="false">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.ShipmentNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotalWeight"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="TOTAL_WEIGHT"
+    Expression="TOTAL_WEIGHT"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="SoNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SO_NUMBER"
+    Expression="SO_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.SoNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemNumber"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="300"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ITEM_NUMBER"
+    Expression="ITEM_NUMBER"
+    SQLType="VARCHAR"
+    LOVName="LOV_ItemNumber">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Straggler"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STRAGGLER"
+    Expression="STRAGGLER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Destination"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="300"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DESTINATION"
+    Expression="DESTINATION"
+    SQLType="VARCHAR"
+    LOVName="LOV_Destination">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LoadOrigin"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="LOAD_ORIGIN"
+    Expression="LOAD_ORIGIN"
+    SQLType="VARCHAR"
+    LOVName="LOV_LoadOrigin">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Freight"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="300"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FREIGHT"
+    Expression="FREIGHT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="SHIP_DATE"
+    Expression="SHIP_DATE"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.ShipDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotalDumpWeight"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="TOTAL_DUMP_WEIGHT"
+    Expression="TOTAL_DUMP_WEIGHT"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="EditFlag"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="StragglerFlag"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.Boolean"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.waybill.model.views.CeixStsWaybillSearchVO.StragglerFlag_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ceix.waybill.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

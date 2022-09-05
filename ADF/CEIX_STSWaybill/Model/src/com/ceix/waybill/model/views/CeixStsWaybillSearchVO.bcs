@@ -1,0 +1,26 @@
+//Groovy Scripts for com.ceix.waybill.model.views.CeixStsWaybillSearchVO
+
+package com.ceix.waybill.model.views
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="CeixStsContractItemsVO1", name="pContractNumber")
+def pContractNumber_CeixStsContractItemsVO1_BindVariable_BoundParameter()
+{
+OrderNumber
+}
+
+
+@AccessorParameterExpression(accessorName="DestinationVO1", name="pDestContractNum")
+def pDestContractNum_DestinationVO1_BindVariable_BoundParameter()
+{
+OrderNumber
+}
+
+
+@AccessorParameterExpression(accessorName="CeixStsContractItemsVO1", name="pLoadDate")
+def pLoadDate_CeixStsContractItemsVO1_BindVariable_BoundParameter()
+{
+DumpDate
+}
+

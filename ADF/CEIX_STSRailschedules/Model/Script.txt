@@ -1,0 +1,407 @@
+CREATE OR REPLACE
+PROCEDURE CEIX_INSERT_NS_CSX_RS_ADF(
+    p_sales_order        IN ceix_sts_rail_schedules.sales_order_number%TYPE,
+    p_train_id           IN ceix_sts_rail_schedules.train_id%TYPE,
+    p_load_order         IN ceix_sts_rail_schedules.load_order%TYPE,
+    p_load_date          IN VARCHAR2,
+    p_destination        IN ceix_sts_rail_schedules.destination%TYPE,
+    p_destination_eta    IN ceix_sts_rail_schedules.destination_eta%TYPE,
+    p_consignee          IN ceix_sts_rail_schedules.consignee%TYPE,
+    p_load_origin        IN ceix_sts_rail_schedules.load_origin%TYPE,
+    p_origin_eta         IN ceix_sts_rail_schedules.origin_eta%TYPE,
+    p_reservation_status IN ceix_sts_rail_schedules.reservation_status%TYPE,
+    p_request            IN ceix_sts_rail_schedules.request#%TYPE,
+    p_order_place_date   IN VARCHAR2,
+    p_requeste_load_date IN VARCHAR2,
+    p_cars               IN ceix_sts_rail_schedules.cars%TYPE,
+    p_tons               IN ceix_sts_rail_schedules.tons%TYPE,
+    p_coalclass          IN ceix_sts_rail_schedules.coal_class%TYPE,
+    p_weigh              IN ceix_sts_rail_schedules.weigh%TYPE,
+    p_loads              IN ceix_sts_rail_schedules.loads%TYPE,
+    p_mty                IN ceix_sts_rail_schedules.mty%TYPE,
+    p_waybill_date       IN VARCHAR2,
+    p_waybill#           IN ceix_sts_rail_schedules.waybill#%TYPE,
+    p_last_train         IN ceix_sts_rail_schedules.last_train%TYPE,
+    p_city               IN ceix_sts_rail_schedules.city%TYPE,
+    p_last_event_time    IN ceix_sts_rail_schedules.last_event_time%TYPE,
+    p_current_set        IN ceix_sts_rail_schedules.current_set%TYPE,
+    p_current_status     IN ceix_sts_rail_schedules.current_status%TYPE,
+    p_hold_flag          IN ceix_sts_rail_schedules.hold_flag%TYPE,
+    p_carrier            IN ceix_sts_rail_schedules.carrier%TYPE,
+    p_problem            IN ceix_sts_rail_schedules.problem%TYPE,
+    p_comments           IN ceix_sts_rail_schedules.comments%TYPE,
+    p_customercontact    IN ceix_sts_rail_schedules.customer_contract%TYPE,
+    p_rr                 IN ceix_sts_rail_schedules.rr%TYPE,
+    P_SOURCE             IN CEIX_STS_RAIL_SCHEDULES.SOURCE%TYPE,
+    x_error_message OUT VARCHAR2)
+IS
+  /**********************************************************************************************
+  *  Procedure Name :   CEIX_INSERT_NS_CSX_RS_ADF                                                *
+  *                                                                                              *
+  *  Description  :   This gets called from Rail schedule ADF page for creating new schedule     *
+  *
+  *  Company      : AST Corporation                                                              *
+  *                                                                                              *
+  *  Change History                                                                              *
+  *  -----------------                                                                           *
+  *  Version         Date                 Author                  Description                    *
+  *  ---------      ---------------     ---------------         -----------------------------    *
+  *  1.0            19-Sep-2019`         Sandeep Satyavolu          Original Code                  *
+  **********************************************************************************************/
+  l_requested_load_date om.ceix_sts_rail_schedules.requested_load_date%TYPE;
+  l_count       NUMBER  :=0;
+  l_update_flag BOOLEAN := false;
+  L_TRAIN_ID OM.CEIX_STS_RAIL_SCHEDULES.TRAIN_ID%TYPE;
+  err_msg  VARCHAR2(4000);
+  err_code NUMBER;
+BEGIN
+  x_error_message:=NULL;
+  --x_error_message:='inittest';
+  l_train_id := p_train_id;
+  BEGIN
+    SELECT COUNT(train_id)
+    INTO l_count
+    FROM om.ceix_sts_rail_schedules
+    WHERE train_id = l_train_id;
+  EXCEPTION
+  WHEN OTHERS THEN
+    err_code        := SQLCODE;
+    err_msg         := SUBSTR(SQLERRM, 1, 500);
+    x_error_message := l_train_id||','|| 'Unexpected error in CEIX_INSERT_NS_CSX_RS_ADF proc while fetching count ' ||err_code||','||err_msg;
+    RETURN;
+  END;
+  IF l_count > 0 THEN
+    BEGIN
+      SELECT MAX(requested_load_date)
+      INTO l_requested_load_date
+      FROM om.ceix_sts_rail_schedules
+      WHERE train_id = l_train_id;
+    EXCEPTION
+    WHEN OTHERS THEN
+      err_code        := SQLCODE;
+      err_msg         := SUBSTR(SQLERRM, 1, 500);
+      x_error_message := l_train_id||','|| 'Unexpected error in CEIX_INSERT_NS_CSX_RS_ADF proc while fetching max requested load date ' ||err_code||','||err_msg;
+      RETURN;
+    END;
+    IF ( l_requested_load_date + 60 ) < TO_DATE(p_requeste_load_date, 'YYYY/MM/DD') THEN
+      --      INSERT
+      --      INTO om.ceix_sts_rail_schedules
+      --        (
+      --          sales_order_number,
+      --          rail_schedule_id,
+      --          train_id,
+      --          load_order,
+      --          load_date,
+      --          destination,
+      --          destination_eta,
+      --          consignee,
+      --          load_origin,
+      --          origin_eta,
+      --          reservation_status,
+      --          request#,
+      --          order_place_date,
+      --          requested_load_date,
+      --          cars,
+      --          tons,
+      --          coal_class,
+      --          weigh,
+      --          loads,
+      --          mty,
+      --          waybill_date,
+      --          waybill#,
+      --          last_train,
+      --          city,
+      --          last_event_time,
+      --          current_set,
+      --          current_status,
+      --          hold_flag,
+      --          carrier,
+      --          problem,
+      --          comments,
+      --          customer_contract,
+      --          rr,
+      --          source
+      --        )
+      --        VALUES
+      --        (
+      --          p_sales_order,
+      --          om.ceix_sts_rail_schedules_seq.nextval,
+      --          TRIM(p_train_id),
+      --          p_load_order,
+      --          TO_DATE(p_load_date, 'YYYY/MM/DD'),
+      --          p_destination,
+      --          p_destination_eta,
+      --          p_consignee,
+      --          p_load_origin,
+      --          p_origin_eta,
+      --          p_reservation_status,
+      --          p_request,
+      --          TO_DATE(p_order_place_date, 'YYYY/MM/DD'),
+      --          TO_DATE(p_requeste_load_date, 'YYYY/MM/DD'),
+      --          p_cars,
+      --          p_tons,
+      --          p_coalclass,
+      --          p_weigh,
+      --          p_loads,
+      --          p_mty,
+      --          TO_DATE(p_waybill_date, 'YYYY/MM/DD'),
+      --          p_waybill#,
+      --          p_last_train,
+      --          p_city,
+      --          p_last_event_time,
+      --          p_current_set,
+      --          p_current_status,
+      --          p_hold_flag,
+      --          p_carrier,
+      --          p_problem,
+      --          p_comments,
+      --          p_customercontact,
+      --          p_rr,
+      --          p_source
+      --        );
+      --      COMMIT;
+      --      X_ERROR_MESSAGE := 'Train Number'||'-'||P_TRAIN_ID||' '||'Inserted Successfully';
+      x_error_message := '1';
+      RETURN;
+    ELSE
+      x_error_message := 'Train Number'||'-'||p_train_id||' '||'Exists with in 60 Days';
+      RETURN;
+    END IF;
+  ELSE
+    --    INSERT
+    --    INTO om.ceix_sts_rail_schedules
+    --      (
+    --        sales_order_number,
+    --        rail_schedule_id,
+    --        train_id,
+    --        load_order,
+    --        load_date,
+    --        destination,
+    --        destination_eta,
+    --        consignee,
+    --        load_origin,
+    --        origin_eta,
+    --        reservation_status,
+    --        request#,
+    --        order_place_date,
+    --        requested_load_date,
+    --        cars,
+    --        tons,
+    --        coal_class,
+    --        weigh,
+    --        loads,
+    --        mty,
+    --        waybill_date,
+    --        waybill#,
+    --        last_train,
+    --        city,
+    --        last_event_time,
+    --        current_set,
+    --        current_status,
+    --        hold_flag,
+    --        carrier,
+    --        problem,
+    --        comments,
+    --        customer_contract,
+    --        rr,
+    --        source
+    --      )
+    --      VALUES
+    --      (
+    --        p_sales_order,
+    --        om.ceix_sts_rail_schedules_seq.nextval,
+    --        TRIM(p_train_id),
+    --        p_load_order,
+    --        TO_DATE(p_load_date, 'YYYY/MM/DD'),
+    --        p_destination,
+    --        p_destination_eta,
+    --        p_consignee,
+    --        p_load_origin,
+    --        p_origin_eta,
+    --        p_reservation_status,
+    --        p_request,
+    --        TO_DATE(p_order_place_date, 'YYYY/MM/DD'),
+    --        TO_DATE(p_requeste_load_date, 'YYYY/MM/DD'),
+    --        p_cars,
+    --        p_tons,
+    --        p_coalclass,
+    --        p_weigh,
+    --        p_loads,
+    --        p_mty,
+    --        TO_DATE(p_waybill_date, 'YYYY/MM/DD'),
+    --        p_waybill#,
+    --        p_last_train,
+    --        p_city,
+    --        p_last_event_time,
+    --        p_current_set,
+    --        p_current_status,
+    --        p_hold_flag,
+    --        p_carrier,
+    --        p_problem,
+    --        p_comments,
+    --        p_customercontact,
+    --        p_rr,
+    --        p_source
+    --      );
+    --    COMMIT;
+    --    x_error_message := 'Train Number'||'-'||p_train_id||' '||'Inserted Successfully';
+    x_error_message := '1';
+    RETURN;
+  END IF;
+EXCEPTION
+WHEN OTHERS THEN
+  err_code        := SQLCODE;
+  err_msg         := SUBSTR(sqlerrm, 1, 500);
+  x_error_message := l_train_id || ',' || 'Unexpected error in CEIX_INSERT_NS_CSX_RS_ADF proc ' || err_code || ',' || err_msg;
+  RETURN;
+END;
+
+-----
+
+CREATE OR REPLACE
+PROCEDURE CEIX_INSERT_NS_CSX_RS_ADF(
+    P_TRAIN_ID            IN CEIX_STS_RAIL_SCHEDULES.TRAIN_ID%TYPE,
+    P_REQUESTED_LOAD_DATE IN VARCHAR2,
+    X_ERROR_MESSAGE OUT VARCHAR2)
+IS
+  /**********************************************************************************************
+  *  Procedure Name :   CEIX_INSERT_NS_CSX_RS_ADF                                                *
+  *                                                                                              *
+  *  Description  :   This gets called from Rail schedule ADF page for creating new schedule     *
+  *
+  *  Company      : AST Corporation                                                              *
+  *                                                                                              *
+  *  Change History                                                                              *
+  *  -----------------                                                                           *
+  *  Version         Date                 Author                  Description                    *
+  *  ---------      ---------------     ---------------         -----------------------------    *
+  *  1.0            19-Sep-2019`         Sandeep Satyavolu          Original Code                  *
+  **********************************************************************************************/
+  L_REQUESTED_LOAD_DATE OM.CEIX_STS_RAIL_SCHEDULES.REQUESTED_LOAD_DATE%TYPE;
+  L_COUNT       NUMBER  :=0;
+  L_UPDATE_FLAG BOOLEAN := FALSE;
+  L_TRAIN_ID OM.CEIX_STS_RAIL_SCHEDULES.TRAIN_ID%TYPE;
+  ERR_MSG  VARCHAR2(4000);
+  ERR_CODE NUMBER;
+BEGIN
+  X_ERROR_MESSAGE:=NULL;
+  L_TRAIN_ID     := P_TRAIN_ID;
+  BEGIN
+    SELECT COUNT(TRAIN_ID)
+    INTO L_COUNT
+    FROM OM.CEIX_STS_RAIL_SCHEDULES
+    WHERE TRAIN_ID = L_TRAIN_ID;
+  EXCEPTION
+  WHEN OTHERS THEN
+    ERR_CODE        := SQLCODE;
+    ERR_MSG         := SUBSTR(SQLERRM, 1, 500);
+    X_ERROR_MESSAGE := L_TRAIN_ID||'-'|| 'Unexpected error in CEIX_INSERT_NS_CSX_RS_ADF procedure while fetching count (' || ERR_CODE ||', ' ||ERR_MSG || ')';
+    RETURN;
+  END;
+  IF L_COUNT > 0 THEN
+    BEGIN
+      SELECT MAX(REQUESTED_LOAD_DATE)
+      INTO L_REQUESTED_LOAD_DATE
+      FROM OM.CEIX_STS_RAIL_SCHEDULES
+      WHERE TRAIN_ID = L_TRAIN_ID;
+    EXCEPTION
+    WHEN OTHERS THEN
+      ERR_CODE        := SQLCODE;
+      ERR_MSG         := SUBSTR(SQLERRM, 1, 500);
+      X_ERROR_MESSAGE := L_TRAIN_ID|| '-' || 'Unexpected error in CEIX_INSERT_NS_CSX_RS_ADF procedure while fetching maximum requested load date (' || ERR_CODE || ', '||ERR_MSG || ')';
+      RETURN;
+    END;
+    IF ( L_REQUESTED_LOAD_DATE + 60 ) < TO_DATE(P_REQUESTED_LOAD_DATE, 'YYYY/MM/DD') THEN
+      X_ERROR_MESSAGE                := '1';
+      RETURN;
+    ELSE
+      X_ERROR_MESSAGE := 'Train Number ' || P_TRAIN_ID || ' exists within 60 Days';
+      RETURN;
+    END IF;
+  ELSE
+    X_ERROR_MESSAGE := '1';
+    RETURN;
+  END IF;
+EXCEPTION
+WHEN OTHERS THEN
+  ERR_CODE        := SQLCODE;
+  ERR_MSG         := SUBSTR(SQLERRM, 1, 500);
+  X_ERROR_MESSAGE := L_TRAIN_ID || '-' || 'Unexpected error in CEIX_INSERT_NS_CSX_RS_ADF procedure (' || ERR_CODE || ', ' || ERR_MSG || ')';
+  RETURN;
+END;
+
+-----
+
+CREATE OR REPLACE
+PROCEDURE CEIX_INSERT_NS_CSX_RS_ADF(
+    P_TRAIN_ID            IN CEIX_STS_RAIL_SCHEDULES.TRAIN_ID%TYPE,
+    P_REQUESTED_LOAD_DATE IN VARCHAR2,
+    X_ERROR_MESSAGE OUT VARCHAR2)
+IS
+  /**********************************************************************************************
+  *  Procedure Name :   CEIX_INSERT_NS_CSX_RS_ADF                                                *
+  *                                                                                              *
+  *  Description  :   This gets called from Rail schedule ADF page for creating new schedule     *
+  *
+  *  Company      : AST Corporation                                                              *
+  *                                                                                              *
+  *  Change History                                                                              *
+  *  -----------------                                                                           *
+  *  Version         Date                 Author                  Description                    *
+  *  ---------      ---------------     ---------------         -----------------------------    *
+  *  1.0            19-Sep-2019`         Sandeep Satyavolu          Original Code                  *
+  **********************************************************************************************/
+  L_REQUESTED_LOAD_DATE OM.CEIX_STS_RAIL_SCHEDULES.REQUESTED_LOAD_DATE%TYPE;
+  L_COUNT       NUMBER  :=0;
+  L_UPDATE_FLAG BOOLEAN := FALSE;
+  L_TRAIN_ID OM.CEIX_STS_RAIL_SCHEDULES.TRAIN_ID%TYPE;
+  ERR_MSG  VARCHAR2(4000);
+  ERR_CODE NUMBER;
+BEGIN
+  X_ERROR_MESSAGE:=NULL;
+  L_TRAIN_ID     := P_TRAIN_ID;
+  BEGIN
+    SELECT COUNT(TRAIN_ID)
+    INTO L_COUNT
+    FROM OM.CEIX_STS_RAIL_SCHEDULES
+    WHERE TRAIN_ID = L_TRAIN_ID;
+  EXCEPTION
+  WHEN OTHERS THEN
+    ERR_CODE        := SQLCODE;
+    ERR_MSG         := SUBSTR(SQLERRM, 1, 500);
+    X_ERROR_MESSAGE := L_TRAIN_ID || '-Unexpected error in CEIX_INSERT_NS_CSX_RS_ADF procedure while fetching train count (' || ERR_CODE ||': ' || ERR_MSG || ').';
+    RETURN;
+  END;
+  IF L_COUNT > 0 THEN
+    BEGIN
+      SELECT MAX(REQUESTED_LOAD_DATE)
+      INTO L_REQUESTED_LOAD_DATE
+      FROM OM.CEIX_STS_RAIL_SCHEDULES
+      WHERE TRAIN_ID = L_TRAIN_ID;
+    EXCEPTION
+    WHEN OTHERS THEN
+      ERR_CODE        := SQLCODE;
+      ERR_MSG         := SUBSTR(SQLERRM, 1, 500);
+      X_ERROR_MESSAGE := L_TRAIN_ID || '-Unexpected error in CEIX_INSERT_NS_CSX_RS_ADF procedure while fetching maximum requested load date (' || ERR_CODE || ': '|| ERR_MSG || ').';
+      RETURN;
+    END;
+    IF ( L_REQUESTED_LOAD_DATE + 60 ) < TO_DATE(P_REQUESTED_LOAD_DATE, 'YYYY/MM/DD') THEN
+      --X_ERROR_MESSAGE                := '1';
+      X_ERROR_MESSAGE := 'Train Number-' || P_TRAIN_ID || ' inserted successfully.';
+      RETURN;
+    ELSE
+      X_ERROR_MESSAGE := 'Train Number-' || P_TRAIN_ID || ' exists within 60 days.';
+      RETURN;
+    END IF;
+  ELSE
+    --X_ERROR_MESSAGE := '1';
+    X_ERROR_MESSAGE := 'Train Number-' || P_TRAIN_ID || ' inserted successfully.';
+    RETURN;
+  END IF;
+EXCEPTION
+WHEN OTHERS THEN
+  ERR_CODE        := SQLCODE;
+  ERR_MSG         := SUBSTR(SQLERRM, 1, 500);
+  X_ERROR_MESSAGE := L_TRAIN_ID || '-Unexpected error in CEIX_INSERT_NS_CSX_RS_ADF procedure (' || ERR_CODE || ': ' || ERR_MSG || ').';
+  RETURN;
+END;

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Order</name>
+      <description>A request object for import one or more orders into  Fusion
+                Order Management.</description>
+      <oer:category name="lba">
+        <value>ScmTop-SCM : FomTop-Fusion Order Management :
+                    FomImportOrders-Import Orders</value>
+      </oer:category>
+      <oer:category name="lbo">
+        <value>SCM-SCM : DOO-Distributed Order Orchestration :
+                    DOO_ORCHESTRATION_ORDER-Orchestration Order</value>
+      </oer:category>
+      <oer:attributes>
+        <oer:attribute description="An identifier for the batch of orders being sent in the request." name="BatchName"/>
+        <oer:attribute description="One or more orders that are being imported." name="Order"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:include schemaLocation="Order.xsd"/>
+  <xsd:complexType name="OrderImportRequest">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="BatchName" nillable="true" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="Order" type="Order"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="orderImportRequest" type="OrderImportRequest"/>
+</xsd:schema>

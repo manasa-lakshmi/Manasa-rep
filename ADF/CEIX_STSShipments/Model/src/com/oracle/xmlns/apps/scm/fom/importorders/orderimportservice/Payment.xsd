@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Payment Detail Information</name>
+      <description>Information on the Payment Details.</description>
+      <oer:attributes>
+        <oer:attribute description="Code for  payment method associated with the Customer Account Payment Instrument." name="PaymentMethodCode"/>
+        <oer:attribute description="Payment Transaction Identifier" name="PaymentTransactionIdentifier"/>
+        <oer:attribute description="Identifier for a group of payments belonging to one order." name="PaymentSetIdentifier"/>
+        <oer:attribute description="Identifier for the payment as assigned by the system that captured the transaction." name="SourceTransactionPaymentIdentifier"/>
+        <oer:attribute description="Name of Payment Method" name="PaymentMethod"/>
+        <oer:attribute description="Payment Type associated with the customer account payment instrument" name="PaymentType"/>
+        <oer:attribute description="Code for the Payment Type associated with the customer account payment instrument" name="PaymentTypeCode"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="Payment">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>SourceTransactionPaymentIdentifier</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="PaymentMethodCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PaymentTransactionIdentifier" nillable="true" type="xsd:long"/>
+      <xsd:element minOccurs="0" name="PaymentSetIdentifier" nillable="true" type="xsd:long"/>
+      <xsd:element minOccurs="0" name="SourceTransactionPaymentIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PaymentMethod" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PaymentType" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PaymentTypeCode" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="payment" type="Payment"/>
+</xsd:schema>

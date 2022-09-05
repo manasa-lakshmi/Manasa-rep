@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="CaptureQualityFlow">
+    <default-activity id="__13">CaptureQuality</default-activity>
+    <managed-bean id="__2">
+      <managed-bean-name id="__3">CaptureOrderQualityMetricsMB</managed-bean-name>
+      <managed-bean-class id="__4">com.ceix.quality.bean.CaptureOrderQualityMetricsMB</managed-bean-class>
+      <managed-bean-scope id="__5">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="CaptureQuality">
+      <page>/com/ceix/quality/pages/CaptureQuality.jspx</page>
+    </view>
+    <visibility id="__12">
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

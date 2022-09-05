@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.ceix.waybill.model.services.CeixStsWaybillAM">
+      <AppModuleConfig name="CeixStsWaybillAMLocal" ApplicationName="com.ceix.waybill.model.services.CeixStsWaybillAM" DeployPlatform="LOCAL" jbo.project="com.ceix.waybill.model.Model">
+         <Security AppModuleJndiName="com.ceix.waybill.model.services.CeixStsWaybillAM"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/ConsolDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="CeixStsWaybillAMShared" ApplicationName="com.ceix.waybill.model.services.CeixStsWaybillAM" DeployPlatform="LOCAL" jbo.project="com.ceix.waybill.model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="com.ceix.waybill.model.services.CeixStsWaybillAM"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/ConsolDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixStsWaybillAM"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="com.ceix.waybill.model.services.CeixStsWaybillAMImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="CeixStsWaybillHdrVO1"
+    ViewObjectName="com.ceix.waybill.model.views.CeixStsWaybillHdrVO"/>
+  <ViewUsage
+    Name="CeixStsWaybillLinesVO1"
+    ViewObjectName="com.ceix.waybill.model.views.CeixStsWaybillLinesVO"/>
+  <ViewUsage
+    Name="CeixStsWaybillHdrVO2"
+    ViewObjectName="com.ceix.waybill.model.views.CeixStsWaybillHdrVO"/>
+  <ViewUsage
+    Name="CeixStsWaybillLinesVO2"
+    ViewObjectName="com.ceix.waybill.model.views.CeixStsWaybillLinesVO"/>
+  <ViewUsage
+    Name="CeixStsWaybillSearchVO1"
+    ViewObjectName="com.ceix.waybill.model.views.CeixStsWaybillSearchVO"/>
+  <ViewUsage
+    Name="CeixStsWaybillBtmoreHdrDeleteTrainVo1"
+    ViewObjectName="com.ceix.waybill.model.views.CeixStsWaybillBtmoreHdrDeleteTrainVo"/>
+  <ViewUsage
+    Name="CeixStsContractItemsVO1"
+    ViewObjectName="com.ceix.waybill.model.views.CeixStsContractItemsVO"/>
+  <ViewUsage
+    Name="DestinationVO1"
+    ViewObjectName="com.ceix.waybill.model.views.DestinationVO"/>
+  <ViewUsage
+    Name="LoadOriginVO1"
+    ViewObjectName="com.ceix.waybill.model.views.LoadOriginVO"/>
+  <ViewLinkUsage
+    Name="CeixStsWaybillBtmoreLinesFkLink1"
+    ViewLinkObjectName="com.ceix.waybill.model.views.CeixStsWaybillBtmoreLinesFkLink"
+    SrcViewUsageName="com.ceix.waybill.model.services.CeixStsWaybillAM.CeixStsWaybillHdrVO2"
+    DstViewUsageName="com.ceix.waybill.model.services.CeixStsWaybillAM.CeixStsWaybillLinesVO2"
+    Reversed="false"/>
+</AppModule>

@@ -1,0 +1,73 @@
+<wsdl:definitions
+     name="GeoLabsReportLoadService"
+     targetNamespace="/com/ceix/geolabs/model/services/common/"
+     xmlns:tns="/com/ceix/geolabs/model/services/common/"
+     xmlns:types="/com/ceix/geolabs/model/services/common/types/"
+     xmlns:errors="http://xmlns.oracle.com/adf/svc/errors/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:import namespace="http://xmlns.oracle.com/adf/svc/errors/" location="classpath:/META-INF/wsdl/ServiceException.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="/com/ceix/geolabs/model/services/common/types/" schemaLocation="GeoLabsReportLoadService.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="GeoLabsReportLoadService_execute">
+        <wsdl:part name="parameters" element="types:execute"/>
+    </wsdl:message>
+    <wsdl:message name="GeoLabsReportLoadService_executeResponse">
+        <wsdl:part name="parameters" element="types:executeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GeoLabsReportLoadService_executeItmann">
+        <wsdl:part name="parameters" element="types:executeItmann"/>
+    </wsdl:message>
+    <wsdl:message name="GeoLabsReportLoadService_executeItmannResponse">
+        <wsdl:part name="parameters" element="types:executeItmannResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="GeoLabsReportLoadService">
+        <wsdl:documentation/>
+        <wsdl:operation name="execute">
+            <wsdl:input message="tns:GeoLabsReportLoadService_execute"/>
+            <wsdl:output message="tns:GeoLabsReportLoadService_executeResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="executeItmann">
+            <wsdl:input message="tns:GeoLabsReportLoadService_executeItmann"/>
+            <wsdl:output message="tns:GeoLabsReportLoadService_executeItmannResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="GeoLabsReportLoadServiceSoapHttp" type="tns:GeoLabsReportLoadService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute">
+            <soap:operation soapAction="/com/ceix/geolabs/model/services/common/execute"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="executeItmann">
+            <soap:operation soapAction="/com/ceix/geolabs/model/services/common/executeItmann"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="GeoLabsReportLoadService">
+        <wsdl:port name="GeoLabsReportLoadServiceSoapHttpPort" binding="tns:GeoLabsReportLoadServiceSoapHttp">
+            <soap:address location="http://localhost:7101/CEIX_GeoLabsReportLoadJobSrvc/GeoLabsReportLoadService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

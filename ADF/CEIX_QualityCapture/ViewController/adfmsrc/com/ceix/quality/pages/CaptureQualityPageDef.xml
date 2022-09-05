@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="CaptureQualityPageDef"
+                Package="com.ceix.quality.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CEIXSalesOrders1" RangeSize="10"
+              DataControl="CEIXQualityCaptureAMDataControl"
+              id="CEIXSalesOrders1Iterator"/>
+    <searchRegion Criteria="CEIXSalesOrdersVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CEIXSalesOrders1Iterator"
+                  id="CEIXSalesOrdersVOCriteriaQuery"/>
+    <iterator Binds="CEIXOrdQualMetrics2" RangeSize="25"
+              DataControl="CEIXQualityCaptureAMDataControl"
+              id="CEIXOrdQualMetrics2Iterator"/>
+   
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CEIXSalesOrders1Iterator" id="OrderNumber">
+      <AttrNames>
+        <Item Value="OrderNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXSalesOrders1Iterator" id="CustomerName">
+      <AttrNames>
+        <Item Value="CustomerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXSalesOrders1Iterator" id="ShipAddress">
+      <AttrNames>
+        <Item Value="ShipAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXSalesOrders1Iterator" id="ContractNumber">
+      <AttrNames>
+        <Item Value="ContractNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXSalesOrders1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+   
+    <tree IterBinding="CEIXSalesOrders1Iterator" id="CEIXSalesOrders1">
+      <nodeDefinition DefName="com.ceix.quality.model.views.CEIXSalesOrdersVO"
+                      Name="CEIXSalesOrders10">
+        <AttrNames>
+          <Item Value="OrderNumber"/>
+          <Item Value="ContractNumber"/>
+          <Item Value="CustomerName"/>
+          <Item Value="ShipAddress"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="OrderNumber2">
+      <AttrNames>
+        <Item Value="OrderNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator" id="TmTypical1">
+      <AttrNames>
+        <Item Value="TmTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="TmSuspension1">
+      <AttrNames>
+        <Item Value="TmSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator" id="TmReject1">
+      <AttrNames>
+        <Item Value="TmReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AshAsrTypical1">
+      <AttrNames>
+        <Item Value="AshAsrTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AshAsrSuspension1">
+      <AttrNames>
+        <Item Value="AshAsrSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AshAsrReject1">
+      <AttrNames>
+        <Item Value="AshAsrReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AshDryTypical1">
+      <AttrNames>
+        <Item Value="AshDryTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AshDrySuspension1">
+      <AttrNames>
+        <Item Value="AshDrySuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AshDryReject1">
+      <AttrNames>
+        <Item Value="AshDryReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="VolAsrTypical1">
+      <AttrNames>
+        <Item Value="VolAsrTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="VolAsrSuspension1">
+      <AttrNames>
+        <Item Value="VolAsrSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="VolAsrReject1">
+      <AttrNames>
+        <Item Value="VolAsrReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="VolDryTypical1">
+      <AttrNames>
+        <Item Value="VolDryTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="VolDrySuspension1">
+      <AttrNames>
+        <Item Value="VolDrySuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="VolDryReject1">
+      <AttrNames>
+        <Item Value="VolDryReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="VolDafTypical1">
+      <AttrNames>
+        <Item Value="VolDafTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="VolDafSuspension1">
+      <AttrNames>
+        <Item Value="VolDafSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="VolDafReject1">
+      <AttrNames>
+        <Item Value="VolDafReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="SulAsrTypical1">
+      <AttrNames>
+        <Item Value="SulAsrTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="SulAsrSuspension1">
+      <AttrNames>
+        <Item Value="SulAsrSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="SulAsrReject1">
+      <AttrNames>
+        <Item Value="SulAsrReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="SulDryTypical1">
+      <AttrNames>
+        <Item Value="SulDryTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="SulDrySuspension1">
+      <AttrNames>
+        <Item Value="SulDrySuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="SulDryReject1">
+      <AttrNames>
+        <Item Value="SulDryReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="SulDafTypical1">
+      <AttrNames>
+        <Item Value="SulDafTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="SulDafSuspension1">
+      <AttrNames>
+        <Item Value="SulDafSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="SulDafReject1">
+      <AttrNames>
+        <Item Value="SulDafReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="FcAsrTypical1">
+      <AttrNames>
+        <Item Value="FcAsrTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="FcAsrSuspension1">
+      <AttrNames>
+        <Item Value="FcAsrSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="FcAsrReject1">
+      <AttrNames>
+        <Item Value="FcAsrReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="FcDryTypical1">
+      <AttrNames>
+        <Item Value="FcDryTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="FcDrySuspension1">
+      <AttrNames>
+        <Item Value="FcDrySuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="FcDryReject1">
+      <AttrNames>
+        <Item Value="FcDryReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="FcDafTypical1">
+      <AttrNames>
+        <Item Value="FcDafTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="FcDafSuspension1">
+      <AttrNames>
+        <Item Value="FcDafSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="FcDafReject1">
+      <AttrNames>
+        <Item Value="FcDafReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="BtuAsrTypical1">
+      <AttrNames>
+        <Item Value="BtuAsrTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="BtuAsrSuspension1">
+      <AttrNames>
+        <Item Value="BtuAsrSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="BtuAsrReject1">
+      <AttrNames>
+        <Item Value="BtuAsrReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="BtuDryTypical1">
+      <AttrNames>
+        <Item Value="BtuDryTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="BtuDrySuspension1">
+      <AttrNames>
+        <Item Value="BtuDrySuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="BtuDryReject1">
+      <AttrNames>
+        <Item Value="BtuDryReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="BtuDafTypical1">
+      <AttrNames>
+        <Item Value="BtuDafTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="BtuDafSuspension1">
+      <AttrNames>
+        <Item Value="BtuDafSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="BtuDafReject1">
+      <AttrNames>
+        <Item Value="BtuDafReject"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="CEIXQualityCaptureAMDataControl"/>
+    <button IterBinding="CEIXOrdQualMetrics2Iterator" id="NotAppTypical"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="NotAppTypical"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="1"/>
+        <Item Value="0"/>
+      </ValueList>
+    </button>
+    <button IterBinding="CEIXOrdQualMetrics2Iterator" id="NotAppSuspen"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="NotAppSuspen"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="1"/>
+        <Item Value="0"/>
+      </ValueList>
+    </button>
+    <button IterBinding="CEIXOrdQualMetrics2Iterator" id="NotAppReject"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="NotAppReject"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="1"/>
+        <Item Value="0"/>
+      </ValueList>
+    </button>
+    <list IterBinding="CEIXOrdQualMetrics2Iterator" StaticList="false"
+          Uses="LOV_VolAsrWarngCode" id="VolAsrWarngCode" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CEIXOrdQualMetrics2Iterator" StaticList="false"
+          Uses="LOV_TmWarngCode" id="TmWarngCode" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AshDryWarngCode">
+      <AttrNames>
+        <Item Value="AshDryWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AshAsrWarngCode">
+      <AttrNames>
+        <Item Value="AshAsrWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="VolAsrWarngCode1">
+      <AttrNames>
+        <Item Value="VolAsrWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="VolDryWarngCode">
+      <AttrNames>
+        <Item Value="VolDryWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="VolDafWarngCode">
+      <AttrNames>
+        <Item Value="VolDafWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="SulAsrWarngCode">
+      <AttrNames>
+        <Item Value="SulAsrWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="SulDryWarngCode">
+      <AttrNames>
+        <Item Value="SulDryWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="SulDafWarngCode">
+      <AttrNames>
+        <Item Value="SulDafWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="FcAsrWarngCode">
+      <AttrNames>
+        <Item Value="FcAsrWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="FcDryWarngCode">
+      <AttrNames>
+        <Item Value="FcDryWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="FcDafWarngCode">
+      <AttrNames>
+        <Item Value="FcDafWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="BtuAsrWarngCode">
+      <AttrNames>
+        <Item Value="BtuAsrWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="BtuDryWarngCode">
+      <AttrNames>
+        <Item Value="BtuDryWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="BtuDafWarngCode">
+      <AttrNames>
+        <Item Value="BtuDafWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CEIXOrdQualMetrics2Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AftiRedTypical">
+      <AttrNames>
+        <Item Value="AftiRedTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AftiRedSuspension">
+      <AttrNames>
+        <Item Value="AftiRedSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AftiRedReject">
+      <AttrNames>
+        <Item Value="AftiRedReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AftiRedWarngCode">
+      <AttrNames>
+        <Item Value="AftiRedWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AftsRedTypical">
+      <AttrNames>
+        <Item Value="AftsRedTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AftsRedSuspension">
+      <AttrNames>
+        <Item Value="AftsRedSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AftsRedReject">
+      <AttrNames>
+        <Item Value="AftsRedReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AftsRedWarngCode">
+      <AttrNames>
+        <Item Value="AftsRedWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AfthRedSuspension">
+      <AttrNames>
+        <Item Value="AfthRedSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AfthRedTypical">
+      <AttrNames>
+        <Item Value="AfthRedTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AfthRedWarngCode">
+      <AttrNames>
+        <Item Value="AfthRedWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AfthRedReject">
+      <AttrNames>
+        <Item Value="AfthRedReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AftfRedTypical">
+      <AttrNames>
+        <Item Value="AftfRedTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AftfRedSuspension">
+      <AttrNames>
+        <Item Value="AftfRedSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AftfRedReject">
+      <AttrNames>
+        <Item Value="AftfRedReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="AftfRedWarngCode">
+      <AttrNames>
+        <Item Value="AftfRedWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="ChlorineTypical">
+      <AttrNames>
+        <Item Value="ChlorineTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="ChlorineSuspension">
+      <AttrNames>
+        <Item Value="ChlorineSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="ChlorineReject">
+      <AttrNames>
+        <Item Value="ChlorineReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="ChlorineWarngCode">
+      <AttrNames>
+        <Item Value="ChlorineWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="MercuryTypical">
+      <AttrNames>
+        <Item Value="MercuryTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="MercurySuspension">
+      <AttrNames>
+        <Item Value="MercurySuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="MercuryReject">
+      <AttrNames>
+        <Item Value="MercuryReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="MercuryWarngCode">
+      <AttrNames>
+        <Item Value="MercuryWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="Lbsso2Reject">
+      <AttrNames>
+        <Item Value="Lbsso2Reject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="Lbsso2Suspension">
+      <AttrNames>
+        <Item Value="Lbsso2Suspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="Lbsso2Typical">
+      <AttrNames>
+        <Item Value="Lbsso2Typical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="Lbsso2WarngCode">
+      <AttrNames>
+        <Item Value="Lbsso2WarngCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator" id="LbssReject">
+      <AttrNames>
+        <Item Value="LbssReject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="LbssSuspension">
+      <AttrNames>
+        <Item Value="LbssSuspension"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator" id="LbssTypical">
+      <AttrNames>
+        <Item Value="LbssTypical"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualMetrics2Iterator"
+                     id="LbssWarngCode">
+      <AttrNames>
+        <Item Value="LbssWarngCode"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

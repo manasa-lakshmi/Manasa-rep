@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Billing Plan Information</name>
+      <description>Provides information related to various Billing Types such as
+                Periodic or Milestone, It Includes number of bills, billing
+                transaction date, override periods and remaining billing amount
+                per period.</description>
+      <oer:attributes>
+        <oer:attribute description="Type of Billing Plan e.g. PERIODIC or MILESTONE" name="BillingPlanTypeCode"/>
+        <oer:attribute description="Period of the recurring invoice. Valid values are DAY, WEEK, MONTH, QUARTER, YEAR." name="PeriodicityCode"/>
+        <oer:attribute description="Number of recurring invoices to issue" name="NumberOfBillingPeriods"/>
+        <oer:attribute description="The start date of the billing period corresponding to the billing period number." name="BillingPeriodStartDate"/>
+        <oer:attribute description="The end date of the billing period corresponding to the billing period number." name="BillingPeriodEndDate"/>
+        <oer:attribute description="Transaction date of the first invoice for recurring invoices or it may also refer to the Transaction date of the subsequent invoice for recurring invoices, if the previous invoice was for a partial period." name="BillingTrxDate"/>
+        <oer:attribute description="The period number corresponding to the Billing Start Date/ End Date/ Transaction Date." name="BillingPeriodNumber"/>
+        <oer:attribute description="Number indicating the period that has an override amount. For example, the first invoice is for period 1, the second invoice is for period 2, and so on." name="OverridePeriod"/>
+        <oer:attribute description="The override amount for the period indicated in the first override period" name="OverridePeriodAmount"/>
+        <oer:attribute description="Override Period Quantity" name="OverridePeriodQuantity"/>
+        <oer:attribute description="Effective date that the recurring billing should stop and no future billing should occur" name="CancellationEffectiveDate"/>
+        <oer:attribute description="Identifier of the Source Billing Plan as assigned by the system that captured the transaction." name="SourceBillingPlanId"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="BillingPlan">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>SourceTransactionLineIdentifier</attribute>
+          <attribute>SourceTransactionScheduleIdentifier</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="BillingPlanTypeCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PeriodicityCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="NumberOfBillingPeriods" nillable="true" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="BillingPeriodStartDate" nillable="true" type="ns0:date-Date"/>
+      <xsd:element minOccurs="0" name="BillingPeriodEndDate" nillable="true" type="ns0:date-Date"/>
+      <xsd:element minOccurs="0" name="BillingTrxDate" nillable="true" type="ns0:date-Date"/>
+      <xsd:element minOccurs="0" name="BillingPeriodNumber" nillable="true" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="OverridePeriod" nillable="true" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="OverridePeriodAmount" nillable="true" type="ns0:AmountType"/>
+      <xsd:element minOccurs="0" name="OverridePeriodQuantity" nillable="true" type="ns0:MeasureType"/>
+      <xsd:element minOccurs="0" name="CancellationEffectiveDate" nillable="true" type="ns0:date-Date"/>
+      <xsd:element minOccurs="0" name="SourceBillingPlanId" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="billingPlan" type="BillingPlan"/>
+</xsd:schema>
