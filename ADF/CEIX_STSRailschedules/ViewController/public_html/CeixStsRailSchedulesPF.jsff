@@ -239,6 +239,12 @@
                       binding="#{CeixStsRailScheduleMB.pcontrNumInp}">
           <f:validator binding="#{bindings.pContrNum.validator}"/>
         </af:inputText>
+        <af:selectOneChoice value="#{bindings.pmineloc.inputValue}" label="#{bindings.pmineloc.label}"
+                            required="#{bindings.pmineloc.hints.mandatory}"
+                            shortDesc="#{bindings.pmineloc.hints.tooltip}" id="soc3"
+                            binding="#{CeixStsRailScheduleMB.pmineLocInp}">
+          <f:selectItems value="#{bindings.pmineloc.items}" id="si3"/>
+        </af:selectOneChoice>
       </af:panelFormLayout>
       <af:spacer width="10" height="20" id="s16"/>
       <!--calendar here-->
@@ -672,6 +678,12 @@
                               id="it25">
                   <f:validator binding="#{bindings.Source.validator}"/>
                 </af:inputText>
+                <af:selectOneChoice value="#{bindings.MineLocation.inputValue}" label="#{bindings.MineLocation.label}"
+                                    required="#{bindings.MineLocation.hints.mandatory}"
+                                    shortDesc="#{bindings.MineLocation.hints.tooltip}" id="soc10" autoSubmit="true">
+                  <f:selectItems value="#{bindings.MineLocation.items}" id="si10"/>
+                  <f:validator binding="#{bindings.MineLocation.validator}"/>
+                </af:selectOneChoice>
                 <f:facet name="footer">
                   <af:toolbar id="t1">
                     <af:spacer width="10" height="10" id="s6"/>
@@ -1101,6 +1113,12 @@
                               id="it33">
                   <f:validator binding="#{bindings.Source.validator}"/>
                 </af:inputText>
+                <af:selectOneChoice value="#{bindings.MineLocation.inputValue}" label="#{bindings.MineLocation.label}"
+                                    required="#{bindings.MineLocation.hints.mandatory}"
+                                    shortDesc="#{bindings.MineLocation.hints.tooltip}" id="soc12" autoSubmit="true">
+                  <f:selectItems value="#{bindings.MineLocation.items}" id="si12"/>
+                  <f:validator binding="#{bindings.MineLocation.validator}"/>
+                </af:selectOneChoice>
                 <f:facet name="footer">
                   <af:toolbar id="t2">
                     <af:spacer width="10" height="10" id="s9"/>
@@ -1552,6 +1570,12 @@
                           id="it122">
               <f:validator binding="#{bindings.Source.validator}"/>
             </af:inputText>
+            <af:selectOneChoice value="#{bindings.MineLocation.inputValue}" label="#{bindings.MineLocation.label}"
+                                required="#{bindings.MineLocation.hints.mandatory}"
+                                shortDesc="#{bindings.MineLocation.hints.tooltip}" id="soc15" autoSubmit="true">
+              <f:selectItems value="#{bindings.MineLocation.items}" id="si15"/>
+              <f:validator binding="#{bindings.MineLocation.validator}"/>
+            </af:selectOneChoice>
             <f:facet name="footer">
               <af:toolbar id="t6">
                 <af:spacer width="10" height="10" id="s17"/>

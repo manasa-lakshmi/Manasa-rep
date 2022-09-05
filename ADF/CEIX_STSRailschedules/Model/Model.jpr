@@ -108,6 +108,8 @@
          <string v=".xsd"/>
          <string v=".jpx"/>
          <string v=".rpx"/>
+         <string v=".json"/>
+         <string v=".bcs"/>
       </list>
       <value n="internalEncoding" v="Cp1252"/>
       <list n="Javac.commandline.optionlist">

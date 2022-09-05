@@ -8,6 +8,7 @@ import com.ceix.stsrail.model.views.CustomerVOImpl;
 
 import com.ceix.stsrail.model.views.DestinationVOImpl;
 import com.ceix.stsrail.model.views.LoadOriginVOImpl;
+import com.ceix.stsrail.model.views.MineLocationLOVImpl;
 import com.ceix.stsrail.model.views.SalesOrderVOImpl;
 
 import oracle.jbo.server.ApplicationModuleImpl;
@@ -96,5 +97,13 @@ public class CeixStsRailSchedulesAMImpl extends ApplicationModuleImpl {
      */
     public DestinationVOImpl getDestinationVO1() {
         return (DestinationVOImpl) findViewObject("DestinationVO1");
+    }
+
+    /**
+     * Container's getter for MineLocationLOV1.
+     * @return MineLocationLOV1
+     */
+    public MineLocationLOVImpl getMineLocationLOV1() {
+        return (MineLocationLOVImpl) findViewObject("MineLocationLOV1");
     }
 }

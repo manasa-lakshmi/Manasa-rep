@@ -29,6 +29,9 @@
       <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
                      Binds="CeixStsRailSchedulesOrdNumMassUpdateVO1.variablesMap.loadDtEnd"
                      Name="ExecuteWithParams1_loadDtEnd" IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
+                     Binds="CeixStsRailSchedulesVO1.variablesMap.pmineloc" Name="ExecuteWithParams2_pmineloc"
+                     IsQueriable="false"/>
     </variableIterator>
     <iterator Binds="CeixStsRailSchedulesVO1" RangeSize="-1"
               DataControl="CeixStsRailSchedulesAMDataControl"
@@ -84,6 +87,8 @@
               id="DestinationVO1Iterator"/>
     <iterator Binds="LoadOriginVO1" RangeSize="-1" DataControl="CeixStsRailSchedulesAMDataControl"
               id="LoadOriginVO1Iterator1"/>
+    <iterator Binds="MineLocationLOV1" RangeSize="-1" DataControl="CeixStsRailSchedulesAMDataControl"
+              id="MineLocationLOV1Iterator"/>
   </executables>
   <bindings>
     <action IterBinding="CeixStsRailSchedulesVO1Iterator" id="ExecuteWithParams"
@@ -787,6 +792,32 @@
       </ListAttrNames>
       <ListDisplayAttrNames>
         <Item Value="Destination"/>
+      </ListDisplayAttrNames>
+    </list>
+    <action IterBinding="CeixStsRailSchedulesVO1Iterator" id="ExecuteWithParams2" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="startDate" NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="endDate" NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="timeZone" NDType="java.lang.String"/>
+      <NamedData NDName="pTrainId" NDType="java.lang.String"/>
+      <NamedData NDName="pOrderNum" NDType="java.lang.String"/>
+      <NamedData NDName="pCustNum" NDType="java.lang.String"/>
+      <NamedData NDName="pContrNum" NDType="java.lang.String"/>
+      <NamedData NDName="pDest" NDType="java.lang.String"/>
+      <NamedData NDName="pmineloc" NDType="java.lang.String" NDValue="${bindings.ExecuteWithParams2_pmineloc}"/>
+    </action>
+    <list IterBinding="CeixStsRailSchedulesVO1Iterator" StaticList="false" Uses="LOV_MineLocation" id="MineLocation"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="variables" id="pmineloc" DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="false" ListIter="MineLocationLOV1Iterator" NullValueFlag="start" NullValueId="pmineloc_null">
+      <AttrNames>
+        <Item Value="ExecuteWithParams2_pmineloc"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Value"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
       </ListDisplayAttrNames>
     </list>
   </bindings>

@@ -85,6 +85,7 @@ public class CeixStsRailScheduleMB {
     private RichSelectOneChoice pdestInp_CopyScreen;
     private RichSelectOneChoice pdestInp_createScreen;
     private RichSelectOneChoice pdestInp_updateScreen;
+    private RichSelectOneChoice pmineLocInp;
 
     public CeixStsRailScheduleMB() {
     }
@@ -821,6 +822,11 @@ public class CeixStsRailScheduleMB {
                                         this.getPcontrNumInp().getValue());
         railvo.setNamedWhereClauseParam("pDest",
                                         this.getPdestination().getValue());
+        if (!("[Select Location]".equals(this.getPmineLocInp().getValue()))) { // Added by Manasa Yalamarthy on 9th August,2022 - 7972
+            railvo.setNamedWhereClauseParam("pmineloc",
+                                            this.getPmineLocInp().getValue());
+        } else
+            railvo.setNamedWhereClauseParam("pmineloc", null);
 
         railvo.executeQuery();
     }
@@ -1588,5 +1594,13 @@ public class CeixStsRailScheduleMB {
 
     public RichSelectOneChoice getPdestInp_updateScreen() {
         return pdestInp_updateScreen;
+    }
+
+    public void setPmineLocInp(RichSelectOneChoice pmineLocInp) {
+        this.pmineLocInp = pmineLocInp;
+    }
+
+    public RichSelectOneChoice getPmineLocInp() {
+        return pmineLocInp;
     }
 }

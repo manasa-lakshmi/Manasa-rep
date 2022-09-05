@@ -143,4 +143,20 @@ public class CeixStsRailSchedulesVOImpl extends ViewObjectImpl {
     public void setpDest(String value) {
         setNamedWhereClauseParam("pDest", value);
     }
+
+    /**
+     * Returns the bind variable value for pmineloc.
+     * @return bind variable value for pmineloc
+     */
+    public String getpmineloc() {
+        return (String) getNamedWhereClauseParam("pmineloc");
+    }
+
+    /**
+     * Sets <code>value</code> for bind variable pmineloc.
+     * @param value value to bind as pmineloc
+     */
+    public void setpmineloc(String value) {
+        setNamedWhereClauseParam("pmineloc", value);
+    }
 }

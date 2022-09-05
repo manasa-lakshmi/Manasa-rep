@@ -87,10 +87,42 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
+  <Variable
+    Name="pmineloc"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.pmineloc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <ViewAccessor
     Name="CeixStsCustDetailsView1"
     ViewObjectName="com.ceix.stsrail.model.views.CeixStsCustDetailsView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="MineLocationLOV1"
+    ViewObjectName="com.ceix.stsrail.model.views.MineLocationLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_MineLocation"
+    ListVOName="MineLocationLOV1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MineLocation"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT CeixStsRailSchedulesEO.RAIL_SCHEDULE_ID,    
        CeixStsRailSchedulesEO.CREATION_DATE,    
        CeixStsRailSchedulesEO.CREATED_BY,    
@@ -160,7 +192,8 @@
          WHERE coh.contract_number =    
                    CeixStsRailSchedulesEO.SALES_ORDER_NUMBER)    
            contract_number, 
-           CeixStsRailSchedulesEO.ITEM_NUMBER 
+           CeixStsRailSchedulesEO.ITEM_NUMBER,
+           CeixStsRailSchedulesEO.MINE_LOCATION  
   FROM CEIX_STS_RAIL_SCHEDULES CeixStsRailSchedulesEO    
  WHERE     UPPER (CeixstsrailschedulesEO.TRAIN_ID) LIKE    
                UPPER (    
@@ -169,7 +202,9 @@
                    || '%')    
        AND NVL (CeixstsrailschedulesEO.SALES_ORDER_NUMBER, 'KK') =    
                NVL (:pOrderNum,    
-                    NVL (CeixstsrailschedulesEO.SALES_ORDER_NUMBER, 'KK'))    
+                    NVL (CeixstsrailschedulesEO.SALES_ORDER_NUMBER, 'KK'))
+       AND NVL(CeixstsrailschedulesEO.mine_location, 'KK') = NVL(:pmineloc,
+                                        NVL(CeixstsrailschedulesEO.mine_location, 'KK'))
        AND UPPER (NVL (CeixstsrailschedulesEO.DESTINATION, 'KK')) LIKE    
                UPPER (    
                       '%'    
@@ -654,6 +689,24 @@
     EntityAttrName="ItemNumber"
     EntityUsage="CeixStsRailSchedulesEO"
     AliasName="ITEM_NUMBER"/>
+  <ViewAttribute
+    Name="MineLocation"
+    PrecisionRule="true"
+    EntityAttrName="MineLocation"
+    EntityUsage="CeixStsRailSchedulesEO"
+    AliasName="MINE_LOCATION"
+    LOVName="LOV_MineLocation">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.MineLocation_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.ceix.stsrail.model.ModelBundle"/>

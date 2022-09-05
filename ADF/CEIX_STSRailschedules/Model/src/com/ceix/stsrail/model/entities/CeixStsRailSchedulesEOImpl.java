@@ -416,6 +416,16 @@ public class CeixStsRailSchedulesEOImpl extends EntityImpl {
                 obj.setItemNumber((String) value);
             }
         }
+        ,
+        MineLocation {
+            protected Object get(CeixStsRailSchedulesEOImpl obj) {
+                return obj.getMineLocation();
+            }
+
+            protected void put(CeixStsRailSchedulesEOImpl obj, Object value) {
+                obj.setMineLocation((String) value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -440,10 +450,12 @@ public class CeixStsRailSchedulesEOImpl extends EntityImpl {
             return vals;
         }
 
+
         protected abstract Object get(CeixStsRailSchedulesEOImpl object);
 
         protected abstract void put(CeixStsRailSchedulesEOImpl object, Object value);
     }
+
 
     public static final int RAILSCHEDULEID = AttributesEnum.RailScheduleId.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
@@ -485,6 +497,7 @@ public class CeixStsRailSchedulesEOImpl extends EntityImpl {
     public static final int RR = AttributesEnum.Rr.index();
     public static final int SOURCE = AttributesEnum.Source.index();
     public static final int ITEMNUMBER = AttributesEnum.ItemNumber.index();
+    public static final int MINELOCATION = AttributesEnum.MineLocation.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -498,6 +511,7 @@ public class CeixStsRailSchedulesEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.ceix.stsrail.model.entities.CeixStsRailSchedulesEO");
     }
+
 
     /**
      * Gets the attribute value for RailScheduleId, using the alias name RailScheduleId.
@@ -1137,6 +1151,22 @@ public class CeixStsRailSchedulesEOImpl extends EntityImpl {
      */
     public void setItemNumber(String value) {
         setAttributeInternal(ITEMNUMBER, value);
+    }
+
+    /**
+     * Gets the attribute value for MineLocation, using the alias name MineLocation.
+     * @return the value of MineLocation
+     */
+    public String getMineLocation() {
+        return (String) getAttributeInternal(MINELOCATION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for MineLocation.
+     * @param value value to set the MineLocation
+     */
+    public void setMineLocation(String value) {
+        setAttributeInternal(MINELOCATION, value);
     }
 
     /**

@@ -38,4 +38,7 @@
   <ViewUsage
     Name="DestinationVO1"
     ViewObjectName="com.ceix.stsrail.model.views.DestinationVO"/>
+  <ViewUsage
+    Name="MineLocationLOV1"
+    ViewObjectName="com.ceix.stsrail.model.views.MineLocationLOV"/>
 </AppModule>

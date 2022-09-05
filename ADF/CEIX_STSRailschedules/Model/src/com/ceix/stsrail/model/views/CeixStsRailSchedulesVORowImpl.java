@@ -462,9 +462,29 @@ public class CeixStsRailSchedulesVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        MineLocation {
+            protected Object get(CeixStsRailSchedulesVORowImpl obj) {
+                return obj.getMineLocation();
+            }
+
+            protected void put(CeixStsRailSchedulesVORowImpl obj, Object value) {
+                obj.setMineLocation((String) value);
+            }
+        }
+        ,
         CeixStsCustDetailsView1 {
             protected Object get(CeixStsRailSchedulesVORowImpl obj) {
                 return obj.getCeixStsCustDetailsView1();
+            }
+
+            protected void put(CeixStsRailSchedulesVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        MineLocationLOV1 {
+            protected Object get(CeixStsRailSchedulesVORowImpl obj) {
+                return obj.getMineLocationLOV1();
             }
 
             protected void put(CeixStsRailSchedulesVORowImpl obj, Object value) {
@@ -547,7 +567,9 @@ public class CeixStsRailSchedulesVORowImpl extends ViewRowImpl {
     public static final int CUSTOMERNUMBER = AttributesEnum.CustomerNumber.index();
     public static final int CONTRACTNUMBER = AttributesEnum.ContractNumber.index();
     public static final int ITEMNUMBER = AttributesEnum.ItemNumber.index();
+    public static final int MINELOCATION = AttributesEnum.MineLocation.index();
     public static final int CEIXSTSCUSTDETAILSVIEW1 = AttributesEnum.CeixStsCustDetailsView1.index();
+    public static final int MINELOCATIONLOV1 = AttributesEnum.MineLocationLOV1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1263,10 +1285,33 @@ public class CeixStsRailSchedulesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for MINE_LOCATION using the alias name MineLocation.
+     * @return the MINE_LOCATION
+     */
+    public String getMineLocation() {
+        return (String) getAttributeInternal(MINELOCATION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for MINE_LOCATION using the alias name MineLocation.
+     * @param value value to set the MINE_LOCATION
+     */
+    public void setMineLocation(String value) {
+        setAttributeInternal(MINELOCATION, value);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> CeixStsCustDetailsView1.
      */
     public RowSet getCeixStsCustDetailsView1() {
         return (RowSet)getAttributeInternal(CEIXSTSCUSTDETAILSVIEW1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> MineLocationLOV1.
+     */
+    public RowSet getMineLocationLOV1() {
+        return (RowSet) getAttributeInternal(MINELOCATIONLOV1);
     }
 
     /**
