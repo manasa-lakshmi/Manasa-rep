@@ -286,7 +286,9 @@ public class CeixStsDeliveryAMImpl extends ApplicationModuleImpl {
        //     lastCarTons=bGTons.add(lastCarTonsDiff);
             lastCarTons=bGequalTons.add(lastCarTonsDiff);
             
+            if(lastCarTons!=null){ //Added by Manasa Yalamarthy as to avoid null pointer exception
            lastCarstr=lastCarTons.toString();  
+            }
        //     String lastCarstr="118.5866";
             
             //(bGTons+lastCarTonsDiff);

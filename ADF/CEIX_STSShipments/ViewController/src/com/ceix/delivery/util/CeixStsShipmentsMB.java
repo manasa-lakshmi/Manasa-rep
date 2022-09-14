@@ -2759,15 +2759,24 @@ public class CeixStsShipmentsMB implements Serializable {
                                                                     MeasureType measureType = new MeasureType();
                                                                     measureType.setUnitCode("Each");
                                                                     measureType.setValue(lineWeight);
-                                                                    JAXBElement<Long> shipmentLine =
+                                                                    JAXBElement<Long> shipmentLine=null;
+                                                                    if(shipmentLineFromSplitLine1!=null){
+                                                                    shipmentLine =
                                                                         shipObjectFactory.createShipmentLineInformationShipmentLine(shipmentLineFromSplitLine1);
-                                                                    JAXBElement<String> trackingNumber =
+                                                                    }
+                                                                    JAXBElement<String> trackingNumber=null;
+                                                                    if(tracking_num!=null){
+                                                                    trackingNumber =
                                                                         shipObjectFactory.createShipmentLineInformationTrackingNumber(tracking_num);
+                                                                    }
                                                                     JAXBElement<Long> loadSequence =
                                                                         shipObjectFactory.createShipmentLineInformationLoadingSequence(Long.valueOf(curRow.getAttribute("SequenceNum")
                                                                                                                                                     .toString()));
-                                                                    JAXBElement<String> subinventory =
+                                                                    JAXBElement<String> subinventory=null;
+                                                                    if(subinv!=null){
+                                                                    subinventory =
                                                                         shipObjectFactory.createShipmentLineInformationSubinventory(subinv);
+                                                                    }
                                                                     JAXBElement<MeasureType> shippedQuantity =
                                                                         shipObjectFactory.createShipmentLineInformationShippedQuantity(measureType);
                                                                     shipmentLineInformation.setShipmentLine(shipmentLine);
@@ -2842,15 +2851,24 @@ public class CeixStsShipmentsMB implements Serializable {
                                                                             MeasureType measureType = new MeasureType();
                                                                             measureType.setUnitCode("Each");
                                                                             measureType.setValue(lineWeight);
-                                                                            JAXBElement<Long> shipmentLine =
+                                                                            JAXBElement<Long> shipmentLine=null;
+                                                                            if(shipmentLineFromSplitLine!=null){
+                                                                            shipmentLine =
                                                                                 shipObjectFactory.createShipmentLineInformationShipmentLine(shipmentLineFromSplitLine);
-                                                                            JAXBElement<String> trackingNumber =
+                                                                            }
+                                                                            JAXBElement<String> trackingNumber=null;
+                                                                            if(tracking_num!=null){
+                                                                            trackingNumber =
                                                                                 shipObjectFactory.createShipmentLineInformationTrackingNumber(tracking_num);
+                                                                            }
                                                                             JAXBElement<Long> loadSequence =
                                                                                 shipObjectFactory.createShipmentLineInformationLoadingSequence(Long.valueOf(curRow.getAttribute("SequenceNum")
                                                                                                                                                             .toString()));
-                                                                            JAXBElement<String> subinventory =
+                                                                            JAXBElement<String> subinventory=null;
+                                                                            if(subinv!=null){
+                                                                            subinventory =
                                                                                 shipObjectFactory.createShipmentLineInformationSubinventory(subinv);
+                                                                            }
                                                                             JAXBElement<MeasureType> shippedQuantity =
                                                                                 shipObjectFactory.createShipmentLineInformationShippedQuantity(measureType);
                                                                             shipmentLineInformation.setShipmentLine(shipmentLine);

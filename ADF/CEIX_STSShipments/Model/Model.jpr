@@ -275,15 +275,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="PickWaveService-Client.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ShipmentLineService-Client.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ShipmentService-Client.jar"/>
+            <value n="id" v="ESSWebService-Client.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -291,7 +283,11 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ESSWebService-Client.jar"/>
+            <value n="id" v="OrderImportService-Client.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="PickWaveService-Client.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -307,11 +303,15 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="TransactionManagerService-Client.jar"/>
+            <value n="id" v="ShipmentLineService-Client.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="OrderImportService-Client.jar"/>
+            <value n="id" v="ShipmentService-Client.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="TransactionManagerService-Client.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -319,43 +319,7 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../../All O2C Webservice Jars/PickWaveService-Client.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="PickWaveService-Client.jar"/>
-               <value n="id" v="PickWaveService-Client.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../../All O2C Webservice Jars/ShipmentLineService-Client.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="ShipmentLineService-Client.jar"/>
-               <value n="id" v="ShipmentLineService-Client.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../../All O2C Webservice Jars/ShipmentService-Client.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="ShipmentService-Client.jar"/>
-               <value n="id" v="ShipmentService-Client.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../../All O2C Webservice Jars/ExternalReportWSSService-Client.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="ExternalReportWSSService-Client.jar"/>
-               <value n="id" v="ExternalReportWSSService-Client.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../../All O2C Webservice Jars/ESSWebService-Client.jar" jar-entry=""/>
+                  <url path="../../../All O2C Webservice Jars/ESSWebService-Client.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ESSWebService-Client.jar"/>
@@ -364,7 +328,34 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../All O2C Webservice Jars/ProcessorService-Client.jar" jar-entry=""/>
+                  <url path="../../../All O2C Webservice Jars/ExternalReportWSSService-Client.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="ExternalReportWSSService-Client.jar"/>
+               <value n="id" v="ExternalReportWSSService-Client.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../../All O2C Webservice Jars/OrderImportService-Client.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="OrderImportService-Client.jar"/>
+               <value n="id" v="OrderImportService-Client.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../../All O2C Webservice Jars/PickWaveService-Client.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="PickWaveService-Client.jar"/>
+               <value n="id" v="PickWaveService-Client.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../../All O2C Webservice Jars/ProcessorService-Client.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ProcessorService-Client.jar"/>
@@ -373,7 +364,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../All O2C Webservice Jars/PurchaseOrderService-Client.jar" jar-entry=""/>
+                  <url path="../../../All O2C Webservice Jars/PurchaseOrderService-Client.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="PurchaseOrderService-Client.jar"/>
@@ -382,7 +373,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../All O2C Webservice Jars/PurchaseOrderServiceV2-Client.jar" jar-entry=""/>
+                  <url path="../../../All O2C Webservice Jars/PurchaseOrderServiceV2-Client.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="PurchaseOrderServiceV2-Client.jar"/>
@@ -391,20 +382,29 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../All O2C Webservice Jars/TransactionManagerService-Client.jar" jar-entry=""/>
+                  <url path="../../../All O2C Webservice Jars/ShipmentLineService-Client.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
-               <value n="description" v="TransactionManagerService-Client.jar"/>
-               <value n="id" v="TransactionManagerService-Client.jar"/>
+               <value n="description" v="ShipmentLineService-Client.jar"/>
+               <value n="id" v="ShipmentLineService-Client.jar"/>
                <value n="locked" v="true"/>
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../../../../../../ADF Training by me/OrderImport/Project2/deploy/OrderImportService-Client.jar" jar-entry=""/>
+                  <url path="../../../All O2C Webservice Jars/ShipmentService-Client.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
-               <value n="description" v="OrderImportService-Client.jar"/>
-               <value n="id" v="OrderImportService-Client.jar"/>
+               <value n="description" v="ShipmentService-Client.jar"/>
+               <value n="id" v="ShipmentService-Client.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../../All O2C Webservice Jars/TransactionManagerService-Client.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="TransactionManagerService-Client.jar"/>
+               <value n="id" v="TransactionManagerService-Client.jar"/>
                <value n="locked" v="true"/>
             </hash>
          </list>
@@ -451,15 +451,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="PickWaveService-Client.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ShipmentLineService-Client.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ShipmentService-Client.jar"/>
+            <value n="id" v="ESSWebService-Client.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -467,7 +459,11 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ESSWebService-Client.jar"/>
+            <value n="id" v="OrderImportService-Client.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="PickWaveService-Client.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -483,11 +479,15 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="TransactionManagerService-Client.jar"/>
+            <value n="id" v="ShipmentLineService-Client.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="OrderImportService-Client.jar"/>
+            <value n="id" v="ShipmentService-Client.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="TransactionManagerService-Client.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
