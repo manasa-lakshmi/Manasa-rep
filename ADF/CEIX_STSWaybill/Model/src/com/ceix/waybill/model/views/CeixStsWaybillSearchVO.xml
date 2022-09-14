@@ -187,11 +187,11 @@ FROM (SELECT cswl.sales_order_number                        order_number,
          cswl.LOAD_ORIGIN                               LOAD_ORIGIN,                  
          decode(cswl.shipment_number,null,NVL (                  
              cswl.freight,                  
-             (			 SELECT ccl.price FROM  ceix_contract_lines ccl WHERE ccl.item_number = 'Freight Revenue-Outside' AND ccl.item_type = 'FRT' AND           
+             (			 SELECT ccl.price FROM  ceix_contract_lines ccl WHERE ccl.item_number in ('Freight Revenue-Outside','FREIGHT REVENUE ITMANN-OUTSIDE') AND ccl.item_type = 'FRT' AND           
              ccl.chr_id = cch.id            
              AND nvl(cswh.ship_date,cswh.dumped_date)           
              BETWEEN  nvl(ccl.start_date,nvl(cswh.ship_date-1,cswh.dumped_date - 1) )           
-             AND nvl(ccl.end_date,nvl(cswh.ship_date+1,cswh.dumped_date + 1) ))),cswl.freight)                  
+             AND nvl(ccl.end_date,nvl(cswh.ship_date+1,cswh.dumped_date + 1) )and rownum=1)),cswl.freight)                  
              freight ,               
 			 cswh.ship_date      ship_date   ,         
 cswl.dump_weight		dump_weight	          

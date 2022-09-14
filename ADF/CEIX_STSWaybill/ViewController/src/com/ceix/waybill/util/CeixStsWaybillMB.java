@@ -3377,7 +3377,7 @@ public class CeixStsWaybillMB {
                                                     
                                                     totweight = totweight.setScale(4, RoundingMode.HALF_EVEN);
                                                   
-                                                    if (dumpedTonsInv !=null)
+                                                    if (dumpedTonsInv.compareTo(new BigDecimal(0))!=0)//Modified by Manasa Yalamarthy regarding clean up activity - Oracle 7972
                                                     {
                                                     totweight = dumpedTonsInv.setScale(2, RoundingMode.HALF_EVEN);}
                                                     else{
@@ -3388,10 +3388,17 @@ public class CeixStsWaybillMB {
                                                     //System.out.println ("The transInterfaceId value is-->" + transInterfaceId+";"+transferOrgId+";"+OrgId);
                                                     JAXBElement<Long> transactionHeaderId =
                                                         objectFactory.createStagedInventoryTransactionTransactionHeaderId(new Long("1000"));
-                                                    JAXBElement<Long> inventoryItemId =
+                                                    //Modified by Manasa Yalamarthy regarding clean up activity - Oracle 7972
+                                                    JAXBElement<Long> inventoryItemId=null;
+                                                    if(itemid !=null){
+                                                    inventoryItemId =
                                                         objectFactory.createStagedInventoryTransactionInventoryItemId(Long.parseLong(itemid));
-                                                    JAXBElement<Long> organizationId =
+                                                    }
+                                                    JAXBElement<Long> organizationId=null;
+                                                    if(OrgId!=null){
+                                                    organizationId =
                                                         objectFactory.createStagedInventoryTransactionOrganizationId(new Long(OrgId));
+                                                    }
                                                     MeasureType mt = new MeasureType();
                                                     mt.setUnitCode("TON");
                                                     mt.setValue(totweight);
@@ -3426,10 +3433,17 @@ public class CeixStsWaybillMB {
                                                         objectFactory.createStagedInventoryTransactionTransactionActionId("3");
                                                     JAXBElement<Long> typeId =
                                                         objectFactory.createStagedInventoryTransactionTransactionTypeId(new Long("3"));
-                                                    JAXBElement<String> tranRef =
+                                                    //Modified by Manasa Yalamarthy regarding clean up activity - Oracle 7972
+                                                    JAXBElement<String> tranRef = null;
+                                                    if(trainNum !=null){
+                                                    tranRef =
                                                         objectFactory.createStagedInventoryTransactionTransactionReference(trainNum);
-                                                    JAXBElement<Long> transOrgId =
+                                                    }
+                                                    JAXBElement<Long> transOrgId=null;
+                                                    if(transferOrgId!=null){
+                                                    transOrgId =
                                                         objectFactory.createStagedInventoryTransactionTransferOrganization(new Long(transferOrgId));
+                                                    }
                                                     //BigDecimal fCost = totweight.multiply(new BigDecimal(freCost));
                                                     //JAXBElement<BigDecimal> freightCost =
                                                     //    objectFactory.createStagedInventoryTransactionTransportationCost(fCost);
@@ -3467,41 +3481,91 @@ public class CeixStsWaybillMB {
                                                           }
                                                     Date date = Calendar.getInstance().getTime();  
                                                     DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
-                                                    String strDate = dateFormat.format(date); 
-                                                    JAXBElement<String> trsubinv =
+                                                    String strDate = dateFormat.format(date);
+                                                    //Modified by Manasa Yalamarthy regarding clean up activity - Oracle 7972
+                                                    JAXBElement<String> trsubinv=null;
+                                                    if(transferSubInv!=null){
+                                                    trsubinv =
                                                         objectFactory.createStagedInventoryTransactionTransferSubinventory(transferSubInv);
-                                                    JAXBElement<String> shipNum =
+                                                    }
+                                                    JAXBElement<String> shipNum=null;
+                                                    if(waybillNum!=null){
+                                                    shipNum =
                                                         objectFactory.createStagedInventoryTransactionShipmentNumber(waybillNum);
-                                                    JAXBElement<String> salesAgreementNum =
+                                                    }
+                                                    JAXBElement<String> salesAgreementNum=null;
+                                                    if(orderNumber!=null){
+                                                    salesAgreementNum =
                                                         objectFactory.createStagedInventoryTransactionShipmentNumber(orderNumber);
-                                                    JAXBElement<String> mine =
+                                                    }
+                                                    JAXBElement<String> mine=null;
+                                                    if(headLoadOrigin!=null){
+                                                    mine =
                                                         objectFactory.createStagedInventoryTransactionShipmentNumber(headLoadOrigin);
-                                                    JAXBElement<String> carrierRail =
+                                                    }
+                                                    JAXBElement<String> carrierRail=null;
+                                                    if(carrier!=null){
+                                                    carrierRail =
                                                         objectFactory.createStagedInventoryTransactionShipmentNumber(carrier);
-                                                    JAXBElement<String> dumpDt =
-                                                    objectFactory.createStagedInventoryTransactionShipmentNumber(dumpDt_waybill);           
-                                                    JAXBElement<String> shipDt =
-                                                    objectFactory.createStagedInventoryTransactionShipmentNumber(shipDt_waybill);
-                                                    BigDecimal freight=new BigDecimal(headFreight);
-                                                    Integer sTonsInt=shippedTonsInv.intValue();
-                                                      String sTonsStr=String.valueOf(sTonsInt);
-                                                 String s = shippedTonsInv.toString(); //to be checked
+                                                    }
+                                                    JAXBElement<String> dumpDt=null;
+                                                    if(dumpDt_waybill!=null){
+                                                    dumpDt =
+                                                        objectFactory.createStagedInventoryTransactionShipmentNumber(dumpDt_waybill);
+                                                    }
+                                                    JAXBElement<String> shipDt=null;
+                                                    if(shipDt_waybill!=null){
+                                                    shipDt =
+                                                        objectFactory.createStagedInventoryTransactionShipmentNumber(shipDt_waybill);
+                                                    }
+                                                    
+                                                    BigDecimal freight= new BigDecimal(0);
+                                                    if(headFreight!=null){
+                                                    freight = new BigDecimal(headFreight);
+                                                    }
+                                                    
+//                                                    Integer sTonsInt=shippedTonsInv.intValue();
+//                                                      String sTonsStr=String.valueOf(sTonsInt); // commented as no usage found
+                                                    String s=null;
+                                                    if(shippedTonsInv.compareTo(new BigDecimal(0))!=0){//Modified by Manasa Yalamarthy regarding clean up activity - Oracle 7972
+                                                    s = shippedTonsInv.toString(); //to be checked
+                                                    }
                                                //     JAXBElement<String> shippedTons =
                                                  //   objectFactory.createStagedInventoryTransactionAttribute8(sTonsStr);
-                                                   JAXBElement<String> shippedTons =
-                                                   objectFactory.createStagedInventoryTransactionAttribute8(s);//to be checked
-                                                    Integer dTonsInt=dumpedTonsInv.intValue();
-                                                      String dTonsStr=String.valueOf(dTonsInt);
-                                                  String d = dumpedTonsInv.toString();//to be checked
-                                                    JAXBElement<String> dumpTons =
-                                                     objectFactory.createStagedInventoryTransactionAttribute9(d);// to be checked
-                                                    JAXBElement<String> railContract=
-                                                                                                            objectFactory.createStagedInventoryTransactionAttribute5(custPO);
-                                                    JAXBElement<String> customerName =
+                                                 //Modified by Manasa Yalamarthy regarding clean up activity - Oracle 7972
+                                                    JAXBElement<String> shippedTons=null;
+                                                    if(s!=null){
+                                                    shippedTons =
+                                                        objectFactory.createStagedInventoryTransactionAttribute8(s); //to be checked
+                                                    }
+//                                                    Integer dTonsInt=dumpedTonsInv.intValue();
+//                                                      String dTonsStr=String.valueOf(dTonsInt); //commented as no usage found
+                                                    String d=null;
+                                                    if(dumpedTonsInv.compareTo(new BigDecimal(0))!=0){//mananasa
+                                                    d = dumpedTonsInv.toString(); //to be checked
+                                                    }
+                                                    JAXBElement<String> dumpTons=null;
+                                                    if(d!=null){
+                                                    dumpTons =
+                                                        objectFactory.createStagedInventoryTransactionAttribute9(d); // to be checked
+                                                    }
+                                                    JAXBElement<String> railContract=null;
+                                                    if(custPO!=null){
+                                                    railContract =
+                                                        objectFactory.createStagedInventoryTransactionAttribute5(custPO);
+                                                    }
+                                                    JAXBElement<String> customerName=null;
+                                                    if(partyName!=null){
+                                                    customerName =
                                                         objectFactory.createStagedInventoryTransactionShipmentNumber(partyName);
-                                                    JAXBElement<BigDecimal> freightRate =
-                                                        objectFactory.createStagedInventoryTransactionAttributeNumber2(freight) ;                                                            
-                                                    JAXBElement<String> curCost =
+                                                    }
+                                                    JAXBElement<BigDecimal> freightRate=null;
+                                                    if(freight!=null){
+                                                    freightRate =
+                                                        objectFactory.createStagedInventoryTransactionAttributeNumber2(freight);
+                                                    }
+                                                    JAXBElement<String> curCost=null;
+                                                    curCost =
                                                         objectFactory.createStagedInventoryTransactionUseCurrentCost("Y");
 
                                                     StagedInventoryTransaction stagedInventoryTransaction =
