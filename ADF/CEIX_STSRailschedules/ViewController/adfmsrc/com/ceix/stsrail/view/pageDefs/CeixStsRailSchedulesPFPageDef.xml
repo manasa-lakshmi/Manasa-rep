@@ -32,6 +32,12 @@
       <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
                      Binds="CeixStsRailSchedulesVO1.variablesMap.pmineloc" Name="ExecuteWithParams2_pmineloc"
                      IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
+                     Binds="CeixStsRailSchedulesVO1.variablesMap.pLoadFromDate" Name="ExecuteWithParams3_pLoadFromDate"
+                     IsQueriable="false"/>
+      <variableUsage DataControl="CeixStsRailSchedulesAMDataControl"
+                     Binds="CeixStsRailSchedulesVO1.variablesMap.pLoadToDate" Name="ExecuteWithParams3_pLoadToDate"
+                     IsQueriable="false"/>
     </variableIterator>
     <iterator Binds="CeixStsRailSchedulesVO1" RangeSize="-1"
               DataControl="CeixStsRailSchedulesAMDataControl"
@@ -89,6 +95,8 @@
               id="LoadOriginVO1Iterator1"/>
     <iterator Binds="MineLocationLOV1" RangeSize="-1" DataControl="CeixStsRailSchedulesAMDataControl"
               id="MineLocationLOV1Iterator"/>
+    <searchRegion Binds="CeixStsRailSchedulesVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CeixStsRailSchedulesVO1Query"/>
   </executables>
   <bindings>
     <action IterBinding="CeixStsRailSchedulesVO1Iterator" id="ExecuteWithParams"
@@ -103,21 +111,6 @@
                  NDValue="#{bindings.CeixStsRailSchedulesVO1.timeZoneId}"
                  NDType="java.lang.String"/>
     </action>
-    <calendar IterBinding="CeixStsRailSchedulesVO1Iterator"
-              id="CeixStsRailSchedulesVO1"
-              xmlns="http://xmlns.oracle.com/adf/faces/binding"
-              ActionBindingName="ExecuteWithParams">
-      <nodeDefinition DefName="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO">
-        <AttrNames>
-          <Item Type="id" Value="RailScheduleId"/>
-          <Item Type="providerId" Value="Destination"/>
-          <Item Type="title" Value="Title"/>
-          <Item Type="timeType" Value="Type"/>
-          <Item Type="startTime" Value="LoadDate"/>
-          <Item Type="endTime" Value="LoadDate"/>
-        </AttrNames>
-      </nodeDefinition>
-    </calendar>
     <action IterBinding="CeixStsRailSchedulesVO1Iterator" id="CreateInsert"
             RequiresUpdateModel="true" Action="createInsertRow"/>
     <attributeValues IterBinding="CeixStsRailSchedulesVO1Iterator" id="TrainId">
@@ -820,6 +813,78 @@
         <Item Value="Name"/>
       </ListDisplayAttrNames>
     </list>
+    <tree IterBinding="CeixStsRailSchedulesVO1Iterator" id="CeixStsRailSchedulesVO1">
+      <nodeDefinition DefName="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO" Name="CeixStsRailSchedulesVO10">
+        <AttrNames>
+          <Item Value="SalesOrderNumber"/>
+          <Item Value="TrainId"/>
+          <Item Value="ItemNumber"/>
+          <Item Value="LoadOrder"/>
+          <Item Value="LoadDate"/>
+          <Item Value="Destination"/>
+          <Item Value="DestinationEta"/>
+          <Item Value="Consignee"/>
+          <Item Value="LoadOrigin"/>
+          <Item Value="OriginEta"/>
+          <Item Value="ReservationStatus"/>
+          <Item Value="Request"/>
+          <Item Value="OrderPlaceDate"/>
+          <Item Value="RequestedLoadDate"/>
+          <Item Value="Cars"/>
+          <Item Value="Tons"/>
+          <Item Value="CoalClass"/>
+          <Item Value="Weigh"/>
+          <Item Value="Loads"/>
+          <Item Value="Mty"/>
+          <Item Value="WaybillDate"/>
+          <Item Value="Waybill"/>
+          <Item Value="LastTrain"/>
+          <Item Value="City"/>
+          <Item Value="LastEventTime"/>
+          <Item Value="CurrentSet"/>
+          <Item Value="CurrentStatus"/>
+          <Item Value="HoldFlag"/>
+          <Item Value="Carrier"/>
+          <Item Value="Problem"/>
+          <Item Value="Comments"/>
+          <Item Value="CustomerContract"/>
+          <Item Value="Rr"/>
+          <Item Value="Source"/>
+          <Item Value="ContractNumber"/>
+          <Item Value="MineLocation"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" DataControl="CeixStsRailSchedulesAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="CeixStsRailSchedulesAMDataControl"/>
+    <action IterBinding="CeixStsRailSchedulesVO1Iterator" id="ExecuteWithParams3" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="startDate" NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="endDate" NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="timeZone" NDType="java.lang.String"/>
+      <NamedData NDName="pTrainId" NDType="java.lang.String"/>
+      <NamedData NDName="pOrderNum" NDType="java.lang.String"/>
+      <NamedData NDName="pCustNum" NDType="java.lang.String"/>
+      <NamedData NDName="pContrNum" NDType="java.lang.String"/>
+      <NamedData NDName="pDest" NDType="java.lang.String"/>
+      <NamedData NDName="pmineloc" NDType="java.lang.String"/>
+      <NamedData NDName="pLoadFromDate" NDType="oracle.jbo.domain.Date"
+                 NDValue="${bindings.ExecuteWithParams3_pLoadFromDate}"/>
+      <NamedData NDName="pLoadToDate" NDType="oracle.jbo.domain.Date"
+                 NDValue="${bindings.ExecuteWithParams3_pLoadToDate}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="pLoadFromDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams3_pLoadFromDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="pLoadToDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams3_pLoadToDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
   <ResourceBundle>
     <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"

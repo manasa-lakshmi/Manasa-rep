@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE OperationDefinitions SYSTEM "jbo_03_01.dtd">
+<OperationDefinitions xmlns="http://xmlns.oracle.com/bc4j" Name="CeixStsRailSchedulesVOOperations">
+  <ExpressionCodeSource
+    Name="CeixStsRailSchedulesVO"
+    Type="Static"
+    Content-Type="application/x-adf-groovy"
+    URI="com/ceix/stsrail/model/views/CeixStsRailSchedulesVO.bcs"/>
+</OperationDefinitions>

@@ -39,6 +39,12 @@ order by organization_name]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="240"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle

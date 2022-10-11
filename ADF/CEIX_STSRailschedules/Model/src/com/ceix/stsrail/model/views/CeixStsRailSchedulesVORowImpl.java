@@ -491,6 +491,56 @@ public class CeixStsRailSchedulesVORowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        SalesOrderVO1 {
+            protected Object get(CeixStsRailSchedulesVORowImpl obj) {
+                return obj.getSalesOrderVO1();
+            }
+
+            protected void put(CeixStsRailSchedulesVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        DestinationVO1 {
+            protected Object get(CeixStsRailSchedulesVORowImpl obj) {
+                return obj.getDestinationVO1();
+            }
+
+            protected void put(CeixStsRailSchedulesVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        LoadOriginVO1 {
+            protected Object get(CeixStsRailSchedulesVORowImpl obj) {
+                return obj.getLoadOriginVO1();
+            }
+
+            protected void put(CeixStsRailSchedulesVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        ContractItemsVO1 {
+            protected Object get(CeixStsRailSchedulesVORowImpl obj) {
+                return obj.getContractItemsVO1();
+            }
+
+            protected void put(CeixStsRailSchedulesVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        YesNo1 {
+            protected Object get(CeixStsRailSchedulesVORowImpl obj) {
+                return obj.getYesNo1();
+            }
+
+            protected void put(CeixStsRailSchedulesVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         ;
@@ -570,6 +620,11 @@ public class CeixStsRailSchedulesVORowImpl extends ViewRowImpl {
     public static final int MINELOCATION = AttributesEnum.MineLocation.index();
     public static final int CEIXSTSCUSTDETAILSVIEW1 = AttributesEnum.CeixStsCustDetailsView1.index();
     public static final int MINELOCATIONLOV1 = AttributesEnum.MineLocationLOV1.index();
+    public static final int SALESORDERVO1 = AttributesEnum.SalesOrderVO1.index();
+    public static final int DESTINATIONVO1 = AttributesEnum.DestinationVO1.index();
+    public static final int LOADORIGINVO1 = AttributesEnum.LoadOriginVO1.index();
+    public static final int CONTRACTITEMSVO1 = AttributesEnum.ContractItemsVO1.index();
+    public static final int YESNO1 = AttributesEnum.YesNo1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1312,6 +1367,41 @@ public class CeixStsRailSchedulesVORowImpl extends ViewRowImpl {
      */
     public RowSet getMineLocationLOV1() {
         return (RowSet) getAttributeInternal(MINELOCATIONLOV1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> SalesOrderVO1.
+     */
+    public RowSet getSalesOrderVO1() {
+        return (RowSet) getAttributeInternal(SALESORDERVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> DestinationVO1.
+     */
+    public RowSet getDestinationVO1() {
+        return (RowSet) getAttributeInternal(DESTINATIONVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> LoadOriginVO1.
+     */
+    public RowSet getLoadOriginVO1() {
+        return (RowSet) getAttributeInternal(LOADORIGINVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> ContractItemsVO1.
+     */
+    public RowSet getContractItemsVO1() {
+        return (RowSet) getAttributeInternal(CONTRACTITEMSVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> YesNo1.
+     */
+    public RowSet getYesNo1() {
+        return (RowSet) getAttributeInternal(YESNO1);
     }
 
     /**

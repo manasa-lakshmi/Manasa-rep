@@ -159,4 +159,36 @@ public class CeixStsRailSchedulesVOImpl extends ViewObjectImpl {
     public void setpmineloc(String value) {
         setNamedWhereClauseParam("pmineloc", value);
     }
+
+    /**
+     * Returns the bind variable value for pLoadFromDate.
+     * @return bind variable value for pLoadFromDate
+     */
+    public Date getpLoadFromDate() {
+        return (Date) getNamedWhereClauseParam("pLoadFromDate");
+    }
+
+    /**
+     * Sets <code>value</code> for bind variable pLoadFromDate.
+     * @param value value to bind as pLoadFromDate
+     */
+    public void setpLoadFromDate(Date value) {
+        setNamedWhereClauseParam("pLoadFromDate", value);
+    }
+
+    /**
+     * Returns the bind variable value for pLoadToDate.
+     * @return bind variable value for pLoadToDate
+     */
+    public Date getpLoadToDate() {
+        return (Date) getNamedWhereClauseParam("pLoadToDate");
+    }
+
+    /**
+     * Sets <code>value</code> for bind variable pLoadToDate.
+     * @param value value to bind as pLoadToDate
+     */
+    public void setpLoadToDate(Date value) {
+        setNamedWhereClauseParam("pLoadToDate", value);
+    }
 }

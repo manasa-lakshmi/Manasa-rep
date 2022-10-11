@@ -37,7 +37,9 @@
     SQLType="TIMESTAMP"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="CEIX_STS_RAIL_SCHEDULES">
+    TableName="CEIX_STS_RAIL_SCHEDULES"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>
@@ -49,7 +51,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="CEIX_STS_RAIL_SCHEDULES">
+    TableName="CEIX_STS_RAIL_SCHEDULES"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
@@ -60,7 +64,8 @@
     SQLType="TIMESTAMP"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="CEIX_STS_RAIL_SCHEDULES">
+    TableName="CEIX_STS_RAIL_SCHEDULES"
+    HistoryColumn="DateHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>
@@ -72,7 +77,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="CEIX_STS_RAIL_SCHEDULES">
+    TableName="CEIX_STS_RAIL_SCHEDULES"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>

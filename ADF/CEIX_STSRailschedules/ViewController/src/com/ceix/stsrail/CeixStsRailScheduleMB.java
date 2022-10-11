@@ -29,6 +29,7 @@ import oracle.adf.share.ADFContext;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.RichQuery;
 import oracle.adf.view.rich.component.rich.data.RichTable;
+import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 import oracle.adf.view.rich.context.AdfFacesContext;
@@ -48,6 +49,7 @@ import oracle.jbo.Row;
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.Transaction;
 import oracle.jbo.ViewObject;
+import oracle.jbo.server.ViewObjectImpl;
 
 
 public class CeixStsRailScheduleMB {
@@ -75,6 +77,7 @@ public class CeixStsRailScheduleMB {
     private RichSelectOneChoice porderNumInp_CopyScreen;
     private RichPopup _searchCustomerPopup_copyScreen;
     private RichTable thold;
+    private RichTable rails;
     private RichPopup copyAndCreatePopup;
     private RichSelectOneChoice pitemNumInp_updateScreen;
     private RichSelectOneChoice pitemNumInp_createScreen;
@@ -86,6 +89,8 @@ public class CeixStsRailScheduleMB {
     private RichSelectOneChoice pdestInp_createScreen;
     private RichSelectOneChoice pdestInp_updateScreen;
     private RichSelectOneChoice pmineLocInp;
+    private RichInputDate ploadFromInp;
+    private RichInputDate ploadToInp;
 
     public CeixStsRailScheduleMB() {
     }
@@ -190,8 +195,8 @@ public class CeixStsRailScheduleMB {
         Transaction transaction = appM.getTransaction();
         transaction.commit();
         if (actionEvent.getComponent().getId().equals("cb1")) {
-            RichPopup popup = getUpdatePopup();
-            popup.hide();
+//            RichPopup popup = getUpdatePopup(); //Commented by Manasa Yalamarthy on 26th Sept,22 - Oracle 8013
+//            popup.hide();
         } else if (actionEvent.getComponent().getId().equals("cb6")) {
             RichPopup popup = getHoldUpdatePopup();
             popup.hide();
@@ -822,6 +827,11 @@ public class CeixStsRailScheduleMB {
                                         this.getPcontrNumInp().getValue());
         railvo.setNamedWhereClauseParam("pDest",
                                         this.getPdestination().getValue());
+//Added by Manasa Yalamarthy on 26th Sept,22 - Oracle 8013
+        railvo.setNamedWhereClauseParam("pLoadFromDate",
+                                     this.getPloadFromInp().getValue());
+        railvo.setNamedWhereClauseParam("pLoadToDate",
+                                        this.getPloadToInp().getValue());
         if (!("[Select Location]".equals(this.getPmineLocInp().getValue()))) { // Added by Manasa Yalamarthy on 9th August,2022 - 7972
             railvo.setNamedWhereClauseParam("pmineloc",
                                             this.getPmineLocInp().getValue());
@@ -939,6 +949,7 @@ public class CeixStsRailScheduleMB {
         newRow.setAttribute("Rr", currentRow.getAttribute("Rr"));
         newRow.setAttribute("Source", currentRow.getAttribute("Source"));
         newRow.setAttribute("ItemNumber", currentRow.getAttribute("ItemNumber"));
+        newRow.setAttribute("MineLocation", currentRow.getAttribute("MineLocation"));//Added by Manasa Yalamarthy on 26th Sept,22 - Oracle 8013
         railvo.insertRow(newRow);
         railvo.setCurrentRow(newRow);
         System.out.println("Rail Id is:" +
@@ -1461,6 +1472,14 @@ public class CeixStsRailScheduleMB {
         return thold;
     }
 
+    public void setRails(RichTable rails) {
+        this.rails = rails;
+    }
+
+    public RichTable getRails() {
+        return rails;
+    }
+
     public void setCopyAndCreatePopup(RichPopup copyAndCreatePopup) {
         this.copyAndCreatePopup = copyAndCreatePopup;
     }
@@ -1602,5 +1621,50 @@ public class CeixStsRailScheduleMB {
 
     public RichSelectOneChoice getPmineLocInp() {
         return pmineLocInp;
+    }
+
+
+    public void onLineCancel(ActionEvent actionEvent) {
+        // Add event code here...
+    }
+
+
+    public void setPloadFromInp(RichInputDate ploadFromInp) {
+        this.ploadFromInp = ploadFromInp;
+    }
+
+    public RichInputDate getPloadFromInp() {
+        return ploadFromInp;
+    }
+
+    public void setPloadToInp(RichInputDate ploadToInp) {
+        this.ploadToInp = ploadToInp;
+    }
+
+    public RichInputDate getPloadToInp() {
+        return ploadToInp;
+    }
+
+    //Added by Manasa Yalamarthy on 26th Sept,22 - Oracle 8013
+    public void salesOrderTableVCL(ValueChangeEvent valueChangeEvent) {
+        
+        System.out.println("**Inside salesOrderTableVCL**");
+        BindingContainer bindings = BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding dciter = (DCIteratorBinding) bindings.get("CeixStsRailSchedulesVO1Iterator");
+        ViewObjectImpl railVo = (ViewObjectImpl) dciter.getViewObject();
+        CeixStsRailSchedulesVORowImpl currRow = (CeixStsRailSchedulesVORowImpl) railVo.getCurrentRow();
+
+        if (currRow != null) {
+            System.out.println("Inside CurrRow");
+            if (currRow.getItemNumber() != null) {
+                currRow.setItemNumber(null);
+            }
+            if (currRow.getDestination() != null) {
+                currRow.setDestination(null);
+            }
+
+            AdfFacesContext.getCurrentInstance().addPartialTarget(getRails());
+        }
+
     }
 }

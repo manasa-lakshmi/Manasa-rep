@@ -98,6 +98,28 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
+  <Variable
+    Name="pLoadFromDate"
+    Kind="where"
+    Type="oracle.jbo.domain.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.pLoadFromDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="pLoadToDate"
+    Kind="where"
+    Type="oracle.jbo.domain.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.pLoadToDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <ViewAccessor
     Name="CeixStsCustDetailsView1"
     ViewObjectName="com.ceix.stsrail.model.views.CeixStsCustDetailsView"
@@ -105,6 +127,44 @@
   <ViewAccessor
     Name="MineLocationLOV1"
     ViewObjectName="com.ceix.stsrail.model.views.MineLocationLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SalesOrderVO1"
+    ViewObjectName="com.ceix.stsrail.model.views.SalesOrderVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DestinationVO1"
+    ViewObjectName="com.ceix.stsrail.model.views.DestinationVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="pcontractNum">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="CeixStsRailSchedulesVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="LoadOriginVO1"
+    ViewObjectName="com.ceix.stsrail.model.views.LoadOriginVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ContractItemsVO1"
+    ViewObjectName="com.ceix.stsrail.model.views.ContractItemsVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="pContractNumber">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="CeixStsRailSchedulesVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="YesNo1"
+    ViewObjectName="com.ceix.stsrail.model.views.YesNo"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_MineLocation"
@@ -120,6 +180,97 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SalesOrderNumber"
+    ListVOName="SalesOrderVO1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="SalesOrderNumber"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrderNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrderNumber"/>
+      <Item Value="ContractNumber"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Destination"
+    ListVOName="DestinationVO1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="Destination"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Destination"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Destination"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_LoadOrigin"
+    ListVOName="LoadOriginVO1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="LoadOrigin"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrganizationName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrganizationName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ItemNumber"
+    ListVOName="ContractItemsVO1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="ItemNumber"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ItemNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ItemNumber"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_HoldFlag"
+    ListVOName="YesNo1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="HoldFlag"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="YesNo"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -243,7 +394,12 @@
                                           CeixStsRailSchedulesEO.SALES_ORDER_NUMBER),    
                               'KK'))    
                    || '%')    
-       AND NVL (CeixstsrailschedulesEO.HOLD_FLAG, 'N') = 'N']]></SQLQuery>
+       AND NVL (CeixstsrailschedulesEO.HOLD_FLAG, 'N') = 'N'
+        AND (   :pLoadFromDate IS NULL                      
+              OR (    :pLoadFromDate IS NOT NULL                      
+                  AND CeixStsRailSchedulesEO.LOAD_DATE >= :pLoadFromDate))                      
+         AND (   :pLoadToDate IS NULL                      
+              OR (:pLoadToDate IS NOT NULL AND CeixStsRailSchedulesEO.LOAD_DATE <= :pLoadToDate))]]></SQLQuery>
   <EntityUsage
     Name="CeixStsRailSchedulesEO"
     Entity="com.ceix.stsrail.model.entities.CeixStsRailSchedulesEO"/>
@@ -259,35 +415,42 @@
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="CeixStsRailSchedulesEO"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="CeixStsRailSchedulesEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdateDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="CeixStsRailSchedulesEO"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="CeixStsRailSchedulesEO"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="SalesOrderNumber"
     PrecisionRule="true"
     EntityAttrName="SalesOrderNumber"
     EntityUsage="CeixStsRailSchedulesEO"
-    AliasName="SALES_ORDER_NUMBER">
+    AliasName="SALES_ORDER_NUMBER"
+    LOVName="LOV_SalesOrderNumber">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.SalesOrderNumber_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -327,6 +490,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.LoadDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -341,7 +506,15 @@
     PrecisionRule="true"
     EntityAttrName="Destination"
     EntityUsage="CeixStsRailSchedulesEO"
-    AliasName="DESTINATION"/>
+    AliasName="DESTINATION"
+    LOVName="LOV_Destination">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DestinationEta"
     PrecisionRule="true"
@@ -366,11 +539,14 @@
     PrecisionRule="true"
     EntityAttrName="LoadOrigin"
     EntityUsage="CeixStsRailSchedulesEO"
-    AliasName="LOAD_ORIGIN">
+    AliasName="LOAD_ORIGIN"
+    LOVName="LOV_LoadOrigin">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.LoadOrigin_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -557,11 +733,14 @@
     PrecisionRule="true"
     EntityAttrName="HoldFlag"
     EntityUsage="CeixStsRailSchedulesEO"
-    AliasName="HOLD_FLAG">
+    AliasName="HOLD_FLAG"
+    LOVName="LOV_HoldFlag">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.HoldFlag_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -688,7 +867,17 @@
     PrecisionRule="true"
     EntityAttrName="ItemNumber"
     EntityUsage="CeixStsRailSchedulesEO"
-    AliasName="ITEM_NUMBER"/>
+    AliasName="ITEM_NUMBER"
+    LOVName="LOV_ItemNumber">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.stsrail.model.views.CeixStsRailSchedulesVO.ItemNumber_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="MineLocation"
     PrecisionRule="true"

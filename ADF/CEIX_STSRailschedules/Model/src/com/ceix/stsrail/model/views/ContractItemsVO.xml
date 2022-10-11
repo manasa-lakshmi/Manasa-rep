@@ -25,7 +25,14 @@
   <Variable
     Name="pContractNumber"
     Kind="where"
-    Type="java.lang.String"/>
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <SQLQuery><![CDATA[select distinct CCL.ITEM_NUMBER from ceix_contract_lines ccl, ceix_contract_headers cch                          
 where ccl.chr_id = cch.id  and ccl.item_type<>'FRT' and ccl.sts_code in ('ACTIVE','EXPIRED')  
  --and sysdate between nvl(ccl.start_date,sysdate-1) and nvl(ccl.end_date,sysdate+1)             
@@ -44,6 +51,12 @@ and cch.contract_number = NVL(:pContractNumber,cch.contract_number)]]></SQLQuery
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle

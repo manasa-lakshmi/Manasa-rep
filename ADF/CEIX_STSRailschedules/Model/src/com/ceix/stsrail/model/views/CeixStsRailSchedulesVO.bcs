@@ -1,0 +1,19 @@
+//Groovy Scripts for com.ceix.stsrail.model.views.CeixStsRailSchedulesVO
+
+package com.ceix.stsrail.model.views
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="DestinationVO1", name="pcontractNum")
+def pcontractNum_DestinationVO1_BindVariable_BoundParameter()
+{
+SalesOrderNumber
+}
+
+
+@AccessorParameterExpression(accessorName="ContractItemsVO1", name="pContractNumber")
+def pContractNumber_ContractItemsVO1_BindVariable_BoundParameter()
+{
+SalesOrderNumber
+}
+
