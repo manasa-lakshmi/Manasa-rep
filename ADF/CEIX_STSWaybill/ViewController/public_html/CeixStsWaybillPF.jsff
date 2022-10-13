@@ -421,7 +421,7 @@
                           maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.NewTrainNumber.precision}"
                           shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.NewTrainNumber.tooltip}"
                           id="it18"
-                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+                          readOnly='#{bindings.EditFlag.inputValue == "Y" || (!(row.ShipmentNumber == null))}'>
               <f:validator binding="#{row.bindings.NewTrainNumber.validator}"/>
             </af:inputText>
           </af:column>
@@ -508,7 +508,7 @@
                           maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarPrefix.precision}"
                           shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarPrefix.tooltip}"
                           id="it23"
-                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+                          readOnly='#{bindings.EditFlag.inputValue == "Y" || (!(row.ShipmentNumber == null))}'>
               <f:validator binding="#{row.bindings.NewCarPrefix.validator}"/>
             </af:inputText>
           </af:column>
@@ -523,7 +523,7 @@
                           maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarNumber.precision}"
                           shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.NewCarNumber.tooltip}"
                           id="it22"
-                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+                          readOnly='#{bindings.EditFlag.inputValue == "Y" || (!(row.ShipmentNumber == null))}'>
               <f:validator binding="#{row.bindings.NewCarNumber.validator}"/>
             </af:inputText>
           </af:column>
@@ -537,7 +537,7 @@
                           columns="#{bindings.CeixStsWaybillLinesVO1.hints.DumpWeight.displayWidth}"
                           maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.DumpWeight.precision}"
                           shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.DumpWeight.tooltip}"
-                          id="it9"  readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+                          id="it9"  readOnly='#{bindings.EditFlag.inputValue == "Y" || (!(row.ShipmentNumber == null))}'>
               <f:validator binding="#{row.bindings.DumpWeight.validator}"/>
             </af:inputText>
           </af:column>
@@ -567,7 +567,7 @@
                           maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.ShippedQuantity.precision}"
                           shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.ShippedQuantity.tooltip}"
                           id="it8"
-                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+                          readOnly='#{bindings.EditFlag.inputValue == "Y" || (!(row.ShipmentNumber == null))}'>
               <f:validator binding="#{row.bindings.ShippedQuantity.validator}"/>
             </af:inputText>
           </af:column>
@@ -633,7 +633,7 @@
                           maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.SubInventory.precision}"
                           shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.SubInventory.tooltip}"
                           id="it26"
-                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+                          readOnly='#{bindings.EditFlag.inputValue == "Y" || (!(row.ShipmentNumber == null))}'>
               <f:validator binding="#{row.bindings.SubInventory.validator}"/>
             </af:inputText>
           </af:column>
@@ -661,7 +661,7 @@
                           maximumLength="#{bindings.CeixStsWaybillLinesVO1.hints.Comments.precision}"
                           shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.Comments.tooltip}"
                           id="it19"
-                          readOnly='#{bindings.EditFlag.inputValue == "Y"}'>
+                          readOnly='#{bindings.EditFlag.inputValue == "Y" || (!(row.ShipmentNumber == null))}'>
               <f:validator binding="#{row.bindings.Comments.validator}"/>
             </af:inputText>
           </af:column>
