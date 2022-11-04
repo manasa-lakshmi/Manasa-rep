@@ -143,7 +143,8 @@
                 binding="#{pageFlowScope.CeixStsShipmentsMB.headerTable}"
                 sortListener="#{pageFlowScope.CeixStsShipmentsMB.onTableSort}">
         <af:column id="c32" headerText="Delete" align="center">
-          <af:commandImageLink id="cil1" icon="/images/delete_ena.png">
+          <af:commandImageLink id="cil1" icon="/images/delete_ena.png"
+                               disabled="#{securityContext.userInRole['CEIX_STSShipmentsUsersRO']}">
             <af:showPopupBehavior popupId="p5" triggerType="action"/>
           </af:commandImageLink>
           <af:popup id="p5">
@@ -375,7 +376,8 @@
                   columnStretching="column:c29"
                   binding="#{pageFlowScope.CeixStsShipmentsMB.detailTable}">
           <af:column id="c33" headerText="Delete" align="center">
-            <af:commandImageLink id="cil2" icon="/images/delete_ena.png">
+            <af:commandImageLink id="cil2" icon="/images/delete_ena.png"
+                                 disabled="#{securityContext.userInRole['CEIX_STSShipmentsUsersRO']}">
               <af:showPopupBehavior popupId="p2" triggerType="action"/>
             </af:commandImageLink>
             <af:popup id="p2">
@@ -392,7 +394,7 @@
                                       shortDesc="#{bindings.CeixStsDeliveryLinesVO1.hints.SelectFLag.tooltip}"
                                       id="sbc1"
                                       valueChangeListener="#{pageFlowScope.CeixStsShipmentsMB.onLineSelCB}"
-                                      autoSubmit="true" disabled="#{!(row.ShipmentNumber == null)}"/>
+                                      autoSubmit="true" disabled="#{!(row.ShipmentNumber == null) || (securityContext.userInRole['CEIX_STSShipmentsUsersRO'])}"/>
           </af:column>
           <af:column sortProperty="#{bindings.CeixStsDeliveryLinesVO1.hints.SalesOrderNumber.name}"
                      sortable="true"
@@ -715,7 +717,8 @@
               <af:selectBooleanCheckbox text="Select All/None" id="sbc2"
                                         valueChangeListener="#{pageFlowScope.CeixStsShipmentsMB.onSelAllNone}"
                                         autoSubmit="true"
-                                        binding="#{pageFlowScope.CeixStsShipmentsMB.selAllCheckBox}"/>
+                                        binding="#{pageFlowScope.CeixStsShipmentsMB.selAllCheckBox}"
+                                         disabled="#{securityContext.userInRole['CEIX_STSShipmentsUsersRO']}"/>
               <af:spacer width="10" height="10" id="s7"/>
               <af:commandButton text="Edit" id="cb7"
                                 disabled="#{securityContext.userInRole['CEIX_STSShipmentsUsersRO']}"
