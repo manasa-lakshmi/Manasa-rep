@@ -1656,18 +1656,6 @@
               <f:validator binding="#{row.bindings.TrainId.validator}"/>
             </af:inputText>
           </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.ItemNumber.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.ItemNumber.label}" id="c14">
-            <af:inputListOfValues id="itemNumberId"
-                                  popupTitle="Search and Select: #{bindings.CeixStsRailSchedulesVO1.hints.ItemNumber.label}"
-                                  value="#{row.bindings.ItemNumber.inputValue}"
-                                  model="#{row.bindings.ItemNumber.listOfValuesModel}"
-                                  columns="#{row.bindings.ItemNumber.hints.displayWidth}"
-                                  shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.ItemNumber.tooltip}"
-                                  partialTriggers="salesOrderNumberId" autoSubmit="true" required="true">
-              <f:validator binding="#{row.bindings.ItemNumber.validator}"/>
-            </af:inputListOfValues>
-          </af:column>
           <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.LoadOrder.name}" filterable="true"
                      sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.LoadOrder.label}" id="c15">
             <af:inputText value="#{row.bindings.LoadOrder.inputValue}"
@@ -1710,123 +1698,6 @@
               <f:validator binding="#{row.bindings.Destination.validator}"/>
             </af:inputListOfValues>
           </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.label}"
-                     id="c18">
-            <af:inputText value="#{row.bindings.DestinationEta.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.tooltip}" id="it40">
-              <f:validator binding="#{row.bindings.DestinationEta.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.label}" id="c19">
-            <af:inputText value="#{row.bindings.Consignee.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.tooltip}" id="it57">
-              <f:validator binding="#{row.bindings.Consignee.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.LoadOrigin.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.LoadOrigin.label}" id="c20">
-            <af:inputListOfValues id="loadOriginId"
-                                  popupTitle="Search and Select: #{bindings.CeixStsRailSchedulesVO1.hints.LoadOrigin.label}"
-                                  value="#{row.bindings.LoadOrigin.inputValue}"
-                                  model="#{row.bindings.LoadOrigin.listOfValuesModel}"
-                                  required="#{bindings.CeixStsRailSchedulesVO1.hints.LoadOrigin.mandatory}"
-                                  columns="#{row.bindings.LoadOrigin.hints.displayWidth}"
-                                  shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.LoadOrigin.tooltip}"
-                                  autoSubmit="true">
-              <f:validator binding="#{row.bindings.LoadOrigin.validator}"/>
-            </af:inputListOfValues>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.label}" id="c21">
-            <af:inputText value="#{row.bindings.OriginEta.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.tooltip}" id="it89">
-              <f:validator binding="#{row.bindings.OriginEta.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.label}"
-                     id="c22">
-            <af:inputText value="#{row.bindings.ReservationStatus.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.tooltip}" id="it91">
-              <f:validator binding="#{row.bindings.ReservationStatus.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Request.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Request.label}" id="c24">
-            <af:inputText value="#{row.bindings.Request.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Request.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Request.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Request.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Request.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Request.tooltip}" id="it105">
-              <f:validator binding="#{row.bindings.Request.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.label}"
-                     id="c25">
-            <f:facet name="filter">
-              <af:inputDate value="#{bindings.CeixStsRailSchedulesVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.OrderPlaceDate.value}"
-                            id="id21">
-                <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.format}"/>
-              </af:inputDate>
-            </f:facet>
-            <af:inputDate value="#{row.bindings.OrderPlaceDate.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.displayWidth}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.tooltip}" id="id22">
-              <f:validator binding="#{row.bindings.OrderPlaceDate.validator}"/>
-              <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.format}"/>
-            </af:inputDate>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.label}"
-                     id="c26">
-            <f:facet name="filter">
-              <af:inputDate value="#{bindings.CeixStsRailSchedulesVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.RequestedLoadDate.value}"
-                            id="id23">
-                <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.format}"/>
-              </af:inputDate>
-            </f:facet>
-            <af:inputDate value="#{row.bindings.RequestedLoadDate.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.displayWidth}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.tooltip}" id="id24">
-              <f:validator binding="#{row.bindings.RequestedLoadDate.validator}"/>
-              <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.format}"/>
-            </af:inputDate>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.label}" id="c27">
-            <af:inputText value="#{row.bindings.Cars.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.tooltip}" id="it109">
-              <f:validator binding="#{row.bindings.Cars.validator}"/>
-            </af:inputText>
-          </af:column>
           <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Tons.name}" filterable="true"
                      sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Tons.label}" id="c28">
             <af:inputText value="#{row.bindings.Tons.inputValue}"
@@ -1838,121 +1709,15 @@
               <f:validator binding="#{row.bindings.Tons.validator}"/>
             </af:inputText>
           </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.label}" id="c29">
-            <af:inputText value="#{row.bindings.CoalClass.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.tooltip}" id="it125">
-              <f:validator binding="#{row.bindings.CoalClass.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.label}" id="c30">
-            <af:inputText value="#{row.bindings.Weigh.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.tooltip}" id="it126">
-              <f:validator binding="#{row.bindings.Weigh.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.label}" id="c31">
-            <af:inputText value="#{row.bindings.Loads.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.tooltip}" id="it127">
-              <f:validator binding="#{row.bindings.Loads.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.name}" filterable="true" sortable="true"
-                     headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.label}" id="c32">
-            <af:inputText value="#{row.bindings.Mty.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.tooltip}" id="it128">
-              <f:validator binding="#{row.bindings.Mty.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.label}" id="c33">
-            <f:facet name="filter">
-              <af:inputDate value="#{bindings.CeixStsRailSchedulesVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.WaybillDate.value}"
-                            id="id25">
-                <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.format}"/>
-              </af:inputDate>
-            </f:facet>
-            <af:inputDate value="#{row.bindings.WaybillDate.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.displayWidth}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.tooltip}" id="id26">
-              <f:validator binding="#{row.bindings.WaybillDate.validator}"/>
-              <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.format}"/>
-            </af:inputDate>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.label}" id="c34">
-            <af:inputText value="#{row.bindings.Waybill.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.tooltip}" id="it129">
-              <f:validator binding="#{row.bindings.Waybill.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.label}" id="c35">
-            <af:inputText value="#{row.bindings.LastTrain.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.tooltip}" id="it130">
-              <f:validator binding="#{row.bindings.LastTrain.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.City.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.City.label}" id="c36">
-            <af:inputText value="#{row.bindings.City.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.City.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.City.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.City.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.City.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.City.tooltip}" id="it131">
-              <f:validator binding="#{row.bindings.City.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.label}"
-                     id="c37">
-            <af:inputText value="#{row.bindings.LastEventTime.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.tooltip}" id="it132">
-              <f:validator binding="#{row.bindings.LastEventTime.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.label}" id="c38">
-            <af:inputText value="#{row.bindings.CurrentSet.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.tooltip}" id="it133">
-              <f:validator binding="#{row.bindings.CurrentSet.validator}"/>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.label}" id="c27">
+            <af:inputText value="#{row.bindings.Cars.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Cars.tooltip}" id="it109">
+              <f:validator binding="#{row.bindings.Cars.validator}"/>
             </af:inputText>
           </af:column>
           <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentStatus.name}" filterable="true"
@@ -1976,28 +1741,6 @@
               <f:validator binding="#{row.bindings.HoldFlag.validator}"/>
             </af:selectOneChoice>
           </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.label}" id="c41">
-            <af:inputText value="#{row.bindings.Carrier.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.tooltip}" id="it135">
-              <f:validator binding="#{row.bindings.Carrier.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.label}" id="c42">
-            <af:inputText value="#{row.bindings.Problem.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.tooltip}" id="it136">
-              <f:validator binding="#{row.bindings.Problem.validator}"/>
-            </af:inputText>
-          </af:column>
           <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Comments.name}" filterable="true"
                      sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Comments.label}" id="c43">
             <af:inputText value="#{row.bindings.Comments.inputValue}"
@@ -2007,40 +1750,6 @@
                           maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Comments.precision}"
                           shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Comments.tooltip}" id="it137">
               <f:validator binding="#{row.bindings.Comments.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.label}"
-                     id="c44">
-            <af:inputText value="#{row.bindings.CustomerContract.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.tooltip}" id="it138">
-              <f:validator binding="#{row.bindings.CustomerContract.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.name}" filterable="true" sortable="true"
-                     headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.label}" id="c45">
-            <af:inputText value="#{row.bindings.Rr.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.tooltip}" id="it139">
-              <f:validator binding="#{row.bindings.Rr.validator}"/>
-            </af:inputText>
-          </af:column>
-          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Source.name}" filterable="true"
-                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Source.label}" id="c46">
-            <af:inputText value="#{row.bindings.Source.inputValue}"
-                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Source.label}"
-                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Source.mandatory}"
-                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Source.displayWidth}"
-                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Source.precision}"
-                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Source.tooltip}" id="it140">
-              <f:validator binding="#{row.bindings.Source.validator}"/>
             </af:inputText>
           </af:column>
           <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.ContractNumber.name}" filterable="true"
@@ -2056,6 +1765,82 @@
               <f:validator binding="#{row.bindings.ContractNumber.validator}"/>
             </af:inputText>
           </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.ItemNumber.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.ItemNumber.label}" id="c14">
+            <af:inputListOfValues id="itemNumberId"
+                                  popupTitle="Search and Select: #{bindings.CeixStsRailSchedulesVO1.hints.ItemNumber.label}"
+                                  value="#{row.bindings.ItemNumber.inputValue}"
+                                  model="#{row.bindings.ItemNumber.listOfValuesModel}"
+                                  columns="#{row.bindings.ItemNumber.hints.displayWidth}"
+                                  shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.ItemNumber.tooltip}"
+                                  partialTriggers="salesOrderNumberId" autoSubmit="true" required="true">
+              <f:validator binding="#{row.bindings.ItemNumber.validator}"/>
+            </af:inputListOfValues>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.LoadOrigin.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.LoadOrigin.label}" id="c20">
+            <af:inputListOfValues id="loadOriginId"
+                                  popupTitle="Search and Select: #{bindings.CeixStsRailSchedulesVO1.hints.LoadOrigin.label}"
+                                  value="#{row.bindings.LoadOrigin.inputValue}"
+                                  model="#{row.bindings.LoadOrigin.listOfValuesModel}"
+                                  required="#{bindings.CeixStsRailSchedulesVO1.hints.LoadOrigin.mandatory}"
+                                  columns="#{row.bindings.LoadOrigin.hints.displayWidth}"
+                                  shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.LoadOrigin.tooltip}"
+                                  autoSubmit="true">
+              <f:validator binding="#{row.bindings.LoadOrigin.validator}"/>
+            </af:inputListOfValues>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.label}"
+                     id="c26">
+            <f:facet name="filter">
+              <af:inputDate value="#{bindings.CeixStsRailSchedulesVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.RequestedLoadDate.value}"
+                            id="id23">
+                <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.format}"/>
+              </af:inputDate>
+            </f:facet>
+            <af:inputDate value="#{row.bindings.RequestedLoadDate.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.displayWidth}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.tooltip}" id="id24">
+              <f:validator binding="#{row.bindings.RequestedLoadDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesVO1.hints.RequestedLoadDate.format}"/>
+            </af:inputDate>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.label}" id="c29">
+            <af:inputText value="#{row.bindings.CoalClass.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.CoalClass.tooltip}" id="it125">
+              <f:validator binding="#{row.bindings.CoalClass.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.label}" id="c41">
+            <af:inputText value="#{row.bindings.Carrier.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Carrier.tooltip}" id="it135">
+              <f:validator binding="#{row.bindings.Carrier.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.label}" id="c45">
+            <af:inputText value="#{row.bindings.Rr.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Rr.tooltip}" id="it139">
+              <f:validator binding="#{row.bindings.Rr.validator}"/>
+            </af:inputText>
+          </af:column>
           <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.MineLocation.name}" filterable="true"
                      sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.MineLocation.label}" id="c48">
             <af:selectOneChoice value="#{row.bindings.MineLocation.inputValue}"
@@ -2066,6 +1851,233 @@
               <f:selectItems value="#{row.bindings.MineLocation.items}" id="si16"/>
               <f:validator binding="#{row.bindings.MineLocation.validator}"/>
             </af:selectOneChoice>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.label}"
+                     id="c44" rendered="false">
+            <af:inputText value="#{row.bindings.CustomerContract.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.CustomerContract.tooltip}" id="it138">
+              <f:validator binding="#{row.bindings.CustomerContract.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.label}"
+                     id="c18" rendered="false">
+            <af:inputText value="#{row.bindings.DestinationEta.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.DestinationEta.tooltip}" id="it40">
+              <f:validator binding="#{row.bindings.DestinationEta.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.label}" id="c19"
+                     rendered="false">
+            <af:inputText value="#{row.bindings.Consignee.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Consignee.tooltip}" id="it57">
+              <f:validator binding="#{row.bindings.Consignee.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.label}" id="c21"
+                     rendered="false">
+            <af:inputText value="#{row.bindings.OriginEta.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.OriginEta.tooltip}" id="it89">
+              <f:validator binding="#{row.bindings.OriginEta.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.label}"
+                     id="c22" rendered="false">
+            <af:inputText value="#{row.bindings.ReservationStatus.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.ReservationStatus.tooltip}" id="it91">
+              <f:validator binding="#{row.bindings.ReservationStatus.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Request.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Request.label}" id="c24"
+                     rendered="false">
+            <af:inputText value="#{row.bindings.Request.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Request.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Request.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Request.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Request.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Request.tooltip}" id="it105">
+              <f:validator binding="#{row.bindings.Request.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.label}"
+                     id="c25" rendered="false">
+            <f:facet name="filter">
+              <af:inputDate value="#{bindings.CeixStsRailSchedulesVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.OrderPlaceDate.value}"
+                            id="id21">
+                <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.format}"/>
+              </af:inputDate>
+            </f:facet>
+            <af:inputDate value="#{row.bindings.OrderPlaceDate.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.displayWidth}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.tooltip}" id="id22">
+              <f:validator binding="#{row.bindings.OrderPlaceDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesVO1.hints.OrderPlaceDate.format}"/>
+            </af:inputDate>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.label}" id="c30"
+                     rendered="false">
+            <af:inputText value="#{row.bindings.Weigh.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Weigh.tooltip}" id="it126">
+              <f:validator binding="#{row.bindings.Weigh.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.label}" id="c31"
+                     rendered="false">
+            <af:inputText value="#{row.bindings.Loads.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Loads.tooltip}" id="it127">
+              <f:validator binding="#{row.bindings.Loads.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.label}" id="c32" rendered="false">
+            <af:inputText value="#{row.bindings.Mty.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Mty.tooltip}" id="it128">
+              <f:validator binding="#{row.bindings.Mty.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.label}" id="c33"
+                     rendered="false">
+            <f:facet name="filter">
+              <af:inputDate value="#{bindings.CeixStsRailSchedulesVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.WaybillDate.value}"
+                            id="id25">
+                <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.format}"/>
+              </af:inputDate>
+            </f:facet>
+            <af:inputDate value="#{row.bindings.WaybillDate.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.displayWidth}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.tooltip}" id="id26">
+              <f:validator binding="#{row.bindings.WaybillDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CeixStsRailSchedulesVO1.hints.WaybillDate.format}"/>
+            </af:inputDate>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.label}" id="c34"
+                     rendered="false">
+            <af:inputText value="#{row.bindings.Waybill.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Waybill.tooltip}" id="it129">
+              <f:validator binding="#{row.bindings.Waybill.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.label}" id="c35"
+                     rendered="false">
+            <af:inputText value="#{row.bindings.LastTrain.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.LastTrain.tooltip}" id="it130">
+              <f:validator binding="#{row.bindings.LastTrain.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.City.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.City.label}" id="c36"
+                     rendered="false">
+            <af:inputText value="#{row.bindings.City.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.City.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.City.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.City.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.City.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.City.tooltip}" id="it131">
+              <f:validator binding="#{row.bindings.City.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.label}"
+                     id="c37" rendered="false">
+            <af:inputText value="#{row.bindings.LastEventTime.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.LastEventTime.tooltip}" id="it132">
+              <f:validator binding="#{row.bindings.LastEventTime.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.label}" id="c38"
+                     rendered="false">
+            <af:inputText value="#{row.bindings.CurrentSet.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.CurrentSet.tooltip}" id="it133">
+              <f:validator binding="#{row.bindings.CurrentSet.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.label}" id="c42"
+                     rendered="false">
+            <af:inputText value="#{row.bindings.Problem.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Problem.tooltip}" id="it136">
+              <f:validator binding="#{row.bindings.Problem.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CeixStsRailSchedulesVO1.hints.Source.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CeixStsRailSchedulesVO1.hints.Source.label}" id="c46"
+                     rendered="false">
+            <af:inputText value="#{row.bindings.Source.inputValue}"
+                          label="#{bindings.CeixStsRailSchedulesVO1.hints.Source.label}"
+                          required="#{bindings.CeixStsRailSchedulesVO1.hints.Source.mandatory}"
+                          columns="#{bindings.CeixStsRailSchedulesVO1.hints.Source.displayWidth}"
+                          maximumLength="#{bindings.CeixStsRailSchedulesVO1.hints.Source.precision}"
+                          shortDesc="#{bindings.CeixStsRailSchedulesVO1.hints.Source.tooltip}" id="it140">
+              <f:validator binding="#{row.bindings.Source.validator}"/>
+            </af:inputText>
           </af:column>
         </af:table>
       </af:panelCollection>
