@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixEhsIncidentViolationAttachmentVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="CeixEhsIncidentViolationAtta1.CREATED_BY, 
+       CeixEhsIncidentViolationAtta1.CREATION_DATE, 
+       CeixEhsIncidentViolationAtta1.FILE_CONTENT, 
+       CeixEhsIncidentViolationAtta1.FILE_NAME, 
+       CeixEhsIncidentViolationAtta1.LAST_UPDATE_DATE, 
+       CeixEhsIncidentViolationAtta1.LAST_UPDATED_BY, 
+       CeixEhsIncidentViolationAtta1.VIOLATION_ATTCHM_ID, 
+       CeixEhsIncidentViolationAtta1.VIOLATION_ID"
+  FromList="CEIX_EHS_VIOLATION_ATTCHM CeixEhsIncidentViolationAtta1"
+  Where="CeixEhsIncidentViolationAtta1.VIOLATION_ID = :bviolation_id"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="com.ceix.ehs.model.views.CeixEhsIncidentViolationAttachmentVORowImpl"
+  ComponentClass="com.ceix.ehs.model.views.CeixEhsIncidentViolationAttachmentVOImpl"
+  DefClass="com.ceix.ehs.model.views.CeixEhsIncidentViolationAttachmentVODefImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Def|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ceix.ehs.model.views.CeixEhsIncidentViolationAttachmentVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="bviolation_id"
+    Kind="where"
+    Type="java.lang.String"/>
+  <EntityUsage
+    Name="CeixEhsIncidentViolationAtta1"
+    Entity="com.ceix.ehs.model.entities.CeixEhsIncidentViolationAttachmentEO"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="CeixEhsIncidentViolationAtta1"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="CeixEhsIncidentViolationAtta1"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="FileContent"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="FileContent"
+    EntityUsage="CeixEhsIncidentViolationAtta1"
+    AliasName="FILE_CONTENT"/>
+  <ViewAttribute
+    Name="FileName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FileName"
+    EntityUsage="CeixEhsIncidentViolationAtta1"
+    AliasName="FILE_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="60"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="CeixEhsIncidentViolationAtta1"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="CeixEhsIncidentViolationAtta1"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="ViolationAttchmId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ViolationAttchmId"
+    EntityUsage="CeixEhsIncidentViolationAtta1"
+    AliasName="VIOLATION_ATTCHM_ID"/>
+  <ViewAttribute
+    Name="ViolationId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ViolationId"
+    EntityUsage="CeixEhsIncidentViolationAtta1"
+    AliasName="VIOLATION_ID"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ceix.ehs.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

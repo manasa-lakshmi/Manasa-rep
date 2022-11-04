@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixEhsIncidentParentLookupsVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="CeixEhsIncidentLookupsEO.LOOKUP_CODE, 
+       CeixEhsIncidentLookupsEO.LOOKUP_TYPE, 
+       CeixEhsIncidentLookupsEO.DESCRIPTION, 
+       CeixEhsIncidentLookupsEO.ENABLED_FLAG, 
+       CeixEhsIncidentLookupsEO.CREATED_BY, 
+       CeixEhsIncidentLookupsEO.CREATION_DATE, 
+       CeixEhsIncidentLookupsEO.LAST_UPDATED_BY, 
+       CeixEhsIncidentLookupsEO.LAST_UPDATE_DATE, 
+       CeixEhsIncidentLookupsEO.DISPLAY_ORDER, 
+       CeixEhsIncidentLookupsEO.PARENT_LOOKUP_CODE"
+  FromList="CEIX_EHS_INCIDENT_LOOKUPS CeixEhsIncidentLookupsEO"
+  Where="CeixEhsIncidentLookupsEO.PARENT_LOOKUP_CODE=:parentLookupCode and 
+CeixEhsIncidentLookupsEO.LOOKUP_TYPE=:lookupType 
+and CeixEhsIncidentLookupsEO.ENABLED_FLAG='Y'"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  OrderBy="CeixEhsIncidentLookupsEO.DISPLAY_ORDER ASC"
+  FetchMode="FETCH_ALL">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ceix.ehs.model.views.CeixEhsIncidentParentLookupsVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="parentLookupCode"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="lookupType"
+    Kind="where"
+    Type="java.lang.String"/>
+  <EntityUsage
+    Name="CeixEhsIncidentLookupsEO"
+    Entity="com.ceix.ehs.model.entities.CeixEhsIncidentLookupsEO"/>
+  <ViewAttribute
+    Name="LookupCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LookupCode"
+    EntityUsage="CeixEhsIncidentLookupsEO"
+    AliasName="LOOKUP_CODE"/>
+  <ViewAttribute
+    Name="LookupType"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LookupType"
+    EntityUsage="CeixEhsIncidentLookupsEO"
+    AliasName="LOOKUP_TYPE"/>
+  <ViewAttribute
+    Name="Description"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="CeixEhsIncidentLookupsEO"
+    AliasName="DESCRIPTION"/>
+  <ViewAttribute
+    Name="EnabledFlag"
+    PrecisionRule="true"
+    EntityAttrName="EnabledFlag"
+    EntityUsage="CeixEhsIncidentLookupsEO"
+    AliasName="ENABLED_FLAG"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="CeixEhsIncidentLookupsEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="CeixEhsIncidentLookupsEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="CeixEhsIncidentLookupsEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="CeixEhsIncidentLookupsEO"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="DisplayOrder"
+    PrecisionRule="true"
+    EntityAttrName="DisplayOrder"
+    EntityUsage="CeixEhsIncidentLookupsEO"
+    AliasName="DISPLAY_ORDER"/>
+  <ViewAttribute
+    Name="ParentLookupCode"
+    PrecisionRule="true"
+    EntityAttrName="ParentLookupCode"
+    EntityUsage="CeixEhsIncidentLookupsEO"
+    AliasName="PARENT_LOOKUP_CODE"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ceix.ehs.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

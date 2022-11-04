@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__46">
+      <managed-bean-name id="__45">DisableFiledsMB</managed-bean-name>
+      <managed-bean-class id="__44">com.ceix.ehs.beans.DisableFiledsMB</managed-bean-class>
+      <managed-bean-scope id="__43">application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__256">
+    <managed-bean-name id="__48">SearchIncidentsMB</managed-bean-name>
+      <managed-bean-class id="__58">com.ceix.ehs.beans.SearchIncidentsMB</managed-bean-class>
+      <managed-bean-scope id="__28">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__24">
+      <managed-bean-name id="__25">ClinicalLogMB</managed-bean-name>
+      <managed-bean-class id="__22">com.ceix.ehs.beans.ClinicalLogMB</managed-bean-class>
+      <managed-bean-scope id="__23">pageFlow</managed-bean-scope>
+    </managed-bean>
+  <managed-bean id="__4">
+    <managed-bean-name id="__3">CitationMB</managed-bean-name>
+    <managed-bean-class id="__2">com.ceix.ehs.beans.CitationMB</managed-bean-class>
+    <managed-bean-scope id="__1">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__19">
+    <managed-bean-name id="__18">ReportMB</managed-bean-name>
+    <managed-bean-class id="__17">com.ceix.ehs.beans.ReportMB</managed-bean-class>
+    <managed-bean-scope id="__16">pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__12">
+    <managed-bean-name id="__10">UploadViolationAttachmentMB</managed-bean-name>
+    <managed-bean-class id="__9">com.ceix.ehs.beans.UploadViolationAttachmentMB</managed-bean-class>
+    <managed-bean-scope id="__11">pageFlow</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

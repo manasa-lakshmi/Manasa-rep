@@ -1,0 +1,1062 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jdevws:WebServiceProxy xmlns:jdevws="http://xmlns.oracle.com/jdeveloper/10130/webserviceproxy">
+   <list n="CHILD_NODES">
+      <url path="ReportService_Service.xml"/>
+      <url path="ReportService.wsdl"/>
+      <url path="types/UpdateXLIFFForReportInSessionResponse.java"/>
+      <url path="types/UpdateXLIFFForReportResponse.java"/>
+      <url path="types/CreateReportInSession.java"/>
+      <url path="types/UploadTemplateForReportInSession.java"/>
+      <url path="types/RemoveTemplateForReportResponse.java"/>
+      <url path="types/GetReportDefinitionInSession.java"/>
+      <url path="types/GetXDOSchemaInSessionResponse.java"/>
+      <url path="types/RunReportInSession.java"/>
+      <url path="types/ParamNameValues.java"/>
+      <url path="types/ReportResponse.java"/>
+      <url path="types/UpdateReportDefinitionInSessionResponse.java"/>
+      <url path="types/GetReportSampleData.java"/>
+      <url path="types/RunDataModelInSessionResponse.java"/>
+      <url path="types/ArrayOfMobileTemplateFormatsLabelValues.java"/>
+      <url path="types/MetaDataList.java"/>
+      <url path="types/ArrayOfTemplateFormatsLabelValues.java"/>
+      <url path="types/UpdateMobileAppDefinition.java"/>
+      <url path="types/RunDataModel.java"/>
+      <url path="types/GetTemplateResponse.java"/>
+      <url path="InvalidParametersException.java"/>
+      <url path="types/GetReportDefinitionResponse.java"/>
+      <url path="types/UploadReportDataChunkResponse.java"/>
+      <url path="types/GetTemplate.java"/>
+      <url path="types/GetMobileAppDefinitionInSession.java"/>
+      <url path="types/UploadTemplateForReport.java"/>
+      <url path="types/UploadXLIFFForReportInSession.java"/>
+      <url path="types/DownloadReportDataChunkResponse.java"/>
+      <url path="types/AccessDeniedException.java"/>
+      <url path="types/TemplateFormatLabelValue.java"/>
+      <url path="types/GetTemplateInSession.java"/>
+      <url path="types/UploadTemplateForReportInSessionResponse.java"/>
+      <url path="types/GetTemplateParametersResponse.java"/>
+      <url path="types/GetXDOSchema.java"/>
+      <url path="types/package-info.java"/>
+      <url path="types/RunReportResponse.java"/>
+      <url path="types/RemoveTemplateForReportInSession.java"/>
+      <url path="types/UpdateXLIFFForReport.java"/>
+      <url path="types/GetTemplateAvailableLocales.java"/>
+      <url path="types/DownloadReportDataChunk.java"/>
+      <url path="types/ArrayOfString.java"/>
+      <url path="types/UploadXLIFFForReportInSessionResponse.java"/>
+      <url path="types/UpdateTemplateForReportInSession.java"/>
+      <url path="types/GetTemplateParameters.java"/>
+      <url path="types/MobileAppDefinition.java"/>
+      <url path="types/GetReportParameters.java"/>
+      <url path="types/GetXDOSchemaInSession.java"/>
+      <url path="types/OperationFailedException.java"/>
+      <url path="types/RemoveObjectFromCacheResponse.java"/>
+      <url path="types/CreateReportInSessionResponse.java"/>
+      <url path="types/ReportDataChunk.java"/>
+      <url path="types/GetTemplateAvailableLocalesResponse.java"/>
+      <url path="AccessDeniedException.java"/>
+      <url path="types/GetTemplateAvailableXLIFFsInSessionResponse.java"/>
+      <url path="types/GetReportSampleDataInSession.java"/>
+      <url path="types/ReportRequest.java"/>
+      <url path="types/ArrayOfMetaData.java"/>
+      <url path="types/GetReportDefinitionInSessionResponse.java"/>
+      <url path="types/RemoveObjectFromCacheInSession.java"/>
+      <url path="ReportServiceClient.java"/>
+      <url path="types/FileDataSource.java"/>
+      <url path="types/ParamNameValue.java"/>
+      <url path="types/UploadXLIFFForReportResponse.java"/>
+      <url path="types/GetTemplateAvailableLocalesInSession.java"/>
+      <url path="types/GetTemplateInSessionResponse.java"/>
+      <url path="types/GetReportParametersInSession.java"/>
+      <url path="types/UpdateTemplateForReportResponse.java"/>
+      <url path="types/GetListOfSubjectAreaInSessionResponse.java"/>
+      <url path="types/GetXDOSchemaResponse.java"/>
+      <url path="types/UploadReportDataChunkInSessionResponse.java"/>
+      <url path="types/GetReportParametersInSessionResponse.java"/>
+      <url path="types/GetReportParametersResponse.java"/>
+      <url path="types/CreateReportResponse.java"/>
+      <url path="types/GetReportDefinition.java"/>
+      <url path="types/UploadReportDataChunkInSession.java"/>
+      <url path="types/GetTemplateAvailableLocalesInSessionResponse.java"/>
+      <url path="types/UpdateMobileAppDefinitionInSession.java"/>
+      <url path="types/GetMobileAppDefinitionResponse.java"/>
+      <url path="types/RunReport.java"/>
+      <url path="types/UploadTemplateForReportResponse.java"/>
+      <url path="types/GetMobileAppDefinitionInSessionResponse.java"/>
+      <url path="types/RemoveObjectFromCache.java"/>
+      <url path="types/GetTemplateParametersInSession.java"/>
+      <url path="types/GetReportSampleDataInSessionResponse.java"/>
+      <url path="types/ArrayOfParamNameValue.java"/>
+      <url path="types/UploadXLIFFForReport.java"/>
+      <url path="types/UpdateXLIFFForReportInSession.java"/>
+      <url path="types/RemoveTemplateForReportInSessionResponse.java"/>
+      <url path="ReportService.java"/>
+      <url path="types/UploadReportDataChunk.java"/>
+      <url path="types/GetTemplateAvailableXLIFFsInSession.java"/>
+      <url path="ReportService_Service.java"/>
+      <url path="types/UpdateTemplateForReport.java"/>
+      <url path="types/UpdateMobileAppDefinitionInSessionResponse.java"/>
+      <url path="types/RemoveTemplateForReport.java"/>
+      <url path="types/RunDataModelInSession.java"/>
+      <url path="types/DownloadReportDataChunkInSession.java"/>
+      <url path="types/GetTemplateAvailableXLIFFs.java"/>
+      <url path="types/ArrayOfTemplateFormatLabelValue.java"/>
+      <url path="types/GetMobileAppDefinition.java"/>
+      <url path="types/GetListOfSubjectAreaResponse.java"/>
+      <url path="types/UpdateTemplateForReportInSessionResponse.java"/>
+      <url path="types/UpdateReportDefinitionResponse.java"/>
+      <url path="types/RunReportInSessionResponse.java"/>
+      <url path="types/UpdateReportDefinition.java"/>
+      <url path="types/GetTemplateAvailableXLIFFsResponse.java"/>
+      <url path="types/GetListOfSubjectAreaInSession.java"/>
+      <url path="types/UpdateMobileAppDefinitionResponse.java"/>
+      <url path="types/RemoveObjectFromCacheInSessionResponse.java"/>
+      <url path="types/InvalidParametersException.java"/>
+      <url path="types/CreateReport.java"/>
+      <url path="types/TemplateFormatsLabelValues.java"/>
+      <url path="types/UpdateReportDefinitionInSession.java"/>
+      <url path="types/BIPDataSource.java"/>
+      <url path="types/DownloadReportDataChunkInSessionResponse.java"/>
+      <url path="types/MobileTemplateFormatsLabelValues.java"/>
+      <url path="types/ObjectFactory.java"/>
+      <url path="types/GetReportSampleDataResponse.java"/>
+      <url path="types/ReportDefinition.java"/>
+      <url path="types/GetListOfSubjectArea.java"/>
+      <url path="types/GetTemplateParametersInSessionResponse.java"/>
+      <url path="OperationFailedException.java"/>
+      <url path="types/MetaData.java"/>
+      <url path="types/JDBCDataSource.java"/>
+      <url path="types/RunDataModelResponse.java"/>
+   </list>
+   <hash n="DATA_MODEL">
+      <value n="ATTACHMENT_ENCODING" v="MTOM"/>
+      <list n="LOCAL_FILES"/>
+      <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy"/>
+      <url n="ORACLE_WEBSERVICES_XML" path="ReportService_Service.xml"/>
+      <hash n="PROPERTY_GROUPS">
+         <hash n="WSDL_TO_JAVA_PROPERTIES">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+            <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="com.ceix.ehs.model.ws.proxy"/>
+            <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="com.ceix.ehs.model.ws.proxy.types"/>
+         </hash>
+      </hash>
+      <value n="PROXY_ASYNC_METHODS" v="FOR_NONE"/>
+      <list n="PROXY_CLIENTS">
+         <url path="ReportServiceClient.java"/>
+      </list>
+      <value n="PROXY_MAPPING_URL"/>
+      <url n="PROXY_ORIGINAL_WSDL_URL" protocol="https" host="eguc-dev2.fa.us2.oraclecloud.com" path="/xmlpserver/services/v2/ReportService" query="wsdl"/>
+      <hash n="PROXY_PORTS">
+         <hash n="ReportService">
+            <value n="ACCESSES_DOC_WRAPPPED" v="true"/>
+            <value n="ACCESSES_RPC_ENCODED" v="false"/>
+            <value n="CLASS_NAME" v="com.ceix.ehs.model.ws.proxy.ReportService"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyPort"/>
+            <value n="NAME" v="ReportService"/>
+            <hash n="OPERATIONS">
+               <hash n="createReport">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="createReportInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="downloadReportDataChunk">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="downloadReportDataChunkInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getListOfSubjectArea">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getListOfSubjectAreaInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getMobileAppDefinition">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getMobileAppDefinitionInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getReportDefinition">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getReportDefinitionInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getReportParameters">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getReportParametersInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getReportSampleData">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getReportSampleDataInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getTemplate">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getTemplateAvailableLocales">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getTemplateAvailableLocalesInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getTemplateAvailableXLIFFs">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getTemplateAvailableXLIFFsInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getTemplateInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getTemplateParameters">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getTemplateParametersInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getXDOSchema">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getXDOSchemaInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="removeObjectFromCache">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="removeObjectFromCacheInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="removeTemplateForReport">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="removeTemplateForReportInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="runDataModel">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="runDataModelInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="runReport">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="runReportInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="updateMobileAppDefinition">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="updateMobileAppDefinitionInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="updateReportDefinition">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="updateReportDefinitionInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="updateTemplateForReport">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="updateTemplateForReportInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="updateXLIFFForReport">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="updateXLIFFForReportInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="uploadReportDataChunk">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="uploadReportDataChunkInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="uploadTemplateForReport">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="uploadTemplateForReportInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="uploadXLIFFForReport">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="uploadXLIFFForReportInSession">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </hash>
+            <hash n="PROPERTY_GROUPS">
+               <hash n="WS_CLIENT_POLICY">
+                  <value n="addressing"/>
+                  <list n="management"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.policy.PolicyClientModel"/>
+                  <value n="mtom"/>
+                  <hash n="POLICY_OVERRIDE_PROPERTIES"/>
+                  <list n="security">
+                     <string v="oracle/wss_username_token_client_policy"/>
+                     <string v="oracle/wss_username_token_over_ssl_client_policy"/>
+                  </list>
+                  <value n="wsrm"/>
+               </hash>
+            </hash>
+            <url n="PROXY_ORIGINAL_PORT_ENDPOINT" protocol="https" host="eguc-dev2.fa.us2.oraclecloud.com" path="/xmlpserver/services/v2/ReportService"/>
+         </hash>
+      </hash>
+      <value n="PROXY_SERVICE_NAME" v="ReportService"/>
+      <value n="PROXY_SERVICE_NAMESPACE" v="http://xmlns.oracle.com/oxp/service/v2"/>
+      <url n="PROXY_TARGET_PROJECT" path="../../../../../../../Model.jpr"/>
+      <list n="PROXY_WSDL_IMPORT_LIST"/>
+      <url n="PROXY_WSDL_URL" path="ReportService.wsdl"/>
+      <hash n="REFERENCED_WEBSERVICE">
+         <list n="BD_">
+            <hash>
+               <value n="BOUND_PORT_TYPE" v="{http://xmlns.oracle.com/oxp/service/v2}ReportService"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPBinding"/>
+               <value n="NAME" v="{http://xmlns.oracle.com/oxp/service/v2}ReportServiceSoapBinding"/>
+               <list n="OP_BINDINGS">
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="byte[].getTemplate.java.lang.String.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.lang.String.createReport.java.lang.String.java.lang.String.java.lang.String.java.lang.String.byte[].java.lang.String.byte[].boolean.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportDefinition.getReportDefinitionInSession.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.updateReportDefinitionInSession.java.lang.String.com.ceix.ehs.model.ws.proxy.types.ReportDefinition.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.removeObjectFromCacheInSession.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.updateTemplateForReportInSession.java.lang.String.java.lang.String.java.lang.String.byte[].java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ParamNameValues.getReportParameters.com.ceix.ehs.model.ws.proxy.types.ReportRequest.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportResponse.runReport.com.ceix.ehs.model.ws.proxy.types.ReportRequest.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;java.lang.String>.getTemplateAvailableLocales.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportResponse.runReportInSession.com.ceix.ehs.model.ws.proxy.types.ReportRequest.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportResponse.runDataModel.com.ceix.ehs.model.ws.proxy.types.ReportRequest.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportResponse.runDataModelInSession.com.ceix.ehs.model.ws.proxy.types.ReportRequest.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportDefinition.getReportDefinition.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.MobileAppDefinition.getMobileAppDefinition.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.MobileAppDefinition.getMobileAppDefinitionInSession.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="byte[].getReportSampleData.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="byte[].getReportSampleDataInSession.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="byte[].getXDOSchema.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="byte[].getXDOSchemaInSession.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;java.lang.String>.getTemplateAvailableLocalesInSession.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;java.lang.String>.getTemplateAvailableXLIFFs.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;java.lang.String>.getTemplateAvailableXLIFFsInSession.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="byte[].getTemplateInSession.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ParamNameValues.getReportParametersInSession.com.ceix.ehs.model.ws.proxy.types.ReportRequest.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;com.ceix.ehs.model.ws.proxy.types.ParamNameValue>.getTemplateParameters.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;com.ceix.ehs.model.ws.proxy.types.ParamNameValue>.getTemplateParametersInSession.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;java.lang.String>.getListOfSubjectArea.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;java.lang.String>.getListOfSubjectAreaInSession.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.lang.String.createReportInSession.java.lang.String.java.lang.String.java.lang.String.java.lang.String.byte[].java.lang.String.byte[].boolean.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.updateReportDefinition.java.lang.String.com.ceix.ehs.model.ws.proxy.types.ReportDefinition.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.removeObjectFromCache.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.updateMobileAppDefinition.java.lang.String.com.ceix.ehs.model.ws.proxy.types.MobileAppDefinition.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.updateMobileAppDefinitionInSession.java.lang.String.com.ceix.ehs.model.ws.proxy.types.MobileAppDefinition.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.uploadTemplateForReport.java.lang.String.java.lang.String.java.lang.String.java.lang.String.byte[].java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.uploadTemplateForReportInSession.java.lang.String.java.lang.String.java.lang.String.java.lang.String.byte[].java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.updateTemplateForReport.java.lang.String.java.lang.String.java.lang.String.byte[].java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.removeTemplateForReport.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.removeTemplateForReportInSession.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.uploadXLIFFForReport.java.lang.String.byte[].java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.updateXLIFFForReportInSession.java.lang.String.byte[].java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.updateXLIFFForReport.java.lang.String.byte[].java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="boolean.uploadXLIFFForReportInSession.java.lang.String.byte[].java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.lang.String.uploadReportDataChunk.java.lang.String.byte[].java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.lang.String.uploadReportDataChunkInSession.java.lang.String.byte[].java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportDataChunk.downloadReportDataChunk.java.lang.String.int.int.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportDataChunk.downloadReportDataChunkInSession.java.lang.String.int.int.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+            </hash>
+         </list>
+         <list n="BINDING_FILES"/>
+         <value n="GUID" v="191fb0d3-0168-1000-8002-c0a800653cb8"/>
+         <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy$ProxyJavaWebService"/>
+         <list n="PO_">
+            <hash>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPPort"/>
+               <value n="NAME" v="ReportService"/>
+               <value n="PORT_BINDING_NAME" v="{http://xmlns.oracle.com/oxp/service/v2}ReportServiceSoapBinding"/>
+               <list n="PORT_OPS">
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="byte[].getTemplate.java.lang.String.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.createReport.java.lang.String.java.lang.String.java.lang.String.java.lang.String.byte[].java.lang.String.byte[].boolean.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportDefinition.getReportDefinitionInSession.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.updateReportDefinitionInSession.java.lang.String.com.ceix.ehs.model.ws.proxy.types.ReportDefinition.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.removeObjectFromCacheInSession.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.updateTemplateForReportInSession.java.lang.String.java.lang.String.java.lang.String.byte[].java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ParamNameValues.getReportParameters.com.ceix.ehs.model.ws.proxy.types.ReportRequest.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportResponse.runReport.com.ceix.ehs.model.ws.proxy.types.ReportRequest.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;java.lang.String>.getTemplateAvailableLocales.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportResponse.runReportInSession.com.ceix.ehs.model.ws.proxy.types.ReportRequest.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportResponse.runDataModel.com.ceix.ehs.model.ws.proxy.types.ReportRequest.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportResponse.runDataModelInSession.com.ceix.ehs.model.ws.proxy.types.ReportRequest.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportDefinition.getReportDefinition.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.MobileAppDefinition.getMobileAppDefinition.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.MobileAppDefinition.getMobileAppDefinitionInSession.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="byte[].getReportSampleData.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="byte[].getReportSampleDataInSession.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="byte[].getXDOSchema.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="byte[].getXDOSchemaInSession.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;java.lang.String>.getTemplateAvailableLocalesInSession.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;java.lang.String>.getTemplateAvailableXLIFFs.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;java.lang.String>.getTemplateAvailableXLIFFsInSession.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="byte[].getTemplateInSession.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ParamNameValues.getReportParametersInSession.com.ceix.ehs.model.ws.proxy.types.ReportRequest.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;com.ceix.ehs.model.ws.proxy.types.ParamNameValue>.getTemplateParameters.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;com.ceix.ehs.model.ws.proxy.types.ParamNameValue>.getTemplateParametersInSession.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;java.lang.String>.getListOfSubjectArea.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;java.lang.String>.getListOfSubjectAreaInSession.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.createReportInSession.java.lang.String.java.lang.String.java.lang.String.java.lang.String.byte[].java.lang.String.byte[].boolean.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.updateReportDefinition.java.lang.String.com.ceix.ehs.model.ws.proxy.types.ReportDefinition.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.removeObjectFromCache.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.updateMobileAppDefinition.java.lang.String.com.ceix.ehs.model.ws.proxy.types.MobileAppDefinition.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.updateMobileAppDefinitionInSession.java.lang.String.com.ceix.ehs.model.ws.proxy.types.MobileAppDefinition.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.uploadTemplateForReport.java.lang.String.java.lang.String.java.lang.String.java.lang.String.byte[].java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.uploadTemplateForReportInSession.java.lang.String.java.lang.String.java.lang.String.java.lang.String.byte[].java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.updateTemplateForReport.java.lang.String.java.lang.String.java.lang.String.byte[].java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.removeTemplateForReport.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.removeTemplateForReportInSession.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.uploadXLIFFForReport.java.lang.String.byte[].java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.updateXLIFFForReportInSession.java.lang.String.byte[].java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.updateXLIFFForReport.java.lang.String.byte[].java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="boolean.uploadXLIFFForReportInSession.java.lang.String.byte[].java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.uploadReportDataChunk.java.lang.String.byte[].java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.uploadReportDataChunkInSession.java.lang.String.byte[].java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportDataChunk.downloadReportDataChunk.java.lang.String.int.int.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.ceix.ehs.model.ws.proxy.types.ReportDataChunk.downloadReportDataChunkInSession.java.lang.String.int.int.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+               <url n="URL" protocol="https" host="eguc-dev2.fa.us2.oraclecloud.com" path="/xmlpserver/services/v2/ReportService"/>
+            </hash>
+         </list>
+         <hash n="PROPERTY_GROUPS">
+            <hash n="WSDL_TO_JAVA_PROPERTIES">
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+               <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="com.ceix.ehs.model.ws.proxy"/>
+               <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="com.ceix.ehs.model.ws.proxy.types"/>
+            </hash>
+         </hash>
+         <list n="PT_">
+            <hash>
+               <value n="AUTO_SERVICE_INTERFACE"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaPortType"/>
+               <value n="NAME" v="{http://xmlns.oracle.com/oxp/service/v2}ReportService"/>
+               <hash n="PROPERTY_GROUPS"/>
+               <value n="PT_CLASS" v="com.ceix.ehs.model.ws.proxy.ReportServiceImpl"/>
+               <value n="PT_SERVICE_INTERFACE" v="com.ceix.ehs.model.ws.proxy.ReportService"/>
+            </hash>
+         </list>
+         <url n="TARGET_PROJECT" path="../../../../../../../Model.jpr"/>
+         <value n="WS_ORIG_GEN_DIRECTION" v="TOP_DOWN"/>
+         <value n="WS_TARGET_NAMESPACE" v="http://xmlns.oracle.com/oxp/service/v2"/>
+         <value n="WS_URI" v="ReportService"/>
+         <url n="WS_WSDL_FILE" path="ReportService.wsdl"/>
+      </hash>
+      <value n="SERVICE_ASYNC" v="false"/>
+      <value n="USE_WSDL_LOCATION" v="true"/>
+   </hash>
+</jdevws:WebServiceProxy>

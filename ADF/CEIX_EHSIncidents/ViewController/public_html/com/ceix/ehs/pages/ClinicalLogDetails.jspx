@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="Clinical Log details">
+      <af:messages id="m1"/>
+      <af:form id="RRXf1">
+        <af:decorativeBox theme="light" id="RRdb2">
+          <f:facet name="center">
+            <af:panelStretchLayout id="RRXpsl2" dimensionsFrom="children">
+              <f:facet name="center">
+                <af:panelGroupLayout layout="vertical" id="RRpgl2">
+                  <af:panelHeader text="Clinical Log Entry - Details" id="ph1"/>
+                  <af:panelGridLayout id="RRpg2l3">
+                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                id="RRg2r1">
+                      <af:gridCell marginStart="5px" width="50%" id="RRgc2">
+                        <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                          text="Cancel" action="back"
+                                          immediate="true" id="cb2">
+                          <af:resetActionListener/>
+                        </af:commandButton>
+                        <af:spacer width="10" height="10" id="Ra2Rs3"/>
+                        <af:commandButton icon="/images/save_ena.png"
+                                          actionListener="#{pageFlowScope.ClinicalLogMB.insertClinicalLog}"
+                                          text="Save" id="cb1" action="back"/>
+                        <af:spacer width="10" height="10" id="R2Rs3"/>
+                        <af:commandButton icon="/images/view_ena.png"
+                                          text="View Report" id="cbss1"
+                                          action="printClinicalLog"
+                                          rendered="#{pageFlowScope.ClinicalLogMB.newRow}"
+                                          actionListener="#{pageFlowScope.ReportMB.setReportParams}"/>
+                        <af:spacer width="10" height="10" id="Rav2Rs3"/>
+                      </af:gridCell>
+                    </af:gridRow>
+                  </af:panelGridLayout>
+                  <af:panelBox text="Header Record" id="hdr"
+                               styleClass="AFStretchWidth"
+                               inlineStyle="border-style:none; ">
+                    <af:panelFormLayout id="phls1" rows="3"
+                                        labelAlignment="start"
+                                        labelWidth="180px" fieldWidth="300">
+                      <af:panelLabelAndMessage label="Personnel Number"
+                                               id="plam1">
+                        <af:outputText value="#{bindings.PersonNumber.inputValue}"
+                                       id="ot1"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="Employee Name" id="plam2">
+                        <af:outputText value="#{bindings.EmployeeName.inputValue}"
+                                       id="ot2"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="Date Of Birth" id="plam3">
+                        <af:outputText value="#{bindings.Dob.inputValue}"
+                                       id="ot3">
+                          <af:convertDateTime pattern="#{bindings.Dob.format}"/>
+                        </af:outputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="I/A Log Number"
+                                               id="plam4">
+                        <af:outputText value="#{bindings.IncidentNumber.inputValue}"
+                                       id="ot4"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.PlantCode.hints.label}"
+                                               id="plam5">
+                        <af:outputText value="#{bindings.PlantCode.inputValue}"
+                                       id="ot5"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="Plant Name" id="plam6">
+                        <af:outputText value="#{bindings.PlantName.inputValue}"
+                                       id="ot6"/>
+                      </af:panelLabelAndMessage>
+                    </af:panelFormLayout>
+                  </af:panelBox>
+                  <af:panelBox text="Clinical Log Entry - Details" id="subhdr1"
+                               styleClass="AFStretchWidth"
+                               inlineStyle="border-style:none; ">
+                    <af:panelFormLayout id="pfl1" rows="13" labelWidth="180px">
+                      <af:inputText value="#{bindings.IncidentHeaderId.inputValue}"
+                                    label="#{bindings.IncidentHeaderId.hints.label}"
+                                    required="#{bindings.IncidentHeaderId.hints.mandatory}"
+                                    columns="#{bindings.IncidentHeaderId.hints.displayWidth}"
+                                    maximumLength="#{bindings.IncidentHeaderId.hints.precision}"
+                                    shortDesc="#{bindings.IncidentHeaderId.hints.tooltip}"
+                                    id="it12" visible="false">
+                        <f:validator binding="#{bindings.IncidentHeaderId.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.IncidentHeaderId.format}"/>
+                      </af:inputText>
+                      <af:panelLabelAndMessage label="#{bindings.MedicalMeasure.label}"
+                                               id="plm5">
+                        <af:selectOneChoice value="#{bindings.MedicalMeasure.inputValue}"
+                                            required="#{bindings.MedicalMeasure.hints.mandatory}"
+                                            shortDesc="#{bindings.MedicalMeasure.hints.tooltip}"
+                                            id="soc4">
+                          <f:selectItems value="#{bindings.MedicalMeasure.items}"
+                                         id="si1"/>
+                        </af:selectOneChoice>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.Hospital.label}"
+                                               id="plm6">
+                        <af:selectOneChoice value="#{bindings.Hospital.inputValue}"
+                                            required="#{bindings.Hospital.hints.mandatory}"
+                                            shortDesc="#{bindings.Hospital.hints.tooltip}"
+                                            id="soc5">
+                          <f:selectItems value="#{bindings.Hospital.items}"
+                                         id="si5"/>
+                        </af:selectOneChoice>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.OrderTreatment.label}"
+                                               id="plm7">
+                        <af:inputText value="#{bindings.OrderTreatment.inputValue}"
+                                      required="#{bindings.OrderTreatment.hints.mandatory}"
+                                      columns="#{bindings.OrderTreatment.hints.displayWidth}"
+                                      maximumLength="#{bindings.OrderTreatment.hints.precision}"
+                                      shortDesc="#{bindings.OrderTreatment.hints.tooltip}"
+                                      id="it3">
+                          <f:validator binding="#{bindings.OrderTreatment.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.Diagnosis.label}"
+                                               id="plm8">
+                        <af:inputText value="#{bindings.Diagnosis.inputValue}"
+                                      required="#{bindings.Diagnosis.hints.mandatory}"
+                                      columns="#{bindings.Diagnosis.hints.displayWidth}"
+                                      maximumLength="#{bindings.Diagnosis.hints.precision}"
+                                      shortDesc="#{bindings.Diagnosis.hints.tooltip}"
+                                      id="it1">
+                          <f:validator binding="#{bindings.Diagnosis.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.ReasonQInjury.label}"
+                                               id="plm9">
+                        <af:inputText value="#{bindings.ReasonQInjury.inputValue}"
+                                      required="#{bindings.ReasonQInjury.hints.mandatory}"
+                                      columns="#{bindings.ReasonQInjury.hints.displayWidth}"
+                                      maximumLength="#{bindings.ReasonQInjury.hints.precision}"
+                                      shortDesc="#{bindings.ReasonQInjury.hints.tooltip}"
+                                      id="it13">
+                          <f:validator binding="#{bindings.ReasonQInjury.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.BodyPart.label}"
+                                               id="plm18">
+                        <af:inputText value="#{bindings.BodyPart.inputValue}"
+                                      required="#{bindings.BodyPart.hints.mandatory}"
+                                      columns="#{bindings.BodyPart.hints.displayWidth}"
+                                      maximumLength="#{bindings.BodyPart.hints.precision}"
+                                      shortDesc="#{bindings.BodyPart.hints.tooltip}"
+                                      rows="4" id="it15">
+                          <f:validator binding="#{bindings.BodyPart.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.InjuryType.label}"
+                                               id="plm19">
+                        <af:inputText value="#{bindings.InjuryType.inputValue}"
+                                      required="#{bindings.InjuryType.hints.mandatory}"
+                                      columns="#{bindings.InjuryType.hints.displayWidth}"
+                                      maximumLength="#{bindings.InjuryType.hints.precision}"
+                                      shortDesc="#{bindings.InjuryType.hints.tooltip}"
+                                      rows="4" id="it2">
+                          <f:validator binding="#{bindings.InjuryType.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.BodyPartDescription.label}"
+                                               id="plm79">
+                        <af:inputText value="#{bindings.BodyPartDescription.inputValue}"
+                                      required="#{bindings.BodyPartDescription.hints.mandatory}"
+                                      columns="#{bindings.BodyPartDescription.hints.displayWidth}"
+                                      maximumLength="#{bindings.BodyPartDescription.hints.precision}"
+                                      shortDesc="#{bindings.BodyPartDescription.hints.tooltip}"
+                                      id="it10">
+                          <f:validator binding="#{bindings.BodyPartDescription.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.Rtw.label}"
+                                               id="plm77">
+                        <af:selectOneChoice value="#{bindings.Rtw.inputValue}"
+                                            required="#{bindings.Rtw.hints.mandatory}"
+                                            shortDesc="#{bindings.Rtw.hints.tooltip}"
+                                            id="soc6" autoSubmit="true"
+                                            valueChangeListener="#{pageFlowScope.ClinicalLogMB.onRtwValueChange}">
+                          <f:selectItems value="#{bindings.Rtw.items}"
+                                         id="si6"/>
+                        </af:selectOneChoice>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.ReturnToWork.label}"
+                                               id="plm75">
+                        <af:inputText value="#{bindings.ReturnToWork.inputValue}"
+                                      required="#{bindings.ReturnToWork.hints.mandatory}"
+                                      columns="#{bindings.ReturnToWork.hints.displayWidth}"
+                                      maximumLength="#{bindings.ReturnToWork.hints.precision}"
+                                      shortDesc="#{bindings.ReturnToWork.hints.tooltip}"
+                                      id="it8" disabled="true"
+                                      binding="#{pageFlowScope.ClinicalLogMB.rtwDesc}">
+                          <f:validator binding="#{bindings.ReturnToWork.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.ReturnDate.label}"
+                                               id="plm74">
+                        <af:inputDate value="#{bindings.ReturnDate.inputValue}"
+                                      required="#{bindings.ReturnDate.hints.mandatory}"
+                                      shortDesc="#{bindings.ReturnDate.hints.tooltip}"
+                                      id="id4" disabled="true"
+                                      binding="#{pageFlowScope.ClinicalLogMB.rtwDate}">
+                          <f:validator binding="#{bindings.ReturnDate.validator}"/>
+                          <af:convertDateTime pattern="#{bindings.ReturnDate.format}"/>
+                        </af:inputDate>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.FirstDayMissed.label}"
+                                               id="plm73">
+                        <af:inputDate value="#{bindings.FirstDayMissed.inputValue}"
+                                      required="#{bindings.FirstDayMissed.hints.mandatory}"
+                                      shortDesc="#{bindings.FirstDayMissed.hints.tooltip}"
+                                      id="id1">
+                          <f:validator binding="#{bindings.FirstDayMissed.validator}"/>
+                          <af:convertDateTime pattern="#{bindings.FirstDayMissed.format}"/>
+                        </af:inputDate>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.TransDutyStartDate.label}"
+                                               id="plm72">
+                        <af:inputDate value="#{bindings.TransDutyStartDate.inputValue}"
+                                      required="#{bindings.TransDutyStartDate.hints.mandatory}"
+                                      shortDesc="#{bindings.TransDutyStartDate.hints.tooltip}"
+                                      id="id5">
+                          <f:validator binding="#{bindings.TransDutyStartDate.validator}"/>
+                          <af:convertDateTime pattern="#{bindings.TransDutyStartDate.format}"/>
+                        </af:inputDate>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.TransDutyEndDate.label}"
+                                               id="plm71">
+                        <af:inputDate value="#{bindings.TransDutyEndDate.inputValue}"
+                                      required="#{bindings.TransDutyEndDate.hints.mandatory}"
+                                      shortDesc="#{bindings.TransDutyEndDate.hints.tooltip}"
+                                      id="id2">
+                          <f:validator binding="#{bindings.TransDutyEndDate.validator}"/>
+                          <af:convertDateTime pattern="#{bindings.TransDutyEndDate.format}"/>
+                        </af:inputDate>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.TransDutyComments.label}"
+                                               id="plm70">
+                        <af:inputText value="#{bindings.TransDutyComments.inputValue}"
+                                      required="#{bindings.TransDutyComments.hints.mandatory}"
+                                      columns="#{bindings.TransDutyComments.hints.displayWidth}"
+                                      maximumLength="#{bindings.TransDutyComments.hints.precision}"
+                                      shortDesc="#{bindings.TransDutyComments.hints.tooltip}"
+                                      id="it7" rows="4">
+                          <f:validator binding="#{bindings.TransDutyComments.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.ClinHealthNotifDate.label}"
+                                               id="plm">
+                        <af:inputDate value="#{bindings.ClinHealthNotifDate.inputValue}"
+                                      required="#{bindings.ClinHealthNotifDate.hints.mandatory}"
+                                      shortDesc="#{bindings.ClinHealthNotifDate.hints.tooltip}"
+                                      id="id7">
+                          <f:validator binding="#{bindings.ClinHealthNotifDate.validator}"/>
+                          <af:convertDateTime pattern="#{bindings.ClinHealthNotifDate.format}"/>
+                        </af:inputDate>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.PhysicianName.label}"
+                                               id="plm50">
+                        <af:inputText value="#{bindings.PhysicianName.inputValue}"
+                                      required="#{bindings.PhysicianName.hints.mandatory}"
+                                      columns="#{bindings.PhysicianName.hints.displayWidth}"
+                                      maximumLength="#{bindings.PhysicianName.hints.precision}"
+                                      shortDesc="#{bindings.PhysicianName.hints.tooltip}"
+                                      id="it5">
+                          <f:validator binding="#{bindings.PhysicianName.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.NextOffVisitDate.label}"
+                                               id="plm40">
+                        <af:inputDate value="#{bindings.NextOffVisitDate.inputValue}"
+                                      required="#{bindings.NextOffVisitDate.hints.mandatory}"
+                                      shortDesc="#{bindings.NextOffVisitDate.hints.tooltip}"
+                                      id="id6">
+                          <f:validator binding="#{bindings.NextOffVisitDate.validator}"/>
+                          <af:convertDateTime pattern="#{bindings.NextOffVisitDate.format}"/>
+                        </af:inputDate>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.Tpa.label}"
+                                               id="plm31">
+                        <af:selectOneChoice value="#{bindings.Tpa.inputValue}"
+                                            required="#{bindings.Tpa.hints.mandatory}"
+                                            shortDesc="#{bindings.Tpa.hints.tooltip}"
+                                            id="soc3">
+                          <f:selectItems value="#{bindings.Tpa.items}"
+                                         id="si3"/>
+                        </af:selectOneChoice>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.TpaDate.label}"
+                                               id="plm32">
+                        <af:inputDate value="#{bindings.TpaDate.inputValue}"
+                                      required="#{bindings.TpaDate.hints.mandatory}"
+                                      shortDesc="#{bindings.TpaDate.hints.tooltip}"
+                                      id="id3">
+                          <f:validator binding="#{bindings.TpaDate.validator}"/>
+                          <af:convertDateTime pattern="#{bindings.TpaDate.format}"/>
+                        </af:inputDate>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.TpaContact.label}"
+                                               id="plm33">
+                        <af:inputText value="#{bindings.TpaContact.inputValue}"
+                                      required="#{bindings.TpaContact.hints.mandatory}"
+                                      columns="#{bindings.TpaContact.hints.displayWidth}"
+                                      maximumLength="#{bindings.TpaContact.hints.precision}"
+                                      shortDesc="#{bindings.TpaContact.hints.tooltip}"
+                                      id="it6">
+                          <f:validator binding="#{bindings.TpaContact.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.WorkerPolicyNum.label}"
+                                               id="plm34">
+                        <af:inputText value="#{bindings.WorkerPolicyNum.inputValue}"
+                                      required="#{bindings.WorkerPolicyNum.hints.mandatory}"
+                                      columns="#{bindings.WorkerPolicyNum.hints.displayWidth}"
+                                      maximumLength="#{bindings.WorkerPolicyNum.hints.precision}"
+                                      shortDesc="#{bindings.WorkerPolicyNum.hints.tooltip}"
+                                      id="it11">
+                          <f:validator binding="#{bindings.WorkerPolicyNum.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.Comments.label}"
+                                               id="plm35">
+                        <af:inputText value="#{bindings.Comments.inputValue}"
+                                      required="#{bindings.Comments.hints.mandatory}"
+                                      columns="#{bindings.Comments.hints.displayWidth}"
+                                      maximumLength="#{bindings.Comments.hints.precision}"
+                                      shortDesc="#{bindings.Comments.hints.tooltip}"
+                                      id="it4" rows="4">
+                          <f:validator binding="#{bindings.Comments.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                    </af:panelFormLayout>
+                  </af:panelBox>
+                  <af:panelBox text="Post Accidental Testing"
+                               inlineStyle="border-style:none;"
+                               id="posttesting" styleClass="AFStretchWidth">
+                    <af:panelFormLayout id="pfls1" rows="4"
+                                        labelAlignment="start"
+                                        labelWidth="180px">
+                      <af:panelLabelAndMessage label="#{bindings.Uds.label}"
+                                               id="pl65">
+                        <af:selectOneChoice value="#{bindings.Uds.inputValue}"
+                                            required="#{bindings.Uds.hints.mandatory}"
+                                            shortDesc="#{bindings.Uds.hints.tooltip}"
+                                            id="soc2">
+                          <f:selectItems value="#{bindings.Uds.items}"
+                                         id="si2"/>
+                        </af:selectOneChoice>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.Bat.label}"
+                                               id="pl66">
+                        <af:selectOneChoice value="#{bindings.Bat.inputValue}"
+                                            required="#{bindings.Bat.hints.mandatory}"
+                                            shortDesc="#{bindings.Bat.hints.tooltip}"
+                                            id="soc1">
+                          <f:selectItems value="#{bindings.Bat.items}"
+                                         id="si4"/>
+                        </af:selectOneChoice>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.DaResultsDate.hints.label}"
+                                               id="pl64">
+                        <af:inputDate value="#{bindings.DaResultsDate.inputValue}"
+                                      required="#{bindings.DaResultsDate.hints.mandatory}"
+                                      shortDesc="#{bindings.DaResultsDate.hints.tooltip}"
+                                      id="id8">
+                          <f:validator binding="#{bindings.DaResultsDate.validator}"/>
+                          <af:convertDateTime pattern="#{bindings.DaResultsDate.format}"/>
+                        </af:inputDate>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.DaComments.hints.label}"
+                                               id="pl67">
+                        <af:inputText value="#{bindings.DaComments.inputValue}"
+                                      required="#{bindings.DaComments.hints.mandatory}"
+                                      columns="#{bindings.DaComments.hints.displayWidth}"
+                                      maximumLength="#{bindings.DaComments.hints.precision}"
+                                      shortDesc="#{bindings.DaComments.hints.tooltip}"
+                                      id="it14" rows="4">
+                          <f:validator binding="#{bindings.DaComments.validator}"/>
+                        </af:inputText>
+                      </af:panelLabelAndMessage>
+                    </af:panelFormLayout>
+                  </af:panelBox>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+
+<jazn-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="http://xmlns.oracle.com/oracleas/schema/jazn-data-11_0.xsd">
+           
+  <jazn-realm default="jazn.com">
+  
+    <realm>
+      <name>jazn.com</name>
+      <roles>
+        <role>
+          <name>CEIX_EHS_CLNCL_USERS</name>
+        </role>
+        <role>
+          <name>CEIX_EHS_VIOLATN_USERS</name>
+        </role>
+      </roles>
+    </realm>
+  </jazn-realm>
+  <policy-store>
+    <applications>
+      <application>
+        <name>CEIX_EHSIncidentEvents</name>
+        <app-roles>
+          <app-role>
+            <name>CEIX PaaS Clinical</name>
+            <class>oracle.security.jps.service.policystore.ApplicationRole</class>
+            <members>
+              <member>
+                <name>CEIX_EHS_CLNCL_USERS</name>
+                <class>oracle.security.jps.internal.core.principals.JpsXmlEnterpriseRoleImpl</class>
+              </member>
+            </members>
+          </app-role>
+          <app-role>
+            <name>CEIX PaaS Violation</name>
+            <class>oracle.security.jps.service.policystore.ApplicationRole</class>
+            <members>
+              <member>
+                <name>CEIX_EHS_VIOLATN_USERS</name>
+                <class>oracle.security.jps.internal.core.principals.JpsXmlEnterpriseRoleImpl</class>
+              </member>
+            </members>
+          </app-role>
+        </app-roles>
+        <jazn-policy>
+          <grant>
+            <grantee>
+              <principals>
+                <principal>
+                  <name>CEIX PaaS Clinical</name>
+                  <class>oracle.security.jps.service.policystore.ApplicationRole</class>
+                </principal>
+              </principals>
+            </grantee>
+            <permissions>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/com/ceix/ehs/flow/incident_search_flow.xml#incident_search_flow</name>
+                <actions>view</actions>
+              </permission>
+            </permissions>
+          </grant>
+          <grant>
+            <grantee>
+              <principals>
+                <principal>
+                  <name>CEIX PaaS Violation</name>
+                  <class>oracle.security.jps.service.policystore.ApplicationRole</class>
+                </principal>
+              </principals>
+            </grantee>
+            <permissions>
+              <permission>
+                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                <name>/WEB-INF/com/ceix/ehs/flow/violation_search.xml#violation_search</name>
+                <actions>view</actions>
+              </permission>
+            </permissions>
+          </grant>
+        </jazn-policy>
+      </application>
+    </applications>
+  </policy-store>
+  
+</jazn-data>

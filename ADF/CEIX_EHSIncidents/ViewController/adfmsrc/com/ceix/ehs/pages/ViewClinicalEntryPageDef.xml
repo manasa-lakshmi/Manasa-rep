@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="ViewClinicalEntryPageDef"
+                Package="com.ceix.ehs.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CeixEhsClinicalLog2" RangeSize="25"
+              DataControl="EHSIncidentEventsAMDataControl"
+              id="CeixEhsClinicalLog2Iterator"/>
+    <iterator Binds="CeixEhsIncidentHeader1" RangeSize="25"
+              DataControl="EHSIncidentEventsAMDataControl"
+              id="CeixEhsIncidentHeader1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator" id="Diagnosis">
+      <AttrNames>
+        <Item Value="ReasonQInjury"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator"
+                     id="BodyPartDescription">
+      <AttrNames>
+        <Item Value="BodyPartDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator"
+                     id="ReturnToWork">
+      <AttrNames>
+        <Item Value="ReturnToWork"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator" id="ReturnDate">
+      <AttrNames>
+        <Item Value="ReturnDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator"
+                     id="FirstDayMissed">
+      <AttrNames>
+        <Item Value="FirstDayMissed"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator"
+                     id="TransDutyStartDate">
+      <AttrNames>
+        <Item Value="TransDutyStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator"
+                     id="TransDutyEndDate">
+      <AttrNames>
+        <Item Value="TransDutyEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator"
+                     id="TransDutyComments">
+      <AttrNames>
+        <Item Value="TransDutyComments"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator"
+                     id="ClinHealthNotifDate">
+      <AttrNames>
+        <Item Value="ClinHealthNotifDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator"
+                     id="PhysicianName">
+      <AttrNames>
+        <Item Value="PhysicianName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator"
+                     id="NextOffVisitDate">
+      <AttrNames>
+        <Item Value="NextOffVisitDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator" id="Tpa">
+      <AttrNames>
+        <Item Value="Tpa"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator" id="TpaContact">
+      <AttrNames>
+        <Item Value="TpaContact"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator"
+                     id="WorkerPolicyNum">
+      <AttrNames>
+        <Item Value="WorkerPolicyNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator" id="TpaDate">
+      <AttrNames>
+        <Item Value="TpaDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsIncidentHeader1Iterator"
+                     id="IncidentDesc">
+      <AttrNames>
+        <Item Value="IncidentDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsIncidentHeader1Iterator"
+                     id="IncidentNumber">
+      <AttrNames>
+        <Item Value="IncidentNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsIncidentHeader1Iterator"
+                     id="PlantName">
+      <AttrNames>
+        <Item Value="PlantName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsIncidentHeader1Iterator"
+                     id="IncidentSummary">
+      <AttrNames>
+        <Item Value="IncidentSummary"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator" id="InjuryType">
+      <AttrNames>
+        <Item Value="InjuryType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsIncidentHeader1Iterator"
+                     id="InvestgnStartedDate">
+      <AttrNames>
+        <Item Value="InvestgnStartedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsIncidentHeader1Iterator"
+                     id="DateReprtdToSupervsr">
+      <AttrNames>
+        <Item Value="DateReprtdToSupervsr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator" id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator" id="Row_Status">
+      <AttrNames>
+        <Item Value="Row_Status"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CeixEhsClinicalLog2Iterator" StaticList="false"
+          Uses="LOV_Rtw" id="Rtw" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CeixEhsClinicalLog2Iterator" StaticList="false"
+          Uses="LOV_Hospital" id="Hospital" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator"
+                     id="OrderTreatment">
+      <AttrNames>
+        <Item Value="OrderTreatment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsIncidentHeader1Iterator"
+                     id="IncidentDate">
+      <AttrNames>
+        <Item Value="IncidentDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsIncidentHeader1Iterator"
+                     id="LevelOfInjury">
+      <AttrNames>
+        <Item Value="LevelOfInjury"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsClinicalLog2Iterator" id="Diagnosis1">
+      <AttrNames>
+        <Item Value="Diagnosis"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

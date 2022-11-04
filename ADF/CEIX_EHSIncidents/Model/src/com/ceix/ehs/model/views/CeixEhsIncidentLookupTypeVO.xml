@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixEhsIncidentLookupTypeVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="CeixEhsIncidentLookupTypeEO.ID, 
+       CeixEhsIncidentLookupTypeEO.LOOKUP_TYPE"
+  FromList="CEIX_EHS_INCIDENT_LOOKUP_TYPE CeixEhsIncidentLookupTypeEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="CeixEhsIncidentLookupTypeEO"
+    Entity="com.ceix.ehs.model.entities.CeixEhsIncidentLookupTypeEO"/>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="CeixEhsIncidentLookupTypeEO"
+    AliasName="ID"/>
+  <ViewAttribute
+    Name="LookupType"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LookupType"
+    EntityUsage="CeixEhsIncidentLookupTypeEO"
+    AliasName="LOOKUP_TYPE"/>
+</ViewObject>

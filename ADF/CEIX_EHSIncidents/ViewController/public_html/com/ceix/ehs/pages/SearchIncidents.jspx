@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <style type="text/css">
+     td.align-centr {
+            
+            text-align:right;
+            padding-right:12%
+        }
+        
+    </style>
+  <f:view>
+    <af:document id="d1" theme="light" title="Search Incidents">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:decorativeBox theme="light" id="db2">
+          <f:facet name="center">
+            <af:panelStretchLayout id="psl2" dimensionsFrom="children">
+              <f:facet name="center">
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                  <af:panelHeader text="Search Incidents" id="ph1">
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.SearchIncidentsQuery2.queryDescriptor}"
+                              model="#{bindings.SearchIncidentsQuery2.queryModel}"
+                              inlineStyle="width:60%"
+                                queryListener="#{pageFlowScope.SearchIncidentsMB.searchIncidentsListener}"
+                              queryOperationListener="#{pageFlowScope.SearchIncidentsMB.queryOperationListener}"
+                              resultComponentId="::pc1:resId1"
+                              saveQueryMode="hidden"
+                                modeChangeVisible="false" rows="15"/>
+                                
+                  </af:panelHeader>
+               <br/>
+                     <af:panelCollection id="pc1" styleClass = "AFStretchWidth">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="statusbar"/>
+                 
+                  <af:table value="#{bindings.CeixEhsIncidentHeader1.collectionModel}"
+                            var="row" 
+                             rows="#{bindings.CeixEhsIncidentHeader1.rangeSize}"
+                            emptyText="#{bindings.CeixEhsIncidentHeader1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            fetchSize="#{bindings.CeixEhsIncidentHeader1.rangeSize}"
+                            rowBandingInterval="0"
+                            filterModel="#{bindings.SearchIncidentsQuery2.queryDescriptor}"
+                            queryListener="#{bindings.SearchIncidentsQuery2.processQuery}"
+                            filterVisible="true" varStatus="vs"
+                              selectionListener="#{pageFlowScope.SearchIncidentsMB.incidentSelectionListener}"
+                            rowSelection="single" id="resId1"
+                            columnStretching="multiple"
+                            binding="#{pageFlowScope.SearchIncidentsMB.searchTable}"
+                            >
+                  
+                    <af:column sortProperty="#{bindings.CeixEhsIncidentHeader1.hints.IncidentNumber.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.CeixEhsIncidentHeader1.hints.IncidentNumber.label}"
+                               id="resId1c1" width="20%">
+                      <af:outputText value="#{row.IncidentNumber}" id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.CeixEhsIncidentHeader1.hints.EmployeeName.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.CeixEhsIncidentHeader1.hints.EmployeeName.label}"
+                               id="resId1c2"  width="20%">
+                      <af:outputText value="#{row.EmployeeName}" id="ot3"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.CeixEhsIncidentHeader1.hints.PlantCode.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.CeixEhsIncidentHeader1.hints.PlantCode.label}"
+                               id="resId1c3"  width="20%">
+                      <af:outputText value="#{row.PlantCode}" id="ot4"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.CeixEhsIncidentHeader1.hints.PlantName.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.CeixEhsIncidentHeader1.hints.PlantName.label}"
+                               id="resId1c4"  width="20%">
+                      <af:outputText value="#{row.PlantName}" id="ot5"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.CeixEhsIncidentHeader1.hints.IncidentDate.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.CeixEhsIncidentHeader1.hints.IncidentDate.label}"
+                               id="resId1c5"  width="20%">
+                     
+                      <af:outputText value="#{row.IncidentDate}" id="ot1">
+                        <af:convertDateTime pattern="#{bindings.CeixEhsIncidentHeader1.hints.IncidentDate.format}"/>
+                      </af:outputText>
+                    </af:column>
+                   <!--   <af:column id="c1" headerText="Delete">
+                        <af:commandImageLink
+                                             disabled="#{!bindings.Delete.enabled}"
+                                             id="cil1"
+                                             icon="/images/delete_ena.png">
+                                             <af:showPopupBehavior popupId="p2" triggerType="action"/>
+                                             </af:commandImageLink>
+                                             
+                                             <af:popup id="p2">
+              <af:dialog id="d2" dialogListener="#{pageFlowScope.SearchIncidentsMB.dialogLogoutListener}" title="Confirmation">
+                            This will delete the selected record and associated Clinical Log Records. Please click Ok to Confirm.
+              </af:dialog>
+			</af:popup>
+                    
+                      </af:column>-->
+                
+                  </af:table>
+                  </af:panelCollection>
+                  <af:panelGridLayout id="pgl3">
+                    <af:gridRow marginTop="5px" height="auto"
+                                marginBottom="5px" id="gr1">
+                      <af:gridCell marginStart="5px" width="50%" id="gc2">
+                          
+                          <af:commandButton icon="/images/add_ena.png" text="Clinical Log" id="cb1" disabled="true"
+                                            binding="#{pageFlowScope.SearchIncidentsMB.addNewClinLogBtn}"
+                                            action="clinicalLog"
+                                            actionListener="#{pageFlowScope.SearchIncidentsMB.setCurrentIncidentRow}"/>
+                        
+                        <af:spacer width="10" height="10" id="s1"/>
+          <af:commandButton icon="/images/view_ena.png"
+                                          text="View Report" id="cbss1"
+                                          action="viewReport"
+                                          disabled="true"
+                            actionListener="#{pageFlowScope.SearchIncidentsMB.setReportParams}"
+                            binding="#{pageFlowScope.SearchIncidentsMB.viewReportBtn}"/>
+                        <af:spacer width="10" height="10" id="Rav2Rs3"/>
+              
+                      </af:gridCell>
+                    </af:gridRow>
+                  </af:panelGridLayout>
+                
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

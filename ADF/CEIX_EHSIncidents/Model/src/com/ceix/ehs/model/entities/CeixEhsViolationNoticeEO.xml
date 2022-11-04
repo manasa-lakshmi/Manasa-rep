@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixEhsViolationNoticeEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="CEIX_EHS_VIOLATION_NOTICE"
+  AliasName="CeixEhsViolationNoticeEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEOImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="ViolationId"
+    ColumnName="VIOLATION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_EHS_VIOLATION_NOTICE"
+    PrimaryKey="true"
+    IsNotNull="true"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("CEIX_EHS_VIOLATION_NOTICE_SEQ", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="MineId"
+    Precision="80"
+    ColumnName="MINE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.MineId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="VioJurisdiction"
+    Precision="80"
+    ColumnName="VIO_JURISDICTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.VioJurisdiction_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CitationOrdNum"
+    Precision="80"
+    ColumnName="CITATION_ORD_NUM"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.CitationOrdNum_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:MethodValidationBean
+      Name="CitationOrdNum_Rule_0"
+      ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.CitationOrdNum_Rule_0"
+      MethodName="validateCitationOrdNum"/>
+  </Attribute>
+  <Attribute
+    Name="CitationDate"
+    ColumnName="CITATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="CEIX_EHS_VIOLATION_NOTICE"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.CitationDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="InspectionType"
+    Precision="80"
+    ColumnName="INSPECTION_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.InspectionType_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ViolationState"
+    Precision="80"
+    ColumnName="VIOLATION_STATE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.ViolationState_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="InspectorState"
+    Precision="80"
+    ColumnName="INSPECTOR_STATE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.InspectorState_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="InspectorFederal"
+    Precision="80"
+    ColumnName="INSPECTOR_FEDERAL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.InspectorFederal_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ConsolEscort"
+    Precision="80"
+    ColumnName="CONSOL_ESCORT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.ConsolEscort_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ShiftForeman"
+    Precision="80"
+    ColumnName="SHIFT_FOREMAN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.ShiftForeman_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Abated"
+    Precision="80"
+    ColumnName="ABATED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Vacated"
+    Precision="80"
+    ColumnName="VACATED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ViolationFedCode"
+    Precision="80"
+    ColumnName="VIOLATION_FED_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.ViolationFedCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ViolationFedPart"
+    Precision="80"
+    ColumnName="VIOLATION_FED_PART"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.ViolationFedPart_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CombMaterial"
+    Precision="80"
+    ColumnName="COMB_MATERIAL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.CombMaterial_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="InjuryLikely"
+    Precision="80"
+    ColumnName="INJURY_LIKELY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.InjuryLikely_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="InjuryImpact"
+    Precision="80"
+    ColumnName="INJURY_IMPACT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.InjuryImpact_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="SigSub"
+    Precision="80"
+    ColumnName="SIG_SUB"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.SigSub_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="PersonsEffected"
+    Precision="80"
+    ColumnName="PERSONS_EFFECTED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.PersonsEffected_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Negligence"
+    Precision="80"
+    ColumnName="NEGLIGENCE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ActionType"
+    Precision="80"
+    ColumnName="ACTION_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.ActionType_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="IssuanceType"
+    Precision="80"
+    ColumnName="ISSUANCE_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.IssuanceType_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="MineArea"
+    Precision="80"
+    ColumnName="MINE_AREA"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.MineArea_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="MineLocation"
+    Precision="80"
+    ColumnName="MINE_LOCATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.MineLocation_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ChargeArea"
+    Precision="80"
+    ColumnName="CHARGE_AREA"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.ChargeArea_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="VioDescription"
+    Precision="3000"
+    ColumnName="VIO_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.VioDescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Comments"
+    Precision="2000"
+    ColumnName="COMMENTS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ConfRequested"
+    Precision="80"
+    ColumnName="CONF_REQUESTED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.ConfRequested_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ProposedPenalty"
+    ColumnName="PROPOSED_PENALTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.ProposedPenalty_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CaseNumber"
+    Precision="80"
+    ColumnName="CASE_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.CaseNumber_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="SubmittedDate"
+    ColumnName="SUBMITTED_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.SubmittedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="DocketNumber"
+    Precision="80"
+    ColumnName="DOCKET_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.DocketNumber_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="DocketDate"
+    ColumnName="DOCKET_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.DocketDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="HearingResult"
+    Precision="80"
+    ColumnName="HEARING_RESULT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.HearingResult_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="SettlementAmt"
+    ColumnName="SETTLEMENT_AMT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.SettlementAmt_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Notes"
+    Precision="240"
+    ColumnName="NOTES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="CEIX_EHS_VIOLATION_NOTICE"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="100"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="CEIX_EHS_VIOLATION_NOTICE"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="100"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute1"
+    Precision="240"
+    ColumnName="ATTRIBUTE1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute2"
+    Precision="240"
+    ColumnName="ATTRIBUTE2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute3"
+    Precision="240"
+    ColumnName="ATTRIBUTE3"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute4"
+    Precision="240"
+    ColumnName="ATTRIBUTE4"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute5"
+    Precision="240"
+    ColumnName="ATTRIBUTE5"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute6"
+    Precision="240"
+    ColumnName="ATTRIBUTE6"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute7"
+    Precision="240"
+    ColumnName="ATTRIBUTE7"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute8"
+    Precision="240"
+    ColumnName="ATTRIBUTE8"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute9"
+    Precision="240"
+    ColumnName="ATTRIBUTE9"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute10"
+    Precision="240"
+    ColumnName="ATTRIBUTE10"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Stic"
+    Precision="15"
+    ColumnName="STIC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Plant"
+    Precision="100"
+    ColumnName="PLANT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Outby"
+    Precision="15"
+    ColumnName="OUTBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_VIOLATION_NOTICE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="CeixEhsViolationNoticeCitationDateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CEIX_EHS_VIOLATION_NOTICE_CITA"/>
+      <Attr Name="_checkCondition" Value='"CITATION_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.CitationDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CeixEhsViolationNoticeCitationOrdNumCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CEIX_EHS_VIOLATION_NOTICE_CITA"/>
+      <Attr Name="_checkCondition" Value='"CITATION_ORD_NUM" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.CitationOrdNum"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CeixEhsViolationNoticeInspectionTypeCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CEIX_EHS_VIOLATION_NOTICE_INSP"/>
+      <Attr Name="_checkCondition" Value='"INSPECTION_TYPE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.InspectionType"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CeixEhsViolationNoticeMineIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CEIX_EHS_VIOLATION_NOTICE_MINE"/>
+      <Attr Name="_checkCondition" Value='"MINE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.MineId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CeixEhsViolationNoticeVioJurisdictionCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CEIX_EHS_VIOLATION_NOTICE_VIO_"/>
+      <Attr Name="_checkCondition" Value='"VIO_JURISDICTION" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="CeixEhsViolationNoticeViolationIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CEIX_EHS_VIOLATION_NOTICE_VIOL"/>
+      <Attr Name="_checkCondition" Value='"VIOLATION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO.ViolationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CeixEhsViolationNoticeViolationStateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CEIX_EHS_VIOLATION_NOTICE_VIOL"/>
+      <Attr Name="_checkCondition" Value='"VIOLATION_STATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="CeixEhsViolationNotincePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="CEIX_EHS_VIOLATION_NOTINCE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="SysC0016750">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0016750"/>
+      <Attr Name="_checkCondition" Value='"VIOLATION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="CeixEhsViolationNoticeHeaderidChk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_EHS_INCIDENT_HEADER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName"
+        Value="CEIX_EHS_VIOLATION_NOTICE_HEADERID_CHK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ceix.ehs.model.ModelBundle"/>
+  </ResourceBundle>
+</Entity>

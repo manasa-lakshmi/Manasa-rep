@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view beforePhase="#{pageFlowScope.ReportMB.beforePhaseMethod}">
+    <af:document id="ds1" title="Report">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:decorativeBox theme="light" id="RRdsb2">
+          <f:facet name="center">
+            <af:panelStretchLayout id="RRXpssl2" dimensionsFrom="children">
+              <f:facet name="center">
+                <af:panelBox text="Medical Incident Report" id="shdrpanel"
+                             titleHalign="center"
+                             inlineStyle="text-align:center;border-style:none;">
+                  <af:panelGroupLayout layout="horizontal" id="Rgsl2"
+                                       halign="center">
+                    <af:outputFormatted value="PAL#" id="hdr2"/>
+                    <af:spacer width="10" height="10" id="Rs53"/>
+                    <af:outputFormatted value="#{bindings.IncidentNumber.inputValue}"
+                                        id="hdr2d"/>
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout layout="vertical" id="RRpgsl2"
+                                       halign="left">
+                    <af:panelGridLayout id="RRpg2sl3">
+                      <af:gridRow marginTop="5px" height="auto"
+                                  marginBottom="5px" id="RRg2rs1">
+                        <af:gridCell marginStart="5px" width="50%" id="RRgsc2">
+                          <af:commandButton icon="/images/print_ena.png"
+                                            text="Print" id="cb22s1">
+                            <af:showPrintablePageBehavior/>
+                          </af:commandButton>
+                          <af:spacer width="10" height="10" id="RRs53"/>
+                          <af:commandButton text="Download" id="cb213"
+                                            rendered="false"></af:commandButton>
+                          <af:spacer width="10" height="10" id="RRs23"/>
+                          <af:commandButton text="Cancel" action="back"
+                                            immediate="true" id="cb2"></af:commandButton>
+                        </af:gridCell>
+                      </af:gridRow>
+                    </af:panelGridLayout>
+                    <af:panelFormLayout id="phdrl1"
+                                        inlineStyle="text-transform:uppercase;">
+                      <af:panelLabelAndMessage label="Degree Of Incident:"
+                                               id="plam5">
+                        <af:outputText value="#{bindings.LevelOfInjury.inputValue}"
+                                       id="ot20"/>
+                      </af:panelLabelAndMessage>
+                      
+                      <af:panelLabelAndMessage label="Incident Date:"
+                                               id="plam15">
+                        <af:outputText value="#{bindings.IncidentDate.inputValue}"
+                                       id="ot15">
+                          <af:convertDateTime pattern="#{bindings.IncidentDate.format}"/>
+                        </af:outputText>
+                      </af:panelLabelAndMessage>
+                      
+                      <af:panelLabelAndMessage label="SSN:" id="mlam3">
+                        <af:outputText value="#{pageFlowScope.ReportMB.emp.ssn }"
+                                       id="jt11"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.InjuryType.hints.label}"
+                                               id="plam16">
+                        <af:outputText value="#{bindings.InjuryType.inputValue}"
+                                       id="ot12"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="NAME:" id="plam7">
+                        <af:outputText value="#{pageFlowScope.ReportMB.emp.empDisplayName}"
+                                       id="otd2"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="Workers Comp Policy No:"
+                                               id="plam12">
+                        <af:outputText value="#{bindings.WorkerPolicyNum.inputValue}"
+                                       id="ot8"/>
+                      </af:panelLabelAndMessage>
+                    
+                      <af:panelLabelAndMessage label="PHONE NO:" id="mlam4">
+                        <af:outputText value="#{pageFlowScope.ReportMB.emp.phone }"
+                                       id="jt14"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="ADDRESS:" id="mlam9">
+                        <af:outputText value="#{pageFlowScope.ReportMB.emp.address }"
+                                       id="jt5"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="DATE OF BIRTH:"
+                                               id="mlam1">
+                        <af:outputText value="#{pageFlowScope.ReportMB.emp.empDob}"
+                                       id="jt17"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="EMPLOYEE GENDER:"
+                                               id="mlam6">
+                        <af:outputText value="#{pageFlowScope.ReportMB.emp.gender }"
+                                       id="jt6"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="MARITAL STATUS:"
+                                               id="mlam13">
+                        <af:outputText value="#{pageFlowScope.ReportMB.emp.maritalStatus}"
+                                       id="jt16"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="DATE HIRED:" id="mlam14">
+                        <af:outputText value="#{pageFlowScope.ReportMB.emp.hiredDate}"
+                                       id="jt3"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="IF RTW - RTW Date:"
+                                               id="plam20">
+                        <af:panelGroupLayout id="pdfl1" layout="horizontal">
+                          <af:selectOneChoice value="#{bindings.Rtw.inputValue}"
+                                              label="" rendered="false"
+                                              required="#{bindings.Rtw.hints.mandatory}"
+                                              shortDesc="#{bindings.Rtw.hints.tooltip}"
+                                              id="soc1" readOnly="true"
+                                              binding="#{pageFlowScope.ReportMB.rtwSelectVal}">
+                            <f:selectItems value="#{bindings.Rtw.items}"
+                                           id="si1"/>
+                          </af:selectOneChoice>
+                          <af:spacer width="5" height="10" id="s53"/>
+                          <af:outputText id="op19"
+                                         binding="#{pageFlowScope.ReportMB.rtwVal}"/>
+                          <af:spacer width="10" height="10" id="sd53"/>
+                          <af:outputText value="#{bindings.ReturnDate.inputValue}"
+                                         id="ot19">
+                            <af:convertDateTime pattern="#{bindings.ReturnDate.format}"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.FirstDayMissed.hints.label}:"
+                                               id="plam11">
+                        <af:outputText value="#{bindings.FirstDayMissed.inputValue}"
+                                       id="ot9">
+                          <af:convertDateTime pattern="#{bindings.FirstDayMissed.format}"/>
+                        </af:outputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.TransDutyStartDate.hints.label}:"
+                                               id="plam8">
+                        <af:outputText value="#{bindings.TransDutyStartDate.inputValue}"
+                                       id="ot7">
+                          <af:convertDateTime pattern="#{bindings.TransDutyStartDate.format}"/>
+                        </af:outputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.TransDutyEndDate.hints.label}:"
+                                               id="plam3">
+                        <af:outputText value="#{bindings.TransDutyEndDate.inputValue}"
+                                       id="ot11">
+                          <af:convertDateTime pattern="#{bindings.TransDutyEndDate.format}"/>
+                        </af:outputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="TPA Notified:" id="plam2">
+                        <af:outputText value="#{bindings.TpaDate.inputValue} #{bindings.TpaContact.inputValue}"
+                                       id="ot10">
+                          <af:convertDateTime pattern="#{bindings.TpaDate.format}"/>
+                        </af:outputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.Diagnosis.hints.label}:"
+                                               id="plam9">
+                        <af:outputText value="#{bindings.Diagnosis.inputValue}"
+                                       id="ot2"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="Define Injury:"
+                                               id="plam1">
+                        <af:outputText value="#{bindings.BodyPartDescription.inputValue}"
+                                       id="ot4"/>
+                      </af:panelLabelAndMessage>
+                
+   
+                      <af:panelLabelAndMessage label="SALARIED/HOURLY?:"
+                                               id="mlam12">
+                        <af:outputText value=" #{pageFlowScope.ReportMB.emp.salaryUnionfree}"
+                                       id="jt18"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="Date Reported To Supervisor:"
+                                               id="plam19">
+                        <af:outputText value="#{bindings.DateReprtdToSupervsr.inputValue}"
+                                       id="ot18">
+                          <af:convertDateTime pattern="#{bindings.DateReprtdToSupervsr.format}"/>
+                        </af:outputText>
+                      </af:panelLabelAndMessage>
+                      
+                      <af:panelLabelAndMessage label="Mine:" id="plam13">
+                        <af:outputText value="#{bindings.PlantName.inputValue}"
+                                       id="ot6"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="Job Title At Time Of Incident:"
+                                               id="mlsam12">
+                        <af:outputText value="#{pageFlowScope.ReportMB.emp.jobTitle}"
+                                       id="jts18"/>
+                      </af:panelLabelAndMessage>
+                      <af:selectOneChoice value="#{bindings.Hospital.inputValue}"
+                                          label="#{bindings.Hospital.label}:"
+                                          required="#{bindings.Hospital.hints.mandatory}"
+                                          shortDesc="#{bindings.Hospital.hints.tooltip}"
+                                          id="soc2" readOnly="true">
+                        <f:selectItems value="#{bindings.Hospital.items}"
+                                       id="si2"/>
+                      </af:selectOneChoice>
+                      <af:panelLabelAndMessage label="#{bindings.PhysicianName.hints.label}:"
+                                               id="plam6">
+                        <af:outputText value="#{bindings.PhysicianName.inputValue}"
+                                       id="ot14"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.OrderTreatment.hints.label}:"
+                                               id="plam10">
+                        <af:outputText value="#{bindings.OrderTreatment.inputValue}"
+                                       id="ot3"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.Diagnosis1.hints.label}:"
+                                               id="plam18">
+                        <af:outputText value="#{bindings.Diagnosis1.inputValue}"
+                                       id="ot17"/>
+                      </af:panelLabelAndMessage>                      
+                      
+                      <af:panelLabelAndMessage label="#{bindings.NextOffVisitDate.hints.label}:"
+                                               id="pldam7">
+                        <af:outputText value="#{bindings.NextOffVisitDate.inputValue}"
+                                       id="ot13">
+                          <af:convertDateTime pattern="#{bindings.NextOffVisitDate.format}"/>
+                        </af:outputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="OCC. Health Notified:"
+                                               id="plam14">
+                        <af:outputText value="#{bindings.ClinHealthNotifDate.inputValue}"
+                                       id="ot1">
+                          <af:convertDateTime pattern="#{bindings.ClinHealthNotifDate.format}"/>
+                        </af:outputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.Comments.hints.label}:"
+                                               id="plam17">
+                        <af:outputText value="#{bindings.Comments.inputValue}"
+                                       id="ot16"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="How Injury Occurred:"
+                                               id="plam4">
+                        <af:outputText value="#{bindings.IncidentDesc.inputValue}"
+                                       id="ot5"/>
+                      </af:panelLabelAndMessage>
+                    </af:panelFormLayout>
+                  </af:panelGroupLayout>
+                </af:panelBox>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,1198 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixEhsViolationNoticeVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="CeixEhsViolationNoticeEO.VIOLATION_ID, 
+       CeixEhsViolationNoticeEO.MINE_ID, 
+       CeixEhsViolationNoticeEO.VIO_JURISDICTION, 
+       CeixEhsViolationNoticeEO.CITATION_ORD_NUM, 
+       CeixEhsViolationNoticeEO.CITATION_DATE, 
+       CeixEhsViolationNoticeEO.INSPECTION_TYPE, 
+       CeixEhsViolationNoticeEO.VIOLATION_STATE, 
+       CeixEhsViolationNoticeEO.INSPECTOR_STATE, 
+       CeixEhsViolationNoticeEO.INSPECTOR_FEDERAL, 
+       CeixEhsViolationNoticeEO.CONSOL_ESCORT, 
+       CeixEhsViolationNoticeEO.SHIFT_FOREMAN, 
+       CeixEhsViolationNoticeEO.ABATED, 
+       CeixEhsViolationNoticeEO.VACATED, 
+       CeixEhsViolationNoticeEO.VIOLATION_FED_PART, 
+       CeixEhsViolationNoticeEO.VIOLATION_FED_CODE, 
+       CeixEhsViolationNoticeEO.COMB_MATERIAL, 
+       CeixEhsViolationNoticeEO.INJURY_LIKELY, 
+       CeixEhsViolationNoticeEO.INJURY_IMPACT, 
+       CeixEhsViolationNoticeEO.SIG_SUB, 
+       CeixEhsViolationNoticeEO.PERSONS_EFFECTED, 
+       CeixEhsViolationNoticeEO.NEGLIGENCE, 
+       CeixEhsViolationNoticeEO.ACTION_TYPE, 
+       CeixEhsViolationNoticeEO.ISSUANCE_TYPE, 
+       CeixEhsViolationNoticeEO.MINE_AREA, 
+       CeixEhsViolationNoticeEO.MINE_LOCATION, 
+       CeixEhsViolationNoticeEO.CHARGE_AREA, 
+       CeixEhsViolationNoticeEO.VIO_DESCRIPTION, 
+       CeixEhsViolationNoticeEO.COMMENTS, 
+       CeixEhsViolationNoticeEO.CONF_REQUESTED, 
+       CeixEhsViolationNoticeEO.PROPOSED_PENALTY, 
+       CeixEhsViolationNoticeEO.CASE_NUMBER, 
+       CeixEhsViolationNoticeEO.SUBMITTED_DATE, 
+       CeixEhsViolationNoticeEO.DOCKET_NUMBER, 
+       CeixEhsViolationNoticeEO.DOCKET_DATE, 
+       CeixEhsViolationNoticeEO.HEARING_RESULT, 
+       CeixEhsViolationNoticeEO.SETTLEMENT_AMT, 
+       CeixEhsViolationNoticeEO.NOTES, 
+       CeixEhsViolationNoticeEO.CREATION_DATE, 
+       CeixEhsViolationNoticeEO.CREATED_BY, 
+       CeixEhsViolationNoticeEO.LAST_UPDATE_DATE, 
+       CeixEhsViolationNoticeEO.LAST_UPDATED_BY, 
+       CeixEhsViolationNoticeEO.ATTRIBUTE1, 
+       CeixEhsViolationNoticeEO.ATTRIBUTE2, 
+       CeixEhsViolationNoticeEO.ATTRIBUTE3, 
+       CeixEhsViolationNoticeEO.ATTRIBUTE4, 
+       CeixEhsViolationNoticeEO.ATTRIBUTE5, 
+       CeixEhsViolationNoticeEO.ATTRIBUTE6, 
+       CeixEhsViolationNoticeEO.ATTRIBUTE7, 
+       CeixEhsViolationNoticeEO.ATTRIBUTE8, 
+       CeixEhsViolationNoticeEO.ATTRIBUTE9, 
+       CeixEhsViolationNoticeEO.ATTRIBUTE10, 
+       CeixEhsViolationNoticeEO.STIC, 
+       CeixEhsViolationNoticeEO.PLANT, 
+       CeixEhsViolationNoticeEO.OUTBY"
+  FromList="CEIX_EHS_VIOLATION_NOTICE CeixEhsViolationNoticeEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  ComponentClass="com.ceix.ehs.model.views.CeixEhsViolationNoticeVOImpl"
+  RowClass="com.ceix.ehs.model.views.CeixEhsViolationNoticeVORowImpl"
+  DefClass="com.ceix.ehs.model.views.CeixEhsViolationNoticeVODefImpl"
+  RowInterface="com.ceix.ehs.model.views.common.CeixEhsViolationNoticeVORow"
+  ClientRowProxyName="com.ceix.ehs.model.views.client.CeixEhsViolationNoticeVORowClient"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="500">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Def|Coll|Prog|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="citationNumber"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="toDate"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Date"/>
+  <Variable
+    Name="fromDate"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Date"/>
+  <Variable
+    Name="mineID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="fedPart"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="fedCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="MineIdVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Mine ID']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="ViolationVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Violation']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="InspectionVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Inspection']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="StateViolationVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['State Violation']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="YesOrNoVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['YesOrNo']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="InjuryLikelihoodVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Injury Likelihood']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="InjuryImpactVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Injury Impact']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="NegligenceVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Negligence']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="TypeofActionVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Type of Action']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="TypeofIssuanceVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Type of Issuance']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="ChargeAreaVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Charge Area']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="ResultofHearingVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Result of Hearing']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="CombustibleMaterialVOAcc"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Combustible Material']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="FedPartLOVVO"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Fed Part']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="FedSectionLOVVO"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentParentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Fed Section']]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="parentLookupCode">
+        <TransientExpression><![CDATA[ViolationFedPart]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="PlantLOVVO"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO">
+    <ParameterMap>
+      <PIMap Variable="lookupType">
+        <TransientExpression><![CDATA['Plant']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_MineId"
+    ListVOName="MineIdVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MineId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_VioJurisdiction"
+    ListVOName="ViolationVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="VioJurisdiction"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_InspectionType"
+    ListVOName="InspectionVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="InspectionType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DisplayLookUpCode"/>
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ViolationState"
+    ListVOName="StateViolationVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ViolationState"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Abated"
+    ListVOName="YesOrNoVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Abated"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Vacated"
+    ListVOName="YesOrNoVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Vacated"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_InjuryLikely"
+    ListVOName="InjuryLikelihoodVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="InjuryLikely"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+   <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_InjuryImpact"
+    ListVOName="InjuryImpactVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="InjuryImpact"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SigSub"
+    ListVOName="YesOrNoVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SigSub"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Negligence"
+    ListVOName="NegligenceVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Negligence"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ActionType"
+    ListVOName="TypeofActionVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ActionType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DisplayLookUpCode"/>
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_IssuanceType"
+    ListVOName="TypeofIssuanceVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IssuanceType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ChargeArea"
+    ListVOName="ChargeAreaVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ChargeArea"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ConfRequested"
+    ListVOName="YesOrNoVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ConfRequested"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_HearingResult"
+    ListVOName="ResultofHearingVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="HearingResult"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CombMaterial"
+    ListVOName="CombustibleMaterialVOAcc"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CombMaterial"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ViolationFedPart"
+    ListVOName="FedPartLOVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ViolationFedPart"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ViolationFedCode"
+    ListVOName="FedSectionLOVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ViolationFedCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Plant"
+    ListVOName="PlantLOVVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Plant"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="CeixEhsViolationNoticeEO"
+    Entity="com.ceix.ehs.model.entities.CeixEhsViolationNoticeEO"/>
+  <ViewAttribute
+    Name="ViolationId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ViolationId"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="VIOLATION_ID">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("CEIX_EHS_VIOLATION_NOTICE_SEQ", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MineId"
+    PrecisionRule="true"
+    EntityAttrName="MineId"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="MINE_ID"
+    LOVName="LOV_MineId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VioJurisdiction"
+    PrecisionRule="true"
+    EntityAttrName="VioJurisdiction"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="VIO_JURISDICTION"
+    LOVName="LOV_VioJurisdiction">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CitationOrdNum"
+    PrecisionRule="true"
+    EntityAttrName="CitationOrdNum"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="CITATION_ORD_NUM"/>
+  <ViewAttribute
+    Name="CitationDate"
+    PrecisionRule="true"
+    EntityAttrName="CitationDate"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="CITATION_DATE"/>
+  <ViewAttribute
+    Name="InspectionType"
+    PrecisionRule="true"
+    EntityAttrName="InspectionType"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="INSPECTION_TYPE"
+    LOVName="LOV_InspectionType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ViolationState"
+    PrecisionRule="true"
+    EntityAttrName="ViolationState"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="VIOLATION_STATE"
+    LOVName="LOV_ViolationState">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InspectorState"
+    PrecisionRule="true"
+    EntityAttrName="InspectorState"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="INSPECTOR_STATE"/>
+  <ViewAttribute
+    Name="InspectorFederal"
+    PrecisionRule="true"
+    EntityAttrName="InspectorFederal"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="INSPECTOR_FEDERAL"/>
+  <ViewAttribute
+    Name="ConsolEscort"
+    PrecisionRule="true"
+    EntityAttrName="ConsolEscort"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="CONSOL_ESCORT"/>
+  <ViewAttribute
+    Name="ShiftForeman"
+    PrecisionRule="true"
+    EntityAttrName="ShiftForeman"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="SHIFT_FOREMAN"/>
+  <ViewAttribute
+    Name="Abated"
+    PrecisionRule="true"
+    EntityAttrName="Abated"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ABATED"
+    LOVName="LOV_Abated">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Vacated"
+    PrecisionRule="true"
+    EntityAttrName="Vacated"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="VACATED"
+    LOVName="LOV_Vacated">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ViolationFedPart"
+    PrecisionRule="true"
+    EntityAttrName="ViolationFedPart"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="VIOLATION_FED_PART"
+    LOVName="LOV_ViolationFedPart">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ViolationFedCode"
+    PrecisionRule="true"
+    EntityAttrName="ViolationFedCode"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="VIOLATION_FED_CODE"
+    LOVName="LOV_ViolationFedCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CombMaterial"
+    PrecisionRule="true"
+    EntityAttrName="CombMaterial"
+    EntityUsage="CeixEhsViolationNoticeEO"
+   AliasName="COMB_MATERIAL"
+    LOVName="LOV_CombMaterial">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InjuryLikely"
+    PrecisionRule="true"
+    EntityAttrName="InjuryLikely"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="INJURY_LIKELY"
+    LOVName="LOV_InjuryLikely">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InjuryImpact"
+    PrecisionRule="true"
+    EntityAttrName="InjuryImpact"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="INJURY_IMPACT"
+    LOVName="LOV_InjuryImpact">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SigSub"
+    PrecisionRule="true"
+    EntityAttrName="SigSub"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="SIG_SUB"
+    LOVName="LOV_SigSub">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PersonsEffected"
+    PrecisionRule="true"
+    EntityAttrName="PersonsEffected"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="PERSONS_EFFECTED"/>
+  <ViewAttribute
+    Name="Negligence"
+    PrecisionRule="true"
+    EntityAttrName="Negligence"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="NEGLIGENCE"
+    LOVName="LOV_Negligence">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ActionType"
+    PrecisionRule="true"
+    EntityAttrName="ActionType"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ACTION_TYPE"
+    LOVName="LOV_ActionType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IssuanceType"
+    PrecisionRule="true"
+    EntityAttrName="IssuanceType"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ISSUANCE_TYPE"
+    LOVName="LOV_IssuanceType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MineArea"
+    PrecisionRule="true"
+    EntityAttrName="MineArea"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="MINE_AREA"/>
+  <ViewAttribute
+    Name="MineLocation"
+    PrecisionRule="true"
+    EntityAttrName="MineLocation"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="MINE_LOCATION"/>
+  <ViewAttribute
+    Name="ChargeArea"
+    PrecisionRule="true"
+    EntityAttrName="ChargeArea"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="CHARGE_AREA"
+    LOVName="LOV_ChargeArea">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VioDescription"
+    PrecisionRule="true"
+    EntityAttrName="VioDescription"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="VIO_DESCRIPTION"/>
+  <ViewAttribute
+    Name="Comments"
+    PrecisionRule="true"
+    EntityAttrName="Comments"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="COMMENTS"/>
+  <ViewAttribute
+    Name="ConfRequested"
+    PrecisionRule="true"
+    EntityAttrName="ConfRequested"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="CONF_REQUESTED"
+    LOVName="LOV_ConfRequested">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProposedPenalty"
+    PrecisionRule="true"
+    EntityAttrName="ProposedPenalty"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="PROPOSED_PENALTY"/>
+  <ViewAttribute
+    Name="CaseNumber"
+    PrecisionRule="true"
+    EntityAttrName="CaseNumber"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="CASE_NUMBER"/>
+  <ViewAttribute
+    Name="SubmittedDate"
+    PrecisionRule="true"
+    EntityAttrName="SubmittedDate"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="SUBMITTED_DATE"/>
+  <ViewAttribute
+    Name="DocketNumber"
+    PrecisionRule="true"
+    EntityAttrName="DocketNumber"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="DOCKET_NUMBER"/>
+  <ViewAttribute
+    Name="DocketDate"
+    PrecisionRule="true"
+    EntityAttrName="DocketDate"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="DOCKET_DATE"/>
+  <ViewAttribute
+    Name="HearingResult"
+    PrecisionRule="true"
+    EntityAttrName="HearingResult"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="HEARING_RESULT"
+    LOVName="LOV_HearingResult">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SettlementAmt"
+    PrecisionRule="true"
+    EntityAttrName="SettlementAmt"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="SETTLEMENT_AMT"/>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="Attribute1"
+    PrecisionRule="true"
+    EntityAttrName="Attribute1"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ATTRIBUTE1"/>
+  <ViewAttribute
+    Name="Attribute2"
+    PrecisionRule="true"
+    EntityAttrName="Attribute2"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ATTRIBUTE2"/>
+  <ViewAttribute
+    Name="Attribute3"
+    PrecisionRule="true"
+    EntityAttrName="Attribute3"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ATTRIBUTE3"/>
+  <ViewAttribute
+    Name="Attribute4"
+    PrecisionRule="true"
+    EntityAttrName="Attribute4"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ATTRIBUTE4"/>
+  <ViewAttribute
+    Name="Attribute5"
+    PrecisionRule="true"
+    EntityAttrName="Attribute5"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ATTRIBUTE5"/>
+  <ViewAttribute
+    Name="Attribute6"
+    PrecisionRule="true"
+    EntityAttrName="Attribute6"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ATTRIBUTE6"/>
+  <ViewAttribute
+    Name="Attribute7"
+    PrecisionRule="true"
+    EntityAttrName="Attribute7"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ATTRIBUTE7"/>
+  <ViewAttribute
+    Name="Attribute8"
+    PrecisionRule="true"
+    EntityAttrName="Attribute8"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ATTRIBUTE8"/>
+  <ViewAttribute
+    Name="Attribute9"
+    PrecisionRule="true"
+    EntityAttrName="Attribute9"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ATTRIBUTE9"/>
+  <ViewAttribute
+    Name="Attribute10"
+    PrecisionRule="true"
+    EntityAttrName="Attribute10"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="ATTRIBUTE10"/>
+  <ViewAttribute
+    Name="Stic"
+    PrecisionRule="true"
+    EntityAttrName="Stic"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="STIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.views.CeixEhsViolationNoticeVO.Stic_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Plant"
+    PrecisionRule="true"
+    EntityAttrName="Plant"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="PLANT"
+    LOVName="LOV_Plant">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DisSticVal"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Outby"
+    PrecisionRule="true"
+    EntityAttrName="Outby"
+    EntityUsage="CeixEhsViolationNoticeEO"
+    AliasName="OUTBY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ceix.ehs.model.views.CeixEhsViolationNoticeVO.Outby_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DisOutbyVal"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT"/>
+  <ViewCriteria
+    Name="FindByMineIdandViolationJurisdicion"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsViolationNoticeVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow9"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="MineId"
+        ViewAttribute="MineId"
+        Operator="="
+        Conjunction="OR"
+        Required="Optional"
+        Value=":mineID"
+        IsBindVarValue="true"/>
+      <ViewCriteriaItem
+        Name="CitationOrdNum"
+        ViewAttribute="CitationOrdNum"
+        Operator="="
+        Conjunction="OR"
+        Required="Optional"
+        Value=":citationNumber"
+        IsBindVarValue="true"/>
+      <ViewCriteriaItem
+        Name="CitationDate"
+        ViewAttribute="CitationDate"
+        Operator="BETWEEN"
+        Conjunction="OR"
+        Required="Optional">
+        <ViewCriteriaItemValue
+          Name="FindByMineIdandViolationJurisdicion_vcrow9_CitationDate_vcval0"
+          Value=":toDate"
+          IsBindVarValue="true"/>
+        <ViewCriteriaItemValue
+          Name="FindByMineIdandViolationJurisdicion_vcrow9_CitationDate_vcval1"
+          Value=":fromDate"
+          IsBindVarValue="true"/>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="ViolationFedPart"
+        ViewAttribute="ViolationFedPart"
+        Operator="="
+        Conjunction="OR"
+        Value=":fedPart"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ViolationFedCode"
+        ViewAttribute="ViolationFedCode"
+        Operator="="
+        Conjunction="OR"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ceix.ehs.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

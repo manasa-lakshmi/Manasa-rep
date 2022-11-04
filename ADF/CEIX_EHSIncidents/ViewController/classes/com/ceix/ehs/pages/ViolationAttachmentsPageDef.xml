@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="ViolationAttachmentsPageDef"
+                Package="com.ceix.ehs.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CeixEhsIncidentViolationAttachmentVO1" RangeSize="25"
+              DataControl="EHSIncidentEventsAMDataControl"
+              id="CeixEhsIncidentViolationAttachmentVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CeixEhsIncidentViolationAttachmentVO1Iterator"
+          id="CeixEhsIncidentViolationAttachmentVO1">
+      <nodeDefinition DefName="com.ceix.ehs.model.views.CeixEhsIncidentViolationAttachmentVO"
+                      Name="CeixEhsIncidentViolationAttachmentVO10">
+        <AttrNames>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="FileContent"/>
+          <Item Value="FileName"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="ViolationAttchmId"/>
+          <Item Value="ViolationId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="CeixEhsIncidentViolationAttachmentVO1Iterator"
+                     id="ViolationId">
+      <AttrNames>
+        <Item Value="ViolationId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsIncidentViolationAttachmentVO1Iterator"
+                     id="FileName">
+      <AttrNames>
+        <Item Value="FileName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsIncidentViolationAttachmentVO1Iterator"
+                     id="FileContent">
+      <AttrNames>
+        <Item Value="FileContent"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

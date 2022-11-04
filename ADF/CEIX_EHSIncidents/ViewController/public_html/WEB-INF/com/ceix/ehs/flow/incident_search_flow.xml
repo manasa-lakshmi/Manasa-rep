@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="incident_search_flow">
+    <default-activity id="__1">SearchIncidentsPage</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name id="__4">SearchIncidentsMB</managed-bean-name>
+      <managed-bean-class id="__5">com.ceix.ehs.beans.SearchIncidentsMB</managed-bean-class>
+      <managed-bean-scope id="__2">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__24">
+      <managed-bean-name id="__25">ClinicalLogMB</managed-bean-name>
+      <managed-bean-class id="__22">com.ceix.ehs.beans.ClinicalLogMB</managed-bean-class>
+      <managed-bean-scope id="__23">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__11">
+      <managed-bean-name id="__14">ReportMB</managed-bean-name>
+      <managed-bean-class id="__13">com.ceix.ehs.beans.ReportMB</managed-bean-class>
+      <managed-bean-scope id="__12">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="SearchIncidentsPage">
+      <page>/com/ceix/ehs/pages/SearchIncidents.jspx</page>
+    </view>
+    <method-call id="initCriticalLogMethod">
+      <method>#{pageFlowScope.SearchIncidentsMB.initCriticalLog}</method>
+      <outcome id="__21">
+        <fixed-outcome>criticalLog</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="AddEditClinicalLog">
+      <page>/com/ceix/ehs/pages/ClinicalLogDetails.jspx</page>
+    </view>
+    <view id="viewSingleCliLogEntry">
+      <page>/com/ceix/ehs/pages/ClinicalLogReport.jspx</page>
+    </view>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">SearchIncidentsPage</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__10">clinicalLog</from-outcome>
+        <to-activity-id id="__8">initCriticalLogMethod</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome id="__17">viewReport</from-outcome>
+        <to-activity-id id="__16">viewSingleCliLogEntry</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id id="__44">initCriticalLogMethod</from-activity-id>
+      <control-flow-case id="__63">
+        <from-outcome id="__61">criticalLog</from-outcome>
+        <to-activity-id id="__62">AddEditClinicalLog</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id id="__29">viewSingleCliLogEntry</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome id="__20">back</from-outcome>
+        <to-activity-id id="__18">SearchIncidentsPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__66">
+      <from-activity-id id="__67">AddEditClinicalLog</from-activity-id>
+      <control-flow-case id="__53">
+        <from-outcome id="__55">printClinicalLog</from-outcome>
+        <to-activity-id id="__54">viewSingleCliLogEntry</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__65">
+        <from-outcome id="__68">back</from-outcome>
+        <to-activity-id id="__64">SearchIncidentsPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

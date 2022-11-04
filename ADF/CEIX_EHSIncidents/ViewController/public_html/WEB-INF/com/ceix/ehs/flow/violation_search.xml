@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="violation_search">
+    <default-activity id="__1">SearchViolation</default-activity>
+    <managed-bean id="__31">
+      <managed-bean-name id="__48">SearchIncidentsMB</managed-bean-name>
+      <managed-bean-class id="__58">com.ceix.ehs.beans.SearchIncidentsMB</managed-bean-class>
+      <managed-bean-scope id="__28">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__24">
+      <managed-bean-name id="__25">ClinicalLogMB</managed-bean-name>
+      <managed-bean-class id="__22">com.ceix.ehs.beans.ClinicalLogMB</managed-bean-class>
+      <managed-bean-scope id="__23">request</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean id="__46">
+      <managed-bean-name id="__45">DisableFiledsMB</managed-bean-name>
+      <managed-bean-class id="__44">com.ceix.ehs.beans.DisableFiledsMB</managed-bean-class>
+      <managed-bean-scope id="__43">application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__32">
+      <managed-bean-name id="__26">CitationMB</managed-bean-name>
+      <managed-bean-class id="__21">com.ceix.ehs.beans.CitationMB</managed-bean-class>
+      <managed-bean-scope id="__19">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__55">
+      <managed-bean-name id="__57">UploadViolationAttachmentMB</managed-bean-name>
+      <managed-bean-class id="__59">com.ceix.ehs.beans.UploadViolationAttachmentMB</managed-bean-class>
+      <managed-bean-scope id="__56">request</managed-bean-scope>
+    </managed-bean>
+    <view id="SearchViolation">
+      <page>/com/ceix/ehs/pages/SearchViolation.jspx</page>
+    </view>
+    <method-call id="initViolationNotice">
+      <method id="__3">#{CitationMB.addCitation}</method>
+      <outcome id="__20">
+        <fixed-outcome id="__4">violationNoticePage</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ViolationNotice">
+      <page>/com/ceix/ehs/pages/ViolationNotice.jspx</page>
+    </view>
+    <method-call id="editViolation">
+      <method id="__27">#{CitationMB.editCitation}</method>
+      <outcome id="__30">
+        <fixed-outcome id="__29">violationNoticePage</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__33">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ViolationAttachments">
+      <page>/com/ceix/ehs/pages/ViolationAttachments.jspx</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__5">SearchViolation</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome id="__8">initViolationNotc</from-outcome>
+        <to-activity-id id="__6">initViolationNotice</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__35">
+        <from-outcome id="__37">edit</from-outcome>
+        <to-activity-id id="__36">editViolation</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id id="__10">initViolationNotice</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome id="__11">violationNoticePage</from-outcome>
+        <to-activity-id id="__12">ViolationNotice</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id id="__15">ViolationNotice</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome id="__18">back</from-outcome>
+        <to-activity-id id="__16">SearchViolation</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__34">
+        <from-outcome id="__49">executeViolationAttachmentQuery</from-outcome>
+        <to-activity-id id="__47">ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__38">
+      <from-activity-id id="__39">editViolation</from-activity-id>
+      <control-flow-case id="__40">
+        <from-outcome id="__41">violationNoticePage</from-outcome>
+        <to-activity-id id="__42">ViolationNotice</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__50">
+      <from-activity-id id="__51">ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__54">
+        <from-outcome id="__53">ExecuteWithParams</from-outcome>
+        <to-activity-id id="__52">ViolationAttachments</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__60">
+      <from-activity-id id="__61">ViolationAttachments</from-activity-id>
+      <control-flow-case id="__62">
+        <from-outcome id="__64">back</from-outcome>
+        <to-activity-id id="__63">ViolationNotice</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

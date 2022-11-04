@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EHSIncidentEventsAM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  
+  ComponentInterface="com.ceix.ehs.model.services.common.EHSIncidentEventsAM"
+  ClientProxyName="com.ceix.ehs.model.services.client.EHSIncidentEventsAMClient"
+  ComponentClass="com.ceix.ehs.model.services.EHSIncidentEventsAMImpl"
+  DefClass="com.ceix.ehs.model.services.EHSIncidentEventsAMDefImpl">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isDefCodegen" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="CeixEhsClinicalLog1"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsClinicalLogVO"/>
+  <ViewUsage
+    Name="CeixEhsIncidentHeader1"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentHeaderVO"/>
+  <ViewUsage
+    Name="CeixEhsIncidentLookupType1"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupTypeVO"/>
+  <ViewUsage
+    Name="CeixEhsIncidentLookups1"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentLookupsVO"/>
+  <ViewUsage
+    Name="CeixEhsClinicalLog2"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsClinicalLogVO"/>
+  <ViewUsage
+    Name="CeixEhsViolationNotice1"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsViolationNoticeVO"/>
+  <ViewUsage
+    Name="CeixEhsIncidentParentLookupsVO1"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentParentLookupsVO"/>
+  <ViewUsage
+    Name="CeixEhsIncidentViolationAttachmentVO1"
+    ViewObjectName="com.ceix.ehs.model.views.CeixEhsIncidentViolationAttachmentVO"/>
+  <ViewLinkUsage
+    Name="CeixEhsClinicalLogHeaderidChkLink1"
+    ViewLinkObjectName="com.ceix.ehs.model.views.CeixEhsClinicalLogHeaderidChkLink"
+    SrcViewUsageName="com.ceix.ehs.model.services.EHSIncidentEventsAM.CeixEhsIncidentHeader1"
+    DstViewUsageName="com.ceix.ehs.model.services.EHSIncidentEventsAM.CeixEhsClinicalLog2"
+    Reversed="false"/>
+  <ClientInterface>
+    
+    <Method
+      Name="save">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="doSearchQueryReset">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="doClinicalLogReset">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixEhsIncidentLookupsEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="CEIX_EHS_INCIDENT_LOOKUPS"
+  AliasName="CeixEhsIncidentLookupsEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="LookupCode"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="LOOKUP_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_INCIDENT_LOOKUPS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LookupType"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="LOOKUP_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_INCIDENT_LOOKUPS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    IsNotNull="true"
+    Precision="500"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_INCIDENT_LOOKUPS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EnabledFlag"
+    Precision="2"
+    ColumnName="ENABLED_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_INCIDENT_LOOKUPS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="30"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_INCIDENT_LOOKUPS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="CEIX_EHS_INCIDENT_LOOKUPS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="30"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_INCIDENT_LOOKUPS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="CEIX_EHS_INCIDENT_LOOKUPS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DisplayOrder"
+    ColumnName="DISPLAY_ORDER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_EHS_INCIDENT_LOOKUPS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ParentLookupCode"
+    Precision="100"
+    ColumnName="PARENT_LOOKUP_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_EHS_INCIDENT_LOOKUPS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="LookupdetailsKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="LOOKUPDETAILS_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.ehs.model.entities.CeixEhsIncidentLookupsEO.LookupCode"/>
+      <Item
+        Value="com.ceix.ehs.model.entities.CeixEhsIncidentLookupsEO.LookupType"/>
+      <Item
+        Value="com.ceix.ehs.model.entities.CeixEhsIncidentLookupsEO.Description"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0016701">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0016701"/>
+      <Attr Name="_checkCondition" Value='"DESCRIPTION" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.ehs.model.entities.CeixEhsIncidentLookupsEO.Description"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="LookuptypeChk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="LOOKUPTYPE_UNIQUE"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="LOOKUPTYPE_CHK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.ehs.model.entities.CeixEhsIncidentLookupsEO.LookupType"/>
+    </AttrArray>
+  </Key>
+</Entity>

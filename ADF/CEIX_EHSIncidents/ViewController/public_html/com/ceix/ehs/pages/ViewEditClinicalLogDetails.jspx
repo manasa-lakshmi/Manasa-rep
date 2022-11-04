@@ -1,0 +1,274 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <style type="text/css">
+     td.align-centr {
+            
+            text-align:right;
+            padding-right:12%
+        }
+        
+    </style>
+  <f:view>
+    <af:document id="Kd1" theme="light" title="Search Lab Results">
+      <af:messages id="Km1"/>
+      <af:form id="Kf1">
+        <af:decorativeBox theme="light" id="Kdb2">
+          <f:facet name="center">
+            <af:panelStretchLayout id="Kpsl2" dimensionsFrom="children">
+              <f:facet name="center">
+                <af:panelGroupLayout layout="vertical" id="Kpgl1">
+                  <af:panelHeader text="Clinical Log details" id="ph1"/>
+                
+                  <af:panelGridLayout id="RRpg2l3">
+                      <af:gridRow marginTop="5px" height="auto"
+                                  marginBottom="5px" id="RRg2r1">
+                        <af:gridCell marginStart="5px" width="50%" id="RRgc2">
+                       <af:commandButton text="Cancel" id="cbaos1" action="back"
+                                            />
+                          <af:spacer width="10" id="Ras2ps3"/>
+                          <af:spacer width="10" height="10" id="R2Rs1"/>
+                          <af:commandButton text="Add" id="cba1" 
+                                            actionListener="#{ClinicalLogMB.addCriticalLogEntry}"
+                                            action="addEditCliLog"/>
+                          <af:spacer width="10" height="10" id="Ra2Rs3"/>
+                           <af:commandButton text="Edit" id="cbas1" 
+                                            action="addEditCliLog"
+                                             actionListener="#{ClinicalLogMB.editCriticalLogEntry}"/>
+                          <af:spacer width="10" height="10" id="Ras2Rs3"/>
+                           
+                            <af:commandButton text="View Report" id="cbss1"
+                                              action="viewClinicalLogEnry"
+                                              actionListener="#{ClinicalLogMB.setReportParams}"/>
+                          <af:spacer width="10" height="10" id="Rav2Rs3"/>
+                           </af:gridCell>
+                      </af:gridRow>
+                    </af:panelGridLayout>
+                
+                  <af:panelCollection id="Kpc1">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="statusbar"/>
+                    <af:table value="#{bindings.CeixEhsClinicalLog2.collectionModel}"
+                              var="row"
+                              rows="#{bindings.CeixEhsClinicalLog2.rangeSize}"
+                              emptyText="#{bindings.CeixEhsClinicalLog2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              fetchSize="#{bindings.CeixEhsClinicalLog2.rangeSize}"
+                              rowBandingInterval="0"
+                              filterModel="#{bindings.CeixEhsClinicalLog2Query.queryDescriptor}"
+                              queryListener="#{bindings.CeixEhsClinicalLog2Query.processQuery}"
+                              filterVisible="true" varStatus="vs"
+                              selectedRowKeys="#{bindings.CeixEhsClinicalLog2.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.CeixEhsClinicalLog2.collectionModel.makeCurrent}"
+                              rowSelection="single" id="t1">
+   
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.MedicalMeasure.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.MedicalMeasure.label}"
+                                 id="c2">
+                        <af:selectOneChoice value="#{row.bindings.MedicalMeasure.inputValue}" readOnly="true"
+                                            label="#{row.bindings.MedicalMeasure.label}"
+                                            required="#{bindings.CeixEhsClinicalLog2.hints.MedicalMeasure.mandatory}"
+                                            shortDesc="#{bindings.CeixEhsClinicalLog2.hints.MedicalMeasure.tooltip}"
+                                            id="soc2">
+                          <f:selectItems value="#{row.bindings.MedicalMeasure.items}"
+                                         id="si2"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.Hospital.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.Hospital.label}"
+                                 id="c6">
+                        <af:outputText value="#{row.Hospital}" id="ot7"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.OrderTreatment.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.OrderTreatment.label}"
+                                 id="c11">
+                        <af:outputText value="#{row.OrderTreatment}" id="ot20"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.Diagnosis.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.Diagnosis.label}"
+                                 id="c13">
+                        <af:outputText value="#{row.Diagnosis}" id="ot17"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.InjuryType.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.InjuryType.label}"
+                                 id="c7">
+                        <af:selectOneChoice value="#{row.bindings.InjuryType.inputValue}" readOnly="true"
+                                            label="#{row.bindings.InjuryType.label}"
+                                            required="#{bindings.CeixEhsClinicalLog2.hints.InjuryType.mandatory}"
+                                            shortDesc="#{bindings.CeixEhsClinicalLog2.hints.InjuryType.tooltip}"
+                                            id="soc3">
+                          <f:selectItems value="#{row.bindings.InjuryType.items}"
+                                         id="si3"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.BodyPart.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.BodyPart.label}"
+                                 id="c18">
+                        <af:outputText value="#{row.BodyPart}" id="ot11"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.BodyPartDescription.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.BodyPartDescription.label}"
+                                 id="c9">
+                        <af:outputText value="#{row.BodyPartDescription}"
+                                       id="ot10"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.ReturnToWork.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.ReturnToWork.label}"
+                                 id="c1">
+                        <af:outputText value="#{row.ReturnToWork}" id="ot22"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.ReturnDate.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.ReturnDate.label}"
+                                 id="c3">
+                        <f:facet name="filter">
+                          <af:inputDate value="#{vs.filterCriteria.ReturnDate}"
+                                        id="id5"/>
+                        </f:facet>
+                        <af:outputText value="#{row.ReturnDate}" id="ot14">
+                          <af:convertDateTime pattern="#{bindings.CeixEhsClinicalLog2.hints.ReturnDate.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.FirstDayMissed.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.FirstDayMissed.label}"
+                                 id="c16">
+                        <f:facet name="filter">
+                          <af:inputDate value="#{vs.filterCriteria.FirstDayMissed}"
+                                        id="id3"/>
+                        </f:facet>
+                        <af:outputText value="#{row.FirstDayMissed}" id="ot3">
+                          <af:convertDateTime pattern="#{bindings.CeixEhsClinicalLog2.hints.FirstDayMissed.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.TransDutyStartDate.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.TransDutyStartDate.label}"
+                                 id="c17">
+                        <f:facet name="filter">
+                          <af:inputDate value="#{vs.filterCriteria.TransDutyStartDate}"
+                                        id="id6"/>
+                        </f:facet>
+                        <af:outputText value="#{row.TransDutyStartDate}"
+                                       id="ot5">
+                          <af:convertDateTime pattern="#{bindings.CeixEhsClinicalLog2.hints.TransDutyStartDate.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.TransDutyEndDate.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.TransDutyEndDate.label}"
+                                 id="c15">
+                        <f:facet name="filter">
+                          <af:inputDate value="#{vs.filterCriteria.TransDutyEndDate}"
+                                        id="id1"/>
+                        </f:facet>
+                        <af:outputText value="#{row.TransDutyEndDate}"
+                                       id="ot16">
+                          <af:convertDateTime pattern="#{bindings.CeixEhsClinicalLog2.hints.TransDutyEndDate.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.TransDutyComments.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.TransDutyComments.label}"
+                                 id="c14">
+                        <af:outputText value="#{row.TransDutyComments}"
+                                       id="ot8"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.ClinHealthNotifDate.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.ClinHealthNotifDate.label}"
+                                 id="c4">
+                        <f:facet name="filter">
+                          <af:inputDate value="#{vs.filterCriteria.ClinHealthNotifDate}"
+                                        id="id4"/>
+                        </f:facet>
+                        <af:outputText value="#{row.ClinHealthNotifDate}"
+                                       id="ot15">
+                          <af:convertDateTime pattern="#{bindings.CeixEhsClinicalLog2.hints.ClinHealthNotifDate.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.PhysicianName.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.PhysicianName.label}"
+                                 id="c22">
+                        <af:outputText value="#{row.PhysicianName}" id="ot18"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.NextOffVisitDate.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.NextOffVisitDate.label}"
+                                 id="c20">
+                        <f:facet name="filter">
+                          <af:inputDate value="#{vs.filterCriteria.NextOffVisitDate}"
+                                        id="id7"/>
+                        </f:facet>
+                        <af:outputText value="#{row.NextOffVisitDate}"
+                                       id="ot19">
+                          <af:convertDateTime pattern="#{bindings.CeixEhsClinicalLog2.hints.NextOffVisitDate.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.Tpa.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.Tpa.label}"
+                                 id="c12">
+                        <af:selectOneChoice value="#{row.bindings.Tpa.inputValue}" readOnly="true"
+                                            label="#{row.bindings.Tpa.label}"
+                                            required="#{bindings.CeixEhsClinicalLog2.hints.Tpa.mandatory}"
+                                            shortDesc="#{bindings.CeixEhsClinicalLog2.hints.Tpa.tooltip}"
+                                            id="soc4">
+                          <f:selectItems value="#{row.bindings.Tpa.items}"
+                                         id="si4"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.TpaContact.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.TpaContact.label}"
+                                 id="c8">
+                        <af:outputText value="#{row.TpaContact}" id="ot1"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.WorkerPolicyNum.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.WorkerPolicyNum.label}"
+                                 id="c21">
+                        <af:outputText value="#{row.WorkerPolicyNum}"
+                                       id="ot21"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.Comments.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.Comments.label}"
+                                 id="c10">
+                        <af:outputText value="#{row.Comments}" id="ot6"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsClinicalLog2.hints.TpaDate.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.CeixEhsClinicalLog2.hints.TpaDate.label}"
+                                 id="c5">
+                        <f:facet name="filter">
+                          <af:inputDate value="#{vs.filterCriteria.TpaDate}"
+                                        id="id2"/>
+                        </f:facet>
+                        <af:outputText value="#{row.TpaDate}" id="ot12">
+                          <af:convertDateTime pattern="#{bindings.CeixEhsClinicalLog2.hints.TpaDate.format}"/>
+                        </af:outputText>
+                      </af:column>
+                    </af:table>
+                  </af:panelCollection>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

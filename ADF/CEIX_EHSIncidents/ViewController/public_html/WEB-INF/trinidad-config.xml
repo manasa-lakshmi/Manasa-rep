@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<trinidad-config xmlns="http://myfaces.apache.org/trinidad/config">
+
+  <skin-family>alta</skin-family>
+  <skin-version>v1</skin-version>
+  <time-zone>America/New_York</time-zone>
+</trinidad-config>

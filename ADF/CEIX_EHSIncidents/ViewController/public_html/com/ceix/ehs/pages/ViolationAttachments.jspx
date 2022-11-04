@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  
+    <style type="text/css">
+     td.align-centr {
+            
+            text-align:right;
+            padding-right:12%
+        }
+        
+    </style>
+  <f:view>
+  <af:document id="d1" theme="light" title="Violation Attachments">
+      <af:messages id="m1"/>
+      <af:form id="f1" usesUpload="true">
+       <af:decorativeBox theme="light" id="db2">
+         <f:facet name="center">
+            <af:panelStretchLayout id="psl2" dimensionsFrom="children">
+              <f:facet name="center">
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                  <af:panelHeader text="Citation Attachments" id="ph1">
+                    <p>
+                      <af:inputFile label="Select File" id="if1"
+                                    binding="#{UploadViolationAttachmentMB.inputFile}"/>
+                    </p>
+                    <p>
+                       
+                    </p>
+                    <af:spacer width="10" height="10" id="s3">
+                      <p>
+                         
+                      </p>
+                      <p>
+                         
+                      </p>
+                    </af:spacer>
+                    <af:commandButton text="Upload" id="cb1"
+                                    binding="#{UploadViolationAttachmentMB.startUploadClick}"
+                                    
+                                    action="#{UploadViolationAttachmentMB.uploadFile}"/>
+                    <af:spacer width="10" height="10" id="s2"/>
+                    <af:commandButton text="Back" id="cb3"
+                                          action="back"/>
+                  
+                  </af:panelHeader>
+                
+                 
+               <br/>
+                     <af:panelCollection id="pc1" styleClass = "AFStretchWidth">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="statusbar"/>
+                    <af:table var="row" rowBandingInterval="0" id="t1"
+                              value="#{bindings.CeixEhsIncidentViolationAttachmentVO1.collectionModel}"
+                              rows="#{bindings.CeixEhsIncidentViolationAttachmentVO1.rangeSize}"
+                              selectionListener="#{bindings.CeixEhsIncidentViolationAttachmentVO1.collectionModel.makeCurrent}"
+                              rowSelection="single"
+                              emptyText="#{bindings.CeixEhsIncidentViolationAttachmentVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              fetchSize="#{bindings.CeixEhsIncidentViolationAttachmentVO1.rangeSize}">
+                      <af:column sortProperty="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.CreatedBy.name}"
+                                 sortable="false"
+                                 headerText="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.CreatedBy.label}"
+                                 id="c2" rendered="false">
+                        <af:outputText value="#{row.CreatedBy}" id="ot2"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.FileName.name}"
+                                 sortable="false" headerText="File Name"
+                                 width="300"
+                                 id="c5">
+                        <af:outputText value="#{row.FileName}" id="ot8"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.CreationDate.name}"
+                                 sortable="false"
+                                 headerText="Date Uploaded"
+                                 id="c4" rendered="true">
+                        <af:outputText value="#{row.CreationDate}" id="ot3">
+                          <af:convertDateTime pattern="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.CreationDate.format}"/>
+                        </af:outputText>
+                      </af:column>
+                     
+                      <af:column sortProperty="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.ViolationAttchmId.name}"
+                                 sortable="false"
+                                 headerText="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.ViolationAttchmId.label}"
+                                 id="c7" rendered="false">
+                        <af:outputText value="#{row.ViolationAttchmId}"
+                                       id="ot1">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.ViolationAttchmId.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.ViolationId.name}"
+                                 sortable="false"
+                                 headerText="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.ViolationId.label}"
+                                 id="c3" rendered="false">
+                        <af:outputText value="#{row.ViolationId}" id="ot6">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.ViolationId.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column id="c10" headerText="Download">
+                      <af:commandLink text="Download"  id="cl1">
+                        
+                        <af:fileDownloadActionListener filename="#{row.bindings.FileName.inputValue}"
+                                                       method="#{UploadViolationAttachmentMB.downloadBlobFile}"/>
+                      </af:commandLink>
+                      
+                      </af:column>
+                     
+                     <!-- <af:column sortProperty="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.FileContent.name}"
+                                 sortable="false"
+                                 rendered="false"
+                                 headerText="#{bindings.CeixEhsIncidentViolationAttachmentVO1.hints.FileContent.label}"
+                                 id="c1">
+                        <af:outputText value="#{row.FileContent}" id="ot4"/>
+                      </af:column>-->
+                    </af:table>
+                  </af:panelCollection>
+                  <af:outputText value="#{bindings.ViolationId.inputValue}" id="ot9"
+                                 binding="#{UploadViolationAttachmentMB.violation_id}"
+                                 rendered="false">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.ViolationId.format}"/>
+                  </af:outputText>
+                  <af:panelGridLayout id="pgl3">
+                    <af:gridRow marginTop="5px" height="auto"
+                                marginBottom="5px" id="gr1">
+                      <af:gridCell marginStart="5px" width="50%" id="gc2">
+                          
+                          
+                        
+                        <af:spacer width="10" height="10" id="s1"/>
+          
+                        <af:spacer width="10" height="10" id="Rav2Rs3"/>
+              
+                      </af:gridCell>
+                    </af:gridRow>
+                  </af:panelGridLayout>
+                
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+       
+       </af:decorativeBox>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:UploadViolationAttachmentMB-->
+</jsp:root>

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.ceix.ehs.model.services.EHSIncidentEventsAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.ceix.ehs.model.Model" name="EHSIncidentEventsAMLocal" ApplicationName="com.ceix.ehs.model.services.EHSIncidentEventsAM">
+         <Security AppModuleJndiName="com.ceix.ehs.model.services.EHSIncidentEventsAM"/>
+         <Custom JDBCDataSource="jdbc/ConsolHRDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.ceix.ehs.model.Model" name="EHSIncidentEventsAMShared" ApplicationName="com.ceix.ehs.model.services.EHSIncidentEventsAM">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="com.ceix.ehs.model.services.EHSIncidentEventsAM"/>
+         <Custom JDBCDataSource="jdbc/ConsolHRDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

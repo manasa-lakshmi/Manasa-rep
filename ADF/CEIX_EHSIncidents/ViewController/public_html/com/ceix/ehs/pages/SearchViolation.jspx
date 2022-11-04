@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <style type="text/css">
+     td.align-centr { 
+            text-align:right;
+            padding-right:12%
+        }
+    </style>
+  <f:view>
+    <af:document id="d1" theme="light" title="Search Citation">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+      <af:decorativeBox theme="light" id="db2">
+          <f:facet name="center">
+              <af:panelStretchLayout id="psl2" dimensionsFrom="children">
+                <f:facet name="center">
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                     <af:panelHeader text="Search Citations" id="ph1">
+                      <af:query id="qryId1" headerText="Search" disclosed="true"
+                                value="#{bindings.FindByMineIdandViolationJurisdicionQuery2.queryDescriptor}"
+                                model="#{bindings.FindByMineIdandViolationJurisdicionQuery2.queryModel}"
+                                    queryListener="#{CitationMB.citationQueryListener}"
+                                queryOperationListener="#{bindings.FindByMineIdandViolationJurisdicionQuery2.processQueryOperation}"
+                                resultComponentId="::pc1" inlineStyle="width:60%"
+                              saveQueryMode="hidden" modeChangeVisible="false" rows="15"/>
+                    </af:panelHeader>
+             
+                   <br/>
+                  <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="statusbar"/>
+                    <af:table value="#{bindings.CeixEhsViolationNotice11.collectionModel}"
+                              var="row"
+                              rows="#{bindings.CeixEhsViolationNotice11.rangeSize}"
+                              emptyText="#{bindings.CeixEhsViolationNotice11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              fetchSize="#{bindings.CeixEhsViolationNotice11.rangeSize}"
+                              rowBandingInterval="0"
+                              selectionListener="#{CitationMB.citationSelectionListener}"
+                              id="resId1" width="100%" rowSelection="single"
+                              filterModel="#{bindings.FindByMineIdandViolationJurisdicionQuery2.queryDescriptor}"
+                              queryListener="#{bindings.FindByMineIdandViolationJurisdicionQuery2.processQuery}"
+                              filterVisible="true" varStatus="vs"
+                              columnStretching="multiple">
+                      <af:column sortProperty="#{bindings.CeixEhsViolationNotice11.hints.MineId.name}"
+                                 sortable="true" filterable="true"
+                                 headerText="Mine Id" id="resId1c1"
+                                 width="20%" >
+                        <af:selectOneChoice value="#{row.bindings.MineId.inputValue}"
+                                            label="#{row.bindings.MineId.label}"
+                                            required="#{bindings.CeixEhsViolationNotice11.hints.MineId.mandatory}"
+                                            shortDesc="#{bindings.CeixEhsViolationNotice11.hints.MineId.tooltip}"
+                                            id="soc1" readOnly="true">
+                          <f:selectItems value="#{row.bindings.MineId.items}"
+                                         id="si1"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsViolationNotice11.hints.CitationDate.name}"
+                                 sortable="true" filterable="true"
+                                 headerText="Citation Date" id="resId1c2"
+                                 width="20%">
+                        <af:outputText value="#{row.CitationDate}" id="ot3">
+                          <af:convertDateTime pattern="#{bindings.CeixEhsViolationNotice11.hints.CitationDate.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsViolationNotice11.hints.CitationOrdNum.name}"
+                                 sortable="true" filterable="true"
+                                 headerText="Citation Order Number"
+                                 id="resId1c3" width="20%"
+                                 >
+                        <af:outputText value="#{row.CitationOrdNum}" id="ot2"
+                                       binding="#{CitationMB.citationNumber}"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.CeixEhsViolationNotice11.hints.InspectionType.name}"
+                                 sortable="true" filterable="true"
+                                 headerText="Inspection Type"
+                                 id="resId1c4" width="20%">
+                        <af:selectOneChoice value="#{row.bindings.InspectionType.inputValue}"
+                                             required="#{bindings.CeixEhsViolationNotice11.hints.InspectionType.mandatory}"
+                                            shortDesc="#{bindings.CeixEhsViolationNotice11.hints.InspectionType.tooltip}"
+                                            id="soc3" readOnly="true">
+                          <f:selectItems value="#{row.bindings.InspectionType.items}"
+                                         id="si3"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                      <af:column  headerText="Violation State" sortProperty="#{bindings.CeixEhsViolationNotice11.hints.ViolationState.name}"
+                                 sortable="true" filterable="true"
+                                 id="c1" width="20%">
+                        <af:selectOneChoice value="#{row.bindings.ViolationState.inputValue}"
+                                             required="#{bindings.CeixEhsViolationNotice11.hints.ViolationState.mandatory}"
+                                            shortDesc="#{bindings.CeixEhsViolationNotice11.hints.ViolationState.tooltip}"
+                                            id="soc4" readOnly="true">
+                          <f:selectItems value="#{row.bindings.ViolationState.items}"
+                                         id="si4"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                   
+            
+                    </af:table>
+                  </af:panelCollection>
+                  <af:panelGridLayout id="pgl3">
+                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                id="gr1">
+                      <af:gridCell marginStart="5px" width="50%" id="gc2">
+                        <af:spacer width="10" height="10" id="s1"/>
+                        <af:commandButton icon="/images/add_ena.png" text="Add Citation" id="cb2"
+                                          action="#{DisableFiledsMB.enableFields}"
+                                          binding="#{CitationMB.addButton}" disabled="false"/>
+                        <af:spacer width="10" height="10" id="s2"/>
+                        <af:commandButton icon="/images/add_ena.png" text="Edit Citation" id="cb4"
+                                          action="#{DisableFiledsMB.disableFields}"
+                                          binding="#{CitationMB.editButton}"
+                                          disabled="true"/>
+                        <af:spacer width="10" height="10" id="s3"/>
+                     </af:gridCell>
+                    </af:gridRow>
+                  </af:panelGridLayout>
+                </af:panelGroupLayout>
+                </f:facet>
+                </af:panelStretchLayout>
+                </f:facet>
+                </af:decorativeBox>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

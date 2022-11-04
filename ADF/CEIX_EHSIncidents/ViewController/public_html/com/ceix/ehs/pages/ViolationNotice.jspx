@@ -1,0 +1,463 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <style type="text/css">
+     td.align-centr {
+            text-align:right;
+            padding-right:12%
+        }
+        
+    </style>
+  <f:view>
+    <af:document id="d1" theme="light" title="Add Citation Notice">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:decorativeBox theme="light" id="db2">
+          <f:facet name="center">
+            <af:panelStretchLayout id="psl2" dimensionsFrom="children">
+              <f:facet name="center">
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                
+                <af:panelHeader text="#{DisableFiledsMB.disabled?'Edit Citation Notice':'Add Citation Notice'}" id="ph1">
+                    <p/>
+                    <p>
+                       
+                    </p>
+                  </af:panelHeader>
+                    <af:panelGridLayout id="RRpg3l3">
+                      <af:gridRow marginTop="5px" height="auto"
+                                  marginBottom="5px" id="RRg3r1">
+                        <af:gridCell marginStart="5px" width="50%" id="RRg3c2">
+                         <af:spacer width="150" height="10" id="R2R3s314"/>
+                        <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                            text="Cancel"
+                                            immediate="true" id="cb32"
+                                            action="back">
+                            <af:resetActionListener/>
+                          </af:commandButton>
+                        <af:spacer width="10" height="10" id="R2R3s31"/>
+                          <af:commandButton actionListener="#{CitationMB.saveCitation}" 
+                                    text="Save" id="cb1" />
+                          <af:spacer width="10" height="10" id="s1"/>          
+                       <!-- <af:commandButton text="Attachments" id="cb2"
+                                          action="executeViolationAttachmentQuery"
+                                          disabled="#{CitationMB.isAdd}">
+                          <af:setPropertyListener from="#{bindings.ViolationId.inputValue}"
+                                                  to="#{pageFlowScope.bviolation_id}"
+                                                  type="action"/>
+                        </af:commandButton>-->
+                        <af:spacer width="10" height="10" id="R2R3s1"/>
+                          <af:commandButton text="Print" id="cb3213"
+                                            disabled="true" rendered="false"/>
+                        <af:spacer width="10" height="10" id="RR3s533"/>
+                          <af:commandButton text="Download" id="cb32134"
+                                            disabled="true" rendered="false"/>
+                          <af:spacer width="10" height="10" id="RR3s23"/>
+                        </af:gridCell>
+                      </af:gridRow>
+                    </af:panelGridLayout>
+                    <af:separator id="s11"/>
+                    <af:spacer width="100" height="10" id="R2R3s3143"/>
+                    <af:panelFormLayout id="pfl1" rows="27"
+                                      binding="#{DisableFiledsMB.mainForm}">
+                    <af:selectOneChoice value="#{bindings.MineId.inputValue}"
+                                        label="#{bindings.MineId.label}"
+                                        required="#{bindings.MineId.hints.mandatory}"
+                                        shortDesc="#{bindings.MineId.hints.tooltip}"
+                                        id="soc11"
+                                        disabled="#{DisableFiledsMB.disabled}"
+                                        binding="#{DisableFiledsMB.mineID}">
+                      <f:selectItems value="#{bindings.MineId.items}"
+                                     id="si11"/>
+                    </af:selectOneChoice>
+                    <af:spacer width="20"  id="s2"/>
+                    <af:selectOneChoice value="#{bindings.Plant.inputValue}"
+                                        label="#{bindings.Plant.label}"
+                                        required="#{bindings.Plant.hints.mandatory}"
+                                        shortDesc="#{bindings.Plant.hints.tooltip}"
+                                        id="soc19">
+                      <f:selectItems value="#{bindings.Plant.items}" id="si19"/>
+                    </af:selectOneChoice>
+                    <af:spacer width="20"  id="ss2"/>
+                    <af:selectOneChoice value="#{bindings.VioJurisdiction.inputValue}"
+                                        label="#{bindings.VioJurisdiction.label}"
+                                        required="true"
+                                        shortDesc="#{bindings.VioJurisdiction.hints.tooltip}"
+                                        id="soc6">
+                      <f:selectItems value="#{bindings.VioJurisdiction.items}"
+                                     id="si1"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.CitationOrdNum.inputValue}"
+                                  label="#{bindings.CitationOrdNum.hints.label}"
+                                  required="#{bindings.CitationOrdNum.hints.mandatory}"
+                                  columns="#{bindings.CitationOrdNum.hints.displayWidth}"
+                                  maximumLength="#{bindings.CitationOrdNum.hints.precision}"
+                                  shortDesc="#{bindings.CitationOrdNum.hints.tooltip}"
+                                  id="it13" showRequired="true"
+                                  disabled="#{DisableFiledsMB.disabled}"
+                                  autoSubmit="true">
+                      <f:validator binding="#{bindings.CitationOrdNum.validator}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.CitationDate.inputValue}"
+                                  label="#{bindings.CitationDate.hints.label}"
+                                  required="#{bindings.CitationDate.hints.mandatory}"
+                                  shortDesc="#{bindings.CitationDate.hints.tooltip}"
+                                  id="id1"
+                                  disabled="#{DisableFiledsMB.disabled}">
+                      <f:validator binding="#{bindings.CitationDate.validator}"/>
+                      <af:convertDateTime pattern="#{bindings.CitationDate.format}"/>
+                    </af:inputDate>
+                    <af:selectOneChoice value="#{bindings.InspectionType.inputValue}"
+                                        label="#{bindings.InspectionType.label}"
+                                        required="#{bindings.InspectionType.hints.mandatory}"
+                                        shortDesc="#{bindings.InspectionType.hints.tooltip}"
+                                        id="soc7">
+                      <f:selectItems value="#{bindings.InspectionType.items}"
+                                     id="si5"/>
+                    </af:selectOneChoice>
+                                        <af:spacer width="20"  id="s3"/>
+
+                    <af:selectOneChoice value="#{bindings.ViolationState.inputValue}"
+                                        label="#{bindings.ViolationState.label}"
+                                        required="#{bindings.ViolationState.hints.mandatory}"
+                                        shortDesc="#{bindings.ViolationState.hints.tooltip}"
+                                        id="soc13"
+                                        binding="#{CitationMB.violationState}">
+                      <f:selectItems value="#{bindings.ViolationState.items}"
+                                     id="si8"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.InspectorState.inputValue}"
+                                  label="#{bindings.InspectorState.hints.label}"
+                                  required="#{bindings.InspectorState.hints.mandatory}"
+                                  columns="#{bindings.InspectorState.hints.displayWidth}"
+                                  maximumLength="#{bindings.InspectorState.hints.precision}"
+                                  shortDesc="#{bindings.InspectorState.hints.tooltip}"
+                                  id="it6">
+                      <f:validator binding="#{bindings.InspectorState.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.InspectorFederal.inputValue}"
+                                  label="#{bindings.InspectorFederal.hints.label}"
+                                  required="#{bindings.InspectorFederal.hints.mandatory}"
+                                  columns="#{bindings.InspectorFederal.hints.displayWidth}"
+                                  maximumLength="#{bindings.InspectorFederal.hints.precision}"
+                                  shortDesc="#{bindings.InspectorFederal.hints.tooltip}"
+                                  id="it16">
+                      <f:validator binding="#{bindings.InspectorFederal.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ConsolEscort.inputValue}"
+                                  label="#{bindings.ConsolEscort.hints.label}"
+                                  required="#{bindings.ConsolEscort.hints.mandatory}"
+                                  columns="#{bindings.ConsolEscort.hints.displayWidth}"
+                                  maximumLength="#{bindings.ConsolEscort.hints.precision}"
+                                  shortDesc="#{bindings.ConsolEscort.hints.tooltip}"
+                                  id="it18">
+                      <f:validator binding="#{bindings.ConsolEscort.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ShiftForeman.inputValue}"
+                                  label="#{bindings.ShiftForeman.hints.label}"
+                                  required="#{bindings.ShiftForeman.hints.mandatory}"
+                                  columns="#{bindings.ShiftForeman.hints.displayWidth}"
+                                  maximumLength="#{bindings.ShiftForeman.hints.precision}"
+                                  shortDesc="#{bindings.ShiftForeman.hints.tooltip}"
+                                  id="it14">
+                      <f:validator binding="#{bindings.ShiftForeman.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.Abated.inputValue}"
+                                        label="#{bindings.Abated.label}"
+                                        required="#{bindings.Abated.hints.mandatory}"
+                                        shortDesc="#{bindings.Abated.hints.tooltip}"
+                                        id="soc2">
+                      <f:selectItems value="#{bindings.Abated.items}"
+                                     id="si13"/>
+                    </af:selectOneChoice>
+                                        <af:spacer width="20"  id="s4"/>
+
+                    <af:selectOneChoice value="#{bindings.Vacated.inputValue}"
+                                        label="#{bindings.Vacated.label}"
+                                        required="#{bindings.Vacated.hints.mandatory}"
+                                        shortDesc="#{bindings.Vacated.hints.tooltip}"
+                                        id="soc15">
+                      <f:selectItems value="#{bindings.Vacated.items}"
+                                     id="si6"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.ViolationFedPart.inputValue}"
+                                        label="#{bindings.ViolationFedPart.label}"
+                                        required="#{bindings.ViolationFedPart.hints.mandatory}"
+                                        shortDesc="#{bindings.ViolationFedPart.hints.tooltip}"
+                                        autoSubmit="true"
+                                        valueChangeListener="#{CitationMB.clearFedSectionVals}"
+                                        id="soc17" >
+                      <f:selectItems value="#{bindings.ViolationFedPart.items}"
+                                     id="si7"/>
+                    </af:selectOneChoice>
+                        <af:spacer width="20"  id="s76"/>
+                        
+                    <af:selectOneChoice value="#{bindings.ViolationFedCode.inputValue}"
+                                        label="#{bindings.ViolationFedCode.label}"
+                                        required="#{bindings.ViolationFedCode.hints.mandatory}"
+                                        shortDesc="#{bindings.ViolationFedCode.hints.tooltip}"
+                                        id="soc18" 
+                                        partialTriggers="soc17"
+                                        >
+                      <f:selectItems value="#{bindings.ViolationFedCode.items}"
+                                     id="si18"/>
+                    </af:selectOneChoice>
+                    
+                                        <af:spacer width="20"  id="s6"/>
+
+                    <af:selectOneChoice value="#{bindings.CombMaterial.inputValue}"
+                                        label="#{bindings.CombMaterial.label}"
+                                        required="#{bindings.CombMaterial.hints.mandatory}"
+                                        shortDesc="#{bindings.CombMaterial.hints.tooltip}"
+                                        id="soc10"
+                                        >
+                      <f:selectItems value="#{bindings.CombMaterial.items}"
+                                     id="si15"/>
+                    </af:selectOneChoice>
+                                  <af:spacer width="20"  id="s7"/>
+
+                    <af:selectOneChoice value="#{bindings.InjuryLikely.inputValue}"
+                                        label="#{bindings.InjuryLikely.label}"
+                                        required="#{bindings.InjuryLikely.hints.mandatory}"
+                                        shortDesc="#{bindings.InjuryLikely.hints.tooltip}"
+                                        id="soc16">
+                      <f:selectItems value="#{bindings.InjuryLikely.items}"
+                                     id="si9"/>
+                    </af:selectOneChoice>
+                                        <af:spacer width="20"  id="s8"/>
+
+                    <af:selectOneChoice value="#{bindings.InjuryImpact.inputValue}"
+                                        label="#{bindings.InjuryImpact.label}"
+                                        required="#{bindings.InjuryImpact.hints.mandatory}"
+                                        shortDesc="#{bindings.InjuryImpact.hints.tooltip}"
+                                        id="soc1">
+                      <f:selectItems value="#{bindings.InjuryImpact.items}"
+                                     id="si16"/>
+                    </af:selectOneChoice>
+                                        <af:spacer width="20"  id="s9"/>
+
+                    <af:selectOneChoice value="#{bindings.SigSub.inputValue}"
+                                        label="#{bindings.SigSub.label}"
+                                        required="#{bindings.SigSub.hints.mandatory}"
+                                        shortDesc="#{bindings.SigSub.hints.tooltip}"
+                                        id="soc5">
+                      <f:selectItems value="#{bindings.SigSub.items}"
+                                     id="si17"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.PersonsEffected.inputValue}"
+                                  label="#{bindings.PersonsEffected.hints.label}"
+                                  required="#{bindings.PersonsEffected.hints.mandatory}"
+                                  columns="#{bindings.PersonsEffected.hints.displayWidth}"
+                                  maximumLength="#{bindings.PersonsEffected.hints.precision}"
+                                  shortDesc="#{bindings.PersonsEffected.hints.tooltip}"
+                                  id="it1" converter="javax.faces.Integer">
+                      <f:validator binding="#{bindings.PersonsEffected.validator}"/>
+                    </af:inputText>
+                   
+                    <af:selectOneChoice value="#{bindings.Negligence.inputValue}"
+                                        label="#{bindings.Negligence.label}"
+                                        required="#{bindings.Negligence.hints.mandatory}"
+                                        shortDesc="#{bindings.Negligence.hints.tooltip}"
+                                        id="soc4">
+                      <f:selectItems value="#{bindings.Negligence.items}"
+                                     id="si10"/>
+                    </af:selectOneChoice>
+                                        <af:spacer width="20"  id="s92"/>
+
+                    <af:selectOneChoice value="#{bindings.ActionType.inputValue}"
+                                        label="#{bindings.ActionType.label}"
+                                        required="#{bindings.ActionType.hints.mandatory}"
+                                        shortDesc="#{bindings.ActionType.hints.tooltip}"
+                                        id="soc8">
+                      <f:selectItems value="#{bindings.ActionType.items}"
+                                     id="si3"/>
+                    </af:selectOneChoice>
+                                        <af:spacer width="20"  id="s82"/>
+
+                    <af:selectOneChoice value="#{bindings.IssuanceType.inputValue}"
+                                        label="#{bindings.IssuanceType.label}"
+                                        required="#{bindings.IssuanceType.hints.mandatory}"
+                                        shortDesc="#{bindings.IssuanceType.hints.tooltip}"
+                                        id="soc9">
+                      <f:selectItems value="#{bindings.IssuanceType.items}"
+                                     id="si4"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.MineArea.inputValue}"
+                                  label="#{bindings.MineArea.hints.label}"
+                                  required="#{bindings.MineArea.hints.mandatory}"
+                                  columns="#{bindings.MineArea.hints.displayWidth}"
+                                  maximumLength="#{bindings.MineArea.hints.precision}"
+                                  shortDesc="#{bindings.MineArea.hints.tooltip}"
+                                  id="it3">
+                      <f:validator binding="#{bindings.MineArea.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.MineLocation.inputValue}"
+                                  label="#{bindings.MineLocation.hints.label}"
+                                  required="#{bindings.MineLocation.hints.mandatory}"
+                                  columns="#{bindings.MineLocation.hints.displayWidth}"
+                                  maximumLength="#{bindings.MineLocation.hints.precision}"
+                                  shortDesc="#{bindings.MineLocation.hints.tooltip}"
+                                  id="it11">
+                      <f:validator binding="#{bindings.MineLocation.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.ChargeArea.inputValue}"
+                                        label="#{bindings.ChargeArea.label}"
+                                        required="#{bindings.ChargeArea.hints.mandatory}"
+                                        shortDesc="#{bindings.ChargeArea.hints.tooltip}"
+                                        id="soc12">
+                      <f:selectItems value="#{bindings.ChargeArea.items}"
+                                     id="si12"/>
+                    </af:selectOneChoice>
+                    
+                    <af:inputText value="#{bindings.VioDescription.inputValue}"
+                                  label="#{bindings.VioDescription.hints.label}"
+                                  required="#{bindings.VioDescription.hints.mandatory}"
+                                  columns="#{bindings.VioDescription.hints.displayWidth}"
+                                  maximumLength="#{bindings.VioDescription.hints.precision}"
+                                  shortDesc="#{bindings.VioDescription.hints.tooltip}"
+                                  rows="4"
+                                  id="it19">
+                      <f:validator binding="#{bindings.VioDescription.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Comments.inputValue}"
+                                  label="#{bindings.Comments.hints.label}"
+                                  required="#{bindings.Comments.hints.mandatory}"
+                                  columns="#{bindings.Comments.hints.displayWidth}"
+                                  maximumLength="#{bindings.Comments.hints.precision}"
+                                  rows="4"
+                                  shortDesc="#{bindings.Comments.hints.tooltip}"
+                                  id="it8">
+                      <f:validator binding="#{bindings.Comments.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.ConfRequested.inputValue}"
+                                        label="#{bindings.ConfRequested.label}"
+                                        required="#{bindings.ConfRequested.hints.mandatory}"
+                                        shortDesc="#{bindings.ConfRequested.hints.tooltip}"
+                                        id="soc14">
+                      <f:selectItems value="#{bindings.ConfRequested.items}"
+                                     id="si2"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.ProposedPenalty.inputValue}"
+                                  label="#{bindings.ProposedPenalty.hints.label}"
+                                  required="#{bindings.ProposedPenalty.hints.mandatory}"
+                                  columns="#{bindings.ProposedPenalty.hints.displayWidth}"
+                                  maximumLength="#{bindings.ProposedPenalty.hints.precision}"
+                                  shortDesc="#{bindings.ProposedPenalty.hints.tooltip}"
+                                  id="it9">
+                      <f:validator binding="#{bindings.ProposedPenalty.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ProposedPenalty.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CaseNumber.inputValue}"
+                                  label="#{bindings.CaseNumber.hints.label}"
+                                  required="#{bindings.CaseNumber.hints.mandatory}"
+                                  columns="#{bindings.CaseNumber.hints.displayWidth}"
+                                  maximumLength="#{bindings.CaseNumber.hints.precision}"
+                                  shortDesc="#{bindings.CaseNumber.hints.tooltip}"
+                                  id="it4">
+                      <f:validator binding="#{bindings.CaseNumber.validator}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.SubmittedDate.inputValue}"
+                                  label="#{bindings.SubmittedDate.hints.label}"
+                                  required="#{bindings.SubmittedDate.hints.mandatory}"
+                                  shortDesc="#{bindings.SubmittedDate.hints.tooltip}"
+                                  id="id2">
+                      <f:validator binding="#{bindings.SubmittedDate.validator}"/>
+                      <af:convertDateTime pattern="#{bindings.SubmittedDate.format}"/>
+                    </af:inputDate>
+                    <af:inputText value="#{bindings.DocketNumber.inputValue}"
+                                  label="#{bindings.DocketNumber.hints.label}"
+                                  required="#{bindings.DocketNumber.hints.mandatory}"
+                                  columns="#{bindings.DocketNumber.hints.displayWidth}"
+                                  maximumLength="#{bindings.DocketNumber.hints.precision}"
+                                  
+                                  shortDesc="#{bindings.DocketNumber.hints.tooltip}"
+                                  id="it2" >
+                      <f:validator binding="#{bindings.DocketNumber.validator}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.DocketDate.inputValue}"
+                                  label="#{bindings.DocketDate.hints.label}"
+                                  required="#{bindings.DocketDate.hints.mandatory}"
+                                  shortDesc="#{bindings.DocketDate.hints.tooltip}"
+                                  id="id3">
+                      <f:validator binding="#{bindings.DocketDate.validator}"/>
+                      <af:convertDateTime pattern="#{bindings.DocketDate.format}"/>
+                    </af:inputDate>
+                    <af:selectOneChoice value="#{bindings.HearingResult.inputValue}"
+                                        label="#{bindings.HearingResult.label}"
+                                        required="#{bindings.HearingResult.hints.mandatory}"
+                                        shortDesc="#{bindings.HearingResult.hints.tooltip}"
+                                        id="soc3">
+                      <f:selectItems value="#{bindings.HearingResult.items}"
+                                     id="si14"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.SettlementAmt.inputValue}"
+                                  label="#{bindings.SettlementAmt.hints.label}"
+                                  required="#{bindings.SettlementAmt.hints.mandatory}"
+                                  columns="#{bindings.SettlementAmt.hints.displayWidth}"
+                                  maximumLength="#{bindings.SettlementAmt.hints.precision}"
+                                  shortDesc="#{bindings.SettlementAmt.hints.tooltip}"
+                                  id="it17"
+                                  converter="javax.faces.BigDecimal">
+                      <f:validator binding="#{bindings.SettlementAmt.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.SettlementAmt.format}"
+                                        />
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Notes.inputValue}"
+                                  label="#{bindings.Notes.hints.label}"
+                                  required="#{bindings.Notes.hints.mandatory}"
+                                  columns="#{bindings.Notes.hints.displayWidth}"
+                                  maximumLength="#{bindings.Notes.hints.precision}"
+                                  shortDesc="#{bindings.Notes.hints.tooltip}"
+                                  rows="4"
+                                  id="it10">
+                      <f:validator binding="#{bindings.Notes.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Stic.inputValue}"
+                                  simple="true" visible="false"
+                                  required="#{bindings.Stic.hints.mandatory}"
+                                  columns="#{bindings.Stic.hints.displayWidth}"
+                                  maximumLength="#{bindings.Stic.hints.precision}"
+                                  shortDesc="#{bindings.Stic.hints.tooltip}"
+                                  id="it5">
+                      <f:validator binding="#{bindings.Stic.validator}"/>
+                    </af:inputText>
+                    <af:selectBooleanCheckbox value="#{bindings.DisSticVal.inputValue}"
+                                              label="#{bindings.Stic.label}"
+                                              shortDesc="#{bindings.DisSticVal.hints.tooltip}"
+                                              id="sbc1"
+                                              binding="#{CitationMB.dispSticVal}"/>
+                    <af:inputText value="#{bindings.Outby.inputValue}"
+                                  simple="true"
+                                  visible="false"
+                                  required="#{bindings.Outby.hints.mandatory}"
+                                  columns="#{bindings.Outby.hints.displayWidth}"
+                                  maximumLength="#{bindings.Outby.hints.precision}"
+                                  shortDesc="#{bindings.Outby.hints.tooltip}"
+                                  id="it7">
+                      <f:validator binding="#{bindings.Outby.validator}"/>
+                    </af:inputText>
+                    
+                     <af:selectBooleanCheckbox value="#{bindings.DisOutbyVal.inputValue}"
+                                              label="#{bindings.Outby.label}"
+                                              shortDesc="#{bindings.DisOutbyVal.hints.tooltip}"
+                                              id="sbc2"
+                                              binding="#{CitationMB.dispOutbyVal}"/>
+
+                    <f:facet name="footer"/>
+                    
+                    
+                  </af:panelFormLayout>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

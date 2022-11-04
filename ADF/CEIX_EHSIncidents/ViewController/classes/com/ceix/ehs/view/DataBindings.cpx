@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.ceix.ehs.view" ClientType="Generic">
+  <pageMap>
+    <page path="/com/ceix/ehs/pages/SearchIncidents.jspx"
+          usageId="com_ceix_ehs_view_SearchIncidentsPageDef"/>
+    <page path="/com/ceix/ehs/pages/ClinicalLogDetails.jspx"
+          usageId="com_ceix_ehs_view_CriticalLogDetailsPageDef"/>
+    <page path="/com/ceix/ehs/pages/SearchViolation.jspx"
+          usageId="com_ceix_ehs_view_SearchViolationPageDef"/>
+    <page path="/com/ceix/ehs/pages/ViolationNotice.jspx"
+          usageId="com_ceix_ehs_view_ViolationNoticePageDef"/>
+    <page path="/com/ceix/ehs/pages/ViewEditClinicalLogDetails.jspx"
+          usageId="com_ceix_ehs_view_ViewEditClinicalLogDetailsPageDef"/>
+    <page path="/com/ceix/ehs/pages/ClinicalLogReport.jspx"
+          usageId="com_ceix_ehs_view_ViewClinicalEntryPageDef"/>
+    <page path="/WEB-INF/com/ceix/ehs/flow/violation_search.xml#violation_search@ExecuteWithParams"
+          usageId="com_ceix_ehs_view_violation_search_violation_search_ExecuteWithParamsPageDef"/>
+    <page path="/com/ceix/ehs/pages/ViolationAttachments.jspx"
+          usageId="com_ceix_ehs_view_ViolationAttachmentsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_ceix_ehs_view_SearchIncidentsPageDef"
+          path="com.ceix.ehs.pages.SearchIncidentsPageDef"/>
+    <page id="com_ceix_ehs_view_CriticalLogDetailsPageDef"
+          path="com.ceix.ehs.pages.CriticalLogDetailsPageDef"/>
+    <page id="com_ceix_ehs_view_ViolationNoticePageDef"
+          path="com.ceix.ehs.pages.ViolationNoticePageDef"/>
+    <page id="com_ceix_ehs_view_SearchViolationPageDef"
+          path="com.ceix.ehs.pages.SearchViolationPageDef"/>
+    <page id="com_ceix_ehs_view_ViewEditClinicalLogDetailsPageDef"
+          path="com.ceix.ehs.pages.ViewEditClinicalLogDetailsPageDef"/>
+    <page id="com_ceix_ehs_view_ViewClinicalEntryPageDef"
+          path="com.ceix.ehs.pages.ViewClinicalEntryPageDef"/>
+    <page id="com_ceix_ehs_view_violation_search_violation_search_ExecuteWithParamsPageDef"
+          path="com.ceix.ehs.flow.violation_search_violation_search_ExecuteWithParamsPageDef"/>
+    <page id="com_ceix_ehs_view_ViolationAttachmentsPageDef"
+          path="com.ceix.ehs.pages.ViolationAttachmentsPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="EHSIncidentEventsAMDataControl"
+                     Package="com.ceix.ehs.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="EHSIncidentEventsAMLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

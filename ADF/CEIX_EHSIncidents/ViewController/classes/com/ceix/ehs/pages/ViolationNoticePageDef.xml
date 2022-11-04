@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="ViolationNoticePageDef"
+                Package="com.ceix.ehs.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CeixEhsViolationNotice1" RangeSize="25"
+              DataControl="EHSIncidentEventsAMDataControl"
+              id="CeixEhsViolationNotice1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="ViolationId">
+      <AttrNames>
+        <Item Value="ViolationId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_MineId" id="MineId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_VioJurisdiction" id="VioJurisdiction"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="CitationOrdNum">
+      <AttrNames>
+        <Item Value="CitationOrdNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="CitationDate">
+      <AttrNames>
+        <Item Value="CitationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_InspectionType" id="InspectionType" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_ViolationState" id="ViolationState" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="InspectorState">
+      <AttrNames>
+        <Item Value="InspectorState"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="InspectorFederal">
+      <AttrNames>
+        <Item Value="InspectorFederal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="ConsolEscort">
+      <AttrNames>
+        <Item Value="ConsolEscort"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="ShiftForeman">
+      <AttrNames>
+        <Item Value="ShiftForeman"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_Abated" id="Abated" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_Vacated" id="Vacated" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_ViolationFedPart" id="ViolationFedPart"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_CombMaterial" id="CombMaterial" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_InjuryLikely" id="InjuryLikely" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_InjuryImpact" id="InjuryImpact" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_SigSub" id="SigSub" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="PersonsEffected">
+      <AttrNames>
+        <Item Value="PersonsEffected"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_Negligence" id="Negligence" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_ActionType" id="ActionType" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_IssuanceType" id="IssuanceType" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="MineArea">
+      <AttrNames>
+        <Item Value="MineArea"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="MineLocation">
+      <AttrNames>
+        <Item Value="MineLocation"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_ChargeArea" id="ChargeArea" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="VioDescription">
+      <AttrNames>
+        <Item Value="VioDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_ConfRequested" id="ConfRequested" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="ProposedPenalty">
+      <AttrNames>
+        <Item Value="ProposedPenalty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="CaseNumber">
+      <AttrNames>
+        <Item Value="CaseNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="SubmittedDate">
+      <AttrNames>
+        <Item Value="SubmittedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="DocketNumber">
+      <AttrNames>
+        <Item Value="DocketNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="DocketDate">
+      <AttrNames>
+        <Item Value="DocketDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_HearingResult" id="HearingResult" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="SettlementAmt">
+      <AttrNames>
+        <Item Value="SettlementAmt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="EHSIncidentEventsAMDataControl"/>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="LastUpdateDate">
+     <AttrNames>
+        <Item Value="LastUpdateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="Attribute1">
+      <AttrNames>
+        <Item Value="Attribute1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="Attribute2">
+      <AttrNames>
+        <Item Value="Attribute2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="Attribute3">
+      <AttrNames>
+        <Item Value="Attribute3"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="Attribute4">
+      <AttrNames>
+        <Item Value="Attribute4"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="Attribute5">
+      <AttrNames>
+        <Item Value="Attribute5"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="Attribute6">
+      <AttrNames>
+        <Item Value="Attribute6"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="Attribute7">
+      <AttrNames>
+        <Item Value="Attribute7"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="Attribute8">
+      <AttrNames>
+        <Item Value="Attribute8"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="Attribute9">
+      <AttrNames>
+        <Item Value="Attribute9"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="Attribute10">
+      <AttrNames>
+        <Item Value="Attribute10"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="save"
+                  InstanceName="EHSIncidentEventsAMDataControl.dataProvider"
+                  DataControl="EHSIncidentEventsAMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="save" IsViewObjectMethod="false"/>
+    <action id="Commit2" DataControl="EHSIncidentEventsAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_ViolationFedCode" id="ViolationFedCode"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CeixEhsViolationNotice1Iterator" StaticList="false"
+          Uses="LOV_Plant" id="Plant" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <button IterBinding="CeixEhsViolationNotice1Iterator" id="DisSticVal"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="DisSticVal"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator" id="Stic">
+      <AttrNames>
+        <Item Value="Stic"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator" id="Outby">
+      <AttrNames>
+        <Item Value="Outby"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixEhsViolationNotice1Iterator"
+                     id="DisOutbyVal">
+      <AttrNames>
+        <Item Value="DisOutbyVal"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
