@@ -1,0 +1,2232 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle"
+         value="#{adfBundle['com.ceix.quality.view.ViewControllerBundle']}"/>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <style type="text/css">
+     td.align-centr {
+            
+            text-align:right;
+            padding-right:2%
+        }
+        th.x150_ {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border-right: 1px solid #979991;
+        border-right-color: rgb(151, 153, 145);
+    border-bottom: 1px solid #979991;
+        border-bottom-color: rgb(151, 153, 145);
+    border-color: #D6DFE6;
+    background-color: #F2F4F7;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 2px;
+    padding-right: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    color: #000000;
+    font-weight: bold;
+    padding: 5px;
+    cursor:auto;
+}
+td.xia_ {
+    font-weight: normal;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 2px;
+    border-right: none;
+        border-right-color: currentcolor;
+    border-bottom: none;
+        border-bottom-color: currentcolor;
+    padding-right: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
+        padding-right: 5px;
+    background-color: #FFFFFF;
+    color: #333333;
+    border-color: #EEEEEE;
+}
+        
+    </style>
+  <f:view>
+    <af:document id="d1" theme="light" title="Search Lab Results">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:decorativeBox theme="light" id="db2">
+          <f:facet name="center">
+            <af:panelStretchLayout id="psl2" dimensionsFrom="children">
+              <f:facet name="center">
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                  <af:panelGroupLayout layout="vertical" id="pgl2">
+                    <af:panelHeader text="Lab Results" id="ph1">
+                      <af:query id="qryId1" headerText="Search" disclosed="true"
+                                value="#{bindings.CEIXOrdQualLabResltCustomVOCriteriaQuery.queryDescriptor}"
+                                model="#{bindings.CEIXOrdQualLabResltCustomVOCriteriaQuery.queryModel}"
+                                queryListener="#{pageFlowScope.LabSearchMB.handleSearch}"
+                                queryOperationListener="#{bindings.CEIXOrdQualLabResltCustomVOCriteriaQuery.processQueryOperation}"
+                                resultComponentId="::pc1:resId1"
+                                saveQueryMode="hidden"
+                                modeChangeVisible="false"/>
+                    </af:panelHeader>
+                    <af:commandButton text="Add New" id="cb3"
+                                      action="addNewLbResult"
+                                      disabled="#{securityContext.userInRole['CEIX_QualityLabResultsUsersRO']}"
+                                      icon="/images/add_ena.png"/>
+                    <af:spacer width="10" height="10" id="s3"/>
+                    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                      <f:facet name="menus"/>
+                      <f:facet name="toolbar"/>
+                      <f:facet name="statusbar"/>
+                      
+                      
+                      <af:table value="#{bindings.CEIXOrdQualLabReslt1.collectionModel}"
+                                var="row"
+                                rows="#{bindings.CEIXOrdQualLabReslt1.rangeSize}"
+                                emptyText="#{bindings.CEIXOrdQualLabReslt1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                fetchSize="10"
+                                rowBandingInterval="0"
+                                filterModel="#{bindings.CEIXOrdQualLabResltCustomVOCriteriaQuery.queryDescriptor}"
+                                queryListener="#{bindings.CEIXOrdQualLabResltCustomVOCriteriaQuery.processQuery}"
+                                filterVisible="true" varStatus="vs"
+                                binding="#{pageFlowScope.LabSearchMB._resultsTable}"
+                                selectionListener="#{pageFlowScope.LabSearchMB.rowSelectionListener}"
+                                scrollPolicy="page"
+                                autoHeightRows="0"
+                                rowSelection="single" id="resId1"
+                                partialTriggers=":::cb5 cb4">
+                        
+                        <af:column id="c1" headerText="Delete" align="center">
+                            <af:commandImageLink
+                                             id="cil1"
+                                             icon="/images/delete_ena.png">
+                                             <af:showPopupBehavior popupId="p5" triggerType="action"/>
+                            </af:commandImageLink>
+                        <af:popup id="p5">
+                              <af:dialog id="d7"
+                              dialogListener="#{pageFlowScope.LabSearchMB.dialogDeleteListner}" title="Confirmation">
+                              Selected record will be deleted, click Ok to Confirm.
+                            </af:dialog>
+			</af:popup>              
+
+                    
+                      </af:column>
+                        <af:column sortProperty="#{bindings.CEIXOrdQualLabReslt1.hints.OrderNumber.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.CEIXOrdQualLabReslt1.hints.OrderNumber.label}"
+                                   id="resId1c1">
+                          <af:outputText value="#{row.OrderNumber}" id="ot7"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CEIXOrdQualLabReslt1.hints.Train.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.CEIXOrdQualLabReslt1.hints.Train.label}"
+                                   id="resId1c2">
+                          <af:outputText value="#{row.Train}" id="ot3"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CEIXOrdQualLabReslt1.hints.Yymm.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.CEIXOrdQualLabReslt1.hints.Yymm.label}"
+                                   id="resId1c3">
+                          <af:outputText value="#{row.Yymm}" id="ot2"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CEIXOrdQualLabReslt1.hints.Cars.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.CEIXOrdQualLabReslt1.hints.Cars.label}"
+                                   id="resId1c4">
+                          <af:outputText value="#{row.Cars}" id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.CEIXOrdQualLabReslt1.hints.Cars.format}"/>
+                          </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CEIXOrdQualLabReslt1.hints.Datesamp.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.CEIXOrdQualLabReslt1.hints.Datesamp.label}"
+                                   id="resId1c5">
+                          <f:facet name="filter">
+                            <af:inputDate value="#{vs.filterCriteria.Datesamp}"
+                                          id="id1"/>
+                          </f:facet>
+                          <af:outputText value="#{row.Datesamp}" id="ot6">
+                            <af:convertDateTime pattern="#{bindings.CEIXOrdQualLabReslt1.hints.Datesamp.format}"/>
+                          </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CEIXOrdQualLabReslt1.hints.Rptsampno.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.CEIXOrdQualLabReslt1.hints.Rptsampno.label}"
+                                   id="resId1c6">
+                          <af:outputText value="#{row.Rptsampno}" id="ot8"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CEIXOrdQualLabReslt1.hints.Sampmethod.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.CEIXOrdQualLabReslt1.hints.Sampmethod.label}"
+                                   id="resId1c7">
+                          <af:outputText value="#{row.Sampmethod}" id="ot5"/>
+                        </af:column>
+                    
+                       
+                      </af:table>
+                    </af:panelCollection>
+                     
+                     <af:spacer width="10" height="20" id="s1"/>
+
+                     
+                    <af:panelGroupLayout id="pgl3"
+                                         binding="#{pageFlowScope.LabSearchMB._contractMetricsFormContainer}"
+                                        visible="false"
+                                         >
+
+<table  cellspacing="10" cellpadding="10" border="0"
+                           
+                           style="border:1px;border-collapse: collapse; ">
+                           <tr style="display:none">
+                           <td colspan="6">
+                            <af:inputText value="#{bindings.OrderNumber.inputValue}"
+                                          simple="true"
+                                          required="#{bindings.OrderNumber.hints.mandatory}"
+                                          columns="10"
+                                          maximumLength="#{bindings.OrderNumber.hints.precision}"
+                                          shortDesc="#{bindings.OrderNumber.hints.tooltip}"
+                                          id="it26"
+                                          binding="#{pageFlowScope.LabSearchMB._orderNumberInputField}">
+                              <f:validator binding="#{bindings.OrderNumber.validator}"/>
+                            </af:inputText>
+                          </td>
+                           </tr>
+                           <tr>
+                              <td width="100px" align="right">
+                              <af:outputLabel  value="#{bindings.OrderNumber.hints.label}" id="ol2"/>
+                              </td>
+                              <td class="xia" width="50px">
+                               <af:outputText clientComponent="true" value="#{bindings.OrderNumber.inputValue}"
+                                       id="ot9"
+                                              binding="#{pageFlowScope.LabSearchMB._orderNumberLabel}"/>
+                              </td>
+                              <td width="60px">
+                              <af:commandButton icon="/images/func_search_16_ena.png" id="cb2">
+                              <af:showPopupBehavior popupId="p1"/>
+                            </af:commandButton>
+                          </td>
+
+                          <td width="50px" align="right">
+                              <af:outputLabel value="#{bindings.Train.hints.label}" id="ol3"/>
+                              </td>
+                              <td class="xia" width="50px">
+                               <af:outputText value="#{bindings.Train.inputValue}"
+                                       id="ot10"/>
+                                       
+                              </td>
+                              
+                           </tr>
+                         <tr>
+                              <td width="100px" align="right">
+                          <af:outputLabel value="#{bindings.Rptsampno.hints.label}" id="ol4"/>
+                          </td>
+                              <td class="xia" width="50px">
+                              <af:outputText value="#{bindings.Rptsampno.inputValue}"
+                                       id="ot12"/>
+                              </td>
+                              <td width="50px"> </td>
+                          
+                          <td class="xia" width="100px" align="right">
+                            <af:outputLabel value="#{bindings.Datesamp.hints.label}" id="ol5"/>
+                          </td>
+                              <td class="xia" width="50px">
+                               <af:outputText value="#{bindings.Datesamp.inputValue}"
+                                       id="ot13">
+                          <af:convertDateTime pattern="#{bindings.Datesamp.format}"/>
+                        </af:outputText>
+                              </td>
+                              
+
+</tr>                              
+     </table>
+                      <af:spacer width="10" height="20" id="s2"/>
+                      
+                    
+                     <table  width="100%" class="x11n AFStretchWidth" cellspacing="10" cellpadding="10" border="1"
+                           style="border:1px;border-collapse: collapse; ">
+                      <tr class="x11o">
+                        <th class="x150_" align="center">Attribute</th>
+                        <th class="x150_" align="center">Actuals</th>
+                        <th class="x150_" align="center">Warning Code</th>
+                        <th class="x150_" align="center">Difference</th>
+                        <th class="x150_" colspan="3" align="center">Captured Metrics</th>
+                      </tr>
+                     <tr class="x11o">
+                        <th class="x150_" width="14%" > </th>
+                        <th class="x150_" width="14%" align="center">
+                             
+                          </th>
+                        <th class="x150_" width="16%" align="center">
+                             
+                          </th>
+                        <th class="x150_" width="14%" align="center">
+                             
+                          </th>
+                        <th class="x150_" width="14%" align="center">Typical </th>
+                        <th class="x150_" width="14%" align="center">Suspension</th>
+                        <th class="x150_" width="14%" align="center">Reject</th>
+                        
+                      </tr>
+                     
+<tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.TM}" id="ol17"
+                                shortDesc="#{viewcontrollerBundle.TM_DESC}"/>
+              </td>
+   <td class="xia" align="center">
+ <af:inputText value="#{bindings.Tm.inputValue}"
+                                      required="#{bindings.Tm.hints.mandatory}"
+                                      columns="#{bindings.Tm.hints.displayWidth}"
+                                      maximumLength="#{bindings.Tm.hints.displayWidth}"
+                                      shortDesc="#{bindings.Tm.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it78">
+                          <f:validator binding="#{bindings.Tm.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.Tm.format}"/>
+                        </af:inputText>
+                        </td>
+                          <td class="xia" >
+                             <af:selectOneChoice value="#{bindings.TmWarngCode1.inputValue}"
+                                              readOnly="true"
+                                              required="#{bindings.TmWarngCode1.hints.mandatory}"
+                                              shortDesc="#{bindings.TmWarngCode1.hints.tooltip}"
+                                              id="soc2">
+                            <f:selectItems value="#{bindings.TmWarngCode1.items}"
+                                           id="si2"/>
+                          </af:selectOneChoice>
+                        </td>
+                        <td class="xia" align="center">
+                         <af:outputLabel id="ol1"
+                                         value="#{pageFlowScope.LabSearchMB._tmDifference}"
+                                         partialTriggers="it78"
+                                         inlineStyle="font-weight:bold; color:Red;"/>
+                        </td>              
+                       <td class="xia" align="center">
+                         <af:inputText value="#{bindings.TmTypical.inputValue}"
+                            readOnly="true"
+                            required="#{bindings.TmTypical.hints.mandatory}"
+                            columns="#{bindings.TmTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.TmTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.TmTypical.hints.tooltip}"
+                            id="typical_1">
+                <f:validator binding="#{bindings.TmTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.TmTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                         <af:inputText value="#{bindings.TmSuspension.inputValue}"
+                            readOnly="true"
+                            required="#{bindings.TmSuspension.hints.mandatory}"
+                            columns="#{bindings.TmSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.TmSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.TmSuspension.hints.tooltip}"
+                            id="suspension_1">
+                <f:validator binding="#{bindings.TmSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.TmSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                       <af:inputText value="#{bindings.TmReject.inputValue}"
+                            readOnly="true"
+                            required="#{bindings.TmReject.hints.mandatory}"
+                            columns="#{bindings.TmReject.hints.displayWidth}"
+                            maximumLength="#{bindings.TmReject.hints.displayWidth}"
+                            shortDesc="#{bindings.TmReject.hints.tooltip}"
+                            id="reject_1">
+                <f:validator binding="#{bindings.TmReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.TmReject.format}"/>
+              </af:inputText>
+                        </td>     
+                      
+                         
+                       
+                        
+                    </tr>
+ <tr class="x11o">
+                <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.ASH_ASR}"
+                                id="ol16"
+                                shortDesc="#{viewcontrollerBundle.ASH_ASR_DESC}"/>
+              </td>
+                      <td class="xia" align="center">
+                         <af:inputText value="#{bindings.AshAsr.inputValue}"
+                                      
+                                      required="#{bindings.AshAsr.hints.mandatory}"
+                                      columns="#{bindings.AshAsr.hints.displayWidth}"
+                                      maximumLength="#{bindings.AshAsr.hints.displayWidth}"
+                                      shortDesc="#{bindings.AshAsr.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it72">
+                          <f:validator binding="#{bindings.AshAsr.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AshAsr.format}"/>
+                        </af:inputText>
+                        </td>
+  <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.AshAsrWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.AshAsrWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.AshAsrWarngCode1.hints.tooltip}"
+                                                id="soc1">
+                              <f:selectItems value="#{bindings.AshAsrWarngCode1.items}"
+                                             id="si1"/>
+                            </af:selectOneChoice>
+                        </td>                        
+                       <td class="xia" align="center">
+                         <af:outputLabel id="ol34"
+                                         value="#{pageFlowScope.LabSearchMB._ashAsrDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it72"
+                                         />
+                        </td>                
+                       <td class="xia" align="center">
+                          <af:inputText value="#{bindings.AshAsrTypical.inputValue}"
+                          readOnly="true"
+                            required="#{bindings.AshAsrTypical.hints.mandatory}"
+                            columns="#{bindings.AshAsrTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.AshAsrTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.AshAsrTypical.hints.tooltip}"
+                            id="typical_2">
+                <f:validator binding="#{bindings.AshAsrTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AshAsrTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                                 <af:inputText value="#{bindings.AshAsrSuspension.inputValue}"
+                            required="#{bindings.AshAsrSuspension.hints.mandatory}"
+                            columns="#{bindings.AshAsrSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.AshAsrSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.AshAsrSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_2">
+                <f:validator binding="#{bindings.AshAsrSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AshAsrSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                       <af:inputText value="#{bindings.AshAsrReject.inputValue}"
+                            required="#{bindings.AshAsrReject.hints.mandatory}"
+                            columns="#{bindings.AshAsrReject.hints.displayWidth}"
+                            maximumLength="#{bindings.AshAsrReject.hints.displayWidth}"
+                            shortDesc="#{bindings.AshAsrReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_2">
+                <f:validator binding="#{bindings.AshAsrReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AshAsrReject.format}"/>
+              </af:inputText>
+                       </td>
+                      
+                        
+                    </tr>   
+<tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.SUL_ASR}" id="ol7"
+                                shortDesc="#{viewcontrollerBundle.SUL_ASR_DESC}"/>
+              </td>
+                     <td class="xia" align="center">
+                          <af:inputText value="#{bindings.SulAsr.inputValue}"
+                                      
+                                      required="#{bindings.SulAsr.hints.mandatory}"
+                                      columns="#{bindings.SulAsr.hints.displayWidth}"
+                                      maximumLength="#{bindings.SulAsr.hints.displayWidth}"
+                                      shortDesc="#{bindings.SulAsr.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it76">
+                          <f:validator binding="#{bindings.SulAsr.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SulAsr.format}"/>
+                        </af:inputText>
+                        </td>
+ <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.SulAsrWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.SulAsrWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.SulAsrWarngCode1.hints.tooltip}"
+                                                id="soc7">
+                              <f:selectItems value="#{bindings.SulAsrWarngCode1.items}"
+                                             id="si7"/>
+                            </af:selectOneChoice>
+                          </td>            
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol22"
+                                         value="#{pageFlowScope.LabSearchMB._sulAsrDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it76"
+                                         />
+                        </td>  
+                        
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.SulAsrTypical.inputValue}"
+                            required="#{bindings.SulAsrTypical.hints.mandatory}"
+                            columns="#{bindings.SulAsrTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.SulAsrTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.SulAsrTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_7">
+                <f:validator binding="#{bindings.SulAsrTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SulAsrTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.SulAsrSuspension.inputValue}"
+                            required="#{bindings.SulAsrSuspension.hints.mandatory}"
+                            columns="#{bindings.SulAsrSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.SulAsrSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.SulAsrSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_7">
+                <f:validator binding="#{bindings.SulAsrSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SulAsrSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.SulAsrReject.inputValue}"
+                            required="#{bindings.SulAsrReject.hints.mandatory}"
+                            columns="#{bindings.SulAsrReject.hints.displayWidth}"
+                            maximumLength="#{bindings.SulAsrReject.hints.displayWidth}"
+                            shortDesc="#{bindings.SulAsrReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_7">
+                <f:validator binding="#{bindings.SulAsrReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SulAsrReject.format}"/>
+              </af:inputText>
+                       </td>
+                                   
+                             
+                      </tr>   
+<tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.BTU_ASR}" id="ol13"
+                                shortDesc="#{viewcontrollerBundle.BTU_ASR_DESC}"/>
+              </td>
+                 <td class="xia" align="center">
+                         <af:inputText value="#{bindings.BtuAsr.inputValue}"
+                                      
+                                      required="#{bindings.BtuAsr.hints.mandatory}"
+                                      columns="#{bindings.BtuAsr.hints.displayWidth}"
+                                      maximumLength="#{bindings.BtuAsr.hints.displayWidth}"
+                                      shortDesc="#{bindings.BtuAsr.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it75">
+                          <f:validator binding="#{bindings.BtuAsr.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.BtuAsr.format}"/>
+                        </af:inputText>
+                        </td>
+  <td class="xia">
+                            <af:selectOneChoice value="#{bindings.BtuAsrWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.BtuAsrWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.BtuAsrWarngCode1.hints.tooltip}"
+                                                id="soc13">
+                              <f:selectItems value="#{bindings.BtuAsrWarngCode1.items}"
+                                             id="si13"/>
+                            </af:selectOneChoice>
+                          </td>                                       
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol28"
+                                         value="#{pageFlowScope.LabSearchMB._btuAsrDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it75"
+                                         />
+                        </td>  
+                        
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.BtuAsrTypical.inputValue}"
+                            required="#{bindings.BtuAsrTypical.hints.mandatory}"
+                            columns="#{bindings.BtuAsrTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.BtuAsrTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.BtuAsrTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_13">
+                <f:validator binding="#{bindings.BtuAsrTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.BtuAsrTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.BtuAsrSuspension.inputValue}"
+                            required="#{bindings.BtuAsrSuspension.hints.mandatory}"
+                            columns="#{bindings.BtuAsrSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.BtuAsrSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.BtuAsrSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_13">
+                <f:validator binding="#{bindings.BtuAsrSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.BtuAsrSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.BtuAsrReject.inputValue}"
+                            required="#{bindings.BtuAsrReject.hints.mandatory}"
+                            columns="#{bindings.BtuAsrReject.hints.displayWidth}"
+                            maximumLength="#{bindings.BtuAsrReject.hints.displayWidth}"
+                            shortDesc="#{bindings.BtuAsrReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_13">
+                <f:validator binding="#{bindings.BtuAsrReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.BtuAsrReject.format}"/>
+              </af:inputText>
+                       </td>
+                                
+                                 
+                      </tr>    
+   <tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.VOL_ASR}"
+                                id="ol19"
+                                shortDesc="#{viewcontrollerBundle.VOL_ASR_DESC}"/>
+              </td>
+                <td class="xia" align="center">
+                        <af:inputText value="#{bindings.VolAsr.inputValue}"
+                                      
+                                      required="#{bindings.VolAsr.hints.mandatory}"
+                                      columns="#{bindings.VolAsr.hints.displayWidth}"
+                                      maximumLength="#{bindings.VolAsr.hints.displayWidth}"
+                                      shortDesc="#{bindings.VolAsr.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it79">
+                          <f:validator binding="#{bindings.VolAsr.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.VolAsr.format}"/>
+                        </af:inputText>
+                        </td>
+  <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.VolAsrWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.VolAsrWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.VolAsrWarngCode1.hints.tooltip}"
+                                                id="soc4">
+                              <f:selectItems value="#{bindings.VolAsrWarngCode1.items}"
+                                             id="si4"/>
+                            </af:selectOneChoice>
+                          </td>                                
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol32"
+                                         value="#{pageFlowScope.LabSearchMB._volAsrDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it79"
+                                         />
+                        </td>     
+                        
+                       <td class="xia" align="center">
+                         <af:inputText value="#{bindings.VolAsrTypical.inputValue}"
+                            required="#{bindings.VolAsrTypical.hints.mandatory}"
+                            columns="#{bindings.VolAsrTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.VolAsrTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.VolAsrTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_4">
+                <f:validator binding="#{bindings.VolAsrTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VolAsrTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                         <af:inputText value="#{bindings.VolAsrSuspension.inputValue}"
+                            required="#{bindings.VolAsrSuspension.hints.mandatory}"
+                            columns="#{bindings.VolAsrSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.VolAsrSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.VolAsrSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_4">
+                <f:validator binding="#{bindings.VolAsrSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VolAsrSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.VolAsrReject.inputValue}"
+                            required="#{bindings.VolAsrReject.hints.mandatory}"
+                            columns="#{bindings.VolAsrReject.hints.displayWidth}"
+                            maximumLength="#{bindings.VolAsrReject.hints.displayWidth}"
+                            shortDesc="#{bindings.VolAsrReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_4">
+                <f:validator binding="#{bindings.VolAsrReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VolAsrReject.format}"/>
+              </af:inputText>
+                       </td>
+                                       
+                              
+                      </tr>    
+                      
+<tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.FC_ASR}" id="ol10"
+                                shortDesc="#{viewcontrollerBundle.FC_ASR_DESC}"/>
+              </td>
+      <td class="xia" align="center">
+                          <af:inputText value="#{bindings.FcAsr.inputValue}"
+                                      
+                                      required="#{bindings.FcAsr.hints.mandatory}"
+                                      columns="#{bindings.FcAsr.hints.displayWidth}"
+                                      maximumLength="#{bindings.FcAsr.hints.displayWidth}"
+                                      shortDesc="#{bindings.FcAsr.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it71">
+                          <f:validator binding="#{bindings.FcAsr.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.FcAsr.format}"/>
+                        </af:inputText>
+                        </td>
+ <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.FcAsrWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.FcAsrWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.FcAsrWarngCode1.hints.tooltip}"
+                                                id="soc10">
+                              <f:selectItems value="#{bindings.FcAsrWarngCode1.items}"
+                                             id="si10"/>
+                            </af:selectOneChoice>
+                          </td>        
+                          
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol25"
+                                         value="#{pageFlowScope.LabSearchMB._fcAsrDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it71"
+                                         />
+                        </td>                   
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.FcAsrTypical.inputValue}"
+                            required="#{bindings.FcAsrTypical.hints.mandatory}"
+                            columns="#{bindings.FcAsrTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.FcAsrTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.FcAsrTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_10">
+                <f:validator binding="#{bindings.FcAsrTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.FcAsrTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.FcAsrSuspension.inputValue}"
+                            required="#{bindings.FcAsrSuspension.hints.mandatory}"
+                            columns="#{bindings.FcAsrSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.FcAsrSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.FcAsrSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_10">
+                <f:validator binding="#{bindings.FcAsrSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.FcAsrSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.FcAsrReject.inputValue}"
+                            required="#{bindings.FcAsrReject.hints.mandatory}"
+                            columns="#{bindings.FcAsrReject.hints.displayWidth}"
+                            maximumLength="#{bindings.FcAsrReject.hints.displayWidth}"
+                            shortDesc="#{bindings.FcAsrReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_10">
+                <f:validator binding="#{bindings.FcAsrReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.FcAsrReject.format}"/>
+              </af:inputText>
+                       </td>
+                                       
+                                         
+                      </tr>
+<tr ><td colspan="5"> </td></tr>  
+
+<tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.LBSS}" id="ol47"
+                                shortDesc="#{viewcontrollerBundle.LBSS_DESC}"/>
+              </td>
+                         
+                          <td class="xia" align="center">
+                          <af:inputText value="#{bindings.Lbss.inputValue}"
+                                      
+                                      required="#{bindings.Lbss.hints.mandatory}"
+                                      columns="#{bindings.Lbss.hints.displayWidth}"
+                                      maximumLength="#{bindings.Lbss.hints.displayWidth}"
+                                      shortDesc="#{bindings.Lbss.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it7">
+                          <f:validator binding="#{bindings.Lbss.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.Lbss.format}"/>
+                        </af:inputText>
+                        </td>
+ <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.LbssWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.LbssWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.LbssWarngCode1.hints.tooltip}"
+                                                id="soc22">
+                              <f:selectItems value="#{bindings.LbssWarngCode1.items}"
+                                             id="si22"/>
+                            </af:selectOneChoice>
+                          
+                          </td>        
+                          
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol48"
+                                         value="#{pageFlowScope.LabSearchMB._lbsSulDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it7"
+                                         />
+                                         </td>                   
+                        
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.LbssTypical.inputValue}"
+                            required="#{bindings.LbssTypical.hints.mandatory}"
+                            columns="#{bindings.LbssTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.LbssTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.LbssTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_22">
+                <f:validator binding="#{bindings.LbssTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.LbssTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.LbssSuspension.inputValue}"
+                            required="#{bindings.LbssSuspension.hints.mandatory}"
+                            columns="#{bindings.LbssSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.LbssSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.LbssSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_22">
+                <f:validator binding="#{bindings.LbssSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.LbssSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.LbssReject.inputValue}"
+                            required="#{bindings.LbssReject.hints.mandatory}"
+                            columns="#{bindings.LbssReject.hints.displayWidth}"
+                            maximumLength="#{bindings.LbssReject.hints.displayWidth}"
+                            shortDesc="#{bindings.LbssReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_22">
+                <f:validator binding="#{bindings.LbssReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.LbssReject.format}"/>
+              </af:inputText>
+              
+              
+                          </td>
+                         
+                        </tr>
+                        
+<tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.LBSSO2}" id="ol49"
+                                shortDesc="#{viewcontrollerBundle.LBSSO2_DESC}"/>
+              </td>
+                         
+                          <td class="xia" align="center">
+                          <af:inputText value="#{bindings.Lbsso2.inputValue}"
+                                      
+                                      required="#{bindings.Lbsso2.hints.mandatory}"
+                                      columns="#{bindings.Lbsso2.hints.displayWidth}"
+                                      maximumLength="#{bindings.Lbsso2.hints.displayWidth}"
+                                      shortDesc="#{bindings.Lbsso2.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it8">
+                          <f:validator binding="#{bindings.Lbsso2.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.Lbsso2.format}"/>
+                        </af:inputText>
+                        </td>
+ <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.Lbsso2WarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.Lbsso2WarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.Lbsso2WarngCode1.hints.tooltip}"
+                                                id="soc23">
+                              <f:selectItems value="#{bindings.Lbsso2WarngCode1.items}"
+                                             id="si23"/>
+                            </af:selectOneChoice>
+                            
+                          </td>        
+                          
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol50"
+                                         value="#{pageFlowScope.LabSearchMB._lbsSo2Difference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it8"
+                                         />
+                                         </td>                   
+                        
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.Lbsso2Typical.inputValue}"
+                            required="#{bindings.Lbsso2Typical.hints.mandatory}"
+                            columns="#{bindings.Lbsso2Typical.hints.displayWidth}"
+                            maximumLength="#{bindings.Lbsso2Typical.hints.displayWidth}"
+                            shortDesc="#{bindings.Lbsso2Typical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_23">
+                <f:validator binding="#{bindings.Lbsso2Typical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.Lbsso2Typical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.Lbsso2Suspension.inputValue}"
+                            required="#{bindings.Lbsso2Suspension.hints.mandatory}"
+                            columns="#{bindings.Lbsso2Suspension.hints.displayWidth}"
+                            maximumLength="#{bindings.Lbsso2Suspension.hints.displayWidth}"
+                            shortDesc="#{bindings.Lbsso2Suspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_23">
+                <f:validator binding="#{bindings.Lbsso2Suspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.Lbsso2Suspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.Lbsso2Reject.inputValue}"
+                            required="#{bindings.Lbsso2Reject.hints.mandatory}"
+                            columns="#{bindings.Lbsso2Reject.hints.displayWidth}"
+                            maximumLength="#{bindings.Lbsso2Reject.hints.displayWidth}"
+                            shortDesc="#{bindings.Lbsso2Reject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_23">
+                <f:validator binding="#{bindings.Lbsso2Reject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.Lbsso2Reject.format}"/>
+              </af:inputText>
+              
+              
+                          </td>
+                         
+                        </tr>
+                        
+<tr ><td colspan="5"> </td></tr>  
+
+ <tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.ASH_DRY}"
+                                id="ol18"
+                                shortDesc="#{viewcontrollerBundle.ASH_DRY_DESC}"/>
+              </td>
+       <td class="xia" align="center">
+                         <af:inputText value="#{bindings.AshDry.inputValue}"
+                                      
+                                      required="#{bindings.AshDry.hints.mandatory}"
+                                      columns="#{bindings.AshDry.hints.displayWidth}"
+                                      maximumLength="#{bindings.AshDry.hints.displayWidth}"
+                                      shortDesc="#{bindings.AshDry.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it73">
+                          <f:validator binding="#{bindings.AshDry.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AshDry.format}"/>
+                        </af:inputText>
+                        </td>
+    <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.AshDryWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.AshDryWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.AshDryWarngCode1.hints.tooltip}"
+                                                id="soc3">
+                              <f:selectItems value="#{bindings.AshDryWarngCode1.items}"
+                                             id="si3"/>
+                            </af:selectOneChoice>
+                        </td>                                   
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol31"
+                                         value="#{pageFlowScope.LabSearchMB._ashDryDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it73"
+                                         />
+                        </td>                 
+                       <td class="xia" align="center">
+                         <af:inputText value="#{bindings.AshDryTypical.inputValue}"
+                            required="#{bindings.AshDryTypical.hints.mandatory}"
+                            columns="#{bindings.AshDryTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.AshDryTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.AshDryTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_3">
+                <f:validator binding="#{bindings.AshDryTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AshDryTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        
+              <af:inputText value="#{bindings.AshDrySuspension.inputValue}"
+                            required="#{bindings.AshDrySuspension.hints.mandatory}"
+                            columns="#{bindings.AshDrySuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.AshDrySuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.AshDrySuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_3">
+                <f:validator binding="#{bindings.AshDrySuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AshDrySuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                       <af:inputText value="#{bindings.AshDryReject.inputValue}"
+                            required="#{bindings.AshDryReject.hints.mandatory}"
+                            columns="#{bindings.AshDryReject.hints.displayWidth}"
+                            maximumLength="#{bindings.AshDryReject.hints.displayWidth}"
+                            shortDesc="#{bindings.AshDryReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_3">
+                <f:validator binding="#{bindings.AshDryReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AshDryReject.format}"/>
+              </af:inputText>
+                       </td>
+                                
+                                         
+                      </tr>
+<tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.SUL_DRY}" id="ol8"
+                                shortDesc="#{viewcontrollerBundleL.SUL_DRY_DESC}"/>
+              </td>
+         <td class="xia" align="center">
+                          <af:inputText value="#{bindings.SulDry.inputValue}"
+                                      
+                                      required="#{bindings.SulDry.hints.mandatory}"
+                                      columns="#{bindings.SulDry.hints.displayWidth}"
+                                      maximumLength="#{bindings.SulDry.hints.displayWidth}"
+                                      shortDesc="#{bindings.SulDry.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it70">
+                          <f:validator binding="#{bindings.SulDry.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SulDry.format}"/>
+                        </af:inputText>
+                        </td>
+                           <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.SulDryWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.SulDryWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.SulDryWarngCode1.hints.tooltip}"
+                                                id="soc8">
+                              <f:selectItems value="#{bindings.SulDryWarngCode1.items}"
+                                             id="si8"/>
+                            </af:selectOneChoice>
+                          </td>       
+                          
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol23"
+                                         value="#{pageFlowScope.LabSearchMB._sulDryDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it70"
+                                         />
+                        </td>                 
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.SulDryTypical.inputValue}"
+                            required="#{bindings.SulDryTypical.hints.mandatory}"
+                            columns="#{bindings.SulDryTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.SulDryTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.SulDryTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_8">
+                <f:validator binding="#{bindings.SulDryTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SulDryTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.SulDrySuspension.inputValue}"
+                            required="#{bindings.SulDrySuspension.hints.mandatory}"
+                            columns="#{bindings.SulDrySuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.SulDrySuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.SulDrySuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_8">
+                <f:validator binding="#{bindings.SulDrySuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SulDrySuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                       <af:inputText value="#{bindings.SulDryReject.inputValue}"
+                            required="#{bindings.SulDryReject.hints.mandatory}"
+                            columns="#{bindings.SulDryReject.hints.displayWidth}"
+                            maximumLength="#{bindings.SulDryReject.hints.displayWidth}"
+                            shortDesc="#{bindings.SulDryReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_8">
+                <f:validator binding="#{bindings.SulDryReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SulDryReject.format}"/>
+              </af:inputText>
+                       </td>
+                                      
+                                       
+                      </tr>   
+ <tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.BTU_DRY}" id="ol14"
+                                shortDesc="#{viewcontrollerBundle.BTU_DRY_DESC}"/>
+              </td>
+   <td class="xia" align="center">
+                          <af:inputText value="#{bindings.BtuDry.inputValue}"
+                                      
+                                      required="#{bindings.BtuDry.hints.mandatory}"
+                                      columns="#{bindings.BtuDry.hints.displayWidth}"
+                                      maximumLength="#{bindings.BtuDry.hints.displayWidth}"
+                                      shortDesc="#{bindings.BtuDry.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it80">
+                          <f:validator binding="#{bindings.BtuDry.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.BtuDry.format}"/>
+                        </af:inputText>
+                        </td>
+   <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.BtuDryWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.BtuDryWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.BtuDryWarngCode1.hints.tooltip}"
+                                                id="soc14">
+                              <f:selectItems value="#{bindings.BtuDryWarngCode1.items}"
+                                             id="si14"/>
+                            </af:selectOneChoice>
+                          </td>             
+                          
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol29"
+                                         value="#{pageFlowScope.LabSearchMB._btuDryDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it80"
+                                         />
+                        </td>   
+                        
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.BtuDryTypical.inputValue}"
+                            required="#{bindings.BtuDryTypical.hints.mandatory}"
+                            columns="#{bindings.BtuDryTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.BtuDryTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.BtuDryTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_14">
+                <f:validator binding="#{bindings.BtuDryTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.BtuDryTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.BtuDrySuspension.inputValue}"
+                            required="#{bindings.BtuDrySuspension.hints.mandatory}"
+                            columns="#{bindings.BtuDrySuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.BtuDrySuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.BtuDrySuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_14">
+                <f:validator binding="#{bindings.BtuDrySuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.BtuDrySuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                       <af:inputText value="#{bindings.BtuDryReject.inputValue}"
+                            required="#{bindings.BtuDryReject.hints.mandatory}"
+                            columns="#{bindings.BtuDryReject.hints.displayWidth}"
+                            maximumLength="#{bindings.BtuDryReject.hints.displayWidth}"
+                            shortDesc="#{bindings.BtuDryReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_14">
+                <f:validator binding="#{bindings.BtuDryReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.BtuDryReject.format}"/>
+              </af:inputText>
+                       </td>
+                                   
+                                                    
+                         
+                      </tr>                       
+          
+ <tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.VOL_DRY}"
+                                id="ol33"
+                                shortDesc="#{viewcontrollerBundle.VOL_DRY_DESC}"/>
+              </td>
+            <td class="xia" align="center">
+                         <af:inputText value="#{bindings.VolDry.inputValue}"
+                                      
+                                      required="#{bindings.VolDry.hints.mandatory}"
+                                      columns="#{bindings.VolDry.hints.displayWidth}"
+                                      maximumLength="#{bindings.VolDry.hints.displayWidth}"
+                                      shortDesc="#{bindings.VolDry.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it74">
+                          <f:validator binding="#{bindings.VolDry.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.VolDry.format}"/>
+                        </af:inputText>
+                        </td>
+  <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.VolDryWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.VolDryWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.VolDryWarngCode1.hints.tooltip}"
+                                                id="soc5">
+                              <f:selectItems value="#{bindings.VolDryWarngCode1.items}"
+                                             id="si5"/>
+                            </af:selectOneChoice>
+                          </td>                          
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol20"
+                                         value="#{pageFlowScope.LabSearchMB._volDryDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it74"
+                                         />
+                        </td>                   
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.VolDryTypical.inputValue}"
+                            required="#{bindings.VolDryTypical.hints.mandatory}"
+                            columns="#{bindings.VolDryTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.VolDryTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.VolDryTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_5">
+                <f:validator binding="#{bindings.VolDryTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VolDryTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.VolDrySuspension.inputValue}"
+                            required="#{bindings.VolDrySuspension.hints.mandatory}"
+                            columns="#{bindings.VolDrySuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.VolDrySuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.VolDrySuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_5">
+                <f:validator binding="#{bindings.VolDrySuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VolDrySuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.VolDryReject.inputValue}"
+                            required="#{bindings.VolDryReject.hints.mandatory}"
+                            columns="#{bindings.VolDryReject.hints.displayWidth}"
+                            maximumLength="#{bindings.VolDryReject.hints.displayWidth}"
+                            shortDesc="#{bindings.VolDryReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_5">
+                <f:validator binding="#{bindings.VolDryReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VolDryReject.format}"/>
+              </af:inputText>
+                       </td>
+                                              
+                                  
+                      </tr>  
+<tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.FC_DRY}" id="ol11"
+                                shortDesc="#{viewcontrollerBundle.FC_DRY_DESC}"/>
+              </td>
+        <td class="xia" align="center">
+                         <af:inputText value="#{bindings.FcDry.inputValue}"
+                                      
+                                      required="#{bindings.FcDry.hints.mandatory}"
+                                      columns="#{bindings.FcDry.hints.displayWidth}"
+                                      maximumLength="#{bindings.FcDry.hints.displayWidth}"
+                                      shortDesc="#{bindings.FcDry.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it68">
+                          <f:validator binding="#{bindings.FcDry.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.FcDry.format}"/>
+                        </af:inputText>
+                        </td>
+  <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.FcDryWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.FcDryWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.FcDryWarngCode1.hints.tooltip}"
+                                                id="soc11">
+                              <f:selectItems value="#{bindings.FcDryWarngCode1.items}"
+                                             id="si11"/>
+                            </af:selectOneChoice>
+                          </td>                             
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol26"
+                                         value="#{pageFlowScope.LabSearchMB._fcDryDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it68"
+                                         />
+                        </td>                   
+                       <td class="xia" align="center">
+                         <af:inputText value="#{bindings.FcDryTypical.inputValue}"
+                            required="#{bindings.FcDryTypical.hints.mandatory}"
+                            columns="#{bindings.FcDryTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.FcDryTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.FcDryTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_11">
+                <f:validator binding="#{bindings.FcDryTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.FcDryTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.FcDrySuspension.inputValue}"
+                            required="#{bindings.FcDrySuspension.hints.mandatory}"
+                            columns="#{bindings.FcDrySuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.FcDrySuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.FcDrySuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_11">
+                <f:validator binding="#{bindings.FcDrySuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.FcDrySuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.FcDryReject.inputValue}"
+                            required="#{bindings.FcDryReject.hints.mandatory}"
+                            columns="#{bindings.FcDryReject.hints.displayWidth}"
+                            maximumLength="#{bindings.FcDryReject.hints.displayWidth}"
+                            shortDesc="#{bindings.FcDryReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_11">
+                <f:validator binding="#{bindings.FcDryReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.FcDryReject.format}"/>
+              </af:inputText>
+                       </td>
+                                         
+                                       
+                      </tr>   
+<tr ><td colspan="5"> </td></tr>  
+ <tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.SUL_DAF}" id="ol9"
+                                shortDesc="#{viewcontrollerBundle.SUL_DAF_DESC}"/>
+              </td>
+ <td class="xia" align="center">
+                          <af:inputText value="#{bindings.SulDaf.inputValue}"
+                                      
+                                      required="#{bindings.SulDaf.hints.mandatory}"
+                                      columns="#{bindings.SulDaf.hints.displayWidth}"
+                                      maximumLength="#{bindings.SulDaf.hints.displayWidth}"
+                                      shortDesc="#{bindings.SulDaf.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it43">
+                          <f:validator binding="#{bindings.SulDaf.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SulDaf.format}"/>
+                        </af:inputText>
+                        </td>
+  <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.SulDafWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.SulDafWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.SulDafWarngCode1.hints.tooltip}"
+                                                id="soc9">
+                              <f:selectItems value="#{bindings.SulDafWarngCode1.items}"
+                                             id="si9"/>
+                            </af:selectOneChoice>
+                          </td>                          
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol24"
+                                         value="#{pageFlowScope.LabSearchMB._sulDafDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it43"
+                                         />
+                        </td>                  
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.SulDafTypical.inputValue}"
+                            required="#{bindings.SulDafTypical.hints.mandatory}"
+                            columns="#{bindings.SulDafTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.SulDafTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.SulDafTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_9">
+                <f:validator binding="#{bindings.SulDafTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SulDafTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.SulDafSuspension.inputValue}"
+                            required="#{bindings.SulDafSuspension.hints.mandatory}"
+                            columns="#{bindings.SulDafSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.SulDafSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.SulDafSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_9">
+                <f:validator binding="#{bindings.SulDafSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SulDafSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.SulDafReject.inputValue}"
+                            required="#{bindings.SulDafReject.hints.mandatory}"
+                            columns="#{bindings.SulDafReject.hints.displayWidth}"
+                            maximumLength="#{bindings.SulDafReject.hints.displayWidth}"
+                            shortDesc="#{bindings.SulDafReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_9">
+                <f:validator binding="#{bindings.SulDafReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SulDafReject.format}"/>
+              </af:inputText>
+                       </td>
+                                            
+                                               
+                      </tr>
+<tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.BTU_DAF}" id="ol15"
+                                shortDesc="#{viewcontrollerBundle.BTU_DAF_DESC}"/>
+              </td>
+   <td class="xia" align="center">
+                          <af:inputText value="#{bindings.BtuDaf.inputValue}"
+                                      
+                                      required="#{bindings.BtuDaf.hints.mandatory}"
+                                      columns="#{bindings.BtuDaf.hints.displayWidth}"
+                                      maximumLength="#{bindings.BtuDaf.hints.displayWidth}"
+                                      shortDesc="#{bindings.BtuDaf.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it77">
+                          <f:validator binding="#{bindings.BtuDaf.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.BtuDaf.format}"/>
+                        </af:inputText>
+                        </td>
+  <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.BtuDafWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.BtuDafWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.BtuDafWarngCode1.hints.tooltip}"
+                                                id="soc15">
+                              <f:selectItems value="#{bindings.BtuDafWarngCode1.items}"
+                                             id="si15"/>
+                            </af:selectOneChoice>
+                          </td>                                 
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol30"
+                                         value="#{pageFlowScope.LabSearchMB._btuDafDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it77"
+                                         />
+                        </td> 
+                        
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.BtuDafTypical.inputValue}"
+                            required="#{bindings.BtuDafTypical.hints.mandatory}"
+                            columns="#{bindings.BtuDafTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.BtuDafTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.BtuDafTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_15">
+                <f:validator binding="#{bindings.BtuDafTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.BtuDafTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.BtuDafSuspension.inputValue}"
+                            required="#{bindings.BtuDafSuspension.hints.mandatory}"
+                            columns="#{bindings.BtuDafSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.BtuDafSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.BtuDafSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_15">
+                <f:validator binding="#{bindings.BtuDafSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.BtuDafSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.BtuDafReject.inputValue}"
+                            required="#{bindings.BtuDafReject.hints.mandatory}"
+                            columns="#{bindings.BtuDafReject.hints.displayWidth}"
+                            maximumLength="#{bindings.BtuDafReject.hints.displayWidth}"
+                            shortDesc="#{bindings.BtuDafReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_15">
+                <f:validator binding="#{bindings.BtuDafReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.BtuDafReject.format}"/>
+              </af:inputText>
+                       </td>
+                                      
+                                               
+                      </tr>                      
+ <tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.VOL_DAF}" id="ol6"
+                                shortDesc="#{viewcontrollerBundle.VOL_DAF_DESC}"/>
+              </td>
+         <td class="xia" align="center">
+                          <af:inputText value="#{bindings.VolDaf.inputValue}"
+                                      
+                                      required="#{bindings.VolDaf.hints.mandatory}"
+                                      columns="#{bindings.VolDaf.hints.displayWidth}"
+                                      maximumLength="#{bindings.VolDaf.hints.displayWidth}"
+                                      shortDesc="#{bindings.VolDaf.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it69">
+                          <f:validator binding="#{bindings.VolDaf.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.VolDaf.format}"/>
+                        </af:inputText>
+                        </td>
+  <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.VolDafWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.VolDafWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.VolDafWarngCode1.hints.tooltip}"
+                                                id="soc6">
+                              <f:selectItems value="#{bindings.VolDafWarngCode1.items}"
+                                             id="si6"/>
+                            </af:selectOneChoice>
+                          </td>                                    
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol21"
+                                         value="#{pageFlowScope.LabSearchMB._volDafDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it69"
+                                         />
+                        </td>                    
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.VolDafTypical.inputValue}"
+                            required="#{bindings.VolDafTypical.hints.mandatory}"
+                            columns="#{bindings.VolDafTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.VolDafTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.VolDafTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_6">
+                <f:validator binding="#{bindings.VolDafTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VolDafTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.VolDafSuspension.inputValue}"
+                            required="#{bindings.VolDafSuspension.hints.mandatory}"
+                            columns="#{bindings.VolDafSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.VolDafSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.VolDafSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_6">
+                <f:validator binding="#{bindings.VolDafSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VolDafSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.VolDafReject.inputValue}"
+                            required="#{bindings.VolDafReject.hints.mandatory}"
+                            columns="#{bindings.VolDafReject.hints.displayWidth}"
+                            maximumLength="#{bindings.VolDafReject.hints.displayWidth}"
+                            shortDesc="#{bindings.VolDafReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_6">
+                <f:validator binding="#{bindings.VolDafReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VolDafReject.format}"/>
+              </af:inputText>
+                       </td>
+                                    
+                                     
+                      </tr>    
+  
+ <tr class="x11o">
+                       <td class="xia align-centr">
+                <af:outputLabel value="#{viewcontrollerBundle.FC_DAF}" id="ol12"
+                                shortDesc="#{viewcontrollerBundle.FC_DAF_DESC}"/>
+              </td>
+      <td class="xia" align="center">
+                         <af:inputText value="#{bindings.FcDaf.inputValue}"
+                                      
+                                      required="#{bindings.FcDaf.hints.mandatory}"
+                                      columns="#{bindings.FcDaf.hints.displayWidth}"
+                                      maximumLength="#{bindings.FcDaf.hints.displayWidth}"
+                                      shortDesc="#{bindings.FcDaf.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it81">
+                          <f:validator binding="#{bindings.FcDaf.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.FcDaf.format}"/>
+                        </af:inputText>
+                        </td>
+     <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.FcDafWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.FcDafWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.FcDafWarngCode1.hints.tooltip}"
+                                                id="soc12">
+                              <f:selectItems value="#{bindings.FcDafWarngCode1.items}"
+                                             id="si12"/>
+                            </af:selectOneChoice>
+                          </td>                              
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol27"
+                                         value="#{pageFlowScope.LabSearchMB._fcDafDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it81"
+                                         />
+                        </td>                   
+                       <td class="xia" align="center">
+                         <af:inputText value="#{bindings.FcDafTypical.inputValue}"
+                            required="#{bindings.FcDafTypical.hints.mandatory}"
+                            columns="#{bindings.FcDafTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.FcDafTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.FcDafTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_12">
+                <f:validator binding="#{bindings.FcDafTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.FcDafTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.FcDafSuspension.inputValue}"
+                            required="#{bindings.FcDafSuspension.hints.mandatory}"
+                            columns="#{bindings.FcDafSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.FcDafSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.FcDafSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_12">
+                <f:validator binding="#{bindings.FcDafSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.FcDafSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                       <af:inputText value="#{bindings.FcDafReject.inputValue}"
+                            required="#{bindings.FcDafReject.hints.mandatory}"
+                            columns="#{bindings.FcDafReject.hints.displayWidth}"
+                            maximumLength="#{bindings.FcDafReject.hints.displayWidth}"
+                            shortDesc="#{bindings.FcDafReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_12">
+                <f:validator binding="#{bindings.FcDafReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.FcDafReject.format}"/>
+              </af:inputText>
+                       </td>
+                                     
+                                        
+                      </tr>    
+  
+ <tr ><td colspan="5"> </td></tr>                    
+ 
+                         <tr class="x11o">
+                       <td class="xia align-centr">
+               <af:outputLabel value="#{viewcontrollerBundle.AFTI_RED}"
+                                id="ol35"
+                                shortDesc="#{viewcontrollerBundle.AFTI_RED_DESC}"/>
+              </td>
+               <td class="xia" align="center">
+                          <af:inputText value="#{bindings.AftiRed.inputValue}"
+                                      
+                                      required="#{bindings.AftiRed.hints.mandatory}"
+                                      columns="#{bindings.AftiRed.hints.displayWidth}"
+                                      maximumLength="#{bindings.AftiRed.hints.displayWidth}"
+                                      shortDesc="#{bindings.AftiRed.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it1">
+                          <f:validator binding="#{bindings.AftiRed.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AftiRed.format}"/>
+                        </af:inputText>
+                        </td>
+  <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.AftiRedWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.AftiRedWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.AftiRedWarngCode1.hints.tooltip}"
+                                                id="soc16">
+                              <f:selectItems value="#{bindings.AftiRedWarngCode1.items}"
+                                             id="si16"/>
+                            </af:selectOneChoice>
+                          </td>                             
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol36"
+                                         value="#{pageFlowScope.LabSearchMB._AftiRedDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it1"
+                                         />
+                        </td>                     
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.AftiRedTypical.inputValue}"
+                            required="#{bindings.AftiRedTypical.hints.mandatory}"
+                            columns="#{bindings.AftiRedTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.AftiRedTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.AftiRedTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_16">
+                <f:validator binding="#{bindings.AftiRedTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AftiRedTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.AftiRedSuspension.inputValue}"
+                            required="#{bindings.AftiRedSuspension.hints.mandatory}"
+                            columns="#{bindings.AftiRedSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.AftiRedSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.AftiRedSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_16">
+                <f:validator binding="#{bindings.AftiRedSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AftiRedSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.AftiRedReject.inputValue}"
+                            required="#{bindings.AftiRedReject.hints.mandatory}"
+                            columns="#{bindings.AftiRedReject.hints.displayWidth}"
+                            maximumLength="#{bindings.AftiRedReject.hints.displayWidth}"
+                            shortDesc="#{bindings.AftiRedReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_16">
+                <f:validator binding="#{bindings.AftiRedReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AftiRedReject.format}"/>
+              </af:inputText>
+                       </td>
+                                          
+                             
+                      </tr>
+                        
+                         <tr class="x11o">
+                       <td class="xia align-centr">
+               <af:outputLabel value="#{viewcontrollerBundle.AFTS_RED}"
+                                id="ol37"
+                                shortDesc="#{viewcontrollerBundle.AFTS_RED_DESC}"/>
+              </td>
+            <td class="xia" align="center">
+                          <af:inputText value="#{bindings.AftsRed.inputValue}"
+                                      
+                                      required="#{bindings.AftsRed.hints.mandatory}"
+                                      columns="#{bindings.AftsRed.hints.displayWidth}"
+                                      maximumLength="#{bindings.AftsRed.hints.displayWidth}"
+                                      shortDesc="#{bindings.AftsRed.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it2">
+                          <f:validator binding="#{bindings.AftsRed.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AftsRed.format}"/>
+                        </af:inputText>
+                        </td>
+  <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.AftsRedWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.AftsRedWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.AftsRedWarngCode1.hints.tooltip}"
+                                                id="soc17">
+                              <f:selectItems value="#{bindings.AftsRedWarngCode1.items}"
+                                             id="si17"/>
+                            </af:selectOneChoice>
+                          </td>                                
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol38"
+                                         value="#{pageFlowScope.LabSearchMB._AftsRedDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it2"
+                                         />
+                        </td>                
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.AftsRedTypical.inputValue}"
+                            required="#{bindings.AftsRedTypical.hints.mandatory}"
+                            columns="#{bindings.AftsRedTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.AftsRedTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.AftsRedTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_17">
+                <f:validator binding="#{bindings.AftsRedTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AftsRedTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.AftsRedSuspension.inputValue}"
+                            required="#{bindings.AftsRedSuspension.hints.mandatory}"
+                            columns="#{bindings.AftsRedSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.AftsRedSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.AftsRedSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_17">
+                <f:validator binding="#{bindings.AftsRedSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AftsRedSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.AftsRedReject.inputValue}"
+                            required="#{bindings.AftsRedReject.hints.mandatory}"
+                            columns="#{bindings.AftsRedReject.hints.displayWidth}"
+                            maximumLength="#{bindings.AftsRedReject.hints.displayWidth}"
+                            shortDesc="#{bindings.AftsRedReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_17">
+                <f:validator binding="#{bindings.AftsRedReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AftsRedReject.format}"/>
+              </af:inputText>
+                       </td>
+                                       
+                                     
+                      </tr>
+                         <tr class="x11o">
+                       <td class="xia align-centr">
+               <af:outputLabel value="#{viewcontrollerBundle.AFTH_RED}"
+                                id="ol39"
+                                shortDesc="#{viewcontrollerBundle.AFTH_RED_DESC}"/>
+              </td>
+            <td class="xia" align="center">
+                          <af:inputText value="#{bindings.AfthRed.inputValue}"
+                                      
+                                      required="#{bindings.AfthRed.hints.mandatory}"
+                                      columns="#{bindings.AfthRed.hints.displayWidth}"
+                                      maximumLength="#{bindings.AfthRed.hints.displayWidth}"
+                                      shortDesc="#{bindings.AfthRed.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it3">
+                          <f:validator binding="#{bindings.AfthRed.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AfthRed.format}"/>
+                        </af:inputText>
+                        </td>
+   <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.AfthRedWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.AfthRedWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.AfthRedWarngCode1.hints.tooltip}"
+                                                id="soc18">
+                              <f:selectItems value="#{bindings.AfthRedWarngCode1.items}"
+                                             id="si18"/>
+                            </af:selectOneChoice>
+                          </td>                               
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol40"
+                                         value="#{pageFlowScope.LabSearchMB._AfthRedDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it3"
+                                         />
+                        </td>                  
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.AfthRedTypical.inputValue}"
+                            required="#{bindings.AfthRedTypical.hints.mandatory}"
+                            columns="#{bindings.AfthRedTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.AfthRedTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.AfthRedTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_18">
+                <f:validator binding="#{bindings.AfthRedTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AfthRedTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.AfthRedSuspension.inputValue}"
+                            required="#{bindings.AfthRedSuspension.hints.mandatory}"
+                            columns="#{bindings.AfthRedSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.AfthRedSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.AfthRedSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_18">
+                <f:validator binding="#{bindings.AfthRedSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AfthRedSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.AfthRedReject.inputValue}"
+                            required="#{bindings.AfthRedReject.hints.mandatory}"
+                            columns="#{bindings.AfthRedReject.hints.displayWidth}"
+                            maximumLength="#{bindings.AfthRedReject.hints.displayWidth}"
+                            shortDesc="#{bindings.AfthRedReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_18">
+                <f:validator binding="#{bindings.AfthRedReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AfthRedReject.format}"/>
+              </af:inputText>
+                       </td>
+                                       
+                                   
+                      </tr>
+                         <tr class="x11o">
+                       <td class="xia align-centr">
+               <af:outputLabel value="#{viewcontrollerBundle.AFTF_RED}"
+                                id="ol41"
+                                shortDesc="#{viewcontrollerBundle.AFTF_RED_DESC}"/>
+              </td>
+         <td class="xia" align="center">
+                          <af:inputText value="#{bindings.AftfRed.inputValue}"
+                                      
+                                      required="#{bindings.AftfRed.hints.mandatory}"
+                                      columns="#{bindings.AftfRed.hints.displayWidth}"
+                                      maximumLength="#{bindings.AftfRed.hints.displayWidth}"
+                                      shortDesc="#{bindings.AftfRed.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it4">
+                          <f:validator binding="#{bindings.AftfRed.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AftfRed.format}"/>
+                        </af:inputText>
+                        </td>
+  <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.AftfRedWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.AftfRedWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.AftfRedWarngCode1.hints.tooltip}"
+                                                id="soc19">
+                              <f:selectItems value="#{bindings.AftfRedWarngCode1.items}"
+                                             id="si19"/>
+                            </af:selectOneChoice>
+                          </td>                                
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol42"
+                                         value="#{pageFlowScope.LabSearchMB._AftfRedDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it4"
+                                         />
+                        </td>                  
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.AftfRedTypical.inputValue}"
+                            required="#{bindings.AftfRedTypical.hints.mandatory}"
+                            columns="#{bindings.AftfRedTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.AftfRedTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.AftfRedTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_19">
+                <f:validator binding="#{bindings.AftfRedTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AftfRedTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.AftfRedSuspension.inputValue}"
+                            required="#{bindings.AftfRedSuspension.hints.mandatory}"
+                            columns="#{bindings.AftfRedSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.AftfRedSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.AftfRedSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_19">
+                <f:validator binding="#{bindings.AftfRedSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AftfRedSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.AftfRedReject.inputValue}"
+                            required="#{bindings.AftfRedReject.hints.mandatory}"
+                            columns="#{bindings.AftfRedReject.hints.displayWidth}"
+                            maximumLength="#{bindings.AftfRedReject.hints.displayWidth}"
+                            shortDesc="#{bindings.AftfRedReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_19">
+                <f:validator binding="#{bindings.AftfRedReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AftfRedReject.format}"/>
+              </af:inputText>
+                       </td>
+                                       
+                                      
+                      </tr>
+                         <tr class="x11o">
+                       <td class="xia align-centr">
+               <af:outputLabel value="#{viewcontrollerBundle.CHLORINE}"
+                                id="ol44"
+                                shortDesc="#{viewcontrollerBundle.CHLORINE_DESC}"/>
+              </td>
+                       
+                       <td class="xia" align="center">
+                          <af:inputText value="#{bindings.Chlorine.inputValue}"
+                                      
+                                      required="#{bindings.Chlorine.hints.mandatory}"
+                                      columns="#{bindings.Chlorine.hints.displayWidth}"
+                                      maximumLength="#{bindings.Chlorine.hints.displayWidth}"
+                                      shortDesc="#{bindings.Chlorine.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it5">
+                          <f:validator binding="#{bindings.Chlorine.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.Chlorine.format}"/>
+                        </af:inputText>
+                        </td>
+  <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.ChlorineWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.ChlorineWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.ChlorineWarngCode1.hints.tooltip}"
+                                                id="soc20">
+                              <f:selectItems value="#{bindings.ChlorineWarngCode1.items}"
+                                             id="si20"/>
+                            </af:selectOneChoice>
+                          </td>                              
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol43"
+                                         value="#{pageFlowScope.LabSearchMB._ChlorineDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it5"
+                                         />
+                        </td>                
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.ChlorineTypical.inputValue}"
+                            required="#{bindings.ChlorineTypical.hints.mandatory}"
+                            columns="#{bindings.ChlorineTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.ChlorineTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.ChlorineTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_20">
+                <f:validator binding="#{bindings.ChlorineTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ChlorineTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.ChlorineSuspension.inputValue}"
+                            required="#{bindings.ChlorineSuspension.hints.mandatory}"
+                            columns="#{bindings.ChlorineSuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.ChlorineSuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.ChlorineSuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_20">
+                <f:validator binding="#{bindings.ChlorineSuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ChlorineSuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.ChlorineReject.inputValue}"
+                            required="#{bindings.ChlorineReject.hints.mandatory}"
+                            columns="#{bindings.ChlorineReject.hints.displayWidth}"
+                            maximumLength="#{bindings.ChlorineReject.hints.displayWidth}"
+                            shortDesc="#{bindings.ChlorineReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_20">
+                <f:validator binding="#{bindings.ChlorineReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ChlorineReject.format}"/>
+              </af:inputText>
+                       </td>
+                                            
+                      </tr>
+                         <tr class="x11o">
+                       <td class="xia align-centr">
+               <af:outputLabel value="#{viewcontrollerBundle.MERCURY}"
+                                id="ol45"
+                                shortDesc="#{viewcontrollerBundle.MERCURY_DESC}"/>
+              </td>
+       <td class="xia" align="center">
+                          <af:inputText value="#{bindings.Mercury.inputValue}"
+                                      
+                                      required="#{bindings.Mercury.hints.mandatory}"
+                                      columns="#{bindings.Mercury.hints.displayWidth}"
+                                      maximumLength="#{bindings.Mercury.hints.displayWidth}"
+                                      shortDesc="#{bindings.Mercury.hints.tooltip}"
+                                      autoSubmit="true"
+                                      id="it6">
+                          <f:validator binding="#{bindings.Mercury.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.Mercury.format}"/>
+                        </af:inputText>
+                        </td>
+   <td class="xia" >
+                            <af:selectOneChoice value="#{bindings.MercuryWarngCode1.inputValue}"
+                                                readOnly="true"
+                                                required="#{bindings.MercuryWarngCode1.hints.mandatory}"
+                                                shortDesc="#{bindings.MercuryWarngCode1.hints.tooltip}"
+                                                id="soc21">
+                              <f:selectItems value="#{bindings.MercuryWarngCode1.items}"
+                                             id="si21"/>
+                            </af:selectOneChoice>
+                          </td>                                  
+ <td class="xia" align="center">
+                         <af:outputLabel id="ol46"
+                                         value="#{pageFlowScope.LabSearchMB._MercuryDifference}"
+                                         inlineStyle="font-weight:bold; color:Red;"
+                                         partialTriggers="it6"
+                                         />
+                        </td>  
+                        
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.MercuryTypical.inputValue}"
+                            required="#{bindings.MercuryTypical.hints.mandatory}"
+                            columns="#{bindings.MercuryTypical.hints.displayWidth}"
+                            maximumLength="#{bindings.MercuryTypical.hints.displayWidth}"
+                            shortDesc="#{bindings.MercuryTypical.hints.tooltip}"
+                            readOnly="true"
+                            id="typical_21">
+                <f:validator binding="#{bindings.MercuryTypical.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MercuryTypical.format}"/>
+              </af:inputText>
+                       </td>                       
+                       <td class="xia" align="center">
+                        <af:inputText value="#{bindings.MercurySuspension.inputValue}"
+                            required="#{bindings.MercurySuspension.hints.mandatory}"
+                            columns="#{bindings.MercurySuspension.hints.displayWidth}"
+                            maximumLength="#{bindings.MercurySuspension.hints.displayWidth}"
+                            shortDesc="#{bindings.MercurySuspension.hints.tooltip}"
+                            readOnly="true"
+                            id="suspension_21">
+                <f:validator binding="#{bindings.MercurySuspension.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MercurySuspension.format}"/>
+              </af:inputText>
+                       </td>
+                       <td class="xia" align="center">
+                      <af:inputText value="#{bindings.MercuryReject.inputValue}"
+                            required="#{bindings.MercuryReject.hints.mandatory}"
+                            columns="#{bindings.MercuryReject.hints.displayWidth}"
+                            maximumLength="#{bindings.MercuryReject.hints.displayWidth}"
+                            shortDesc="#{bindings.MercuryReject.hints.tooltip}"
+                            readOnly="true"
+                            id="reject_21">
+                <f:validator binding="#{bindings.MercuryReject.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MercuryReject.format}"/>
+              </af:inputText>
+                       </td>
+                                    
+                                          
+                      </tr> 
+                      
+                 <tr class="x11o">
+                      
+                       <td colspan="7" class="xia" align="center">
+                        
+                          <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                            text="Save"
+                                            disabled="#{securityContext.userInRole['CEIX_QualityLabResultsUsersRO']}"
+                                            id="cb1"
+                                            icon="/images/save_ena.png"/>
+                          </td>                       
+                    </tr>
+            </table>
+                    </af:panelGroupLayout>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+        </af:decorativeBox>
+        
+        <af:popup id="p1" contentDelivery="lazyUncached"
+                  binding="#{pageFlowScope.LabSearchMB._selectOrderNumberPopup}">
+          <af:dialog id="d2"
+                    dialogListener="#{pageFlowScope.LabSearchMB.searchDialogListener}">
+
+ <af:panelGroupLayout layout="vertical" id="pgl4">
+              <af:panelGroupLayout layout="vertical" id="pgl5">
+                <af:panelHeader text="Search and Select an Order" id="ph2">
+                  <af:query id="qryId2" headerText="Search" disclosed="true"
+                            value="#{bindings.SearchCriteriaForDialogBoxQueryQuery.queryDescriptor}"
+                            model="#{bindings.SearchCriteriaForDialogBoxQueryQuery.queryModel}"
+                            queryListener="#{bindings.SearchCriteriaForDialogBoxQueryQuery.processQuery}"
+                            queryOperationListener="#{bindings.SearchCriteriaForDialogBoxQueryQuery.processQueryOperation}"
+                            resultComponentId="::pc2:resId2"
+                            modeChangeVisible="false"
+                            saveQueryMode="hidden"
+                            />
+                </af:panelHeader>
+                
+                <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                
+                <af:table value="#{bindings.CEIXSalesOrders1.collectionModel}"
+                          var="row"
+                          rows="10"
+                          emptyText="#{bindings.CEIXSalesOrders1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="10"
+                          rowBandingInterval="0"
+                          filterModel="#{bindings.SearchCriteriaForDialogBoxQueryQuery.queryDescriptor}"
+                          queryListener="#{bindings.SearchCriteriaForDialogBoxQueryQuery.processQuery}"
+                          filterVisible="true" varStatus="vs"
+                          selectedRowKeys="#{bindings.CEIXSalesOrders1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.CEIXSalesOrders1.collectionModel.makeCurrent}"
+                          scrollPolicy="page"
+                          autoHeightRows="0"
+                          rowSelection="single" id="resId2">
+                  <af:column sortProperty="#{bindings.CEIXSalesOrders1.hints.OrderNumber.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CEIXSalesOrders1.hints.OrderNumber.label}"
+                             id="resId2c1">
+                    <af:outputText value="#{row.OrderNumber}" id="ot29"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.CEIXSalesOrders1.hints.CustomerName.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CEIXSalesOrders1.hints.CustomerName.label}"
+                             id="resId2c2">
+                    <af:outputText value="#{row.CustomerName}" id="ot32"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.CEIXSalesOrders1.hints.ContractNumber.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CEIXSalesOrders1.hints.ContractNumber.label}"
+                             id="resId2c3">
+                    <af:outputText value="#{row.ContractNumber}" id="ot28"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.CEIXSalesOrders1.hints.ShipAddress.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CEIXSalesOrders1.hints.ShipAddress.label}"
+                             id="resId2c4">
+                    <af:outputText value="#{row.ShipAddress}" id="ot30"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.CEIXSalesOrders1.hints.Description.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CEIXSalesOrders1.hints.Description.label}"
+                             id="resId2c5">
+                    <af:outputText value="#{row.Description}" id="ot31"/>
+                  </af:column>
+                </af:table>
+            </af:panelCollection>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+                     </af:dialog>
+        </af:popup>
+        
+        <af:popup id="p2"
+                              binding="#{pageFlowScope.LabSearchMB._contractMetricsNotFoundDialog}">
+                      <af:dialog title="Please confirm" id="d3"
+                                 dialogListener="#{pageFlowScope.LabSearchMB.contractMetricsNotFoundDialogListener}"
+                                 type="yesNo">
+                      
+                      <af:outputText value="No Contract Metrics associated with this Order Number.&lt;br/&gt; Please click Yes to proceed and still associate it with 
+                      lab metrics record." escape="false"
+                                     id="ot33"/>
+                      </af:dialog>
+                    </af:popup>
+      
+      
+      
+                                     
+      
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

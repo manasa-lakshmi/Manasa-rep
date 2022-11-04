@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="AddNewLabResultPageDef"
+                Package="com.ceix.quality.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CEIXOrdQualLabReslt1" RangeSize="25"
+              DataControl="CEIXOrderQualityLabResultsSearchAMDataControl"
+              id="CEIXOrdQualLabReslt1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator"
+                     id="OrderNumber">
+      <AttrNames>
+        <Item Value="OrderNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="Train">
+      <AttrNames>
+        <Item Value="Train"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="Yymm">
+      <AttrNames>
+        <Item Value="Yymm"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="Cars">
+      <AttrNames>
+        <Item Value="Cars"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="Datesamp">
+      <AttrNames>
+        <Item Value="Datesamp"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="Rptsampno">
+      <AttrNames>
+        <Item Value="Rptsampno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="Sampmethod">
+      <AttrNames>
+        <Item Value="Sampmethod"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="Fsi">
+      <AttrNames>
+        <Item Value="Fsi"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="Tm">
+      <AttrNames>
+        <Item Value="Tm"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="AshAsr">
+      <AttrNames>
+        <Item Value="AshAsr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="AshDry">
+      <AttrNames>
+        <Item Value="AshDry"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="VolAsr">
+      <AttrNames>
+        <Item Value="VolAsr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="VolDry">
+      <AttrNames>
+        <Item Value="VolDry"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="VolDaf">
+      <AttrNames>
+        <Item Value="VolDaf"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="SulAsr">
+      <AttrNames>
+        <Item Value="SulAsr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="SulDry">
+      <AttrNames>
+        <Item Value="SulDry"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="SulDaf">
+      <AttrNames>
+        <Item Value="SulDaf"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="FcAsr">
+      <AttrNames>
+        <Item Value="FcAsr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="FcDry">
+      <AttrNames>
+        <Item Value="FcDry"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="FcDaf">
+      <AttrNames>
+        <Item Value="FcDaf"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="BtuAsr">
+      <AttrNames>
+        <Item Value="BtuAsr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="BtuDry">
+      <AttrNames>
+        <Item Value="BtuDry"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="BtuDaf">
+      <AttrNames>
+        <Item Value="BtuDaf"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator"
+                     id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator"
+                     id="LastUpdateDate">
+      <AttrNames>
+        <Item Value="LastUpdateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator"
+                     id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="AftfRed">
+      <AttrNames>
+        <Item Value="AftfRed"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="AfthRed">
+      <AttrNames>
+        <Item Value="AfthRed"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="AftiRed">
+      <AttrNames>
+        <Item Value="AftiRed"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="AftsRed">
+      <AttrNames>
+        <Item Value="AftsRed"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="Chlorine">
+      <AttrNames>
+        <Item Value="Chlorine"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="Mercury">
+      <AttrNames>
+        <Item Value="Mercury"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="CEIXOrderQualityLabResultsSearchAMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="CEIXOrderQualityLabResultsSearchAMDataControl"/>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="Lbss">
+      <AttrNames>
+        <Item Value="Lbss"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CEIXOrdQualLabReslt1Iterator" id="Lbsso2">
+      <AttrNames>
+        <Item Value="Lbsso2"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="orderQualityLabResultsExists" RequiresUpdateModel="true"
+                  Action="invokeMethod"
+                  MethodName="orderQualityLabResultsExists"
+                  IsViewObjectMethod="false"
+                  DataControl="CEIXOrderQualityLabResultsSearchAMDataControl"
+                  InstanceName="CEIXOrderQualityLabResultsSearchAMDataControl.dataProvider"
+                  ReturnName="data.CEIXOrderQualityLabResultsSearchAMDataControl.methodResults.orderQualityLabResultsExists_CEIXOrderQualityLabResultsSearchAMDataControl_dataProvider_orderQualityLabResultsExists_result">
+      <NamedData NDName="trainNumber" NDType="java.lang.String"/>
+      <NamedData NDName="sampleDate" NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="rptSampleNo" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

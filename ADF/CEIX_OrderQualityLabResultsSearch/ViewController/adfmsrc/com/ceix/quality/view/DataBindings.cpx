@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.ceix.quality.view" ClientType="Generic">
+  <pageMap>
+    <page path="/com/ceix/quality/pages/SearchLabResults.jspx"
+          usageId="com_ceix_quality_view_SearchLabResultsPageDef"/>
+    <page path="/com/ceix/quality/pages/AddNewLabResult.jspx"
+          usageId="com_ceix_quality_view_AddNewLabResultPageDef"/>
+    <page path="/WEB-INF/com/ceix/quality/flow/LabResultsSearchFlow.xml#LabResultsSearchFlow@initializeCreate"
+          usageId="com_ceix_quality_view_LabResultsSearchFlow_LabResultsSearchFlow_initializeCreatePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_ceix_quality_view_SearchLabResultsPageDef"
+          path="com.ceix.quality.pages.SearchLabResultsPageDef"/>
+    <page id="com_ceix_quality_view_AddNewLabResultPageDef"
+          path="com.ceix.quality.pages.AddNewLabResultPageDef"/>
+    <page id="com_ceix_quality_view_LabResultsSearchFlow_LabResultsSearchFlow_initializeCreatePageDef"
+          path="com.ceix.quality.flow.LabResultsSearchFlow_LabResultsSearchFlow_initializeCreatePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="CEIXOrderQualityLabResultsSearchAMDataControl"
+                     Package="com.ceix.quality.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="CEIXOrderQualityLabResultsSearchAMLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

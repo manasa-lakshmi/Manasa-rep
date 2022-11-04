@@ -1,0 +1,1699 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CEIXOrdQualMetricsEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="CEIX_ORD_QUAL_METRICS"
+  AliasName="CEIXOrdQualMetricsEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="OrderNumber"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="ORDER_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FsiTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="FSI_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FsiSuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="FSI_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FsiReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="FSI_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TmTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="TM_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TmSuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="TM_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TmReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="TM_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AshAsrTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="ASH_ASR_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AshAsrSuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="ASH_ASR_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AshAsrReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="ASH_ASR_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AshDryTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="ASH_DRY_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AshDrySuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="ASH_DRY_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AshDryReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="ASH_DRY_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VolAsrTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="VOL_ASR_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VolAsrSuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="VOL_ASR_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VolAsrReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="VOL_ASR_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VolDryTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="VOL_DRY_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VolDrySuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="VOL_DRY_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VolDryReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="VOL_DRY_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VolDafTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="VOL_DAF_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VolDafSuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="VOL_DAF_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VolDafReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="VOL_DAF_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SulAsrTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="SUL_ASR_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SulAsrSuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="SUL_ASR_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SulAsrReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="SUL_ASR_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SulDryTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="SUL_DRY_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SulDrySuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="SUL_DRY_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SulDryReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="SUL_DRY_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SulDafTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="SUL_DAF_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SulDafSuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="SUL_DAF_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SulDafReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="SUL_DAF_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FcAsrTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="FC_ASR_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FcAsrSuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="FC_ASR_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FcAsrReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="FC_ASR_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FcDryTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="FC_DRY_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FcDrySuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="FC_DRY_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FcDryReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="FC_DRY_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FcDafTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="FC_DAF_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FcDafSuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="FC_DAF_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FcDafReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="FC_DAF_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BtuAsrTypical"
+    Precision="5"
+    Scale="0"
+    ColumnName="BTU_ASR_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BtuAsrSuspension"
+    Precision="5"
+    Scale="0"
+    ColumnName="BTU_ASR_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BtuAsrReject"
+    Precision="5"
+    Scale="0"
+    ColumnName="BTU_ASR_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BtuDryTypical"
+    Precision="5"
+    Scale="0"
+    ColumnName="BTU_DRY_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BtuDrySuspension"
+    Precision="5"
+    Scale="0"
+    ColumnName="BTU_DRY_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BtuDryReject"
+    Precision="5"
+    Scale="0"
+    ColumnName="BTU_DRY_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BtuDafTypical"
+    Precision="5"
+    Scale="0"
+    ColumnName="BTU_DAF_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BtuDafSuspension"
+    Precision="5"
+    Scale="0"
+    ColumnName="BTU_DAF_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BtuDafReject"
+    Precision="5"
+    Scale="0"
+    ColumnName="BTU_DAF_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="50"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="50"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NotAppTypical"
+    Precision="1"
+    Scale="0"
+    ColumnName="NOT_APP_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NotAppSuspen"
+    Precision="1"
+    Scale="0"
+    ColumnName="NOT_APP_SUSPEN"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NotAppReject"
+    Precision="1"
+    Scale="0"
+    ColumnName="NOT_APP_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TmWarngCode"
+    Precision="100"
+    ColumnName="TM_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AshAsrWarngCode"
+    Precision="100"
+    ColumnName="ASH_ASR_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AshDryWarngCode"
+    Precision="100"
+    ColumnName="ASH_DRY_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VolAsrWarngCode"
+    Precision="100"
+    ColumnName="VOL_ASR_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VolDryWarngCode"
+    Precision="100"
+    ColumnName="VOL_DRY_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VolDafWarngCode"
+    Precision="100"
+    ColumnName="VOL_DAF_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SulAsrWarngCode"
+    Precision="100"
+    ColumnName="SUL_ASR_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SulDryWarngCode"
+    Precision="100"
+    ColumnName="SUL_DRY_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SulDafWarngCode"
+    Precision="100"
+    ColumnName="SUL_DAF_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FcAsrWarngCode"
+    Precision="100"
+    ColumnName="FC_ASR_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FcDryWarngCode"
+    Precision="100"
+    ColumnName="FC_DRY_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FcDafWarngCode"
+    Precision="100"
+    ColumnName="FC_DAF_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BtuAsrWarngCode"
+    Precision="100"
+    ColumnName="BTU_ASR_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BtuDryWarngCode"
+    Precision="100"
+    ColumnName="BTU_DRY_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BtuDafWarngCode"
+    Precision="100"
+    ColumnName="BTU_DAF_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AftfRedReject"
+    Precision="5"
+    Scale="0"
+    ColumnName="AFTF_RED_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AftfRedSuspension"
+    Precision="5"
+    Scale="0"
+    ColumnName="AFTF_RED_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AftfRedTypical"
+    Precision="5"
+    Scale="0"
+    ColumnName="AFTF_RED_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AftfRedWarngCode"
+    Precision="100"
+    ColumnName="AFTF_RED_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AfthRedReject"
+    Precision="5"
+    Scale="0"
+    ColumnName="AFTH_RED_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AfthRedSuspension"
+    Precision="5"
+    Scale="0"
+    ColumnName="AFTH_RED_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AfthRedTypical"
+    Precision="5"
+    Scale="0"
+    ColumnName="AFTH_RED_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AfthRedWarngCode"
+    Precision="100"
+    ColumnName="AFTH_RED_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AftiRedReject"
+    Precision="5"
+    Scale="0"
+    ColumnName="AFTI_RED_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AftiRedSuspension"
+    Precision="5"
+    Scale="0"
+    ColumnName="AFTI_RED_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AftiRedTypical"
+    Precision="5"
+    Scale="0"
+    ColumnName="AFTI_RED_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AftiRedWarngCode"
+    Precision="100"
+    ColumnName="AFTI_RED_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AftsRedReject"
+    Precision="5"
+    Scale="0"
+    ColumnName="AFTS_RED_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AftsRedSuspension"
+    Precision="5"
+    Scale="0"
+    ColumnName="AFTS_RED_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AftsRedTypical"
+    Precision="5"
+    Scale="0"
+    ColumnName="AFTS_RED_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AftsRedWarngCode"
+    Precision="100"
+    ColumnName="AFTS_RED_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ChlorineReject"
+    Precision="5"
+    Scale="0"
+    ColumnName="CHLORINE_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ChlorineSuspension"
+    Precision="5"
+    Scale="0"
+    ColumnName="CHLORINE_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ChlorineTypical"
+    Precision="5"
+    Scale="0"
+    ColumnName="CHLORINE_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ChlorineWarngCode"
+    Precision="100"
+    ColumnName="CHLORINE_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MercuryReject"
+    Precision="4"
+    Scale="3"
+    ColumnName="MERCURY_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MercurySuspension"
+    Precision="4"
+    Scale="3"
+    ColumnName="MERCURY_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MercuryTypical"
+    Precision="4"
+    Scale="3"
+    ColumnName="MERCURY_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MercuryWarngCode"
+    Precision="100"
+    ColumnName="MERCURY_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+<Attribute
+    Name="Lbsso2Reject"
+    Precision="4"
+    Scale="2"
+    ColumnName="LBSSO2_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+<Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="5"/>
+      </SchemaBasedProperties>
+    </Properties>
+
+      
+  </Attribute>
+  <Attribute
+    Name="Lbsso2Suspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="LBSSO2_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+<Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="5"/>
+      </SchemaBasedProperties>
+    </Properties>
+
+  </Attribute>
+  <Attribute
+    Name="Lbsso2Typical"
+    Precision="4"
+    Scale="2"
+    ColumnName="LBSSO2_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+<Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="5"/>
+      </SchemaBasedProperties>
+    </Properties>
+
+  </Attribute>
+  <Attribute
+    Name="Lbsso2WarngCode"
+    Precision="100"
+    ColumnName="LBSSO2_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LbssReject"
+    Precision="4"
+    Scale="2"
+    ColumnName="LBSS_REJECT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+<Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="5"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="LbssSuspension"
+    Precision="4"
+    Scale="2"
+    ColumnName="LBSS_SUSPENSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+<Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="5"/>
+      </SchemaBasedProperties>
+    </Properties>
+
+  </Attribute>
+  <Attribute
+    Name="LbssTypical"
+    Precision="4"
+    Scale="2"
+    ColumnName="LBSS_TYPICAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+<Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="5"/>
+      </SchemaBasedProperties>
+    </Properties>
+
+  </Attribute>
+  <Attribute
+    Name="LbssWarngCode"
+    Precision="100"
+    ColumnName="LBSS_WARNG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_ORD_QUAL_METRICS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts9Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts9Assoc.CEIXOrdQualWarngOpts"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts9Assoc.CEIXOrdQualMetrics"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts1"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts8Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts8Assoc.CEIXOrdQualWarngOpts1"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts8Assoc.CEIXOrdQualMetrics1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts2"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts7Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts7Assoc.CEIXOrdQualWarngOpts2"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts7Assoc.CEIXOrdQualMetrics2"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts3"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts6Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts6Assoc.CEIXOrdQualWarngOpts3"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts6Assoc.CEIXOrdQualMetrics3"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts4"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts5Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts5Assoc.CEIXOrdQualWarngOpts4"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts5Assoc.CEIXOrdQualMetrics4"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts5"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts4Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts4Assoc.CEIXOrdQualWarngOpts5"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts4Assoc.CEIXOrdQualMetrics5"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts6"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts3Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts3Assoc.CEIXOrdQualWarngOpts6"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts3Assoc.CEIXOrdQualMetrics6"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts7"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts2Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts2Assoc.CEIXOrdQualWarngOpts7"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts2Assoc.CEIXOrdQualMetrics7"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts8"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts15Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts15Assoc.CEIXOrdQualWarngOpts8"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts15Assoc.CEIXOrdQualMetrics8"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts9"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts14Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts14Assoc.CEIXOrdQualWarngOpts9"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts14Assoc.CEIXOrdQualMetrics9"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts10"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts13Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts13Assoc.CEIXOrdQualWarngOpts10"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts13Assoc.CEIXOrdQualMetrics10"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts11"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts12Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts12Assoc.CEIXOrdQualWarngOpts11"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts12Assoc.CEIXOrdQualMetrics11"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts12"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts11Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts11Assoc.CEIXOrdQualWarngOpts12"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts11Assoc.CEIXOrdQualMetrics12"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts13"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts10Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts10Assoc.CEIXOrdQualWarngOpts13"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts10Assoc.CEIXOrdQualMetrics13"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXOrdQualWarngOpts14"
+    Association="com.ceix.quality.model.entities.FkCeixWarngOpts1Assoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixWarngOpts1Assoc.CEIXOrdQualWarngOpts14"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixWarngOpts1Assoc.CEIXOrdQualMetrics14"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CEIXSalesOrders"
+    Association="com.ceix.quality.model.entities.FkCeixSalesOrdersAssoc"
+    AssociationEnd="com.ceix.quality.model.entities.FkCeixSalesOrdersAssoc.CEIXSalesOrders"
+    AssociationOtherEnd="com.ceix.quality.model.entities.FkCeixSalesOrdersAssoc.CEIXOrdQualMetrics"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="CeixOrdQualMetricsPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="CEIX_ORD_QUAL_METRICS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.OrderNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007751">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007751"/>
+      <Attr Name="_checkCondition" Value='"ORDER_NUMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.OrderNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixSalesOrders">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_SALES_ORDERS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_SALES_ORDERS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.OrderNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.TmWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts10">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_10"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.FcAsrWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts11">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_11"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.FcDryWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts12">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_12"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.FcDafWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts13">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_13"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.BtuAsrWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts14">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_14"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.BtuDryWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts15">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_15"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.BtuDafWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.AshAsrWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.AshDryWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts4">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_4"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.VolAsrWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts5">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_5"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.VolDryWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts6">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_6"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.VolDafWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts7">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_7"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.SulAsrWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts8">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_8"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.SulDryWarngCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCeixWarngOpts9">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CEIX_ORD_QUAL_WARNG_OPTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CEIX_WARNG_OPTS_9"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.entities.CEIXOrdQualMetricsEO.SulDafWarngCode"/>
+    </AttrArray>
+  </Key>
+</Entity>

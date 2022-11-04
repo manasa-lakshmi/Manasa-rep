@@ -1,0 +1,393 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          >
+  <c:set var="viewcontrollerBundle"
+         value="#{adfBundle['com.ceix.quality.view.ViewControllerBundle']}"/>
+          
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <style type="text/css">
+     td.align-centr {
+            
+            text-align:right;
+            padding-right:12%
+        }
+        
+    </style>
+  <f:view>
+    <af:document id="d1" theme="light" title="Add New Lab Results">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        
+        <af:decorativeBox theme="light" id="db2">
+          <f:facet name="center">
+            <af:panelStretchLayout id="psl2" dimensionsFrom="children">
+              <f:facet name="center">
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+      
+      <af:panelHeader text="Add New Lab Results" id="ph1">
+      
+      </af:panelHeader>
+                  <af:panelFormLayout id="pfl1" maxColumns="2" rows="3">
+      
+            <af:inputText value="#{bindings.Train.inputValue}"
+                          label="#{bindings.Train.hints.label}"
+                          required="#{bindings.Train.hints.mandatory}"
+                          columns="#{bindings.Train.hints.displayWidth}"
+                          maximumLength="#{bindings.Train.hints.precision}"
+                          shortDesc="#{bindings.Train.hints.tooltip}" id="it35"
+                          binding="#{pageFlowScope.LabSearchMB._addNewLabResult_TrainNumber}">
+              <f:validator binding="#{bindings.Train.validator}"/>
+            </af:inputText>
+            
+              <af:inputDate value="#{bindings.Datesamp.inputValue}"
+                          label="#{bindings.Datesamp.hints.label}"
+                          required="#{bindings.Datesamp.hints.mandatory}"
+                          shortDesc="#{bindings.Datesamp.hints.tooltip}"
+                          id="id2"
+                            binding="#{pageFlowScope.LabSearchMB._addNewLabResult_DateSampled}">
+              <f:validator binding="#{bindings.Datesamp.validator}"/>
+              <af:convertDateTime pattern="#{bindings.Datesamp.format}"/>
+            </af:inputDate>
+            
+            <af:inputText value="#{bindings.Yymm.inputValue}"
+                          label="#{bindings.Yymm.hints.label}"
+                          required="#{bindings.Yymm.hints.mandatory}"
+                          columns="#{bindings.Yymm.hints.displayWidth}"
+                          maximumLength="#{bindings.Yymm.hints.precision}"
+                          shortDesc="#{bindings.Yymm.hints.tooltip}" id="it16">
+              <f:validator binding="#{bindings.Yymm.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Cars.inputValue}"
+                          label="#{bindings.Cars.hints.label}"
+                          required="#{bindings.Cars.hints.mandatory}"
+                          columns="#{bindings.Cars.hints.displayWidth}"
+                          maximumLength="#{bindings.Cars.hints.precision}"
+                          shortDesc="#{bindings.Cars.hints.tooltip}" id="it19">
+              <f:validator binding="#{bindings.Cars.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.Cars.format}"/>
+            </af:inputText>
+          
+            <af:inputText value="#{bindings.Rptsampno.inputValue}"
+                          label="#{bindings.Rptsampno.hints.label}"
+                          required="true"
+                          columns="#{bindings.Rptsampno.hints.displayWidth}"
+                          maximumLength="#{bindings.Rptsampno.hints.precision}"
+                          shortDesc="#{bindings.Rptsampno.hints.tooltip}"
+                          id="it32"
+                          binding="#{pageFlowScope.LabSearchMB._rptSampleNumber}">
+              <f:validator binding="#{bindings.Rptsampno.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Sampmethod.inputValue}"
+                          label="#{bindings.Sampmethod.hints.label}"
+                          required="#{bindings.Sampmethod.hints.mandatory}"
+                          columns="#{bindings.Sampmethod.hints.displayWidth}"
+                          maximumLength="#{bindings.Sampmethod.hints.precision}"
+                          shortDesc="#{bindings.Sampmethod.hints.tooltip}"
+                          id="it25">
+              <f:validator binding="#{bindings.Sampmethod.validator}"/>
+            </af:inputText>
+          
+            <af:inputText value="#{bindings.Fsi.inputValue}"
+                          label="#{bindings.Fsi.hints.label}"
+                          required="#{bindings.Fsi.hints.mandatory}"
+                          columns="#{bindings.Fsi.hints.displayWidth}"
+                          maximumLength="#{bindings.Fsi.hints.displayWidth}"
+                          shortDesc="#{bindings.Fsi.hints.tooltip}" id="it11">
+              <f:validator binding="#{bindings.Fsi.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.Fsi.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Tm.inputValue}"
+                          label="#{viewcontrollerBundle.TM}"
+                          shortDesc="#{viewcontrollerBundle.TM_DESC}"
+                          required="#{bindings.Tm.hints.mandatory}"
+                          columns="#{bindings.Tm.hints.displayWidth}"
+                          maximumLength="#{bindings.Tm.hints.displayWidth}"
+                           id="it27">
+              <f:validator binding="#{bindings.Tm.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.Tm.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.AshAsr.inputValue}"
+                          label="#{viewcontrollerBundle.ASH_ASR}"
+                          required="#{bindings.AshAsr.hints.mandatory}"
+                          columns="#{bindings.AshAsr.hints.displayWidth}"
+                          maximumLength="#{bindings.AshAsr.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.ASH_ASR_DESC}"
+                          id="it18">
+              <f:validator binding="#{bindings.AshAsr.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.AshAsr.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.AshDry.inputValue}"
+                          label="#{viewcontrollerBundle.ASH_DRY}"
+                          required="#{bindings.AshDry.hints.mandatory}"
+                          columns="#{bindings.AshDry.hints.displayWidth}"
+                          maximumLength="#{bindings.AshDry.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.ASH_DRY_DESC}" id="it7">
+              <f:validator binding="#{bindings.AshDry.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.AshDry.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.VolAsr.inputValue}"
+                          label="#{viewcontrollerBundle.VOL_ASR}"
+                          required="#{bindings.VolAsr.hints.mandatory}"
+                          columns="#{bindings.VolAsr.hints.displayWidth}"
+                          maximumLength="#{bindings.VolAsr.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.VOL_ASR_DESC}"
+                          id="it13">
+              <f:validator binding="#{bindings.VolAsr.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.VolAsr.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.VolDry.inputValue}"
+                          label="#{viewcontrollerBundle.VOL_DRY}"
+                          required="#{bindings.VolDry.hints.mandatory}"
+                          columns="#{bindings.VolDry.hints.displayWidth}"
+                          maximumLength="#{bindings.VolDry.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.VOL_DRY_DESC}"
+                          id="it33">
+              <f:validator binding="#{bindings.VolDry.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.VolDry.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.VolDaf.inputValue}"
+                          label="#{viewcontrollerBundle.VOL_DAF}"
+                          required="#{bindings.VolDaf.hints.mandatory}"
+                          columns="#{bindings.VolDaf.hints.displayWidth}"
+                          maximumLength="#{bindings.VolDaf.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.VOL_DAF_DESC}"
+                          id="it30">
+              <f:validator binding="#{bindings.VolDaf.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.VolDaf.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.SulAsr.inputValue}"
+                          label="#{viewcontrollerBundle.SUL_ASR}"
+                          required="#{bindings.SulAsr.hints.mandatory}"
+                          columns="#{bindings.SulAsr.hints.displayWidth}"
+                          maximumLength="#{bindings.SulAsr.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.SUL_ASR_DESC}"
+                          id="it14">
+              <f:validator binding="#{bindings.SulAsr.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SulAsr.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.SulDry.inputValue}"
+                          label="#{viewcontrollerBundle.SUL_DRY}"
+                          required="#{bindings.SulDry.hints.mandatory}"
+                          columns="#{bindings.SulDry.hints.displayWidth}"
+                          maximumLength="#{bindings.SulDry.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.SUL_DRY_DESC}"
+                          id="it20">
+              <f:validator binding="#{bindings.SulDry.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SulDry.format}"/>
+            </af:inputText>
+              
+              <af:inputText value="#{bindings.SulDaf.inputValue}"
+                          label="#{viewcontrollerBundle.SUL_DAF}"
+                          required="#{bindings.SulDaf.hints.mandatory}"
+                          columns="#{bindings.SulDaf.hints.displayWidth}"
+                          maximumLength="#{bindings.SulDaf.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.SUL_DAF_DESC}"
+                          id="it15">
+              <f:validator binding="#{bindings.SulDaf.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SulDaf.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.FcAsr.inputValue}"
+                          label="#{viewcontrollerBundle.FC_ASR}"
+                          required="#{bindings.FcAsr.hints.mandatory}"
+                          columns="#{bindings.FcAsr.hints.displayWidth}"
+                          maximumLength="#{bindings.FcAsr.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.FC_ASR_DESC}" id="it29">
+              <f:validator binding="#{bindings.FcAsr.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.FcAsr.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.FcDry.inputValue}"
+                          label="#{viewcontrollerBundle.FC_DRY}"
+                          required="#{bindings.FcDry.hints.mandatory}"
+                          columns="#{bindings.FcDry.hints.displayWidth}"
+                          maximumLength="#{bindings.FcDry.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.FC_DRY_DESC}" id="it9">
+              <f:validator binding="#{bindings.FcDry.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.FcDry.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.FcDaf.inputValue}"
+                          label="#{viewcontrollerBundle.FC_DAF}"
+                          required="#{bindings.FcDaf.hints.mandatory}"
+                          columns="#{bindings.FcDaf.hints.displayWidth}"
+                          maximumLength="#{bindings.FcDaf.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.FC_DAF_DESC}" id="it17">
+              <f:validator binding="#{bindings.FcDaf.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.FcDaf.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.BtuAsr.inputValue}"
+                          label="#{viewcontrollerBundle.BTU_ASR}"
+                          required="#{bindings.BtuAsr.hints.mandatory}"
+                          columns="#{bindings.BtuAsr.hints.displayWidth}"
+                          maximumLength="#{bindings.BtuAsr.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.BTU_ASR_DESC}"
+                          id="it28">
+              <f:validator binding="#{bindings.BtuAsr.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.BtuAsr.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.BtuDry.inputValue}"
+                          label="#{viewcontrollerBundle.BTU_DRY}"
+                          required="#{bindings.BtuDry.hints.mandatory}"
+                          columns="#{bindings.BtuDry.hints.displayWidth}"
+                          maximumLength="#{bindings.BtuDry.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.BTU_DRY_DESC}"
+                          id="it24">
+              <f:validator binding="#{bindings.BtuDry.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.BtuDry.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.BtuDaf.inputValue}"
+                          label="#{viewcontrollerBundle.BTU_DAF}"
+                          required="#{bindings.BtuDaf.hints.mandatory}"
+                          columns="#{bindings.BtuDaf.hints.displayWidth}"
+                          maximumLength="#{bindings.BtuDaf.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.BTU_DAF_DESC}"
+                          id="it22">
+              <f:validator binding="#{bindings.BtuDaf.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.BtuDaf.format}"/>
+            </af:inputText>
+  <af:inputText value="#{bindings.AftiRed.inputValue}"
+                          label="#{viewcontrollerBundle.AFTI_RED}"
+                          required="#{bindings.AftiRed.hints.mandatory}"
+                          columns="#{bindings.AftiRed.hints.displayWidth}"
+                          maximumLength="#{bindings.AftiRed.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.AFTI_RED_DESC}"
+                          id="it10">
+              <f:validator binding="#{bindings.AftiRed.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.AftiRed.format}"/>
+            </af:inputText>   
+
+            <af:inputText value="#{bindings.AftsRed.inputValue}"
+                          label="#{viewcontrollerBundle.AFTS_RED}"
+                          required="#{bindings.AftsRed.hints.mandatory}"
+                          columns="#{bindings.AftsRed.hints.displayWidth}"
+                          maximumLength="#{bindings.AftsRed.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.AFTS_RED_DESC}"
+                          id="it21">
+              <f:validator binding="#{bindings.AftsRed.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.AftsRed.format}"/>
+            </af:inputText>        
+              <af:inputText value="#{bindings.AfthRed.inputValue}"
+                          label="#{viewcontrollerBundle.AFTH_RED}"
+                          required="#{bindings.AfthRed.hints.mandatory}"
+                          columns="#{bindings.AfthRed.hints.displayWidth}"
+                          maximumLength="#{bindings.AfthRed.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.AFTH_RED_DESC}"
+                          id="it8">
+              <f:validator binding="#{bindings.AfthRed.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.AfthRed.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.AftfRed.inputValue}"
+                          label="#{viewcontrollerBundle.AFTF_RED}"
+                          required="#{bindings.AftfRed.hints.mandatory}"
+                          columns="#{bindings.AftfRed.hints.displayWidth}"
+                          maximumLength="#{bindings.AftfRed.hints.displayWidth}"
+                          shortDesc="#{viewcontrollerBundle.AFTF_RED_DESC}"
+                          id="it31">
+              <f:validator binding="#{bindings.AftfRed.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.AftfRed.format}"/>
+            </af:inputText>
+          
+          
+            <af:inputText value="#{bindings.Chlorine.inputValue}"
+                          label="#{bindings.Chlorine.hints.label}"
+                          required="#{bindings.Chlorine.hints.mandatory}"
+                          columns="#{bindings.Chlorine.hints.displayWidth}"
+                          maximumLength="#{bindings.Chlorine.hints.displayWidth}"
+                          shortDesc="#{bindings.Chlorine.hints.tooltip}"
+                          id="it23">
+              <f:validator binding="#{bindings.Chlorine.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.Chlorine.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Mercury.inputValue}"
+                          label="#{bindings.Mercury.hints.label}"
+                          required="#{bindings.Mercury.hints.mandatory}"
+                          columns="#{bindings.Mercury.hints.displayWidth}"
+                          maximumLength="#{bindings.Mercury.hints.displayWidth}"
+                          shortDesc="#{bindings.Mercury.hints.tooltip}"
+                          id="it12">
+              <f:validator binding="#{bindings.Mercury.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.Mercury.format}"/>
+            </af:inputText>
+                    <af:inputText value="#{bindings.Lbss.inputValue}"
+                                  label="#{viewcontrollerBundle.LBSS}"
+                                  required="#{bindings.Lbss.hints.mandatory}"
+                                  columns="#{bindings.Lbss.hints.displayWidth}"
+                                  maximumLength="#{bindings.Lbss.hints.displayWidth}"
+                                  shortDesc="#{bindings.Lbss.hints.tooltip}"
+                                  id="it1">
+                      <f:validator binding="#{bindings.Lbss.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.Lbss.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Lbsso2.inputValue}"
+                                  label="#{viewcontrollerBundle.LBSSO2}"
+                                  required="#{bindings.Lbsso2.hints.mandatory}"
+                                  columns="#{bindings.Lbsso2.hints.displayWidth}"
+                                  maximumLength="#{bindings.Lbsso2.hints.displayWidth}"
+                                  shortDesc="#{bindings.Lbsso2.hints.tooltip}"
+                                  id="it2">
+                      <f:validator binding="#{bindings.Lbsso2.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.Lbsso2.format}"/>
+                    </af:inputText>
+                    <f:facet name="footer">
+                <af:panelGridLayout id="pgl6">
+                  <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                              id="gr1">
+                    <af:gridCell marginStart="5px" width="40%" id="gc1">
+                   
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                                 id="gc2">
+                     <af:commandButton text="Save" id="cb4"
+                                disabled="#{securityContext.userInRole['CEIX_QualityLabResultsUsersRO']}"
+                                action="#{pageFlowScope.LabSearchMB.saveNewLabResultsMetrics}"
+                                       icon="/images/save_ena.png"/> 
+                                &amp;nbsp;
+                            <af:commandButton
+                            text="Cancel"
+                            immediate="true"
+                            id="cb5" action="#{pageFlowScope.LabSearchMB.cancelClickedOnAddNewLabResults}"
+                                              icon="/images/cancel_ena.png"/>                                
+                                 
+                                 </af:gridCell>
+                  </af:gridRow>
+                </af:panelGridLayout>
+               
+            </f:facet>
+          </af:panelFormLayout>
+                 
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

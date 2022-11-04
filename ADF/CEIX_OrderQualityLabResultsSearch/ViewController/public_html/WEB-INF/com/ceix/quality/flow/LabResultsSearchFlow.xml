@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="LabResultsSearchFlow">
+    <default-activity id="__1">SearchLabResults</default-activity>
+    <managed-bean id="__4">
+      <managed-bean-name id="__5">LabSearchMB</managed-bean-name>
+      <managed-bean-class id="__3">com.ceix.quality.bean.LabSearchMB</managed-bean-class>
+      <managed-bean-scope id="__2">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="SearchLabResults">
+      <page>/com/ceix/quality/pages/SearchLabResults.jspx</page>
+    </view>
+    <view id="AddNewLabResult">
+      <page>/com/ceix/quality/pages/AddNewLabResult.jspx</page>
+    </view>
+    <method-call id="initializeCreate">
+      <method>#{pageFlowScope.LabSearchMB.initializeAddNewLabResult}</method>
+      <outcome id="__16">
+        <fixed-outcome>proceed</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">SearchLabResults</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome id="__10">addNewLbResult</from-outcome>
+        <to-activity-id id="__9">initializeCreate</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id id="__12">initializeCreate</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome id="__15">proceed</from-outcome>
+        <to-activity-id id="__14">AddNewLabResult</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id id="__18">AddNewLabResult</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome id="__24">labSearchPage</from-outcome>
+        <to-activity-id id="__22">SearchLabResults</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

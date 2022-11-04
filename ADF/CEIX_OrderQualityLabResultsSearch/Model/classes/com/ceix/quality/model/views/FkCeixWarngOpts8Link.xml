@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkCeixWarngOpts8Link"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  EntityAssociation="com.ceix.quality.model.entities.FkCeixWarngOpts8Assoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="CEIXOrdQualWarngOpts"
+    Cardinality="1"
+    Owner="com.ceix.quality.model.views.CEIXOrdQualWarngOptsVO"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CEIXOrdQualWarngOpts"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.views.CEIXOrdQualWarngOptsVO.ListCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="CEIXOrdQualMetrics1"
+    Cardinality="-1"
+    Owner="com.ceix.quality.model.views.CEIXOrdQualMetricsVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CEIXOrdQualMetrics1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.quality.model.views.CEIXOrdQualMetricsVO.SulDryWarngCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

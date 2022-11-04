@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__4">
+    <managed-bean-name id="__1">LabSearchMB</managed-bean-name>
+    <managed-bean-class id="__3">com.ceix.quality.bean.LabSearchMB</managed-bean-class>
+    <managed-bean-scope id="__2">pageFlow</managed-bean-scope>
+  </managed-bean>
+</adfc-config>
