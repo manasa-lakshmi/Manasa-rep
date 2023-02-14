@@ -50,7 +50,7 @@
        CeixStsDeliveryLinesEO.DISPLAYCARID,                         
        CeixStsDeliveryLinesEO.NEW_CAR_PREFIX,                         
        CeixStsDeliveryLinesEO.RAIL_ROAD,                        
-       (select to_date(NVL(replace(hdr.load_date3,'"'),replace(hdr.load_date4,'"')),'YYMMDD') from CEIX_STS_DELIVERY_HEADER hdr where CeixStsDeliveryLinesEO.delivery_header_id = hdr.delivery_header_id) load_date,                        
+       (select to_date(NVL(replace(hdr.load_date4,'"'),replace(hdr.load_date3,'"')),'YYMMDD') from CEIX_STS_DELIVERY_HEADER hdr where CeixStsDeliveryLinesEO.delivery_header_id = hdr.delivery_header_id) load_date,                        
        CeixStsDeliveryLinesEO.attribute1,                 
        CeixStsDeliveryLinesEO.attribute3,                
        CeixStsDeliveryLinesEO.straggler,              

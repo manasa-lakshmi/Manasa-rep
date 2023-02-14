@@ -159,6 +159,16 @@ public class CeixStsDeliverySearchVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        ClassName {
+            protected Object get(CeixStsDeliverySearchVORowImpl obj) {
+                return obj.getClassName();
+            }
+
+            protected void put(CeixStsDeliverySearchVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
         EditFlag {
             protected Object get(CeixStsDeliverySearchVORowImpl obj) {
                 return obj.getEditFlag();
@@ -253,6 +263,7 @@ public class CeixStsDeliverySearchVORowImpl extends ViewRowImpl {
     public static final int DESTINATION = AttributesEnum.Destination.index();
     public static final int LOADORIGIN = AttributesEnum.LoadOrigin.index();
     public static final int FREIGHT = AttributesEnum.Freight.index();
+    public static final int CLASSNAME = AttributesEnum.ClassName.index();
     public static final int EDITFLAG = AttributesEnum.EditFlag.index();
     public static final int STRAGGLERFLAG = AttributesEnum.StragglerFlag.index();
     public static final int CEIXSTSDELIVERYAM_CEIXSTSCONTRACTITEMSVO1_1 =
@@ -426,6 +437,14 @@ public class CeixStsDeliverySearchVORowImpl extends ViewRowImpl {
      */
     public void setFreight(String value) {
         setAttributeInternal(FREIGHT, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute ClassName.
+     * @return the ClassName
+     */
+    public String getClassName() {
+        return (String) getAttributeInternal(CLASSNAME);
     }
 
     /**

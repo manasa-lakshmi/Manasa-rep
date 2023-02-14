@@ -107,6 +107,7 @@
           <Item Value="StragglerFlag"/>
           <Item Value="SalesAgreementName"/>
           <Item Value="Freight"/>
+          <Item Value="ClassName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

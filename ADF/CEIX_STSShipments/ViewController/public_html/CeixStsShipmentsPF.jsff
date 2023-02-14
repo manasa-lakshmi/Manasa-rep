@@ -339,6 +339,10 @@
                                       id="sbc4" disabled="true"
                                       autoSubmit="true"/>
           </af:column>
+        <af:column headerText="#{bindings.CeixStsDeliverySearchVO1.hints.ClassName.label}" id="c25">
+          <af:outputText value="#{row.ClassName}"
+                         shortDesc="#{bindings.CeixStsDeliverySearchVO1.hints.ClassName.tooltip}" id="ot2"/>
+        </af:column>
         <af:column id="c31" align="center" width="90">
           <af:commandButton text="Return" id="cb11"
                             disabled="#{row.bindings.ShipmentNumber.inputValue == null || securityContext.userInRole['CEIX_STSShipmentsUsersRO']}"
