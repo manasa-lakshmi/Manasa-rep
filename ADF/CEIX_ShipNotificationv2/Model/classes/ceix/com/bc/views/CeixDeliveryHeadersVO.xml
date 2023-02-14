@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixDeliveryHeadersVO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ceix.com.bc.views.CeixDeliveryHeadersVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT REPLACE (shipper, '"', '')                  shipper,      
+       REPLACE (SHIPPER_ADDRESS, '"', '')          SHIPPER_ADDRESS,      
+       REPLACE (SHIPPER_CITY_STATE_ZIP, '"', '')   SHIPPER_CITY_STATE_ZIP,      
+       REPLACE (MINE, '"', '')                     MINE,      
+       REPLACE (DH.CONSIGNEE, '"', '')             CONSIGNEE,      
+       REPLACE (CONSIGNEE_ADDRESS, '"', '')        CONSIGNEE_ADDRESS,      
+       REPLACE (CONSIGNEE_CITY_STATE_ZIP, '"', '') CONSIGNEE_CITY_STATE_ZIP,      
+       TO_CHAR (TO_DATE (nvl(REPLACE(LOAD_DATE3,'"', ''),REPLACE(LOAD_DATE4,'"', '')), 'YYMMDD'),      
+                'MM-DD-YYYY')      
+           SHIP_DATE,      
+       REPLACE (SHIPPER_ID_NUMBER, '"', '')        SHIPPER_ID_NUMBER,      
+       UNIT_TRAIN_NUMBER                           UNIT_TRAIN_NUMBER,      
+       REPLACE (RR_PERMIT_NUMBER, '"', '')         RR_PERMIT_NUMBER,      
+       REPLACE (ROUTING, '"', '')                  ROUTING,      
+       REPLACE (CLASS_COL, '"', '')                CLASS,      
+       (SELECT customer_po      
+          FROM ceix_contract_headers cch      
+         WHERE contract_number IN      
+                   (SELECT sales_order_number      
+                      FROM ceix_sts_delivery_lines lines      
+                     WHERE     lines.delivery_header_id =      
+                                   DH.delivery_header_id      
+                           AND ROWNUM = 1))      
+           PO_NUMBER,      
+       (SELECT sales_order_number      
+          FROM OM.ceix_sts_delivery_lines      
+         WHERE delivery_header_id = DH.delivery_header_id AND ROWNUM = 1)      
+           SALES_AGREEMENT,      
+       SUBSTR (line_63,      
+               2,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        2)      
+               - 2)      
+           ASH,      
+       SUBSTR (line_63,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        3)      
+               + 1,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        4)      
+               - INSTR (line_63,      
+                        '"',      
+                        1,      
+                        3)      
+               - 1)      
+           SULFUR,      
+       SUBSTR (line_63,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        5)      
+               + 1,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        6)      
+               - INSTR (line_63,      
+                        '"',      
+                        1,      
+                        5)      
+               - 1)      
+           MOISTURE,      
+       SUBSTR (line_63,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        7)      
+               + 1,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        8)      
+               - INSTR (line_63,      
+                        '"',      
+                        1,      
+                        7)      
+               - 1)      
+           BTU,      
+       SUBSTR (line_63,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        9)      
+               + 1,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        10)      
+               - INSTR (line_63,      
+                        '"',      
+                        1,      
+                        9)      
+               - 1)      
+           T250,      
+       SUBSTR (line_63,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        11)      
+               + 1,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        12)      
+               - INSTR (line_63,      
+                        '"',      
+                        1,      
+                        11)      
+               - 1)      
+           FTR,      
+       SUBSTR (line_63,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        13)      
+               + 1,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        14)      
+               - INSTR (line_63,      
+                        '"',      
+                        1,      
+                        13)      
+               - 1)      
+           STR,      
+       SUBSTR (line_63,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        15)      
+               + 1,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        16)      
+               - INSTR (line_63,      
+                        '"',      
+                        1,      
+                        15)      
+               - 1)      
+           ID,      
+       SUBSTR (line_63,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        17)      
+               + 1,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        18)      
+               - INSTR (line_63,      
+                        '"',      
+                        1,      
+                        17)      
+               - 1)      
+           H12W,      
+       SUBSTR (line_63,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        19)      
+               + 1,      
+                 INSTR (line_63,      
+                        '"',      
+                        1,      
+                        20)      
+               - INSTR (line_63,      
+                        '"',      
+                        1,      
+                        19)      
+               - 1)      
+           SO2,      
+       REPLACE (line_56, '"', '')                  SIDE_RELEASE,      
+       REPLACE (line_57, '"', '')                  FREEZE_CONDITIONER,      
+       NULL                                        REQUESTED_LOAD_DATE,      
+       --to_char(csr.load_date,'MM/DD/YYYY') ship_date,      
+       TO_CHAR (      
+           TO_DATE (nvl(REPLACE (load_date2 || load_time2, '"', ''),REPLACE (load_date1 || load_time1, '"', '')),'YYMMDDHH24MISS'),      
+           'MM/DD/YYYY HH24:MI:SS')      
+           LOAD_START_DATE,      
+       TO_CHAR (      
+           TO_DATE (nvl(REPLACE (load_date3 || load_time3, '"', ''),REPLACE (load_date4 || load_time4, '"', '')),      
+                    'YYMMDDHH24MISS'),      
+           'MM/DD/YYYY HH24:MI:SS')      
+           LOAD_END_DATE      
+  FROM OM.ceix_sts_delivery_header DH      
+ WHERE TO_DATE (REPLACE (LOAD_DATE4, '"', ''), 'YYMMDD') > SYSDATE - 60]]></SQLQuery>
+  <ViewAttribute
+    Name="Shipper"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SHIPPER"
+    Expression="SHIPPER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipperAddress"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SHIPPER_ADDRESS"
+    Expression="SHIPPER_ADDRESS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipperCityStateZip"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SHIPPER_CITY_STATE_ZIP"
+    Expression="SHIPPER_CITY_STATE_ZIP"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Mine"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MINE"
+    Expression="MINE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Consignee"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CONSIGNEE"
+    Expression="CONSIGNEE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ConsigneeAddress"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CONSIGNEE_ADDRESS"
+    Expression="CONSIGNEE_ADDRESS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ConsigneeCityStateZip"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CONSIGNEE_CITY_STATE_ZIP"
+    Expression="CONSIGNEE_CITY_STATE_ZIP"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SHIP_DATE"
+    Expression="SHIP_DATE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipperIdNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SHIPPER_ID_NUMBER"
+    Expression="SHIPPER_ID_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UnitTrainNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="UNIT_TRAIN_NUMBER"
+    Expression="UNIT_TRAIN_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RrPermitNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="RR_PERMIT_NUMBER"
+    Expression="RR_PERMIT_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Routing"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ROUTING"
+    Expression="ROUTING"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Class1"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CLASS"
+    Expression="CLASS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PoNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PO_NUMBER"
+    Expression="PO_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SalesAgreement"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="300"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SALES_AGREEMENT"
+    Expression="SALES_AGREEMENT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Ash"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="449"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ASH"
+    Expression="ASH"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="449"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Sulfur"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="450"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SULFUR"
+    Expression="SULFUR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="450"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Moisture"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="450"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MOISTURE"
+    Expression="MOISTURE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="450"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Btu"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="450"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BTU"
+    Expression="BTU"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="450"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="T250"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="450"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="T250"
+    Expression="T250"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="450"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Ftr"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="450"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FTR"
+    Expression="FTR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="450"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Str"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="450"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STR"
+    Expression="STR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="450"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Id"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="450"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ID"
+    Expression="ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="450"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="H12w"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="450"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="H12W"
+    Expression="H12W"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="450"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="So2"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="450"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SO2"
+    Expression="SO2"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="450"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SideRelease"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SIDE_RELEASE"
+    Expression="SIDE_RELEASE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FreezeConditioner"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FREEZE_CONDITIONER"
+    Expression="FREEZE_CONDITIONER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RequestedLoadDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    AliasName="REQUESTED_LOAD_DATE"
+    Expression="REQUESTED_LOAD_DATE"
+    SQLType="DATE"/>
+  <ViewAttribute
+    Name="LoadStartDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="19"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="LOAD_START_DATE"
+    Expression="LOAD_START_DATE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="19"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LoadEndDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="19"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="LOAD_END_DATE"
+    Expression="LOAD_END_DATE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="19"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

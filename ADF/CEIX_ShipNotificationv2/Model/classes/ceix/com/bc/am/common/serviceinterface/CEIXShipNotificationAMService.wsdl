@@ -1,0 +1,53 @@
+<wsdl:definitions
+     name="CEIXShipNotificationAMService"
+     targetNamespace="/ceix/com/bc/am/common/"
+     xmlns:tns="/ceix/com/bc/am/common/"
+     xmlns:types="/ceix/com/bc/am/common/types/"
+     xmlns:errors="http://xmlns.oracle.com/adf/svc/errors/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:documentation>
+        <name>Ceix Ship Notification Am</name>
+    </wsdl:documentation>
+    <wsdl:import namespace="http://xmlns.oracle.com/adf/svc/errors/" location="classpath:/META-INF/wsdl/ServiceException.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="/ceix/com/bc/am/common/types/" schemaLocation="CEIXShipNotificationAMService.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="CEIXShipNotificationAMService_createPDFReport">
+        <wsdl:part name="parameters" element="types:createPDFReport"/>
+    </wsdl:message>
+    <wsdl:message name="CEIXShipNotificationAMService_createPDFReportResponse">
+        <wsdl:part name="parameters" element="types:createPDFReportResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="CEIXShipNotificationAMService">
+        <wsdl:documentation/>
+        <wsdl:operation name="createPDFReport">
+            <wsdl:input message="tns:CEIXShipNotificationAMService_createPDFReport"/>
+            <wsdl:output message="tns:CEIXShipNotificationAMService_createPDFReportResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CEIXShipNotificationAMServiceSoapHttp" type="tns:CEIXShipNotificationAMService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="createPDFReport">
+            <soap:operation soapAction="/ceix/com/bc/am/common/createPDFReport"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CEIXShipNotificationAMService">
+        <wsdl:port name="CEIXShipNotificationAMServiceSoapHttpPort" binding="tns:CEIXShipNotificationAMServiceSoapHttp">
+            <soap:address location="http://localhost:7101/CEIX_ShippingNotification-Model-context-root/CEIXShipNotificationAMService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
