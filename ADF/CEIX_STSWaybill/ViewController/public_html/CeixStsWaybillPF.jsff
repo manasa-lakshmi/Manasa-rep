@@ -115,7 +115,8 @@
                 rowSelection="single" id="t2" partialTriggers=":::cb1"
                 binding="#{pageFlowScope.CeixStsWaybillMB.headerTable}">
         <af:column id="c30" headerText="Delete" align="center">
-          <af:commandImageLink id="cil2" icon="/images/delete_ena.png">
+          <af:commandImageLink id="cil2" icon="/images/delete_ena.png"
+           disabled="#{securityContext.userInRole['CEIX_WaybillUsersRO']}">
             <af:showPopupBehavior popupId="p3" triggerType="action"/>
           </af:commandImageLink>
           <af:popup id="p3">
@@ -362,7 +363,8 @@
                   columnStretching="column:c24"
                   binding="#{pageFlowScope.CeixStsWaybillMB.detailTable}">
           <af:column id="c29" headerText="Delete" align="center">
-            <af:commandImageLink id="cil1" icon="/images/delete_ena.png">
+            <af:commandImageLink id="cil1" icon="/images/delete_ena.png" 
+            disabled="#{securityContext.userInRole['CEIX_WaybillUsersRO']}">
               <af:showPopupBehavior popupId="p2" triggerType="action"/>
             </af:commandImageLink>
             <af:popup id="p2">
@@ -379,7 +381,7 @@
                                       shortDesc="#{bindings.CeixStsWaybillLinesVO1.hints.SelectFlag.tooltip}"
                                       id="sbc2" autoSubmit="true"
                                       valueChangeListener="#{pageFlowScope.CeixStsWaybillMB.onLineSelCB}"
-                                      disabled="#{!(row.ShipmentNumber == null)}"/>
+                                      disabled="#{!(row.ShipmentNumber == null)|| (securityContext.userInRole['CEIX_WaybillUsersRO'])}"/>
           </af:column>
           <af:column sortProperty="#{bindings.CeixStsWaybillLinesVO1.hints.SalesOrderNumber.name}"
                      sortable="false"
@@ -671,7 +673,8 @@
             <af:selectBooleanCheckbox text="Select All/None" id="sbc3"
                                       autoSubmit="true"
                                       valueChangeListener="#{pageFlowScope.CeixStsWaybillMB.onSelectAllNone}"
-                                      binding="#{pageFlowScope.CeixStsWaybillMB.selAllCheckBox}"/>
+                                      binding="#{pageFlowScope.CeixStsWaybillMB.selAllCheckBox}"
+                                      disabled="#{securityContext.userInRole['CEIX_WaybillUsersRO']}"/>
             <af:spacer width="10" height="10" id="s7"/>
             <af:commandButton text="Edit" id="cb2"
                               disabled="#{securityContext.userInRole['CEIX_WaybillUsersRO']}"
