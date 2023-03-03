@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<library name="My JAX-WS Web Service" id="" xmlns="http://xmlns.oracle.com/jdeveloper/1013/manifest-libraries">
+  <description/>
+  <classpath>../../../../../../Oracle/Middleware/Oracle_Home/wlserver/server/lib/weblogic.jar</classpath>
+</library>
