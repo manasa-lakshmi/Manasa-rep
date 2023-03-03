@@ -486,7 +486,7 @@ public class ShippingNotification extends PdfPageEventHelper {
             table_head5.getDefaultCell().setPaddingTop(0);
             table_head5.setWidthPercentage(100);
             table_head5.setKeepTogether(false);
-            table_head5.addCell(getSubHeaderStyle("QUALITY INFORMATION", Element.ALIGN_CENTER, helvetica11b));
+            table_head5.addCell(getSubHeaderStyle("ANALYZER QUALITY INFORMATION", Element.ALIGN_CENTER, helvetica11b));
             MainWrapperTable.addCell(table_head5);
 
             String freezeConditionAmt = "";

@@ -155,7 +155,7 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../../../../Users/rp014/AppData/Roaming/JDeveloper/system12.2.1.0.42.170105.1157/o.jdeveloper/CEIX_Common_Jar.jar" jar-entry=""/>
+                  <url path="../../All O2C Webservice Jars/common jars/CEIX_Common_Jar.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="CEIX_Common_Jar.jar"/>
@@ -164,16 +164,16 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../../../Users/rp014/AppData/Roaming/JDeveloper/system12.2.1.0.42.170105.1157/o.jdeveloper/itextpdf-5.5.11.jar" jar-entry=""/>
+                  <url path="../../All O2C Webservice Jars/common jars/itextpdf-5.5.9.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Itextpdf-5.5.11.jar"/>
-               <value n="id" v="Itextpdf-5.5.11.jar"/>
+               <value n="description" v="Itextpdf-5.5.9.jar"/>
+               <value n="id" v="Itextpdf-5.5.9.jar"/>
                <value n="locked" v="true"/>
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../../../Users/rp014/AppData/Roaming/JDeveloper/system12.2.1.0.42.170105.1157/o.jdeveloper/jsch-0.1.54.jar" jar-entry=""/>
+                  <url path="../../All O2C Webservice Jars/common jars/jsch-0.1.54.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Jsch-0.1.54.jar"/>
@@ -188,7 +188,21 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Itextpdf-5.5.11.jar"/>
+            <value n="id" v="Itextpdf-5.5.9.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Jsch-0.1.54.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+      </list>
+      <list n="modulePathLibraryReferences">
+         <hash>
+            <value n="id" v="CEIX_Common_Jar.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Itextpdf-5.5.9.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
