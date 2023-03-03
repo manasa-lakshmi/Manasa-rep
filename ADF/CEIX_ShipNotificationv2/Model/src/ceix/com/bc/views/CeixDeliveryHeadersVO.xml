@@ -25,7 +25,7 @@
        REPLACE (DH.CONSIGNEE, '"', '')             CONSIGNEE,      
        REPLACE (CONSIGNEE_ADDRESS, '"', '')        CONSIGNEE_ADDRESS,      
        REPLACE (CONSIGNEE_CITY_STATE_ZIP, '"', '') CONSIGNEE_CITY_STATE_ZIP,      
-       TO_CHAR (TO_DATE (nvl(REPLACE(LOAD_DATE3,'"', ''),REPLACE(LOAD_DATE4,'"', '')), 'YYMMDD'),      
+       TO_CHAR (TO_DATE (nvl(REPLACE(LOAD_DATE4,'"', ''),REPLACE(LOAD_DATE3,'"', '')), 'YYMMDD'),      
                 'MM-DD-YYYY')      
            SHIP_DATE,      
        REPLACE (SHIPPER_ID_NUMBER, '"', '')        SHIPPER_ID_NUMBER,      
@@ -207,7 +207,7 @@
            'MM/DD/YYYY HH24:MI:SS')      
            LOAD_START_DATE,      
        TO_CHAR (      
-           TO_DATE (nvl(REPLACE (load_date3 || load_time3, '"', ''),REPLACE (load_date4 || load_time4, '"', '')),      
+           TO_DATE (nvl(REPLACE (load_date4 || load_time4, '"', ''),REPLACE (load_date3 || load_time3, '"', '')),      
                     'YYMMDDHH24MISS'),      
            'MM/DD/YYYY HH24:MI:SS')      
            LOAD_END_DATE      
