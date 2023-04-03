@@ -57,8 +57,8 @@
        CeixStsDeliveryLinesEO.LOAD_ORIGIN,                
        CeixStsDeliveryLinesEO.DESTINATION,             
        CeixStsDeliveryLinesEO.FREIGHT    ,       
-       CeixStsDeliveryLinesEO.Cp_Waybill_Flag-- ,     
-     --  MAX(TO_NUMBER(SEQUENCE_NUM)) Max_Seq     
+       CeixStsDeliveryLinesEO.Cp_Waybill_Flag,
+        CeixStsDeliveryLinesEO.SURCHARGE       
 FROM CEIX_STS_DELIVERY_LINES CeixStsDeliveryLinesEO]]></SQLQuery>
   <EntityUsage
     Name="CeixStsDeliveryLinesEO"
@@ -463,6 +463,12 @@ FROM CEIX_STS_DELIVERY_LINES CeixStsDeliveryLinesEO]]></SQLQuery>
     EntityAttrName="CpWaybillFlag"
     EntityUsage="CeixStsDeliveryLinesEO"
     AliasName="CP_WAYBILL_FLAG"/>
+  <ViewAttribute
+    Name="Surcharge"
+    PrecisionRule="true"
+    EntityAttrName="Surcharge"
+    EntityUsage="CeixStsDeliveryLinesEO"
+    AliasName="SURCHARGE"/>
   <ViewAttribute
     Name="SelectFLag"
     IsSelected="false"

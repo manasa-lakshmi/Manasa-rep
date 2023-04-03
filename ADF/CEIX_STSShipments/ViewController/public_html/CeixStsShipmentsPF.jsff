@@ -319,6 +319,10 @@
                               pattern="#{bindings.CeixStsDeliverySearchVO1.hints.Freight.format}"/>
           </af:inputText>
         </af:column>
+        <af:column headerText="#{bindings.CeixStsDeliverySearchVO1.hints.Surcharge.label}" id="c39">
+          <af:outputText value="#{row.Surcharge}"
+                         shortDesc="#{bindings.CeixStsDeliverySearchVO1.hints.Surcharge.tooltip}" id="ot3"/>
+        </af:column>
         <af:column headerText="#{bindings.CeixStsDeliverySearchVO1.hints.ShipConfirmedFlag.label}"
                    id="c28" width="135" align="center">
           <af:inputText value="#{row.bindings.ShipConfirmedFlag.inputValue}"

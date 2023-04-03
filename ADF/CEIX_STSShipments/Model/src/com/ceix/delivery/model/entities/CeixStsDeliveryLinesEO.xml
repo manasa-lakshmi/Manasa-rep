@@ -497,6 +497,18 @@
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Surcharge"
+    Precision="200"
+    ColumnName="SURCHARGE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_STS_DELIVERY_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="CeixStsDeliveryLinesPk"
     PrimaryKey="true">

@@ -108,6 +108,7 @@
           <Item Value="SalesAgreementName"/>
           <Item Value="Freight"/>
           <Item Value="ClassName"/>
+          <Item Value="Surcharge"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -909,6 +909,13 @@ public class CeixStsShipmentsMB implements Serializable {
                                     .getAttribute("Freight")
                                     .toString();
             }
+            String headSurcharge = null;
+            if (vohead.getCurrentRow().getAttribute("Surcharge") != null) {
+
+                headSurcharge = vohead.getCurrentRow()
+                                    .getAttribute("Surcharge")
+                                    .toString();
+            }
 
             CallableStatement st1 = null;
             CallableStatement st2 = null;
@@ -2579,6 +2586,7 @@ public class CeixStsShipmentsMB implements Serializable {
                                                 curRow1.setAttribute("LoadOrigin", headLoadOrigin);
                                                 curRow1.setAttribute("Straggler", headStraggler);
                                                 curRow1.setAttribute("Freight", headFreight);
+                                                curRow1.setAttribute("Surcharge", headSurcharge);
                                             }
                                         }
                                         curRow1 = vo.next();
@@ -3470,6 +3478,7 @@ public class CeixStsShipmentsMB implements Serializable {
                                                             curRow.setAttribute("LoadOrigin", headLoadOrigin);
                                                             curRow.setAttribute("Straggler", headStraggler);
                                                             curRow.setAttribute("Freight", headFreight);
+                                                            curRow.setAttribute("Surcharge", headSurcharge);
                                                         }
                                                     }
                                                     curRow = vo.next();
@@ -3778,6 +3787,7 @@ public class CeixStsShipmentsMB implements Serializable {
                                                 curRow.setAttribute("LoadOrigin", headLoadOrigin);
                                                 curRow.setAttribute("Straggler", headStraggler);
                                                 curRow.setAttribute("Freight", headFreight);
+                                                curRow.setAttribute("Surcharge", headSurcharge);
                                             }
                                         }
                                         curRow = vo.next();

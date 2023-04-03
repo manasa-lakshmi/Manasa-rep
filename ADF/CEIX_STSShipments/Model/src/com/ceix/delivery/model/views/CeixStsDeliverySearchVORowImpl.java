@@ -169,6 +169,16 @@ public class CeixStsDeliverySearchVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        Surcharge {
+            protected Object get(CeixStsDeliverySearchVORowImpl obj) {
+                return obj.getSurcharge();
+            }
+
+            protected void put(CeixStsDeliverySearchVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
         EditFlag {
             protected Object get(CeixStsDeliverySearchVORowImpl obj) {
                 return obj.getEditFlag();
@@ -264,6 +274,7 @@ public class CeixStsDeliverySearchVORowImpl extends ViewRowImpl {
     public static final int LOADORIGIN = AttributesEnum.LoadOrigin.index();
     public static final int FREIGHT = AttributesEnum.Freight.index();
     public static final int CLASSNAME = AttributesEnum.ClassName.index();
+    public static final int SURCHARGE = AttributesEnum.Surcharge.index();
     public static final int EDITFLAG = AttributesEnum.EditFlag.index();
     public static final int STRAGGLERFLAG = AttributesEnum.StragglerFlag.index();
     public static final int CEIXSTSDELIVERYAM_CEIXSTSCONTRACTITEMSVO1_1 =
@@ -445,6 +456,14 @@ public class CeixStsDeliverySearchVORowImpl extends ViewRowImpl {
      */
     public String getClassName() {
         return (String) getAttributeInternal(CLASSNAME);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute Surcharge.
+     * @return the Surcharge
+     */
+    public String getSurcharge() {
+        return (String) getAttributeInternal(SURCHARGE);
     }
 
     /**

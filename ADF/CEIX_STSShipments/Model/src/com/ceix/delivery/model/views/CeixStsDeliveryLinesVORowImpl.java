@@ -420,6 +420,16 @@ public class CeixStsDeliveryLinesVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        Surcharge {
+            protected Object get(CeixStsDeliveryLinesVORowImpl obj) {
+                return obj.getSurcharge();
+            }
+
+            protected void put(CeixStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setSurcharge((String) value);
+            }
+        }
+        ,
         SelectFLag {
             protected Object get(CeixStsDeliveryLinesVORowImpl obj) {
                 return obj.getSelectFLag();
@@ -501,6 +511,7 @@ public class CeixStsDeliveryLinesVORowImpl extends ViewRowImpl {
     public static final int DESTINATION = AttributesEnum.Destination.index();
     public static final int FREIGHT = AttributesEnum.Freight.index();
     public static final int CPWAYBILLFLAG = AttributesEnum.CpWaybillFlag.index();
+    public static final int SURCHARGE = AttributesEnum.Surcharge.index();
     public static final int SELECTFLAG = AttributesEnum.SelectFLag.index();
 
     /**
@@ -905,6 +916,22 @@ public class CeixStsDeliveryLinesVORowImpl extends ViewRowImpl {
      */
     public void setDestination(String value) {
         setAttributeInternal(DESTINATION, value);
+    }
+    
+    /**
+     * Gets the attribute value for SURCHARGE using the alias name Surcharge.
+     * @return the SURCHARGE
+     */
+    public String getSurcharge() {
+        return (String) getAttributeInternal(SURCHARGE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SURCHARGE using the alias name Surcharge.
+     * @param value value to set the SURCHARGE
+     */
+    public void setSurcharge(String value) {
+        setAttributeInternal(SURCHARGE, value);
     }
 
     /**
