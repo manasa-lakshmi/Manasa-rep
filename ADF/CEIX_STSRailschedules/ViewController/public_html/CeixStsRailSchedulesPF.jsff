@@ -772,8 +772,7 @@
                                   filterVisible="true" varStatus="vs"
                                   selectedRowKeys="#{bindings.CeixStsCustDetailsView12.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.CeixStsCustDetailsView12.collectionModel.makeCurrent}"
-                                  rowSelection="single" id="resId3"
-                                  >
+                                  rowSelection="single" id="resId3">
                           <af:column sortProperty="#{bindings.CeixStsCustDetailsView12.hints.OrderNumber.name}"
                                      filterable="true" sortable="true"
                                      headerText="#{bindings.CeixStsCustDetailsView12.hints.OrderNumber.label}"
@@ -1623,7 +1622,8 @@
                   rowSelection="single" fetchSize="10"
                   filterModel="#{bindings.CeixStsRailSchedulesVO1Query.queryDescriptor}" filterVisible="true"
                   queryListener="#{bindings.CeixStsRailSchedulesVO1Query.processQuery}" varStatus="vs" id="t9"
-                  partialTriggers=":::cb12 :::cb8" binding="#{CeixStsRailScheduleMB.rails}" scrollPolicy="page">
+                  partialTriggers=":::cb12 :::cb8" binding="#{CeixStsRailScheduleMB.rails}" scrollPolicy="page"
+                  editingMode="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO'] ? 'readOnly' : 'editAll'}">
           <af:column id="c123" align="center" width="70">
             <af:commandImageLink id="cil5" icon="/images/copy.png"
                                  disabled="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}"
@@ -2555,7 +2555,7 @@
                           columns="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Cars.displayWidth}"
                           maximumLength="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Cars.precision}"
                           shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Cars.tooltip}"
-                          id="it65">
+                          id="it65" readOnly="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}">
               <f:validator binding="#{row.bindings.Cars.validator}"/>
             </af:inputText>
           </af:column>
@@ -2569,7 +2569,7 @@
                           columns="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.HoldFlag.displayWidth}"
                           maximumLength="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.HoldFlag.precision}"
                           shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.HoldFlag.tooltip}"
-                          id="it62">
+                          id="it62" readOnly="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}">
               <f:validator binding="#{row.bindings.HoldFlag.validator}"/>
             </af:inputText>
           </af:column>
@@ -2583,7 +2583,7 @@
                           columns="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Carrier.displayWidth}"
                           maximumLength="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Carrier.precision}"
                           shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Carrier.tooltip}"
-                          id="it3">
+                          id="it3" readOnly="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}">
               <f:validator binding="#{row.bindings.Carrier.validator}"/>
             </af:inputText>
           </af:column>
@@ -2597,7 +2597,7 @@
                           columns="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Comments.displayWidth}"
                           maximumLength="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Comments.precision}"
                           shortDesc="#{bindings.CeixStsRailSchedulesHOLDVO1.hints.Comments.tooltip}"
-                          id="it41">
+                          id="it41" readOnly="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}">
               <f:validator binding="#{row.bindings.Comments.validator}"/>
             </af:inputText>
           </af:column>
@@ -2615,7 +2615,7 @@
                                  disabled="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}"
                                  actionListener="#{CeixStsRailScheduleMB.onDelete}"/>-->
             <af:commandImageLink id="cil2"
-                                 icon="/images/func_remove_16_ena.png">
+                                 icon="/images/func_remove_16_ena.png" disabled="#{securityContext.userInRole['CEIX_STSRailSchedulesUsersRO']}">
               <af:showPopupBehavior popupId="p9" triggerType="action"/>
             </af:commandImageLink>
             <af:popup id="p9">
