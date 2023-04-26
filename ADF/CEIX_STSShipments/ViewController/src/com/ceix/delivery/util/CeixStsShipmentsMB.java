@@ -1329,6 +1329,7 @@ public class CeixStsShipmentsMB implements Serializable {
                         CallableStatement st12 = null;
                         int cnt = 0;
                         int selrows = 0;
+                        int cars = 0; // Added as part of Oracle-8573
                         BigDecimal totalweight = new BigDecimal(0);
                         if (vo.getRowCount() > 0) {
                             Row curRow = vo.first();
@@ -1339,7 +1340,7 @@ public class CeixStsShipmentsMB implements Serializable {
                                               .compareTo("true") ==
                                         0) {
                                         //System.out.println("The row is selected with sequencenum :"+curRow.getAttribute("SequenceNum")+" and car: "+ curRow.getAttribute("CarId"));
-
+                                        cars = cars+1;// Added as part of Oracle-8573
                                         BigDecimal weightInTons =
            new BigDecimal(curRow.getAttribute("WeightInTons").toString());
                                   //      weightInTons = weightInTons.setScale(5, RoundingMode.HALF_EVEN);
@@ -1411,6 +1412,7 @@ public class CeixStsShipmentsMB implements Serializable {
                                 curRow = vo.next();
                             }
                             totalweight = totalweight.setScale(2, RoundingMode.HALF_EVEN);
+                            System.out.println("Cars: "+cars);
                         }
 
                         if ("Y".equals(processShipFlag) && "MISC_RECEIPT_DIRECT_SHIP".equals(orderType)) {
@@ -1993,9 +1995,20 @@ public class CeixStsShipmentsMB implements Serializable {
                                              !"Dock Revenue".equals(itemNumber))) {
                                             //Ordered  Quantity
                                             MeasureType measureType = new MeasureType();
+// Added as part of Oracle-8573
+                                            System.out.println("uomCode from query:"+uomCode+ "Cars: "+cars);
+                                            if(("CAR").equals(uomCode)){ //manasa
+                                            System.out.println("Inside CAR UOM");
+                                            measureType.setUnitCode(uomCode);
+                                            measureType.setValue(new BigDecimal(cars));
+                                            
+                                            }else{
                                             measureType.setUnitCode(uomCode);
                                             //measureType.setValue(new BigDecimal(curRow.getAttribute("WeightInTons").toString()));
                                             measureType.setValue(totalweight);
+                                            }
+                                            System.out.println("Quanity: :"+measureType.getValue()+ "UOM: "+measureType.getUnitCode());
+                                            
                                             GregorianCalendar cal1 = new GregorianCalendar();
                                             XMLGregorianCalendar reqDate = null;
                                             //requestedShipDate
