@@ -1359,15 +1359,15 @@ public class CeixStsShipmentsMB implements Serializable {
                                                                                  " REPLACE (dh.ROUTING, '\"', '') || '|'|| REPLACE (dh.CLASS_COL, '\"', ''), " +
                                                                                  " trim( ',' from dh.LINE_63||','||dh.line_56||','||dh.line_57), " +
                                                                                  " REPLACE (dh.SHIPPER_ID_NUMBER, '\"', ''), " +
-                                                                                 " NVL (REPLACE(dh.load_date4, '\"'), REPLACE(dh.load_date3, '\"')), " +
+                                                                                 " NVL (REPLACE(dh.load_date3, '\"'), REPLACE(dh.load_date4, '\"')), " +
                                                                                  " csr.REQUESTED_LOAD_DATE, " +
                                                                                  " csr.LOAD_START_DATE, csr.LOAD_END_DATE, " +
                                                                                  " trim(upper(nvl(csr.carrier, (select dl.rail_road from ceix_sts_delivery_lines dl where dl.delivery_header_id = dh.delivery_header_id and dl.rail_road is not null and rownum=1)))) ," +
-                                                                                 "TO_DATE(nvl(replace(dh.load_date4,'\"'),replace(dh.load_date3,'\"') ),'YYMMDD')" +
+                                                                                 "TO_DATE(nvl(replace(dh.load_date3,'\"'),replace(dh.load_date4,'\"') ),'YYMMDD')" +
                                                                                  " INTO :1, :2, :3, :4, :5, :6, :7, :8, :9,:10 " +
                                                                                  " FROM ceix_sts_delivery_header dh, CEIX_STS_RAIL_SCHEDULES csr " +
                                                                                  " WHERE     dh.delivery_header_id = :11 " +
-                                                                                 " AND TO_DATE(NVL(REPLACE(dh.load_date4, '\"'), REPLACE(dh.load_date3, '\"')), 'YYMMDD') between  (csr.LOAD_DATE(+)-10) and (csr.LOAD_DATE(+)+10) " +
+                                                                                 " AND TO_DATE(NVL(REPLACE(dh.load_date3, '\"'), REPLACE(dh.load_date4, '\"')), 'YYMMDD') between  (csr.LOAD_DATE(+)-10) and (csr.LOAD_DATE(+)+10) " +
                                                                                  " AND nvl(csr.hold_flag,'x') NOT IN ('D','Y') " +
                                                                                  " AND csr.TRAIN_ID(+) = dh.unit_train_number; " +
                                                                                  " END;", 0);

@@ -184,7 +184,7 @@ item_number,STRAGGLER,DESTINATION,LOAD_ORIGIN,freight,class_name,surcharge FROM
          cch.contract_name sales_agreement_name,                        
          csdh.unit_train_number,                         
          csdl.NEW_TRAIN_NUMBER,                         
-         TO_DATE (NVL (REPLACE(csdh.load_date4,'"'), REPLACE(csdh.load_date3,'"')),                         
+         TO_DATE (NVL (REPLACE(csdh.load_date3,'"'), REPLACE(csdh.load_date4,'"')),                         
                   'YYMMDD')                         
              load_date1,                         
          csdl.shipment_number,                         
@@ -195,9 +195,9 @@ item_number,STRAGGLER,DESTINATION,LOAD_ORIGIN,freight,class_name,surcharge FROM
          nvl(csdl.STRAGGLER,'N') STRAGGLER,                 
          csdl.DESTINATION DESTINATION,                 
          csdl.LOAD_ORIGIN LOAD_ORIGIN,            
-         decode(csdl.shipment_number,null,nvl(csdl.freight,(select ccl.price from ceix_contract_lines ccl where ccl.item_number in ('Freight Revenue-Outside','FREIGHT REVENUE ITMANN-OUTSIDE') and ccl.item_type='FRT' and ccl.chr_id=cch.id and TO_DATE (NVL (REPLACE(csdh.load_date4,'"'), REPLACE(csdh.load_date3,'"')),'YYMMDD') between nvl(ccl.start_date,sysdate-700) and nvl(ccl.end_date,sysdate+700)and rownum=1)),csdl.freight) freight,
+         decode(csdl.shipment_number,null,nvl(csdl.freight,(select ccl.price from ceix_contract_lines ccl where ccl.item_number in ('Freight Revenue-Outside','FREIGHT REVENUE ITMANN-OUTSIDE') and ccl.item_type='FRT' and ccl.chr_id=cch.id and TO_DATE (NVL (REPLACE(csdh.load_date3,'"'), REPLACE(csdh.load_date4,'"')),'YYMMDD') between nvl(ccl.start_date,sysdate-700) and nvl(ccl.end_date,sysdate+700)and rownum=1)),csdl.freight) freight,
          replace(class_col,'"') class_name,
-         decode(csdl.shipment_number,null,nvl(csdl.surcharge,(select ccl.price from ceix_contract_lines ccl where ccl.item_number in ('Freight Surcharge CAR','FREIGHT SURCHARGE ITMANN CAR') and ccl.item_type='FRT' and ccl.chr_id=cch.id and TO_DATE (NVL (REPLACE(csdh.load_date4,'"'), REPLACE(csdh.load_date3,'"')),'YYMMDD') between nvl(ccl.start_date,sysdate-700) and nvl(ccl.end_date,sysdate+700)and rownum=1)),csdl.surcharge) surcharge		             
+         decode(csdl.shipment_number,null,nvl(csdl.surcharge,(select ccl.price from ceix_contract_lines ccl where ccl.item_number in ('Freight Surcharge CAR','FREIGHT SURCHARGE ITMANN CAR') and ccl.item_type='FRT' and ccl.chr_id=cch.id and TO_DATE (NVL (REPLACE(csdh.load_date3,'"'), REPLACE(csdh.load_date4,'"')),'YYMMDD') between nvl(ccl.start_date,sysdate-700) and nvl(ccl.end_date,sysdate+700)and rownum=1)),csdl.surcharge) surcharge		             
     FROM ceix_sts_delivery_header csdh,                         
          ceix_sts_delivery_lines csdl,                         
 --         ceix_order_headers      coh --prk                         
@@ -223,11 +223,11 @@ ceix_contract_headers cch--,ceix_sts_rail_schedules csr --prk
                        OR csdl.NEW_TRAIN_NUMBER LIKE '%' || :pTrainNum || '%')))                         
          AND (   :pLoadFromDate IS NULL                         
               OR (    :pLoadFromDate IS NOT NULL                         
-                  AND TO_DATE (NVL (REPLACE(csdh.load_date4,'"'), REPLACE(csdh.load_date3,'"')),                         
+                  AND TO_DATE (NVL (REPLACE(csdh.load_date3,'"'), REPLACE(csdh.load_date4,'"')),                         
                   'YYMMDD') >= :pLoadFromDate))                         
          AND (   :pLoadToDate IS NULL                         
               OR (    :pLoadToDate IS NOT NULL                         
-                  AND TO_DATE (NVL (REPLACE(csdh.load_date4,'"'), REPLACE(csdh.load_date3,'"')),                         
+                  AND TO_DATE (NVL (REPLACE(csdh.load_date3,'"'), REPLACE(csdh.load_date4,'"')),                         
                   'YYMMDD') <= :pLoadToDate))                         
          AND (   :pShipNum IS NULL                         
               OR (    :pShipNum IS NOT NULL                         
