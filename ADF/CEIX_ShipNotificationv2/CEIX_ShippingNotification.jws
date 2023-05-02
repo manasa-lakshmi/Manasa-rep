@@ -164,11 +164,11 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../All O2C Webservice Jars/common jars/itextpdf-5.5.11.jar" jar-entry=""/>
+                  <url path="../../All O2C Webservice Jars/common jars/itextpdf-5.5.9.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Itextpdf-5.5.11.jar"/>
-               <value n="id" v="Itextpdf-5.5.11.jar"/>
+               <value n="description" v="Itextpdf-5.5.9.jar"/>
+               <value n="id" v="Itextpdf-5.5.9.jar"/>
                <value n="locked" v="true"/>
             </hash>
             <hash>
@@ -188,7 +188,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Itextpdf-5.5.11.jar"/>
+            <value n="id" v="Itextpdf-5.5.9.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -202,7 +202,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Itextpdf-5.5.11.jar"/>
+            <value n="id" v="Itextpdf-5.5.9.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
