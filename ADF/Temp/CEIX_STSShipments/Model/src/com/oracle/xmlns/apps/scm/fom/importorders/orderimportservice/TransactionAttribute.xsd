@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Attribute Values for Transactional Items for Order Lines</name>
+      <description>Information on the Transaction Item Attribute. Provides the item
+                attributes that may be associated with the item of a fulfillment
+                line.</description>
+      <oer:attributes>
+        <oer:attribute description="Source Transaction Line Attribtue Identifier" name="SourceTransactionLineAttributeIdentifier"/>
+        <oer:attribute description="Item attribute name" name="TransactionAttributeName"/>
+        <oer:attribute description="Item attribute value of type character." name="CharacterValue"/>
+        <oer:attribute description="Item attribute value of type number." name="NumberValue"/>
+        <oer:attribute description="Item attribute value of type date." name="DateValue"/>
+        <oer:attribute description="Item attribute value of type time." name="TimestampValue"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="TransactionAttribute">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>SourceTransactionLineIdentifier</attribute>
+          <attribute>SourceTransactionScheduleIdentifier</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="SourceTransactionLineAttributeIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TransactionAttributeName" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="CharacterValue" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="NumberValue" nillable="true" type="xsd:decimal"/>
+      <xsd:element minOccurs="0" name="DateValue" nillable="true" type="ns0:date-Date"/>
+      <xsd:element minOccurs="0" name="TimestampValue" nillable="true" type="ns0:dateTime-Timestamp"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="transactionAttribute" type="TransactionAttribute"/>
+</xsd:schema>

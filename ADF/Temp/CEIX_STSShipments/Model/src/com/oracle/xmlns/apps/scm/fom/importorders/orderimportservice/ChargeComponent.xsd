@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Detail Information for Price Waterfall</name>
+      <description>Provides detail information about the price waterfall for an order line, including price elements and amounts.</description>
+      <oer:attributes>
+        <oer:attribute description="Name of the currency used in the charge component." name="ChargeCurrencyName"/>
+        <oer:attribute description="Code for the currency used in the charge component" name="ChargeCurrencyCode"/>
+        <oer:attribute description="Name of the currency on the header." name="HeaderCurrencyName"/>
+        <oer:attribute description="Code for the header currency." name="HeaderCurrencyCode"/>
+        <oer:attribute description="The extended amount in header currency." name="HeaderCurrencyExtendedAmount"/>
+        <oer:attribute description="Name of the Price Element." name="PriceElement"/>
+        <oer:attribute description="Code for the Price Elements setup e.g. LISTPRICE, NETPRICE, etc." name="PriceElementCode"/>
+        <oer:attribute description="Sequence number for the charge component." name="SequenceNumber"/>
+        <oer:attribute description="Name indicating how  the charge component will be used." name="PriceElementUsage"/>
+        <oer:attribute description="Code to indicate how the charge component will be used." name="PriceElementUsageCode"/>
+        <oer:attribute description="The price or adjustment per unit in the charge currency for the line UOM." name="ChargeCurrencyUnitPrice"/>
+        <oer:attribute description="Price or adjustment per unit in the header currency for the line UOM." name="HeaderCurrencyUnitPrice"/>
+        <oer:attribute description="Indicator that this is  a rollup/ aggregate value for the charge component price element code." name="RollupFlag"/>
+        <oer:attribute description="Charge component id for the contributing charge. Only used where the parent charge is a rollup charge." name="SourceParentChargeComponentId"/>
+        <oer:attribute description="Identifier for the charge as assigned by the system that captured the transaction." name="SourceChargeIdentifier"/>
+        <oer:attribute description="Identifier for the charge component as assigned by the system that captured the transaction." name="SourceChargeComponentIdentifier"/>
+        <oer:attribute description="Extended amount in charge currency. Extended amount equals the unit price multiplied by the line requested quantity for simple products and equals the unit price multiplied by the line extended quantity for configurations." name="ChargeCurrencyExtendedAmount"/>
+        <oer:attribute description="Explanation of the charge component" name="Explanation"/>
+        <oer:attribute description="Source Manual Price Adjustment Id" name="SourceMpaId"/>
+        <oer:attribute description="Identifies extended amount over the given duration in the charge currency." name="ChargeCurrencyDurationExtendedAmount"/>
+        <oer:attribute description="Identifies extended amount over the given duration in the header currency." name="HeaderCurrencyDurationExtendedAmount"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="ChargeComponent">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ChargeCurrencyName" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeCurrencyCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="HeaderCurrencyName" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="HeaderCurrencyCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="HeaderCurrencyExtendedAmount" nillable="true" type="ns0:AmountType"/>
+      <xsd:element minOccurs="0" name="PriceElement" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PriceElementCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SequenceNumber" nillable="true" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="PriceElementUsage" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PriceElementUsageCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeCurrencyUnitPrice" nillable="true" type="ns0:AmountType"/>
+      <xsd:element minOccurs="0" name="HeaderCurrencyUnitPrice" nillable="true" type="ns0:AmountType"/>
+      <xsd:element minOccurs="0" name="RollupFlag" nillable="true" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="SourceParentChargeComponentId" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceChargeIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceChargeComponentIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeCurrencyExtendedAmount" nillable="true" type="ns0:AmountType"/>
+      <xsd:element minOccurs="0" name="Explanation" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceMpaId" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeCurrencyDurationExtendedAmount" nillable="true" type="ns0:AmountType"/>
+      <xsd:element minOccurs="0" name="HeaderCurrencyDurationExtendedAmount" nillable="true" type="ns0:AmountType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="chargeComponent" type="ChargeComponent"/>
+</xsd:schema>

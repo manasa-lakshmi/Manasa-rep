@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixStsDeliveryAM"
+  Version="12.2.1.22.48" RequeryOnCommit="true"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="com.ceix.delivery.model.services.CeixStsDeliveryAMImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="CeixStsDeliveryHeaderVO1"
+    ViewObjectName="com.ceix.delivery.model.views.CeixStsDeliveryHeaderVO"/>
+  <ViewUsage
+    Name="CeixStsDeliveryLinesVO1"
+    ViewObjectName="com.ceix.delivery.model.views.CeixStsDeliveryLinesVO"/>
+  <ViewUsage
+    Name="CeixStsDeliveryHeaderVO2"
+    ViewObjectName="com.ceix.delivery.model.views.CeixStsDeliveryHeaderVO"/>
+  <ViewUsage
+    Name="CeixStsDeliveryLinesVO2"
+    ViewObjectName="com.ceix.delivery.model.views.CeixStsDeliveryLinesVO"/>
+  <ViewUsage
+    Name="CeixStsDeliverySearchVO1"
+    ViewObjectName="com.ceix.delivery.model.views.CeixStsDeliverySearchVO"/>
+  <ViewUsage
+    Name="CeixStsWaybillBtmoreHdrView1"
+    ViewObjectName="com.ceix.delivery.model.views.CeixStsWaybillBtmoreHdrView"/>
+  <ViewUsage
+    Name="CeixStsWaybillBtmoreLinesView1"
+    ViewObjectName="com.ceix.delivery.model.views.CeixStsWaybillBtmoreLinesView"/>
+  <ViewUsage
+    Name="CeixStsWaybillBtmoreLinesView2"
+    ViewObjectName="com.ceix.delivery.model.views.CeixStsWaybillBtmoreLinesView"/>
+  <ViewUsage
+    Name="CeixStsDeliveryHeaderDeleteTrainVo1"
+    ViewObjectName="com.ceix.delivery.model.views.CeixStsDeliveryHeaderDeleteTrainVo"/>
+  <ViewUsage
+    Name="CeixStsDeliveryHeaderDeleteTrainEoVo1"
+    ViewObjectName="com.ceix.delivery.model.views.CeixStsDeliveryHeaderDeleteTrainEoVo"/>
+  <ViewUsage
+    Name="CeixStsDeliveryLinesDeleteTrainsEoVo1"
+    ViewObjectName="com.ceix.delivery.model.views.CeixStsDeliveryLinesDeleteTrainsEoVo"/>
+  <ViewUsage
+    Name="CeixStsContractItemsVO1"
+    ViewObjectName="com.ceix.delivery.model.views.CeixStsContractItemsVO"/>
+  <ViewUsage
+    Name="LoadOriginVO1"
+    ViewObjectName="com.ceix.delivery.model.views.LoadOriginVO"/>
+  <ViewUsage
+    Name="DestinationVO1"
+    ViewObjectName="com.ceix.delivery.model.views.DestinationVO"/>
+  <ViewLinkUsage
+    Name="CeixStsDeliveryHeaderLineVL"
+    ViewLinkObjectName="com.ceix.delivery.model.views.CeixStsDeliveryHeaderLineVL"
+    SrcViewUsageName="com.ceix.delivery.model.services.CeixStsDeliveryAM.CeixStsDeliveryHeaderVO2"
+    DstViewUsageName="com.ceix.delivery.model.services.CeixStsDeliveryAM.CeixStsDeliveryLinesVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="CeixStsWaybillBtmoreLinesFkLink1"
+    ViewLinkObjectName="com.ceix.delivery.model.views.CeixStsWaybillBtmoreLinesFkLink"
+    SrcViewUsageName="com.ceix.delivery.model.services.CeixStsDeliveryAM.CeixStsWaybillBtmoreHdrView1"
+    DstViewUsageName="com.ceix.delivery.model.services.CeixStsDeliveryAM.CeixStsWaybillBtmoreLinesView2"
+    Reversed="false"/>
+</AppModule>

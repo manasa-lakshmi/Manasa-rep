@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/types/" xmlns:ns0="http://xmlns.oracle.com/adf/svc/errors/" xmlns:ns1="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:tns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/types/" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" schemaLocation="StageOrdersResponse.xsd"/>
+  <import namespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" schemaLocation="OrderImportResponse.xsd"/>
+  <import namespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" schemaLocation="OrderImportRequest.xsd"/>
+  <import namespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" schemaLocation="OrderImportRequest.xsd"/>
+  <import namespace="http://xmlns.oracle.com/adf/svc/errors/" schemaLocation="ServiceException.xsd"/>
+  <import namespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" schemaLocation="SubmitDraftOrderRequest.xsd"/>
+  <element name="stageOrders">
+    <complexType>
+      <sequence>
+        <element name="request" type="ns1:OrderImportRequest"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="stageOrdersResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:StageOrdersResponse"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="stageOrdersAsync">
+    <complexType>
+      <sequence>
+        <element name="request" type="ns1:OrderImportRequest"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="stageOrdersAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:StageOrdersResponse"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="createOrders">
+    <complexType>
+      <sequence>
+        <element name="request" type="ns1:OrderImportRequest"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="createOrdersResponse">
+    <complexType>
+      <sequence>
+        <element maxOccurs="unbounded" minOccurs="0" name="result" type="ns1:OrderImportResponse"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="createOrdersAsync">
+    <complexType>
+      <sequence>
+        <element name="request" type="ns1:OrderImportRequest"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="createOrdersAsyncResponse">
+    <complexType>
+      <sequence>
+        <element maxOccurs="unbounded" minOccurs="0" name="result" type="ns1:OrderImportResponse"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SubmitDraftOrder">
+    <complexType>
+      <sequence>
+        <element name="submitDraftOrderRequest" type="ns1:SubmitDraftOrderRequest"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SubmitDraftOrderResponse">
+    <complexType>
+      <sequence>
+        <element maxOccurs="unbounded" minOccurs="0" name="result" type="ns1:OrderImportResponse"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SubmitDraftOrderAsync">
+    <complexType>
+      <sequence>
+        <element name="submitDraftOrderRequest" type="ns1:SubmitDraftOrderRequest"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SubmitDraftOrderAsyncResponse">
+    <complexType>
+      <sequence>
+        <element maxOccurs="unbounded" minOccurs="0" name="result" type="ns1:OrderImportResponse"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

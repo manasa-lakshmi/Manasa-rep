@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixStsWaybillBtmoreLinesFkAssoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="CeixStsWaybillBtmoreHdr"
+    Cardinality="1"
+    Source="true"
+    Owner="com.ceix.delivery.model.entities.CeixStsWaybillBtmoreHdr">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="CeixStsWaybillBtmoreHdr"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.delivery.model.entities.CeixStsWaybillBtmoreHdr.DeliveryHeaderId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="CeixStsWaybillBtmoreLines"
+    Cardinality="-1"
+    Owner="com.ceix.delivery.model.entities.CeixStsWaybillBtmoreLines">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="CeixStsWaybillBtmoreLines"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.delivery.model.entities.CeixStsWaybillBtmoreLines.DeliveryHeaderId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

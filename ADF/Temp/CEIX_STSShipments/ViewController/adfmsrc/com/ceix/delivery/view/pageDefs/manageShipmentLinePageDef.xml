@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="manageShipmentLinePageDef"
+                Package="com.ceix.delivery.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CeixStsDeliveryHeaderVO2" RangeSize="25"
+              DataControl="CeixStsDeliveryAMDataControl"
+              id="CeixStsDeliveryHeaderVO2Iterator"/>
+    <iterator Binds="CeixStsDeliveryLinesVO2" RangeSize="25"
+              DataControl="CeixStsDeliveryAMDataControl"
+              id="CeixStsDeliveryLinesVO2Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CeixStsDeliveryHeaderVO2Iterator"
+                     id="UnitTrainNumber">
+      <AttrNames>
+        <Item Value="UnitTrainNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryHeaderVO2Iterator"
+                     id="RrPermitNumber">
+      <AttrNames>
+        <Item Value="RrPermitNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryHeaderVO2Iterator" id="Origin">
+      <AttrNames>
+        <Item Value="Origin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryHeaderVO2Iterator"
+                     id="Destination">
+      <AttrNames>
+        <Item Value="Destination"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryHeaderVO2Iterator"
+                     id="Consignee">
+      <AttrNames>
+        <Item Value="Consignee"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryHeaderVO2Iterator"
+                     id="Routing">
+      <AttrNames>
+        <Item Value="Routing"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryHeaderVO2Iterator"
+                     id="Shipper">
+      <AttrNames>
+        <Item Value="Shipper"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryHeaderVO2Iterator"
+                     id="LoadDate1">
+      <AttrNames>
+        <Item Value="LoadDate1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryLinesVO2Iterator"
+                     id="SalesOrderNumber">
+      <AttrNames>
+        <Item Value="SalesOrderNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryLinesVO2Iterator" id="CarId">
+      <AttrNames>
+        <Item Value="CarId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryLinesVO2Iterator"
+                     id="GrossAllow">
+      <AttrNames>
+        <Item Value="GrossAllow"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryLinesVO2Iterator" id="CarTare">
+      <AttrNames>
+        <Item Value="CarTare"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryLinesVO2Iterator"
+                     id="Ownership">
+      <AttrNames>
+        <Item Value="Ownership"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryLinesVO2Iterator" id="Weight">
+      <AttrNames>
+        <Item Value="Weight"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryLinesVO2Iterator"
+                     id="BinGross">
+      <AttrNames>
+        <Item Value="BinGross"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryLinesVO2Iterator" id="BinTare">
+      <AttrNames>
+        <Item Value="BinTare"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryLinesVO2Iterator"
+                     id="LoadedNett">
+      <AttrNames>
+        <Item Value="LoadedNett"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryLinesVO2Iterator"
+                     id="ShipmentNumber">
+      <AttrNames>
+        <Item Value="ShipmentNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CeixStsDeliveryLinesVO2Iterator"
+                     id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

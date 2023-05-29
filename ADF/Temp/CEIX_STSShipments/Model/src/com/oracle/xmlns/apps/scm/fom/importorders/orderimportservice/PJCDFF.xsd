@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/flex/scm/doo/processOrder/pjcDff/" xmlns:sdoJava="commonj.sdo/java" xmlns:sdoXML="commonj.sdo/xml" xmlns="http://xmlns.oracle.com/apps/flex/scm/doo/processOrder/pjcDff/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="PJCDFFEXM_5FExpense_5FReport.xsd" xml:id="PJCDFFEXM_5FExpense_5FReport-xsd"/>
+  <xsd:include schemaLocation="PJCDFFPOR_5FRequisition.xsd" xml:id="PJCDFFPOR_5FRequisition-xsd"/>
+  <xsd:include schemaLocation="PJCDFFPO_5FPurchase_5FOrder_5FSchedule.xsd" xml:id="PJCDFFPO_5FPurchase_5FOrder_5FSchedule-xsd"/>
+  <xsd:include schemaLocation="PJCDFFPJC_5FExpenditure_5FBatch.xsd" xml:id="PJCDFFPJC_5FExpenditure_5FBatch-xsd"/>
+  <xsd:include schemaLocation="PJCDFFAP_5FInvoice_5FDistribution.xsd" xml:id="PJCDFFAP_5FInvoice_5FDistribution-xsd"/>
+  <xsd:include schemaLocation="PJCDFFAP_5FInvoice_5FLine.xsd" xml:id="PJCDFFAP_5FInvoice_5FLine-xsd"/>
+  <xsd:include schemaLocation="PJCDFFPOR_5FUser_5FPreferences.xsd" xml:id="PJCDFFPOR_5FUser_5FPreferences-xsd"/>
+  <xsd:include schemaLocation="PJCDFFEXM_5FExpense_5FReport_5FLine.xsd" xml:id="PJCDFFEXM_5FExpense_5FReport_5FLine-xsd"/>
+  <xsd:include schemaLocation="PJCDFFINV_5FMisc_5FTransactions.xsd" xml:id="PJCDFFINV_5FMisc_5FTransactions-xsd"/>
+  <xsd:include schemaLocation="PJCDFFPO_5FPurchase_5FOrder_5FLine.xsd" xml:id="PJCDFFPO_5FPurchase_5FOrder_5FLine-xsd"/>
+  <xsd:include schemaLocation="PJCDFFAP_5FDistribution_5FSets.xsd" xml:id="PJCDFFAP_5FDistribution_5FSets-xsd"/>
+  <xsd:include schemaLocation="OmSalesOrder.xsd" xml:id="OmSalesOrder-xsd"/>
+  <xsd:include schemaLocation="PJCDFFPO_5FPurchase_5FOrder.xsd" xml:id="PJCDFFPO_5FPurchase_5FOrder-xsd"/>
+  <xsd:include schemaLocation="PJCDFFPJC_5FAll.xsd" xml:id="PJCDFFPJC_5FAll-xsd"/>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:import namespace="commonj.sdo/xml" schemaLocation="sdoXML.xsd"/>
+  <xsd:complexType name="PJCDFF">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>DooOrderPrjId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="DooOrderPrjId" type="xsd:long" sdoXML:dataType="sdoJava:LongObject"/>
+      <xsd:element minOccurs="0" name="__FLEX_Context" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="__FLEX_Context_DisplayValue" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="_FLEX_NumOfSegments" nillable="true" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="pJCDFF" type="PJCDFF"/>
+</xsd:schema>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/model/" xmlns:sdoJava="commonj.sdo/java" xmlns:sdoXML="commonj.sdo/xml" xmlns="http://xmlns.oracle.com/apps/scm/doo/processOrder/model/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:import namespace="commonj.sdo/xml" schemaLocation="sdoXML.xsd"/>
+  <xsd:complexType name="HeaderEff">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>EffLineId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element default="0" minOccurs="0" name="ContextCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="EffLineId" type="xsd:long" sdoXML:dataType="sdoJava:LongObject"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="headerEff" type="HeaderEff"/>
+</xsd:schema>

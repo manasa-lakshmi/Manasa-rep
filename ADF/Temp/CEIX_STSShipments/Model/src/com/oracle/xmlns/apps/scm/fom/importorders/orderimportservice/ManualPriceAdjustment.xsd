@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Price Adjustment Information</name>
+      <description>Manual Price Adjustment</description>
+      <oer:attributes>
+        <oer:attribute description="Source Transaction Number" name="SourceTransactionNumber"/>
+        <oer:attribute description="Source Transaction System" name="SourceTransactionSystem"/>
+        <oer:attribute description="Source Transaction Identifier" name="SourceTransactionIdentifier"/>
+        <oer:attribute description="Source Transaction Revision Number" name="SourceTransactionRevisionNumber"/>
+        <oer:attribute description="Source Transaction Line Identifier" name="SourceTransactionLineIdentifier"/>
+        <oer:attribute description="Source Transaction Schedule Identifier" name="SourceTransactionScheduleIdentifier"/>
+        <oer:attribute description="Charge Definition code" name="ChargeDefinitionCode"/>
+        <oer:attribute description="Charge Definition" name="ChargeDefinition"/>
+        <oer:attribute description="Adjustment Amount" name="AdjustmentAmount"/>
+        <oer:attribute description="Adjustment Type Code" name="AdjustmentTypeCode"/>
+        <oer:attribute description="Adjustment Type" name="AdjustmentType"/>
+        <oer:attribute description="Adjustment Element Basis Code" name="AdjustmentElementBasisCode"/>
+        <oer:attribute description="Adjustment Element  Basis" name="AdjustmentElementBasis"/>
+        <oer:attribute description="Price Periodicity Code" name="PricePeriodicityCode"/>
+        <oer:attribute description="Price Periodicity" name="PricePeriodicity"/>
+        <oer:attribute description="Reason Code" name="ReasonCode"/>
+        <oer:attribute description="Reason for ManualPriceAdjustment" name="Reason"/>
+        <oer:attribute description="Charge RollupFlag" name="ChargeRollupFlag"/>
+        <oer:attribute description="Source ManualPriceAdjustment" name="SourceManualPriceAdjustmentIdentifier"/>
+        <oer:attribute description="Comment" name="Comments"/>
+        <oer:attribute description="Sequence Number" name="SequenceNumber"/>
+        <oer:attribute description="Validation Status Code" name="ValidationStatusCode"/>
+        <oer:attribute description="Transaction Currency Code" name="TransactionalCurrencyCode"/>
+        <oer:attribute description="Number that identifies the period when the price adjustment starts. This attribute is not currently used." name="EffectivePeriodFrom"/>
+        <oer:attribute description="Number that identifies the period when the price adjustment ends. This attribute is not currently used." name="EffectivePeriodUntil"/>
+        <oer:attribute description="Abbreviation that identifies the type of effectivity to use for the price adjustment. The ORA_OSS_PRICE_ADJ_EFFECTIVITY lookup type contains the values that you can use for this attribute. This attribute is not currently used." name="EffectivityTypeCode"/>
+        <oer:attribute description="Effectivity of the price adjustment. This attribute is not currently used." name="EffectivityType"/>
+        <oer:attribute description="Number of periods to use for the price adjustment. This attribute is not currently used." name="EffectiveNumberOfPeriods"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="ManualPriceAdjustment">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>SourceManualPriceAdjustmentIdentifier</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="SourceTransactionNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceTransactionSystem" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceTransactionIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceTransactionRevisionNumber" nillable="true" type="xsd:long"/>
+      <xsd:element minOccurs="0" name="SourceTransactionLineIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceTransactionScheduleIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeDefinitionCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeDefinition" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="AdjustmentAmount" nillable="true" type="ns0:AmountType"/>
+      <xsd:element minOccurs="0" name="AdjustmentTypeCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="AdjustmentType" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="AdjustmentElementBasisCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="AdjustmentElementBasis" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PricePeriodicityCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PricePeriodicity" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ReasonCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Reason" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ChargeRollupFlag" nillable="true" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="SourceManualPriceAdjustmentIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Comments" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SequenceNumber" nillable="true" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="ValidationStatusCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TransactionalCurrencyCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="EffectivePeriodFrom" nillable="true" type="xsd:decimal"/>
+      <xsd:element minOccurs="0" name="EffectivePeriodUntil" nillable="true" type="xsd:decimal"/>
+      <xsd:element minOccurs="0" name="EffectivityTypeCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="EffectivityType" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="EffectiveNumberOfPeriods" nillable="true" type="xsd:decimal"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="manualPriceAdjustment" type="ManualPriceAdjustment"/>
+</xsd:schema>

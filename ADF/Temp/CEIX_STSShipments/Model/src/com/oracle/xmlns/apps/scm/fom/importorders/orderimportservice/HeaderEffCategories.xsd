@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/model/" xmlns:sdoJava="commonj.sdo/java" xmlns:sdoXML="commonj.sdo/xml" xmlns="http://xmlns.oracle.com/apps/scm/doo/processOrder/model/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerCategories/" schemaLocation="j_HeaderEffCategories.xsd"/>
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Extensible Flexfield Contexts, Grouped for Order Header</name>
+      <description>Contain information on the Header Eff Categories(Additional
+                Order Categories).</description>
+      <oer:attributes>
+        <oer:attribute description="It is the Flex code, ex. DOO_HEADERS_ADD_INFO for Header." name="Category"/>
+        <oer:attribute description="Unique identifier of the orchestration order." name="HeaderId"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:import namespace="commonj.sdo/xml" schemaLocation="sdoXML.xsd"/>
+  <xsd:complexType name="HeaderEffCategories">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>HeaderId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element default="0" minOccurs="0" name="Category" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="HeaderId" type="xsd:long" sdoXML:dataType="sdoJava:LongObject"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="headerEffCategories" type="HeaderEffCategories"/>
+</xsd:schema>

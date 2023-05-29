@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Create Order Line Response</name>
+      <description>Response from the operation that the create order service
+                performs, including the order identifiers, order status, and
+                error message.</description>
+      <oer:attributes>
+        <oer:attribute description="Internal Identifier that uniquely identifies the transaction" name="SourceTransactionIdentifier"/>
+        <oer:attribute description="System or Application that placed the request for fulfillment" name="SourceTransactionSystem"/>
+        <oer:attribute description="Source transaction information of the schedule line  number." name="SourceTransactionLineNumber"/>
+        <oer:attribute description="Source transaction information for the line identifier." name="SourceTransactionLineIdentifier"/>
+        <oer:attribute description="Source transaction information for the schedule number." name="SourceTransactionScheduleNumber"/>
+        <oer:attribute description="Source transaction information  for the schedule identifier." name="SourceTransactionScheduleIdentifier"/>
+        <oer:attribute description="Source parent information for the schedule line number." name="SourceParentTransactionLineNumber"/>
+        <oer:attribute description="Source parent information for the transaction line identifier." name="SourceParentTransactionLineIdentifier"/>
+        <oer:attribute description="Source parent information for the schedule line number." name="SourceParentTransactionScheduleNumber"/>
+        <oer:attribute description="Source parent information for the schedule identifier." name="SourceParentTransactionScheduleIdentifier"/>
+        <oer:attribute description="Line number  for the corresponding order  line" name="LineNumber"/>
+        <oer:attribute description="Line unique identifier for the corresponding order  line" name="LineId"/>
+        <oer:attribute description="Fulfillment Line Number  for the corresponding line" name="FulfillLineNumber"/>
+        <oer:attribute description="Unique identifier of the fulfillment line for the corresponding order line." name="FulfillLineId"/>
+        <oer:attribute description="Error Message Name" name="MessageName"/>
+        <oer:attribute description="Error Message description" name="MessageText"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="OrderImportResponseLine">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>LineId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="SourceTransactionIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceTransactionSystem" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceTransactionLineNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceTransactionLineIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceTransactionScheduleNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceTransactionScheduleIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceParentTransactionLineNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceParentTransactionLineIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceParentTransactionScheduleNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceParentTransactionScheduleIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="LineNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="LineId" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="FulfillLineNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="FulfillLineId" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="MessageName" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="MessageText" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="orderImportResponseLine" type="OrderImportResponseLine"/>
+</xsd:schema>

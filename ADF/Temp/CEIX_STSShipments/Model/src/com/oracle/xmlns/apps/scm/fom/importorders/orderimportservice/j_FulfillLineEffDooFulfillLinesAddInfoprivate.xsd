@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/fulfillLineCategories/" xmlns="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/fulfillLineCategories/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="j_FulfillLineEffCategories.xsd"/>
+  <xsd:complexType name="j_FulfillLineEffDooFulfillLinesAddInfoprivate">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>FulfillLineId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="j_FulfillLineEffCategories"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="j_FulfillLineEffDooFulfillLinesAddInfoprivate" type="j_FulfillLineEffDooFulfillLinesAddInfoprivate"/>
+</xsd:schema>

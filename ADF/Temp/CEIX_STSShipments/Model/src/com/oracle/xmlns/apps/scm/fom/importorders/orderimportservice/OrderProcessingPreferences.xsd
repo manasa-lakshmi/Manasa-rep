@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Order Processing Preferences</name>
+      <description>Attributes that provide information about the customer and
+                whether or not to submit the order. Applies only to the Create
+                Orders operation. Does not apply to the Stage Orders operation.</description>
+      <oer:attributes>
+        <oer:attribute description="CreateCustomerflag is for whether to created the customer on the fly or not." name="CreateCustomerInformationFlag"/>
+        <oer:attribute description="Submit flag is for whether to submit the order or not." name="SubmitFlag"/>
+        <oer:attribute description="CreationMode is for HVOP and its value that the user need to pass is HVOP." name="CreationMode"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="OrderProcessingPreferences">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>SourceTransactionIdentifier</attribute>
+          <attribute>SourceTransactionSystem</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="CreateCustomerInformationFlag" nillable="true" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="SubmitFlag" nillable="true" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="CreationMode" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="orderProcessingPreferences" type="OrderProcessingPreferences"/>
+</xsd:schema>

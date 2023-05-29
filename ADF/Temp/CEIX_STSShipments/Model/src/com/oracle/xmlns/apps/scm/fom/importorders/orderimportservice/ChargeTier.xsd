@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Charge Tier</name>
+      <description>Charge tier to support subscription management integration. This is not currently used.</description>
+      <oer:attributes>
+        <oer:attribute description="Value that uniquely identifies the charge tier in the source application. This attribute is not currently used." name="SourceOrderChargeTierIdentifier"/>
+        <oer:attribute description="Sequence number for the charge tier. This attribute is not currently used." name="TierSequenceNumber"/>
+        <oer:attribute description="Number indicating the tier starting value. This attribute is not currently used." name="TierFrom"/>
+        <oer:attribute description="Number indicating the tier end value. This attribute is not currently used." name="TierTo"/>
+        <oer:attribute description="Abbreviation that identifies the application method to use for tiered pricing. The ORA_QP_APPLICATION_METHODS lookup type contains the values that you can use for this attribute. This attribute is not currently used." name="ApplicationMethodCode"/>
+        <oer:attribute description="Method of application for the charge tier. In Subscription Management, this attribute is called PriceFormat. This attribute is not currently used." name="ApplicationMethod"/>
+        <oer:attribute description="Size of the block to use when calculating the charge for a tier. This attribute is not currently used." name="BlockSize"/>
+        <oer:attribute description="Amount to be adjusted or the price for each unit or block for the item. In Oracle Subscription Management Cloud, this attribute is mapped to the list price. This attribute is not currently used." name="AdjustmentAmount"/>
+        <oer:attribute description="Identifier for the charge as assigned by the system that captured the transaction. This attribute is not currently used." name="SourceChargeIdentifier"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="ChargeTier">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>SourceOrderChargeTierIdentifier</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="SourceOrderChargeTierIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TierSequenceNumber" nillable="true" type="xsd:decimal"/>
+      <xsd:element minOccurs="0" name="TierFrom" nillable="true" type="xsd:decimal"/>
+      <xsd:element minOccurs="0" name="TierTo" nillable="true" type="xsd:decimal"/>
+      <xsd:element minOccurs="0" name="ApplicationMethodCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ApplicationMethod" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="BlockSize" nillable="true" type="xsd:decimal"/>
+      <xsd:element minOccurs="0" name="AdjustmentAmount" nillable="true" type="ns0:AmountType"/>
+      <xsd:element minOccurs="0" name="SourceChargeIdentifier" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="chargeTier" type="ChargeTier"/>
+</xsd:schema>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" xmlns:ns0="http://xmlns.oracle.com/apps/scm/doo/processOrder/model/" xmlns="http://xmlns.oracle.com/apps/scm/doo/processOrder/flex/headerContextsB/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="Quality.xsd" xml:id="Quality-xsd"/>
+  <xsd:import namespace="http://xmlns.oracle.com/apps/scm/doo/processOrder/model/" schemaLocation="HeaderEff.xsd"/>
+  <xsd:complexType name="Quality">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>EffLineId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ns0:HeaderEff">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="prevailingSample" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="prevailingAnalysis" nillable="true" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="quality" type="Quality"/>
+</xsd:schema>

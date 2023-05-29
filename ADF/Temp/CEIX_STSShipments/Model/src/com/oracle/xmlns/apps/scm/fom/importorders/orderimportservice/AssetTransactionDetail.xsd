@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Asset Transaction Details</name>
+      <description>Asset transaction details to support license migration orders.
+                This is not currently used.</description>
+      <oer:attributes>
+        <oer:attribute description="Value that uniquely identifies the asset. It is the primary key for the asset." name="AssetIdentifier"/>
+        <oer:attribute description="Name of the asset." name="AssetNumber"/>
+        <oer:attribute description="Quantity of the asset that Installed Base Assets will transact." name="AssetQuantity"/>
+        <oer:attribute description="Abbreviation that identifies the unit of measure for the asset quantity." name="AssetUOMCode"/>
+        <oer:attribute description="Unit of measure for the asset quantity." name="AssetUOM"/>
+        <oer:attribute description="Value that uniquely identifies the status of the asset after Installed Base does the transaction on the asset." name="StatusIdentifier"/>
+        <oer:attribute description="Abbreviation that identifies the status of the asset after Installed Base does the transaction on the asset." name="StatusCode"/>
+        <oer:attribute description="Status of the asset after Installed Base does the transaction on the asset." name="StatusName"/>
+        <oer:attribute description="Abbreviation that identifies the transaction that Installed Base does on the asset." name="TransactionActionCode"/>
+        <oer:attribute description="Name of the transaction that Installed Base does on the asset." name="TransactionActionType"/>
+        <oer:attribute description="Date and time when the customer asset ends in Installed Base." name="CustomerAssetEndDate"/>
+        <oer:attribute description="Value that uniquely identifies the asset transaction detail for an order line in the source system." name="SourceAssetTransactionDetailId"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="AssetTransactionDetail">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>AssetTransactionDetailIdentifier</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="AssetIdentifier" nillable="true" type="xsd:long"/>
+      <xsd:element minOccurs="0" name="AssetNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="AssetQuantity" nillable="true" type="ns0:MeasureType"/>
+      <xsd:element minOccurs="0" name="AssetUOMCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="AssetUOM" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="StatusIdentifier" nillable="true" type="xsd:long"/>
+      <xsd:element minOccurs="0" name="StatusCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="StatusName" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TransactionActionCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TransactionActionType" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="CustomerAssetEndDate" nillable="true" type="ns0:dateTime-Timestamp"/>
+      <xsd:element minOccurs="0" name="SourceAssetTransactionDetailId" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="assetTransactionDetail" type="AssetTransactionDetail"/>
+</xsd:schema>

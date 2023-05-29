@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/flex/scm/doo/processOrder/pjcDff/" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/flex/scm/doo/processOrder/pjcDff/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:include schemaLocation="PJCDFF.xsd"/>
+  <xsd:complexType name="PJCDFFAP_5FInvoice_5FLine">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>DooOrderPrjId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="PJCDFF">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="FLEX_PARAM_BusinessUnit" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="FLEX_PARAM_SystemLinkageFunction" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="_PROJECT_ID" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="_PROJECT_ID_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="_TASK_ID" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="_TASK_ID_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="_EXPENDITURE_ITEM_DATE" nillable="true" type="ns0:date-Date"/>
+          <xsd:element minOccurs="0" name="_EXPENDITURE_TYPE_ID" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="_EXPENDITURE_TYPE_ID_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="_ORGANIZATION_ID" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="_ORGANIZATION_ID_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="_CONTRACT_ID" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="_CONTRACT_ID_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="_RESERVED_ATTRIBUTE1" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="_RESERVED_ATTRIBUTE1_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="_BILLABLE_FLAG" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="_BILLABLE_FLAG_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="_CAPITALIZABLE_FLAG" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="_CAPITALIZABLE_FLAG_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="_WORK_TYPE_ID" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="_WORK_TYPE_ID_Display" nillable="true" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="pJCDFFAP_5FInvoice_5FLine" type="PJCDFFAP_5FInvoice_5FLine"/>
+</xsd:schema>

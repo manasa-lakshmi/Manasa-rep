@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle-webservice-clients xmlns:ns0="http://java.sun.com/xml/ns/javaee">
+   <webservice-client>
+      <service-qname namespaceURI="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/"
+                     localpart="OrderImportService"/>
+      <port-info>
+         <wsdl-port namespaceURI="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/"
+                    localpart="OrderImportServiceSoapHttpPort"/>
+         <runtime/>
+         <operations>
+            <operation name="stageOrders"/>
+            <operation name="stageOrdersAsync"/>
+            <operation name="createOrders"/>
+            <operation name="createOrdersAsync"/>
+            <operation name="submitDraftOrder"/>
+            <operation name="submitDraftOrderAsync"/>
+         </operations>
+      </port-info>
+   </webservice-client>
+</oracle-webservice-clients>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Message</name>
+      <description>List of orders that could not be staged</description>
+      <oer:attributes>
+        <oer:attribute description="Internal Identifier that uniqely identifies the transaction in the external system" name="SourceTransactionIdentifier"/>
+        <oer:attribute description="System or Application that placed the request for fulfillment" name="SourceTransactionSystem"/>
+        <oer:attribute description="Message indicating why the order was not processed sucessfully" name="MessageText"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="FailedOrders">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="SourceTransactionIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SourceTransactionSystem" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="MessageText" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="failedOrders" type="FailedOrders"/>
+</xsd:schema>

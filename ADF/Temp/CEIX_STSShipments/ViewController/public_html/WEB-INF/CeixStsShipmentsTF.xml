@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="CeixStsShipmentsTF">
+    <default-activity id="__1">initVO</default-activity>
+    <managed-bean id="__4">
+      <managed-bean-name id="__5">CeixStsShipmentsMB</managed-bean-name>
+      <managed-bean-class id="__3">com.ceix.delivery.util.CeixStsShipmentsMB</managed-bean-class>
+      <managed-bean-scope id="__2">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="CeixStsShipments">
+      <page>/CeixStsShipmentsPF.jsff</page>
+    </view>
+    <method-call id="initVO">
+      <method>#{bindings.initVO.execute}</method>
+      <outcome id="__6">
+        <to-string/>
+      </outcome>
+    </method-call>
+    <view id="CreateShipment">
+      <page>/manageShipmentLine.jsff</page>
+    </view>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">initVO</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">start</from-outcome>
+        <to-activity-id id="__9">CeixStsShipments</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">CeixStsShipments</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome id="__16">Create</from-outcome>
+        <to-activity-id id="__15">CreateShipment</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id id="__19">CreateShipment</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome id="__22">back</from-outcome>
+        <to-activity-id id="__21">CeixStsShipments</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

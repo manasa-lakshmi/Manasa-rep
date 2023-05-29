@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/flex/scm/doo/processOrder/pjcDff/" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/flex/scm/doo/processOrder/pjcDff/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:include schemaLocation="PJCDFF.xsd"/>
+  <xsd:complexType name="OmSalesOrder">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>DooOrderPrjId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="PJCDFF">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="FLEX_PARAM_SystemLinkageFunction" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="FLEX_PARAM_MMBusinessUnit" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="FLEX_PARAM_SOBusinessUnit" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="projectId" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="projectId_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="taskId" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="taskId_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="expenditureItemDate" nillable="true" type="ns0:date-Date"/>
+          <xsd:element minOccurs="0" name="expenditureTypeId" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="expenditureTypeId_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="organizationId" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="organizationId_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="contractId" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="contractId_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="reservedAttribute1" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="reservedAttribute1_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="billableFlag" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="billableFlag_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="capitalizableFlag" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="capitalizableFlag_Display" nillable="true" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="workTypeId" nillable="true" type="xsd:decimal"/>
+          <xsd:element minOccurs="0" name="workTypeId_Display" nillable="true" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="omSalesOrder" type="OmSalesOrder"/>
+</xsd:schema>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Order Attachments</name>
+      <description>Represents an attachment on the Order or a Line</description>
+      <oer:category name="lba">
+        <value>ScmTop-SCM : FomTop-Fusion Order Management :
+                    FomImportOrders-Import Orders</value>
+      </oer:category>
+      <oer:attributes>
+        <oer:attribute description="Title of the document" name="Title"/>
+        <oer:attribute description="Mime type for blob attachment" name="FileContent"/>
+        <oer:attribute description="File name of the attached document. Not used if the attachment is a URL." name="FileName"/>
+        <oer:attribute description="The data for an attachment of type FILE or TEXT" name="Data"/>
+        <oer:attribute description="Description of the attachment" name="Description"/>
+        <oer:attribute description="A URL for a URL attachment" name="URL"/>
+        <oer:attribute description="Code indicating the type of data being sent. Could be URL/TEXT/FILE" name="DataTypeCode"/>
+        <oer:attribute description="Group that the user applies to each attachment according to similar characteristics." name="Category"/>
+        <oer:attribute description="Abbreviation that uniquely identifies the attachment category." name="CategoryCode"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="Attachment">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>Title</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Title" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="FileContent" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="FileName" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Data" nillable="true" type="ns0:base64Binary-DataHandler"/>
+      <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="URL" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="DataTypeCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Category" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="CategoryCode" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="attachment" type="Attachment"/>
+</xsd:schema>

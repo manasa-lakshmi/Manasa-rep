@@ -1,0 +1,4 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="https://eguc-dev2.fa.us2.oraclecloud.com/fscmService/OrderImportService?wsdl#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapps%2Fscm%2Ffom%2FimportOrders%2ForderImportService%2F%7DOrderImportService"
+          uri="../com/oracle/xmlns/apps/scm/fom/importorders/orderimportservice/OrderImportService.wsdl"/>
+</catalog>

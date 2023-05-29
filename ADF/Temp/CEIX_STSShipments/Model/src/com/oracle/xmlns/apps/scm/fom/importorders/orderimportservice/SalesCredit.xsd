@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Sales Credit Information</name>
+      <description>Information on Sales Credit</description>
+      <oer:attributes>
+        <oer:attribute description="Identifier for the sales credit  as assigned by the system that captured the transaction." name="SourceTransactionSalesCreditIdentifier"/>
+        <oer:attribute description="Name of Sales Person." name="SalesPerson"/>
+        <oer:attribute description="Identifier of the Sales Person receiving these sales credits." name="SalesPersonIdentifier"/>
+        <oer:attribute description="Value to indicate sales credit percent." name="Percent"/>
+        <oer:attribute description="Code for sales credit type: Revenue/ Non Revenue." name="SalesCreditTypeCode"/>
+        <oer:attribute description="Sales Credit Type Reference" name="SalesCreditTypeReference"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="SalesCredit">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>SourceTransactionSalesCreditIdentifier</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="SourceTransactionSalesCreditIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SalesPerson" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SalesPersonIdentifier" nillable="true" type="xsd:long"/>
+      <xsd:element minOccurs="0" name="Percent" nillable="true" type="xsd:decimal"/>
+      <xsd:element minOccurs="0" name="SalesCreditTypeCode" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SalesCreditTypeReference" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="salesCredit" type="SalesCredit"/>
+</xsd:schema>

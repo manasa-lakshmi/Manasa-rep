@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:sdoJava="commonj.sdo/java" sdoJava:package="oracle.apps.scm.fom.importOrders.orderImportService" xmlns="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name>Serial Number Information for Returned Items</name>
+      <description>Provides the Lot serial information for the items that are being
+                returned</description>
+      <oer:attributes>
+        <oer:attribute description="The unique internal identifier for the adjusment as assigned by the system that captured the transaction" name="SourceTransactionLotIdentifier"/>
+        <oer:attribute description="A number assigned to quantity if items for identification purposes" name="LotNumber"/>
+        <oer:attribute description="Starting serial number of a range if serial numbers" name="SerialNumberFrom"/>
+        <oer:attribute description="Ending serial number of a range of serial numbers" name="SerialNumberTo"/>
+        <oer:attribute description="Indicates additional information about an item revision" name="ItemRevisionNumber"/>
+        <oer:attribute description="Identifies locator where the item is shipped from or received into" name="LocatorIdentifier"/>
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+  <xsd:complexType name="LotSerial">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>SourceTransactionLineIdentifier</attribute>
+          <attribute>SourceTransactionScheduleIdentifier</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="SourceTransactionLotIdentifier" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="LotNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SerialNumberFrom" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SerialNumberTo" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ItemRevisionNumber" nillable="true" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="LocatorIdentifier" nillable="true" type="xsd:long"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="lotSerial" type="LotSerial"/>
+</xsd:schema>

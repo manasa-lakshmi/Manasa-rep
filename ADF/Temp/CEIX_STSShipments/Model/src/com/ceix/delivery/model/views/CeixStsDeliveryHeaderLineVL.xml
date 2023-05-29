@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CeixStsDeliveryHeaderLineVL"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ceix.delivery.model.views.CeixStsDeliveryHeaderLineVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="CeixStsDeliveryHeaderVO"
+    Cardinality="1"
+    Owner="com.ceix.delivery.model.views.CeixStsDeliveryHeaderVO"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CeixStsDeliveryHeaderVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.delivery.model.views.CeixStsDeliveryHeaderVO.DeliveryHeaderId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="CeixStsDeliveryLinesVO"
+    Cardinality="-1"
+    Owner="com.ceix.delivery.model.views.CeixStsDeliveryLinesVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CeixStsDeliveryLinesVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.ceix.delivery.model.views.CeixStsDeliveryLinesVO.DeliveryHeaderId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ceix.delivery.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>
