@@ -312,7 +312,7 @@
                         columns="#{bindings.CeixStsWaybillSearchVO1.hints.Freight.displayWidth}"
                         maximumLength="#{bindings.CeixStsWaybillSearchVO1.hints.Freight.precision}"
                         shortDesc="#{bindings.CeixStsWaybillSearchVO1.hints.Freight.tooltip}"
-                        id="it127" disabled="#{!(row.ShipmentNumber == null) || !(row.SoNumber == null)}">
+                        id="it127"  readOnly="true">
             <f:validator binding="#{row.bindings.Freight.validator}"/>
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.CeixStsWaybillSearchVO1.hints.Freight.format}"/>
