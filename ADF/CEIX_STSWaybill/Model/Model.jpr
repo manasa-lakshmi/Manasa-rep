@@ -304,15 +304,6 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../../../All O2C Webservice Jars/ExternalReportWSSService-Client.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="ExternalReportWSSService-Client.jar"/>
-               <value n="id" v="ExternalReportWSSService-Client.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
                   <url path="../../../All O2C Webservice Jars/OrderImportService-Client.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
@@ -381,6 +372,15 @@
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="TransactionManagerService-Client.jar"/>
                <value n="id" v="TransactionManagerService-Client.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../../All O2C Webservice Jars/ExternalReportWSSService-Client.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="ExternalReportWSSService-Client.jar"/>
+               <value n="id" v="ExternalReportWSSService-Client.jar"/>
                <value n="locked" v="true"/>
             </hash>
          </list>
