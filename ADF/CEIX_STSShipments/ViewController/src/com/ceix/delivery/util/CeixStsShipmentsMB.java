@@ -5143,7 +5143,7 @@ public class CeixStsShipmentsMB implements Serializable {
                                                      " SET comments = decode(comments, null,'',comments||';')||'Shipment Reset:" +
                                                      vo.getCurrentRow().getAttribute("ShipmentNumber") + " on " +
                                                      currDate + "'," +
-                                                     " shipment_number = null, processed_flag = null, attribute1= null,freight=null " +
+                                                     " shipment_number = null, processed_flag = null, attribute1= null,freight=null,surcharge=null " +
                                                      " WHERE shipment_number ='" + shipnum + "'; " + " COMMIT; " +
                                                      " END; ", 0);
                         //System.out.println("The SQL is"+);
