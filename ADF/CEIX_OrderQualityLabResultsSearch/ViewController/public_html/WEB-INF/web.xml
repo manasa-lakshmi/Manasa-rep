@@ -161,15 +161,45 @@ param-value  =  'never' :  the page can run in any frame on any originating doma
     <extension>swf</extension>
     <mime-type>application/x-shockwave-flash</mime-type>
   </mime-mapping>
-  
-   <context-param>
+  <mime-mapping>
+    <extension>amf</extension>
+    <mime-type>application/x-amf</mime-type>
+  </mime-mapping>
+  <context-param>
     <param-name>
         oracle.adf.view.rich.newWindowDetect.OPTIONS
    </param-name>
     <param-value>off</param-value>
   </context-param>
-  
-<error-page>
+  <context-param>
+    <param-name>javax.faces.PARTIAL_STATE_SAVING</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.VALIDATE_EMPTY_FIELDS</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>oracle.adf.view.rich.geometry.DEFAULT_DIMENSIONS</param-name>
+    <param-value>auto</param-value>
+  </context-param>
+  <context-param>
+    <param-name>oracle.adf.view.rich.SYNCROWS</param-name>
+    <param-value>enable</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.FACELETS_DECORATORS</param-name>
+    <param-value>oracle.adfinternal.view.faces.facelets.rich.AdfTagDecorator</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.FACELETS_RESOURCE_RESOLVER</param-name>
+    <param-value>oracle.adfinternal.view.faces.facelets.rich.AdfFaceletsResourceResolver</param-value>
+  </context-param>
+  <error-page>
 <error-code>401</error-code>
 <location>/login.jsp?unauthroized=true</location>
 </error-page>
