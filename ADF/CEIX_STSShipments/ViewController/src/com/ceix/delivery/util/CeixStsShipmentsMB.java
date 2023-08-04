@@ -1542,7 +1542,7 @@ public class CeixStsShipmentsMB implements Serializable {
                                 JAXBElement<String> dstSegment2 =
                                     objectFactory.createStagedInventoryTransactionDstSegment2("17514");
                                 JAXBElement<String> dstSegment3 =
-                                    objectFactory.createStagedInventoryTransactionDstSegment3("050");
+                                    objectFactory.createStagedInventoryTransactionDstSegment3("000");// modified from 050 to 000 as part of ticket 9389
                                 JAXBElement<String> dstSegment4 =
                                     objectFactory.createStagedInventoryTransactionDstSegment4("105040");
                                 JAXBElement<String> dstSegment5 =
