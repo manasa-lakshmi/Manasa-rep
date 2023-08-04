@@ -1247,7 +1247,7 @@ public class CeixStsWaybillMB {
                                     objectFactory.createStagedInventoryTransactionUseCurrentCost("Y");
                                 JAXBElement<String> dstSegment1 = objectFactory.createStagedInventoryTransactionDstSegment1("1680");
                                 JAXBElement<String> dstSegment2 = objectFactory.createStagedInventoryTransactionDstSegment2("17514");
-                                JAXBElement<String> dstSegment3 = objectFactory.createStagedInventoryTransactionDstSegment3("050");
+                                JAXBElement<String> dstSegment3 = objectFactory.createStagedInventoryTransactionDstSegment3("000");// modified from 050 to 000 as part of ticket 9389
                                 JAXBElement<String> dstSegment4 = objectFactory.createStagedInventoryTransactionDstSegment4("105040");
                                 JAXBElement<String> dstSegment5 = objectFactory.createStagedInventoryTransactionDstSegment5("0000000");
                                 JAXBElement<String> dstSegment6 = objectFactory.createStagedInventoryTransactionDstSegment6("0000");
