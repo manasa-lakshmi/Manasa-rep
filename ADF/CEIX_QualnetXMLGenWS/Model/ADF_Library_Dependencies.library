@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<JLibraryNode nselem="JLibraryNode" class="oracle.jdeveloper.library.JLibraryNode" deployedByDefault="true" xmlns="http://xmlns.oracle.com/jdeveloper/110000jlibrarynode">
+   <classPath>
+      <entries>
+         <Item path="../../CEIX_WayBillAndPurchCoalCarImportWS/lib/opencsv-4.1.jar" jar-entry=""/>
+         <Item path="../../CEIX_WayBillAndPurchCoalCarImportWS/lib/commons-logging-1.2.jar" jar-entry=""/>
+         <Item path="../../CEIX_WayBillAndPurchCoalCarImportWS/lib/commons-lang3-3.7.jar" jar-entry=""/>
+         <Item path="../../CEIX_WayBillAndPurchCoalCarImportWS/lib/commons-beanutils-1.9.3.jar" jar-entry=""/>
+      </entries>
+   </classPath>
+   <docPath/>
+   <locked>true</locked>
+   <name>ADF Library Dependencies</name>
+   <sourcePath/>
+</JLibraryNode>

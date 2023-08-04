@@ -1,0 +1,76 @@
+<wsdl:definitions
+     name="CEIXQualnetXMLGenService"
+     targetNamespace="/com/ceix/qualnetxmlgen/model/services/common/"
+     xmlns:errors="http://xmlns.oracle.com/adf/svc/errors/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="/com/ceix/qualnetxmlgen/model/services/common/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:types="/com/ceix/qualnetxmlgen/model/services/common/types/"
+    >
+    <wsdl:documentation>
+        <name>Ceix Qualnet Xml Gen Am</name>
+    </wsdl:documentation>
+    <wsdl:import namespace="http://xmlns.oracle.com/adf/svc/errors/" location="classpath:/META-INF/wsdl/ServiceException.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="/com/ceix/qualnetxmlgen/model/services/common/types/" schemaLocation="CEIXQualnetXMLGenService.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="CEIXQualnetXMLGenService_generateQualnetQualityReport">
+        <wsdl:part name="parameters" element="types:generateQualnetQualityReport"/>
+    </wsdl:message>
+    <wsdl:message name="CEIXQualnetXMLGenService_generateQualnetQualityReportResponse">
+        <wsdl:part name="parameters" element="types:generateQualnetQualityReportResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CEIXQualnetXMLGenService_generateQualnetSTSRailScheduleReport">
+        <wsdl:part name="parameters" element="types:generateQualnetSTSRailScheduleReport"/>
+    </wsdl:message>
+    <wsdl:message name="CEIXQualnetXMLGenService_generateQualnetSTSRailScheduleReportResponse">
+        <wsdl:part name="parameters" element="types:generateQualnetSTSRailScheduleReportResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="CEIXQualnetXMLGenService">
+        <wsdl:documentation/>
+        <wsdl:operation name="generateQualnetQualityReport">
+            <wsdl:input message="tns:CEIXQualnetXMLGenService_generateQualnetQualityReport"/>
+            <wsdl:output message="tns:CEIXQualnetXMLGenService_generateQualnetQualityReportResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="generateQualnetSTSRailScheduleReport">
+            <wsdl:input message="tns:CEIXQualnetXMLGenService_generateQualnetSTSRailScheduleReport"/>
+            <wsdl:output message="tns:CEIXQualnetXMLGenService_generateQualnetSTSRailScheduleReportResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CEIXQualnetXMLGenServiceSoapHttp" type="tns:CEIXQualnetXMLGenService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="generateQualnetQualityReport">
+            <soap:operation soapAction="/com/ceix/qualnetxmlgen/model/services/common/generateQualnetQualityReport"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="generateQualnetSTSRailScheduleReport">
+            <soap:operation soapAction="/com/ceix/qualnetxmlgen/model/services/common/generateQualnetSTSRailScheduleReport"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CEIXQualnetXMLGenService">
+        <wsdl:port name="CEIXQualnetXMLGenServiceSoapHttpPort" binding="tns:CEIXQualnetXMLGenServiceSoapHttp">
+            <soap:address location="http://localhost:7101/CEIX_QualnetXMLGenWSrvc/CEIXQualnetXMLGenService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

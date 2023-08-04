@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CEIXQualnetXMLGenAM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ComponentClass="com.ceix.qualnetxmlgen.model.services.CEIXQualnetXMLGenAMImpl"
+  ClearCacheOnRollback="true"
+  ComponentInterface="com.ceix.qualnetxmlgen.model.services.common.CEIXQualnetXMLGenAM"
+  ClientProxyName="com.ceix.qualnetxmlgen.model.services.client.CEIXQualnetXMLGenAMClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="4096"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ceix.qualnetxmlgen.model.services.CEIXQualnetXMLGenAM_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="WSResultP1"
+    ViewObjectName="com.ceix.qualnetxmlgen.model.view.WSResultPVO"/>
+  <ViewUsage
+    Name="QualityMetricsReport1"
+    ViewObjectName="com.ceix.qualnetxmlgen.model.view.QualityMetricsReportVO"/>
+  <Remote
+    Name="ServiceInterface"
+    ServerClassName="com.ceix.qualnetxmlgen.model.services.server.serviceinterface.CEIXQualnetXMLGenServiceImpl"
+    ServerInterfaceName="com.ceix.qualnetxmlgen.model.services.common.serviceinterface.CEIXQualnetXMLGenService">
+    <DesignTime>
+      <Attr Name="_webServiceName" Value="CEIXQualnetXMLGenService"/>
+      <Attr Name="_targetNameSpace"
+        Value="/com/ceix/qualnetxmlgen/model/services/common/"/>
+    </DesignTime>
+  </Remote>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ceix.qualnetxmlgen.model.ModelBundle"/>
+  </ResourceBundle>
+  <ServiceInterface>
+    <Method
+      Name="generateQualnetQualityReport">
+      <Return
+        Type="java.util.List"
+        IsGeneric="true">
+        <Element
+          Type="oracle.jbo.server.ViewRowImpl"
+          ViewObjectName="WSResultP1"/>
+      </Return>
+    </Method>
+    <Method
+      Name="generateQualnetSTSRailScheduleReport">
+      <Return
+        Type="java.util.List"
+        IsGeneric="true">
+        <Element
+          Type="oracle.jbo.server.ViewRowImpl"
+          ViewObjectName="WSResultP1"/>
+      </Return>
+    </Method>
+  </ServiceInterface>
+  <ServiceInterface>
+    <Method
+      Name="generateQualnetQualityReport">
+      <Return
+        Type="java.util.List"
+        IsGeneric="true">
+        <Element
+          Type="oracle.jbo.server.ViewRowImpl"
+          ViewObjectName="WSResultP1"/>
+      </Return>
+    </Method>
+    <Method
+      Name="generateQualnetSTSRailScheduleReport">
+      <Return
+        Type="java.util.List"
+        IsGeneric="true">
+        <Element
+          Type="oracle.jbo.server.ViewRowImpl"
+          ViewObjectName="WSResultP1"/>
+      </Return>
+    </Method>
+  </ServiceInterface>
+</AppModule>

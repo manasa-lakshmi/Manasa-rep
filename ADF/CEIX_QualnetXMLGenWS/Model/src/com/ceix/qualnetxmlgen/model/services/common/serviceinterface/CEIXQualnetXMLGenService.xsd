@@ -1,0 +1,30 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="/com/ceix/qualnetxmlgen/model/services/common/types/"
+     xmlns:tns="/com/ceix/qualnetxmlgen/model/services/common/types/" xmlns:ns0="/com/ceix/qualnetxmlgen/model/view/common/"
+     xmlns:ns1="http://xmlns.oracle.com/adf/svc/errors/">
+    <import namespace="http://xmlns.oracle.com/adf/svc/errors/" schemaLocation="classpath:/META-INF/wsdl/ServiceException.xsd"/>
+    <import namespace="/com/ceix/qualnetxmlgen/model/view/common/" schemaLocation="../../../view/common/WSResultPSDO.xsd"/>
+    <element name="generateQualnetQualityReport">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="generateQualnetQualityReportResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:WSResultPSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="generateQualnetSTSRailScheduleReport">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="generateQualnetSTSRailScheduleReportResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:WSResultPSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

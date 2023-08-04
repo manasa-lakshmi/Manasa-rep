@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+<jazn-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="http://xmlns.oracle.com/oracleas/schema/jazn-data-11_0.xsd">
+  <jazn-realm default="jazn.com">
+    <realm>
+      <name>jazn.com</name>
+      <users>
+       
+      </users>
+      <roles>
+        <role>
+          <name>CEIX_WSUsers</name>
+        </role>
+      </roles>
+    </realm>
+  </jazn-realm>
+  <policy-store>
+    <applications>
+       <application>
+         <name>CustomerHistory</name>
+         <app-roles>
+           <app-role>
+             <name>CEIX_INTERFACE_USERS</name>
+             <class>oracle.security.jps.service.policystore.ApplicationRole</class>
+            <members>
+              <member>
+                <name>CEIX_WSUsers</name>
+                <class>oracle.security.jps.internal.core.principals.JpsXmlEnterpriseRoleImpl</class>
+              </member>
+            </members>
+          </app-role>
+         </app-roles>
+        <resource-types>
+          <resource-type>
+            <name>WSFunctionPermission</name>
+            <display-name>WSFunctionPermission</display-name>
+            <matcher-class>oracle.wsm.security.WSFunctionPermission</matcher-class>
+            <actions-delimiter>,</actions-delimiter>
+            <actions>invoke</actions>
+          </resource-type>
+        </resource-types>
+        <jazn-policy>
+           <grant>
+             <grantee>
+               <principals>
+                 <principal>
+                   <name>CEIX_INTERFACE_USERS</name>
+                   <class>oracle.security.jps.service.policystore.ApplicationRole</class>
+                 </principal>
+               </principals>
+             </grantee>
+             <permissions>
+               <permission>
+                 <class>oracle.wsm.security.WSFunctionPermission</class>
+                 <name>/com/ceix/qualnetxmlgen/model/services/common/CEIXQualnetXMLGenService#*</name>
+                 <actions>invoke</actions>
+               </permission>
+             </permissions>
+           </grant>
+         </jazn-policy>
+      </application>
+    </applications>
+  </policy-store>
+</jazn-data>
+
