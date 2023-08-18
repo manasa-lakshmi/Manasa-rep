@@ -6,6 +6,9 @@ import com.ceix.qualnetxmlgen.model.view.QualityMetricsReportVOImpl;
 import com.ceix.qualnetxmlgen.model.view.WSResultPVOImpl;
 import com.ceix.qualnetxmlgen.xmlbuilder.QualnetXMLGenerator;
 
+import java.text.SimpleDateFormat;
+
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -35,43 +38,53 @@ public class CEIXQualnetXMLGenAMImpl extends ApplicationModuleImpl implements CE
     public List<ViewRowImpl> generateQualnetQualityReport() {
         
         _logger.log(Level.FINER, ">>generateQualnetQualityReport");
-        String ftpDir ="CEIX_OracleERP/INTF/Outbound/OM/Qualnet/Out";
-        //String ftpFileName = "quality_metrics";
-        //ftpFileName = FTPWriterUtil.getCompleteFileName(ftpFileName);
+              
+        final String ftpOutDir = "CEIX_OracleERP/INTF/Outbound/OM/Qualnet/Out";
+        final String ftpDir = "CEIX_OracleERP/INTF/Outbound/OM/Qualnet/Archive";
         
-        String ftpFileName = "quality_metrics.xml";
-        /*isDev: if you are developing and have a D:/ drive, set isDev=true. 
-        Before deploying to SX change it to false.*/
-        boolean isDev=false;
-        ViewObjectImpl voData = this.getQualityMetricsReport1();
-        WSResultPVOImpl resultVo = this.getWSResultP1();
+        final String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
         
-        QualnetXMLGenerator gen = new QualnetXMLGenerator(voData,ftpDir,ftpFileName,isDev,resultVo);
-        List<ViewRowImpl> lstResult = gen.generate();
+        final String ftpOutFileName = "quality_metrics.xml";
+        final String ftpFileName = "quality_metrics_" + timeStamp + ".xml";
+        
+        final boolean isDev = false;
+        
+        final ViewObjectImpl voData = (ViewObjectImpl)this.getQualityMetricsReport1();
+        final WSResultPVOImpl resultVo = this.getWSResultP1();
+        
+        final QualnetXMLGenerator genOut = new QualnetXMLGenerator(voData, ftpOutDir, ftpOutFileName, isDev, resultVo);
+        final QualnetXMLGenerator gen = new QualnetXMLGenerator(voData, ftpDir, ftpFileName, isDev, resultVo);
+        
+        final List<ViewRowImpl> lstResult = (List<ViewRowImpl>)gen.generate();
+        final List<ViewRowImpl> lstOutResult = (List<ViewRowImpl>)genOut.generate();
         
         _logger.log(Level.FINER, "<<generateQualnetQualityReport");
-        return lstResult;
+        return lstOutResult;
 
     }
     
     public List<ViewRowImpl> generateQualnetSTSRailScheduleReport() {
         
-        _logger.log(Level.FINER, ">>generateQualnetSTSRailScheduleReport");
-        String ftpDir ="CEIX_OracleERP/INTF/Outbound/OM/Qualnet/Out";
-        //String ftpFileName = "sts_rail_schedules";
-        //ftpFileName = FTPWriterUtil.getCompleteFileName(ftpFileName);
-        String ftpFileName = "sts_rail_schedules.xml";
-        /*isDev: if you are developing and have a D:/ drive, set isDev=true. 
-        Before deploying to SX change it to false.*/
-        boolean isDev=false;
-        //ViewObjectImpl voData = this.getCEIXStsRailSchedules1();
+        _logger.log(Level.FINER, ">>generateQualnetSTSRailScheduleReport");        
         
-        ViewObjectImpl voData = getRailSchedulesReportCustomVO();
-                                 
-        WSResultPVOImpl resultVo = this.getWSResultP1();
-        
-        QualnetXMLGenerator gen = new QualnetXMLGenerator(voData,ftpDir,ftpFileName,isDev,resultVo);
-        List<ViewRowImpl> lstResult = gen.generate();
+            final String ftpOutDir = "CEIX_OracleERP/INTF/Outbound/OM/Qualnet/Out";
+            final String ftpDir = "CEIX_OracleERP/INTF/Outbound/OM/Qualnet/Archive";
+            
+            final String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+            
+            final String ftpOutFileName = "sts_rail_schedules.xml";
+            final String ftpFileName = "sts_rail_schedules_" + timeStamp + ".xml";
+            
+            final boolean isDev = false;
+            
+            final ViewObjectImpl voData = this.getRailSchedulesReportCustomVO();
+            final WSResultPVOImpl resultVo = this.getWSResultP1();
+            
+            final QualnetXMLGenerator gen = new QualnetXMLGenerator(voData, ftpDir, ftpFileName, isDev, resultVo);
+            final QualnetXMLGenerator genOut = new QualnetXMLGenerator(voData, ftpOutDir, ftpOutFileName, isDev, resultVo);
+            
+            final List<ViewRowImpl> lstResult = (List<ViewRowImpl>)gen.generate();
+            final List<ViewRowImpl> lstOutResult = (List<ViewRowImpl>)genOut.generate();
         
         try
         {
@@ -82,7 +95,7 @@ public class CEIXQualnetXMLGenAMImpl extends ApplicationModuleImpl implements CE
         }
         
         _logger.log(Level.FINER, "<<generateQualnetSTSRailScheduleReport");
-        return lstResult;
+        return lstOutResult;
 
     }
     
