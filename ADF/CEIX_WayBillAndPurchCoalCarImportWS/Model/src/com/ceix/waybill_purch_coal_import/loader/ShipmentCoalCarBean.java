@@ -37,6 +37,8 @@ public class ShipmentCoalCarBean  implements Serializable{
     private String Sales_order_number;
     @CsvBindByName
     private String Rail_road;
+    @CsvBindByName
+    private String Class_Name;
 
 
     public void setUnit_Train_number(String Unit_Train_number) {
@@ -117,5 +119,13 @@ public class ShipmentCoalCarBean  implements Serializable{
 
     public String getRail_road() {
         return Rail_road;
+    }
+
+    public void setClass_Name(String Class_Name) {
+        this.Class_Name = Class_Name;
+    }
+
+    public String getClass_Name() {
+        return Class_Name;
     }
 }

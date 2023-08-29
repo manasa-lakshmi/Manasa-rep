@@ -384,6 +384,7 @@ public class ShipmentCoalCarCSVFileLoader {
         headerRow.setLoadDate2(shipDt);
         headerRow.setLoadDate3(shipDt);
         headerRow.setLoadDate4(shipDt);
+        headerRow.setClassCol(shipmentCoalCarBean.getClass_Name());//9469- Adding CLASS NAME to STS Shipment Template - Added by Manasa Yalamarthy on Sept 8th,2023 
      
     }
     
