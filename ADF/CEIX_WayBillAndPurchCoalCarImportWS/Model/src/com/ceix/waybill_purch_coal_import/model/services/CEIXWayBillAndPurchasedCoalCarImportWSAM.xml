@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CEIXWayBillAndPurchasedCoalCarImportWSAM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ComponentClass="com.ceix.waybill_purch_coal_import.model.services.CEIXWayBillAndPurchasedCoalCarImportWSAMImpl"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="4096"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="CEIXStsWaybillBtmoreHdr1"
+    ViewObjectName="com.ceix.waybill_purch_coal_import.model.views.CEIXStsWaybillBtmoreHdrVO"/>
+  <ViewUsage
+    Name="CEIXStsWaybillBtmoreLines1"
+    ViewObjectName="com.ceix.waybill_purch_coal_import.model.views.CEIXStsWaybillBtmoreLinesVO"/>
+  <ViewUsage
+    Name="WSResultP1"
+    ViewObjectName="com.ceix.waybill_purch_coal_import.model.views.WSResultPVO"/>
+  <ViewUsage
+    Name="CEIXStsDeliveryHeader1"
+    ViewObjectName="com.ceix.waybill_purch_coal_import.model.views.CEIXStsDeliveryHeaderVO"/>
+  <ViewUsage
+    Name="CEIXStsDeliveryLines1"
+    ViewObjectName="com.ceix.waybill_purch_coal_import.model.views.CEIXStsDeliveryLinesVO"/>
+  <ViewUsage
+    Name="CEIXStsDeliveryLines2"
+    ViewObjectName="com.ceix.waybill_purch_coal_import.model.views.CEIXStsDeliveryLinesVO"/>
+  <ViewLinkUsage
+    Name="DeliveryHeaderFkLink1"
+    ViewLinkObjectName="com.ceix.waybill_purch_coal_import.model.entities.DeliveryHeaderFkLink"
+    SrcViewUsageName="com.ceix.waybill_purch_coal_import.model.services.CEIXWayBillAndPurchasedCoalCarImportWSAM.CEIXStsDeliveryHeader1"
+    DstViewUsageName="com.ceix.waybill_purch_coal_import.model.services.CEIXWayBillAndPurchasedCoalCarImportWSAM.CEIXStsDeliveryLines2"
+    Reversed="false"/>
+  <Remote
+    Name="ServiceInterface"
+    ServerClassName="com.ceix.waybill_purch_coal_import.model.services.server.serviceinterface.CEIXWayBillAndPurchasedCoalCarImportWSServiceImpl"
+    ServerInterfaceName="com.ceix.waybill_purch_coal_import.model.services.common.serviceinterface.CEIXWayBillAndPurchasedCoalCarImportWSService">
+    <DesignTime>
+      <Attr Name="_webServiceName"
+        Value="CEIXWayBillAndPurchasedCoalCarImportWSService"/>
+      <Attr Name="_targetNameSpace"
+        Value="/com/ceix/waybill_purch_coal_import/model/services/common/"/>
+    </DesignTime>
+  </Remote>
+  <ServiceInterface>
+    <Method
+      Name="importWaybillCarDetailsFile">
+      <Return
+        Type="java.util.List"
+        IsGeneric="true">
+        <Element
+          Type="oracle.jbo.server.ViewRowImpl"
+          ViewObjectName="WSResultP1"/>
+      </Return>
+    </Method>
+    <Method
+      Name="importPurchasedCoalCarDetailsFile">
+      <Return
+        Type="java.util.List"
+        IsGeneric="true">
+        <Element
+          Type="oracle.jbo.server.ViewRowImpl"
+          ViewObjectName="WSResultP1"/>
+      </Return>
+    </Method>
+    <Method
+      Name="importShipmentCoalCarDetailsFile">
+      <Return
+        Type="java.util.List"
+        IsGeneric="true">
+        <Element
+          Type="oracle.jbo.server.ViewRowImpl"
+          ViewObjectName="WSResultP1"/>
+      </Return>
+    </Method>
+  </ServiceInterface>
+</AppModule>

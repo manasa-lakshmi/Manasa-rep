@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.ceix.waybill_purch_coal_import.model.services.CEIXWayBillAndPurchasedCoalCarImportWSAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.ceix.waybill_purch_coal_import.model.Model" name="CEIXWayBillAndPurchasedCoalCarImportWSAMLocal" ApplicationName="com.ceix.waybill_purch_coal_import.model.services.CEIXWayBillAndPurchasedCoalCarImportWSAM">
+         <Security AppModuleJndiName="com.ceix.waybill_purch_coal_import.model.services.CEIXWayBillAndPurchasedCoalCarImportWSAM"/>
+         <Custom JDBCDataSource="jdbc/ConsolDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.ceix.waybill_purch_coal_import.model.Model" name="CEIXWayBillAndPurchasedCoalCarImportWSAMShared" ApplicationName="com.ceix.waybill_purch_coal_import.model.services.CEIXWayBillAndPurchasedCoalCarImportWSAM">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="com.ceix.waybill_purch_coal_import.model.services.CEIXWayBillAndPurchasedCoalCarImportWSAM"/>
+         <Custom JDBCDataSource="jdbc/ConsolDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="SI" jbo.project="com.ceix.waybill_purch_coal_import.model.Model" name="CEIXWayBillAndPurchasedCoalCarImportWSService" ApplicationName="com.ceix.waybill_purch_coal_import.model.services.CEIXWayBillAndPurchasedCoalCarImportWSAM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.resetnontransactionalstate="true"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.ceix.waybill_purch_coal_import.model.services.CEIXWayBillAndPurchasedCoalCarImportWSAM"/>
+         <Custom JDBCDataSource="jdbc/ConsolDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

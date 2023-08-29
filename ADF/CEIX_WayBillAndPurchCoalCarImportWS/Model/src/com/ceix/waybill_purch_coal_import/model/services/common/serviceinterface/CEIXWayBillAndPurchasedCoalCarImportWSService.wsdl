@@ -1,0 +1,97 @@
+<wsdl:definitions
+     name="CEIXWayBillAndPurchasedCoalCarImportWSService"
+     targetNamespace="/com/ceix/waybill_purch_coal_import/model/services/common/"
+     xmlns:errors="http://xmlns.oracle.com/adf/svc/errors/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="/com/ceix/waybill_purch_coal_import/model/services/common/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:types="/com/ceix/waybill_purch_coal_import/model/services/common/types/"
+    >
+    <wsdl:import namespace="http://xmlns.oracle.com/adf/svc/errors/" location="classpath:/META-INF/wsdl/ServiceException.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="/com/ceix/waybill_purch_coal_import/model/services/common/types/"
+                 schemaLocation="CEIXWayBillAndPurchasedCoalCarImportWSService.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="CEIXWayBillAndPurchasedCoalCarImportWSService_importWaybillCarDetailsFile">
+        <wsdl:part name="parameters" element="types:importWaybillCarDetailsFile"/>
+    </wsdl:message>
+    <wsdl:message name="CEIXWayBillAndPurchasedCoalCarImportWSService_importWaybillCarDetailsFileResponse">
+        <wsdl:part name="parameters" element="types:importWaybillCarDetailsFileResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CEIXWayBillAndPurchasedCoalCarImportWSService_importPurchasedCoalCarDetailsFile">
+        <wsdl:part name="parameters" element="types:importPurchasedCoalCarDetailsFile"/>
+    </wsdl:message>
+    <wsdl:message name="CEIXWayBillAndPurchasedCoalCarImportWSService_importPurchasedCoalCarDetailsFileResponse">
+        <wsdl:part name="parameters" element="types:importPurchasedCoalCarDetailsFileResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CEIXWayBillAndPurchasedCoalCarImportWSService_importShipmentCoalCarDetailsFile">
+        <wsdl:part name="parameters" element="types:importShipmentCoalCarDetailsFile"/>
+    </wsdl:message>
+    <wsdl:message name="CEIXWayBillAndPurchasedCoalCarImportWSService_importShipmentCoalCarDetailsFileResponse">
+        <wsdl:part name="parameters" element="types:importShipmentCoalCarDetailsFileResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="CEIXWayBillAndPurchasedCoalCarImportWSService">
+        <wsdl:documentation/>
+        <wsdl:operation name="importWaybillCarDetailsFile">
+            <wsdl:input message="tns:CEIXWayBillAndPurchasedCoalCarImportWSService_importWaybillCarDetailsFile"/>
+            <wsdl:output message="tns:CEIXWayBillAndPurchasedCoalCarImportWSService_importWaybillCarDetailsFileResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="importPurchasedCoalCarDetailsFile">
+            <wsdl:input message="tns:CEIXWayBillAndPurchasedCoalCarImportWSService_importPurchasedCoalCarDetailsFile"/>
+            <wsdl:output message="tns:CEIXWayBillAndPurchasedCoalCarImportWSService_importPurchasedCoalCarDetailsFileResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="importShipmentCoalCarDetailsFile">
+            <wsdl:input message="tns:CEIXWayBillAndPurchasedCoalCarImportWSService_importShipmentCoalCarDetailsFile"/>
+            <wsdl:output message="tns:CEIXWayBillAndPurchasedCoalCarImportWSService_importShipmentCoalCarDetailsFileResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CEIXWayBillAndPurchasedCoalCarImportWSServiceSoapHttp" type="tns:CEIXWayBillAndPurchasedCoalCarImportWSService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="importWaybillCarDetailsFile">
+            <soap:operation soapAction="/com/ceix/waybill_purch_coal_import/model/services/common/importWaybillCarDetailsFile"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="importPurchasedCoalCarDetailsFile">
+            <soap:operation soapAction="/com/ceix/waybill_purch_coal_import/model/services/common/importPurchasedCoalCarDetailsFile"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="importShipmentCoalCarDetailsFile">
+            <soap:operation soapAction="/com/ceix/waybill_purch_coal_import/model/services/common/importShipmentCoalCarDetailsFile"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CEIXWayBillAndPurchasedCoalCarImportWSService">
+        <wsdl:port name="CEIXWayBillAndPurchasedCoalCarImportWSServiceSoapHttpPort" binding="tns:CEIXWayBillAndPurchasedCoalCarImportWSServiceSoapHttp">
+            <soap:address location="http://localhost:7101/CEIX_WayBillAndPurchCoalCarImportWS/CEIXWayBillAndPurchasedCoalCarImportWSService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

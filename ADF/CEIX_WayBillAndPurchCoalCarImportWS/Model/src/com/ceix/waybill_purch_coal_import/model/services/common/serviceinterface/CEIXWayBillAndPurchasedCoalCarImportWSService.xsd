@@ -1,0 +1,42 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="/com/ceix/waybill_purch_coal_import/model/services/common/types/"
+     xmlns:tns="/com/ceix/waybill_purch_coal_import/model/services/common/types/" xmlns:ns0="http://xmlns.oracle.com/adf/svc/errors/"
+     xmlns:ns1="/com/ceix/waybill_purch_coal_import/model/views/common/">
+    <import namespace="/com/ceix/waybill_purch_coal_import/model/views/common/" schemaLocation="../../../views/common/WSResultPSDO.xsd"/>
+    <import namespace="http://xmlns.oracle.com/adf/svc/errors/" schemaLocation="classpath:/META-INF/wsdl/ServiceException.xsd"/>
+    <element name="importWaybillCarDetailsFile">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="importWaybillCarDetailsFileResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns1:WSResultPSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="importPurchasedCoalCarDetailsFile">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="importPurchasedCoalCarDetailsFileResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns1:WSResultPSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="importShipmentCoalCarDetailsFile">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="importShipmentCoalCarDetailsFileResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns1:WSResultPSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>
