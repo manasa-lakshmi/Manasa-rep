@@ -633,27 +633,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="JAX-WS Web Services"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="EJB 3.0"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="../../../../../../rsoni/AppData/Roaming/JDeveloper/system11.1.1.9.40.66.73/o.jdeveloper/opencsv-4.1.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="../../../../../../rsoni/AppData/Roaming/JDeveloper/system11.1.1.9.40.66.73/o.jdeveloper/commons-lang3-3.7.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="../../../../../../rsoni/AppData/Roaming/JDeveloper/system11.1.1.9.40.66.73/o.jdeveloper/commons-beanutils-1.9.3.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="../../../../../../rsoni/AppData/Roaming/JDeveloper/system11.1.1.9.40.66.73/o.jdeveloper/commons-logging-1.2.library"/>
+            <value n="id" v="Java EE"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -661,7 +641,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../../../../../../rsoni/AppData/Roaming/JDeveloper/system11.1.1.9.40.66.73/o.jdeveloper/CEIX_Common_Jar.library"/>
+            <url n="id" path="../../../All O2C Webservice Jars/common jars/My JAX-WS Web Service.library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -723,27 +703,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="JAX-WS Web Services"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="EJB 3.0"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="../../../../../../rsoni/AppData/Roaming/JDeveloper/system11.1.1.9.40.66.73/o.jdeveloper/opencsv-4.1.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="../../../../../../rsoni/AppData/Roaming/JDeveloper/system11.1.1.9.40.66.73/o.jdeveloper/commons-lang3-3.7.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="../../../../../../rsoni/AppData/Roaming/JDeveloper/system11.1.1.9.40.66.73/o.jdeveloper/commons-beanutils-1.9.3.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="../../../../../../rsoni/AppData/Roaming/JDeveloper/system11.1.1.9.40.66.73/o.jdeveloper/commons-logging-1.2.library"/>
+            <value n="id" v="Java EE"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -751,7 +711,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../../../../../../rsoni/AppData/Roaming/JDeveloper/system11.1.1.9.40.66.73/o.jdeveloper/CEIX_Common_Jar.library"/>
+            <url n="id" path="../../../All O2C Webservice Jars/common jars/My JAX-WS Web Service.library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
