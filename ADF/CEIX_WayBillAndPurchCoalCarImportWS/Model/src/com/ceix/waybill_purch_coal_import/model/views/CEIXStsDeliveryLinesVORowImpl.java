@@ -13,337 +13,365 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class CEIXStsDeliveryLinesVORowImpl extends ViewRowImpl {
+    public static final int ENTITY_CEIXSTSDELIVERYLINESEO = 0;
+
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     public enum AttributesEnum {
         DeliveryLineId {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getDeliveryLineId();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setDeliveryLineId((Number)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setDeliveryLineId((Number) value);
             }
         }
         ,
         CreationDate {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getCreationDate();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setCreationDate((Date)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
         CreatedBy {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getCreatedBy();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setCreatedBy((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setCreatedBy((String) value);
             }
         }
         ,
         LastUpdateDate {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getLastUpdateDate();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setLastUpdateDate((Date)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
         LastUpdatedBy {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getLastUpdatedBy();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setLastUpdatedBy((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setLastUpdatedBy((String) value);
             }
         }
         ,
         DeliveryHeaderId {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getDeliveryHeaderId();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setDeliveryHeaderId((Number)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setDeliveryHeaderId((Number) value);
             }
         }
         ,
         SalesOrderNumber {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getSalesOrderNumber();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setSalesOrderNumber((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setSalesOrderNumber((String) value);
             }
         }
         ,
         UnitTrainNumber {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getUnitTrainNumber();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setUnitTrainNumber((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setUnitTrainNumber((String) value);
             }
         }
         ,
         NewTrainNumber {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getNewTrainNumber();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setNewTrainNumber((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setNewTrainNumber((String) value);
             }
         }
         ,
         ScheduleDate {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getScheduleDate();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setScheduleDate((Date)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setScheduleDate((Date) value);
             }
         }
         ,
         SequenceNum {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getSequenceNum();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setSequenceNum((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setSequenceNum((String) value);
             }
         }
         ,
         CarId {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getCarId();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setCarId((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setCarId((String) value);
             }
         }
         ,
         NewCarId {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getNewCarId();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setNewCarId((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setNewCarId((String) value);
             }
         }
         ,
         GrossAllow {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getGrossAllow();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setGrossAllow((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setGrossAllow((String) value);
             }
         }
         ,
         CarTare {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getCarTare();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setCarTare((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setCarTare((String) value);
             }
         }
         ,
         Ownership {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getOwnership();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setOwnership((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setOwnership((String) value);
             }
         }
         ,
         Weight {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getWeight();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setWeight((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setWeight((String) value);
             }
         }
         ,
         WeightInTons {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getWeightInTons();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setWeightInTons((Number)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setWeightInTons((Number) value);
             }
         }
         ,
         LoadTime {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getLoadTime();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setLoadTime((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setLoadTime((String) value);
             }
         }
         ,
         BinGross {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getBinGross();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setBinGross((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setBinGross((String) value);
             }
         }
         ,
         BinTare {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getBinTare();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setBinTare((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setBinTare((String) value);
             }
         }
         ,
         LoadedNett {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getLoadedNett();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setLoadedNett((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setLoadedNett((String) value);
             }
         }
         ,
         LineChild11 {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getLineChild11();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setLineChild11((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setLineChild11((String) value);
             }
         }
         ,
         ShipmentNumber {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getShipmentNumber();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setShipmentNumber((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setShipmentNumber((String) value);
             }
         }
         ,
         FreightCost {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getFreightCost();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setFreightCost((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setFreightCost((String) value);
             }
         }
         ,
         Comments {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getComments();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setComments((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setComments((String) value);
             }
         }
         ,
         ProcessedFlag {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getProcessedFlag();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setProcessedFlag((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setProcessedFlag((String) value);
             }
         }
         ,
         TransferredFlag {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getTransferredFlag();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setTransferredFlag((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setTransferredFlag((String) value);
             }
         }
         ,
         CarPrefix {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getCarPrefix();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setCarPrefix((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setCarPrefix((String) value);
             }
         }
         ,
         Displaycarid {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getDisplaycarid();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setDisplaycarid((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setDisplaycarid((String) value);
             }
         }
         ,
         NewCarPrefix {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getNewCarPrefix();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setNewCarPrefix((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setNewCarPrefix((String) value);
             }
         }
         ,
         RailRoad {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
                 return obj.getRailRoad();
             }
 
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setRailRoad((String)value);
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setRailRoad((String) value);
+            }
+        }
+        ,
+        Attribute3 {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+                return obj.getAttribute3();
+            }
+
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setAttribute3((String) value);
+            }
+        }
+        ,
+        Destination {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+                return obj.getDestination();
+            }
+
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setDestination((String) value);
+            }
+        }
+        ,
+        LoadOrigin {
+            protected Object get(CEIXStsDeliveryLinesVORowImpl obj) {
+                return obj.getLoadOrigin();
+            }
+
+            protected void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
+                obj.setLoadOrigin((String) value);
             }
         }
         ;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
-        public abstract Object get(CEIXStsDeliveryLinesVORowImpl object);
-
-        public abstract void put(CEIXStsDeliveryLinesVORowImpl object,
-                                 Object value);
 
         public int index() {
             return AttributesEnum.firstIndex() + ordinal();
@@ -363,7 +391,12 @@ public class CEIXStsDeliveryLinesVORowImpl extends ViewRowImpl {
             }
             return vals;
         }
+
+        protected abstract Object get(CEIXStsDeliveryLinesVORowImpl object);
+
+        protected abstract void put(CEIXStsDeliveryLinesVORowImpl object, Object value);
     }
+
     public static final int DELIVERYLINEID = AttributesEnum.DeliveryLineId.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
@@ -396,6 +429,9 @@ public class CEIXStsDeliveryLinesVORowImpl extends ViewRowImpl {
     public static final int DISPLAYCARID = AttributesEnum.Displaycarid.index();
     public static final int NEWCARPREFIX = AttributesEnum.NewCarPrefix.index();
     public static final int RAILROAD = AttributesEnum.RailRoad.index();
+    public static final int ATTRIBUTE3 = AttributesEnum.Attribute3.index();
+    public static final int DESTINATION = AttributesEnum.Destination.index();
+    public static final int LOADORIGIN = AttributesEnum.LoadOrigin.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -435,13 +471,6 @@ public class CEIXStsDeliveryLinesVORowImpl extends ViewRowImpl {
         return (Date) getAttributeInternal(CREATIONDATE);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for CREATION_DATE using the alias name CreationDate.
-     * @param value value to set the CREATION_DATE
-     */
-    public void setCreationDate(Date value) {
-        setAttributeInternal(CREATIONDATE, value);
-    }
 
     /**
      * Gets the attribute value for CREATED_BY using the alias name CreatedBy.
@@ -467,13 +496,6 @@ public class CEIXStsDeliveryLinesVORowImpl extends ViewRowImpl {
         return (Date) getAttributeInternal(LASTUPDATEDATE);
     }
 
-    /**
-     * Sets <code>value</code> as attribute value for LAST_UPDATE_DATE using the alias name LastUpdateDate.
-     * @param value value to set the LAST_UPDATE_DATE
-     */
-    public void setLastUpdateDate(Date value) {
-        setAttributeInternal(LASTUPDATEDATE, value);
-    }
 
     /**
      * Gets the attribute value for LAST_UPDATED_BY using the alias name LastUpdatedBy.
@@ -921,6 +943,54 @@ public class CEIXStsDeliveryLinesVORowImpl extends ViewRowImpl {
      */
     public void setRailRoad(String value) {
         setAttributeInternal(RAILROAD, value);
+    }
+
+    /**
+     * Gets the attribute value for ATTRIBUTE3 using the alias name Attribute3.
+     * @return the ATTRIBUTE3
+     */
+    public String getAttribute3() {
+        return (String) getAttributeInternal(ATTRIBUTE3);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for ATTRIBUTE3 using the alias name Attribute3.
+     * @param value value to set the ATTRIBUTE3
+     */
+    public void setAttribute3(String value) {
+        setAttributeInternal(ATTRIBUTE3, value);
+    }
+
+    /**
+     * Gets the attribute value for DESTINATION using the alias name Destination.
+     * @return the DESTINATION
+     */
+    public String getDestination() {
+        return (String) getAttributeInternal(DESTINATION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DESTINATION using the alias name Destination.
+     * @param value value to set the DESTINATION
+     */
+    public void setDestination(String value) {
+        setAttributeInternal(DESTINATION, value);
+    }
+
+    /**
+     * Gets the attribute value for LOAD_ORIGIN using the alias name LoadOrigin.
+     * @return the LOAD_ORIGIN
+     */
+    public String getLoadOrigin() {
+        return (String) getAttributeInternal(LOADORIGIN);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for LOAD_ORIGIN using the alias name LoadOrigin.
+     * @param value value to set the LOAD_ORIGIN
+     */
+    public void setLoadOrigin(String value) {
+        setAttributeInternal(LOADORIGIN, value);
     }
 
     /**

@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="CEIXStsDeliveryLinesVO"
-  Version="11.1.1.66.73"
+  Version="12.2.1.22.48"
   InheritPersonalization="merge"
   SelectList="CEIXStsDeliveryLinesEO.DELIVERY_LINE_ID, 
        CEIXStsDeliveryLinesEO.CREATION_DATE, 
@@ -37,14 +37,17 @@
        CEIXStsDeliveryLinesEO.CAR_PREFIX, 
        CEIXStsDeliveryLinesEO.DISPLAYCARID, 
        CEIXStsDeliveryLinesEO.NEW_CAR_PREFIX, 
-       CEIXStsDeliveryLinesEO.RAIL_ROAD"
+       CEIXStsDeliveryLinesEO.RAIL_ROAD, 
+       CEIXStsDeliveryLinesEO.ATTRIBUTE3, 
+       CEIXStsDeliveryLinesEO.DESTINATION, 
+       CEIXStsDeliveryLinesEO.LOAD_ORIGIN"
   FromList="CEIX_STS_DELIVERY_LINES CEIXStsDeliveryLinesEO"
   BindingStyle="OracleName"
   CustomQuery="false"
   ComponentClass="com.ceix.waybill_purch_coal_import.model.views.CEIXStsDeliveryLinesVOImpl"
   PageIterMode="Full"
-  UseGlueCode="false"
-  RowClass="com.ceix.waybill_purch_coal_import.model.views.CEIXStsDeliveryLinesVORowImpl">
+  RowClass="com.ceix.waybill_purch_coal_import.model.views.CEIXStsDeliveryLinesVORowImpl"
+  AccessMode="DEFAULT">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
@@ -255,11 +258,29 @@
     EntityAttrName="RailRoad"
     EntityUsage="CEIXStsDeliveryLinesEO"
     AliasName="RAIL_ROAD"/>
+  <ViewAttribute
+    Name="Attribute3"
+    PrecisionRule="true"
+    EntityAttrName="Attribute3"
+    EntityUsage="CEIXStsDeliveryLinesEO"
+    AliasName="ATTRIBUTE3"/>
+  <ViewAttribute
+    Name="Destination"
+    PrecisionRule="true"
+    EntityAttrName="Destination"
+    EntityUsage="CEIXStsDeliveryLinesEO"
+    AliasName="DESTINATION"/>
+  <ViewAttribute
+    Name="LoadOrigin"
+    PrecisionRule="true"
+    EntityAttrName="LoadOrigin"
+    EntityUsage="CEIXStsDeliveryLinesEO"
+    AliasName="LOAD_ORIGIN"/>
   <ViewCriteria
     Name="FindByDeliveryHeaderIdAndCarNumVOCriteria"
     ViewObjectName="com.ceix.waybill_purch_coal_import.model.views.CEIXStsDeliveryLinesVO"
     Conjunction="AND">
-    <Properties>
+    <Properties Name="_Props">
       <CustomProperties>
         <Property
           Name="displayOperators"

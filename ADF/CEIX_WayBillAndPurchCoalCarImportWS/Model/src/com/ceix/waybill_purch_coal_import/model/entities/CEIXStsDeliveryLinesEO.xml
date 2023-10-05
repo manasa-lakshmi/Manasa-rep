@@ -4,17 +4,12 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="CEIXStsDeliveryLinesEO"
-  Version="11.1.1.66.73"
+  Version="12.2.1.22.48"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="CEIX_STS_DELIVERY_LINES"
   AliasName="CEIXStsDeliveryLinesEO"
-  BindingStyle="OracleName"
-  UseGlueCode="false">
-  <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access"/>
-    <AttrArray Name="_publishEvents"/>
-  </DesignTime>
+  BindingStyle="OracleName">
   <Attribute
     Name="DeliveryLineId"
     IsNotNull="true"
@@ -27,7 +22,8 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
-    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("CEIX_STS_DELIVERY_LINES_SEQ", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <TransientExpression
+      Name="ExpressionScript"><![CDATA[(new oracle.jbo.server.SequenceImpl("CEIX_STS_DELIVERY_LINES_SEQ", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="CreationDate"
@@ -401,6 +397,42 @@
     TableName="CEIX_STS_DELIVERY_LINES">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute3"
+    Precision="300"
+    ColumnName="ATTRIBUTE3"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_STS_DELIVERY_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Destination"
+    Precision="300"
+    ColumnName="DESTINATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_STS_DELIVERY_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LoadOrigin"
+    Precision="150"
+    ColumnName="LOAD_ORIGIN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CEIX_STS_DELIVERY_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
     </DesignTime>
   </Attribute>
   <AccessorAttribute
