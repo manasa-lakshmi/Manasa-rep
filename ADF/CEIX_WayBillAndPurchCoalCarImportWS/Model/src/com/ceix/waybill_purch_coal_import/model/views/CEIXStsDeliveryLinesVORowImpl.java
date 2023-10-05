@@ -336,36 +336,6 @@ public class CEIXStsDeliveryLinesVORowImpl extends ViewRowImpl {
                 obj.setRailRoad((String)value);
             }
         }
-        ,
-        ItemNumber {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
-                return obj.getItemNumber();
-            }
-
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setItemNumber((String) value);
-            }
-        }
-        ,
-        Destination {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
-                return obj.getDestination();
-            }
-
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setDestination((String) value);
-            }
-        }
-        ,
-        LoadOrigin {
-            public Object get(CEIXStsDeliveryLinesVORowImpl obj) {
-                return obj.getLoadOrigin();
-            }
-
-            public void put(CEIXStsDeliveryLinesVORowImpl obj, Object value) {
-                obj.setLoadOrigin((String) value);
-            }
-        }
         ;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -426,9 +396,6 @@ public class CEIXStsDeliveryLinesVORowImpl extends ViewRowImpl {
     public static final int DISPLAYCARID = AttributesEnum.Displaycarid.index();
     public static final int NEWCARPREFIX = AttributesEnum.NewCarPrefix.index();
     public static final int RAILROAD = AttributesEnum.RailRoad.index();
-    public static final int ITEMNUMBER = AttributesEnum.ItemNumber.index();
-    public static final int DESTINATION = AttributesEnum.Destination.index();
-    public static final int LOADORIGIN = AttributesEnum.LoadOrigin.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -954,54 +921,6 @@ public class CEIXStsDeliveryLinesVORowImpl extends ViewRowImpl {
      */
     public void setRailRoad(String value) {
         setAttributeInternal(RAILROAD, value);
-    }
-
-    /**
-     * Gets the attribute value for ATTRIBUTE3 using the alias name ItemNumber.
-     * @return the ATTRIBUTE3
-     */
-    public String getItemNumber() {
-        return (String) getAttributeInternal(ITEMNUMBER);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for ATTRIBUTE3 using the alias name ItemNumber.
-     * @param value value to set the ATTRIBUTE3
-     */
-    public void setItemNumber(String value) {
-        setAttributeInternal(ITEMNUMBER, value);
-    }
-
-    /**
-     * Gets the attribute value for DESTINATION using the alias name Destination.
-     * @return the DESTINATION
-     */
-    public String getDestination() {
-        return (String) getAttributeInternal(DESTINATION);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for DESTINATION using the alias name Destination.
-     * @param value value to set the DESTINATION
-     */
-    public void setDestination(String value) {
-        setAttributeInternal(DESTINATION, value);
-    }
-
-    /**
-     * Gets the attribute value for LOAD_ORIGIN using the alias name LoadOrigin.
-     * @return the LOAD_ORIGIN
-     */
-    public String getLoadOrigin() {
-        return (String) getAttributeInternal(LOADORIGIN);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for LOAD_ORIGIN using the alias name LoadOrigin.
-     * @param value value to set the LOAD_ORIGIN
-     */
-    public void setLoadOrigin(String value) {
-        setAttributeInternal(LOADORIGIN, value);
     }
 
     /**

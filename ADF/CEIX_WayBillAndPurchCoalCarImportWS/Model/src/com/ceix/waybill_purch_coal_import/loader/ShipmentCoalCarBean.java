@@ -39,12 +39,6 @@ public class ShipmentCoalCarBean  implements Serializable{
     private String Rail_road;
     @CsvBindByName
     private String Class_Name;
-    @CsvBindByName
-    private String Load_Origin;
-    @CsvBindByName
-    private String Destination;
-    @CsvBindByName
-    private String Item_Number;
 
 
     public void setUnit_Train_number(String Unit_Train_number) {
@@ -133,29 +127,5 @@ public class ShipmentCoalCarBean  implements Serializable{
 
     public String getClass_Name() {
         return Class_Name;
-    }
-
-    public void setLoad_Origin(String Load_Origin) {
-        this.Load_Origin = Load_Origin;
-    }
-
-    public String getLoad_Origin() {
-        return Load_Origin;
-    }
-
-    public void setDestination(String Destination) {
-        this.Destination = Destination;
-    }
-
-    public String getDestination() {
-        return Destination;
-    }
-
-    public void setItem_Number(String Item_Number) {
-        this.Item_Number = Item_Number;
-    }
-
-    public String getItem_Number() {
-        return Item_Number;
     }
 }

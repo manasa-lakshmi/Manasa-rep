@@ -37,10 +37,7 @@
        CEIXStsDeliveryLinesEO.CAR_PREFIX, 
        CEIXStsDeliveryLinesEO.DISPLAYCARID, 
        CEIXStsDeliveryLinesEO.NEW_CAR_PREFIX, 
-       CEIXStsDeliveryLinesEO.RAIL_ROAD,   
-       CEIXStsDeliveryLinesEO.ATTRIBUTE3,   
-       CEIXStsDeliveryLinesEO.DESTINATION,   
-       CEIXStsDeliveryLinesEO.LOAD_ORIGIN"
+       CEIXStsDeliveryLinesEO.RAIL_ROAD"
   FromList="CEIX_STS_DELIVERY_LINES CEIXStsDeliveryLinesEO"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -258,24 +255,6 @@
     EntityAttrName="RailRoad"
     EntityUsage="CEIXStsDeliveryLinesEO"
     AliasName="RAIL_ROAD"/>
-  <ViewAttribute	
-    Name="ItemNumber"	
-    PrecisionRule="true"	
-    EntityAttrName="Attribute3"	
-    EntityUsage="CEIXStsDeliveryLinesEO"	
-    AliasName="ATTRIBUTE3"/>	
-  <ViewAttribute	
-    Name="Destination"	
-    PrecisionRule="true"	
-    EntityAttrName="Destination"	
-    EntityUsage="CEIXStsDeliveryLinesEO"	
-    AliasName="DESTINATION"/>	
-  <ViewAttribute	
-    Name="LoadOrigin"	
-    PrecisionRule="true"	
-    EntityAttrName="LoadOrigin"	
-    EntityUsage="CEIXStsDeliveryLinesEO"	
-    AliasName="LOAD_ORIGIN"/>
   <ViewCriteria
     Name="FindByDeliveryHeaderIdAndCarNumVOCriteria"
     ViewObjectName="com.ceix.waybill_purch_coal_import.model.views.CEIXStsDeliveryLinesVO"

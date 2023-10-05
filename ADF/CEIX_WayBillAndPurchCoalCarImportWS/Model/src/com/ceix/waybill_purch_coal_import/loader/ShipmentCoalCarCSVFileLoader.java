@@ -322,15 +322,6 @@ public class ShipmentCoalCarCSVFileLoader {
         newRow.setSalesOrderNumber(shipmentCoalCarBean.getSales_order_number());
         //TODO: Rail_road
         newRow.setRailRoad(shipmentCoalCarBean.getRail_road());
-        if (shipmentCoalCarBean.getItem_Number() != null) {
-                    newRow.setItemNumber(shipmentCoalCarBean.getItem_Number());
-                }
-                if (shipmentCoalCarBean.getDestination() != null) {
-                    newRow.setDestination(shipmentCoalCarBean.getDestination().toUpperCase());
-                }
-                if (shipmentCoalCarBean.getLoad_Origin() != null) {
-                    newRow.setLoadOrigin(shipmentCoalCarBean.getLoad_Origin().toUpperCase());
-                }
 
     }
     
