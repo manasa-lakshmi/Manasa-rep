@@ -1249,10 +1249,10 @@ public class CeixStsShipmentsMB implements Serializable {
                 } else if ("1665".equals(shipFromOrganization)) {
                     shipConfirmRule = "Baltimore Ship Confirm Rule";
                     releaseRule = "Baltimore Pick Rule";
-                } else if ("1401".equals(shipFromOrganization)) {
+                } else if ("1601".equals(shipFromOrganization)) {
                     //     =
                     shipConfirmRule = "Consol Ship Confirm Rule"; //Added as a part of ORACLE-5969 as an New Organization enhancement
-                    releaseRule = "Itmann5 Coal Release Rule";
+                    releaseRule = "Itmann5 Coal Release Rule-1601";
                 }
                 //System.out.println ("The SQL value is1-->" + customerNum+";"+shipFromOrganization+";"+ordType);
                 mylog.info("The values are:" + fob + ";" + acceptWeight);
@@ -1758,7 +1758,7 @@ public class CeixStsShipmentsMB implements Serializable {
                            //     String itemNumberItmann="300000311492738";
                             //        transactionTypeCode = OrdObjectFactory.createOrderTransactionTypeCode("ITMANN");
                            //     }
-                             if ("1401".equals(shipFromOrganization)||"300000311492738".equals(ItemId)) {
+                             if ("1601".equals(shipFromOrganization)||"300000311492738".equals(ItemId)) {
                                    transactionTypeCode = OrdObjectFactory.createOrderTransactionTypeCode("ITMANN");
                                 }
                                 JAXBElement<Long> requestingLegalUnitIdentifier =
@@ -1838,7 +1838,7 @@ public class CeixStsShipmentsMB implements Serializable {
                         /*     if ("300000311492738".equals(ItemId)) {
                                     order.setTransactionTypeCode(transactionTypeCode);
                                 }*/
-                             if ("1401".equals(shipFromOrganization)||"300000311492738".equals(ItemId)) {
+                             if ("1601".equals(shipFromOrganization)||"300000311492738".equals(ItemId)) {
                                     order.setTransactionTypeCode(transactionTypeCode);
                                }
                                 order.setRequestingLegalUnitIdentifier(requestingLegalUnitIdentifier);
