@@ -105,7 +105,7 @@ td.xia_ {
                         <af:column id="c1" headerText="Delete" align="center">
                             <af:commandImageLink
                                              id="cil1"
-                                             icon="/images/delete_ena.png">
+                                             icon="/images/delete_ena.png" disabled="#{securityContext.userInRole['CEIX_QualityLabResultsUsersRO']}">
                                              <af:showPopupBehavior popupId="p5" triggerType="action"/>
                             </af:commandImageLink>
                         <af:popup id="p5">
