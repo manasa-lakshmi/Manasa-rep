@@ -23,7 +23,7 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery><![CDATA[select upper(ORGANIZATION_NAME) ORGANIZATION_NAME from CEIX_INV_ORGANIZATION_DEFINITIONS where nvl(disable_date,sysdate+1)>=sysdate and inventory_flag='Y'     
-and organization_code in ('1072','1665','1401')    
+and organization_code in ('1072','1665','1601')    
 order by organization_name]]></SQLQuery>
   <ViewAttribute
     Name="OrganizationName"

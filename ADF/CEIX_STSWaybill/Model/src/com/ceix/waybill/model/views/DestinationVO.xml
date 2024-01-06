@@ -26,7 +26,7 @@
     Name="pDestContractNum"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[select upper(ORGANIZATION_NAME) DESTINATION, 'INV_ORGS' TYPE from CEIX_INV_ORGANIZATION_DEFINITIONS where nvl(disable_date,sysdate+1)>=sysdate and inventory_flag='Y' and organization_code in ('1072','1665','1401')       
+  <SQLQuery><![CDATA[select upper(ORGANIZATION_NAME) DESTINATION, 'INV_ORGS' TYPE from CEIX_INV_ORGANIZATION_DEFINITIONS where nvl(disable_date,sysdate+1)>=sysdate and inventory_flag='Y' and organization_code in ('1072','1665','1601')       
 UNION       
 select upper(ccs.SHIP_PARTY_SITE_NAME) DESTINATION, 'CUSTOMER_SITES' TYPE from CEIX_CUSTOMER_SITE_USES ccs,ceix_contract_headers cch where cch.CUST_ACCOUNT_ID = ccs.cust_account_id      
 and cch.contract_number = nvl(:pDestContractNum,cch.contract_number) and       
