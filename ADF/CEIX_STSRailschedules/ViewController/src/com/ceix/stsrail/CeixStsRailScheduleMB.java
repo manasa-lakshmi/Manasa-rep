@@ -573,7 +573,8 @@ public class CeixStsRailScheduleMB {
 
     private String callceix_insert_ns_csx_rs_adf() throws SQLException {
         String strTrainId = null;
-        String strRequestedLoadDate = null;
+       // String strRequestedLoadDate = null;
+       String strLoadDate = null; // Added as part of Oracle - 9954 - replace requested load date with load date logic
         String strMessage = null;
 
         BindingContext bindingctx = BindingContext.getCurrent();
@@ -592,9 +593,14 @@ public class CeixStsRailScheduleMB {
                         if (row.getTrainId() != null) {
                             strTrainId = row.getTrainId().toString().trim();
                         }
-                        if (row.getRequestedLoadDate() != null) {
-                            strRequestedLoadDate =
-                                    row.getRequestedLoadDate().toString().trim();
+//                        if (row.getRequestedLoadDate() != null) {
+//                            strRequestedLoadDate =
+//                                    row.getRequestedLoadDate().toString().trim();
+//                        }
+                        // Added as part of Oracle - 9954 - replace requested load date with load date logic
+                         if (row.getLoadDate() != null) {
+                            strLoadDate =
+                                    row.getLoadDate().toString().trim();
                         }
                         CallableStatement cs =
                             appM.getDBTransaction().createCallableStatement(" BEGIN " +
@@ -602,7 +608,7 @@ public class CeixStsRailScheduleMB {
                                                                             " END; ",
                                                                             0);
                         cs.setString(1, strTrainId);
-                        cs.setString(2, strRequestedLoadDate);
+                        cs.setString(2, strLoadDate);// Added as part of Oracle - 9954 - replace requested load date with load date logic
                         cs.registerOutParameter(3, Types.VARCHAR);
                         cs.execute();
                         strMessage = cs.getString(3);
